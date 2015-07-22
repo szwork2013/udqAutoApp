@@ -3,18 +3,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
-    <title>udqAutoApp</title>
+    <title>点趣车生活</title>
 
-    <!-- udqAutoApp 引用 -->
-    <link href="css/index.css" rel="stylesheet" />
-</head>
-<body>
-    <p>Hello，你的应用程序已准备就绪!</p>
+    <!-- udqAutoApp 引用 ionic -->
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet" />
 
     <!-- Cordova 引用，它在生成应用程序时添加到其中。 -->
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
-
-    <script src="scripts/index.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller/customer/mainCtrl.js"></script>
+    
+</head>
+<body ng-app="app">
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
 </body>
 </html>
