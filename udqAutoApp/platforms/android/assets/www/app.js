@@ -1,12 +1,10 @@
 ﻿/*
-1.script下面基础目录
-1.1 controller  控制器
-1.2 module      模型
-1.3 service     数据服务
-1.4 上面目录下又分为两个目录
-1.4.1 customer 顾客（车主)
-1.4.2 employee  职员（洗车工、管理员）  
-2.view 在www下面，表示ionic的html页面（模板）
+1.目录结构
+1.1 按业务功能划分目录
+1.2 每个功能页面单独一个目录，目录中包括：html,controller,service(可选）和 directive（可选)
+1.3 每个customer 和 employee 的专有功能分别放在各自目录下
+1.4 公共部分之间放在app目录下
+1.5 工具类的放在  util 目录下
 3.命名规范：
 3.1 customer 用来表示车主，不能使用 owner。已有的必须要改
 3.2 employee 用来表示职员  ，不能使用其它命名
@@ -23,9 +21,7 @@
 
 */
 
-angular.module('app', [
-    'ionic',
-    'app.controller.customer'])
+angular.module('udqApp', ['ionic'])
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -42,12 +38,17 @@ angular.module('app', [
 
 	.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 	    $stateProvider
-        .state('customer_main', {
-            url: '/customer_main',
-            templateUrl: 'view/customer/main.html',
-            controller: 'app.controller.customer.mainCtrl'
+        .state('login', {
+            url: '/login',
+            templateUrl: 'app/login/login.html',
+            controller:'loginCtrl'
+        })
+        .state('customerHome', {
+            url: '/customerHome',
+            templateUrl: 'app/customer/home/home.html',
+            controller: 'customerHomeCtrl'
         });
 
-	    $urlRouterProvider.otherwise('/customer_main');
+	    $urlRouterProvider.otherwise('/login');
 
 	}])

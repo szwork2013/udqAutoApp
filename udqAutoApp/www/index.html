@@ -11,13 +11,17 @@
     <!-- Cordova 引用，它在生成应用程序时添加到其中。 -->
 
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    
     <script src="cordova.js"></script>
-    <script src="scripts/platformOverrides.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controller/customer/mainCtrl.js"></script>
+    <script src="platformOverrides.js"></script>
+    
+    <script src="app.js"></script>
+    
+    <script src="app/customer/home/homeCtrl.js"></script>
+    <script src="app/login/loginCtrl.js"></script>
     
 </head>
-<body ng-app="app">
-    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+<body ng-app="udqApp">
+    <ion-nav-view ></ion-nav-view>
 </body>
 </html>
