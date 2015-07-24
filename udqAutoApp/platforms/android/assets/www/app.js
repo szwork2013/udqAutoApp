@@ -33,7 +33,6 @@ angular.module('udqApp', ['ionic'])
             }
         });
     })
-
 	.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 	    $stateProvider
         .state('login', {
@@ -48,5 +47,7 @@ angular.module('udqApp', ['ionic'])
         });
 
 	    $urlRouterProvider.otherwise('/login');
+
+        /*test*/
 
 	}])
