@@ -19,6 +19,7 @@
 4.1 APP界面一般都没有超链接，用按钮来操作。
 */
 
+
 angular.module('udqApp', ['ionic'])
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -33,7 +34,7 @@ angular.module('udqApp', ['ionic'])
             }
         });
     })
-	.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, APP_CONFIG) {
 	    $stateProvider
         .state('login', {
             url: '/login',
@@ -46,8 +47,14 @@ angular.module('udqApp', ['ionic'])
             controller: 'customerHomeCtrl'
         });
 
+	    //console.log(appConfigProvider);
+	    var y = APP_CONFIG;
+	    var surl = APP_CONFIG.server.address;
+
 	    $urlRouterProvider.otherwise('/login');
 
         /*test*/
 
 	}])
+
+
