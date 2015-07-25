@@ -34,20 +34,71 @@ angular.module('udqApp', ['ionic'])
         });
     })
 
-	.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
+
 	    $stateProvider
         .state('login', {
             url: '/login',
             templateUrl: 'app/login/login.html',
-            controller:'loginCtrl'
+            controller: 'loginCtrl'
         })
+        /*车主主页*/
         .state('customerHome', {
             url: '/customerHome',
             templateUrl: 'app/customer/home/home.html',
             controller: 'customerHomeCtrl'
-        });
+        })
+        /*车主-我的订单*/
+        .state('customerMyOrder',{
+            url:'/customerMyOrder',
+            templateUrl:'app/customer/order/order.html',
+            controller:'customerOrderCtrl'
+        })
+        /*车主-我的点趣*/
+        .state('customerMyDQ',{
+            url:'/customerMyDQ',
+            templateUrl:'app/customer/memberCenter/memberCenter.html',
+            controller:'customerMemberCenterCtrl'
+        })
+        /*车主-车辆管理-添加车辆*/
+        .state('customerAutoAdd',{
+            url:'/customerAutoAdd',
+            templateUrl:'app/customer/autoAdd/autoAdd.html',
+            controller:'customerAutoAddCtrl'
+        })
+        /*车主-车辆管理*/
+        .state('customerAutoMgr',{
+            url:'/customerAutoMgr',
+            templateUrl:'app/customer/autoMgr/autoMgr.html',
+            controller:'customerAutoMgrCtrl'
+        })
+        /*车主-我的点趣-信息编辑*/
+        .state('customerMemberInfoEdit',{
+            url:'/customerMemberInfoEdit',
+            templateUrl:'app/customer/memberInfoEdit/memberInfoEdit.html',
+            controller:'customerMemberInfoEditCtrl'
+        })
+        /*车主-我的订单-订单评价*/
+        .state('customerOrderEvaluate',{
+            url:'/customerOrderEvaluate',
+            templateUrl:'app/customer/orderEvaluate/orderEvaluate.html',
+            controller:'customerOrderEvaluateCtrl'
+        })
+        /*车主-注册*/
+        .state('customerRegister',{
+            url:'/customerRegister',
+            templateUrl:'app/customer/register/register.html',
+            controller:'customerRegisterCtrl'
+        })
+        /*洗车店*/
+        .state('employeeHome',{
+            url:'/employeeHome',
+            templateUrl:'app/employee/home/home.html',
+            controller:'employeeHomeCtrl'
+        })
+        ;
 
-	    $urlRouterProvider.otherwise('/login');
+	    $urlRouterProvider.otherwise('/customerHome');
 
         /*test*/
 
