@@ -13,11 +13,12 @@
 3.5 module 和 html 没有后缀
 3.5 首字母小写，后面的单词大写开头（驼峰命名）
 3.6 控制器的命名规范参考 mainCtrl 
-3.7 state的命名规范。大类+‘_’+页面名称  比如：customer_main 表示  customer下面的main页面。
+3.7 state的命名规范。大类+页面名称  比如：customerMain 表示  customer下面的main页面。
 3.8 原则上除大家约定成俗的缩写外，其它单词不能使用缩写，如果要写缩写，需要经过我的同意。
 4.页面
 4.1 APP界面一般都没有超链接，用按钮来操作。
 */
+
 
 angular.module('udqApp', ['ionic'])
     .run(function ($ionicPlatform) {
@@ -33,73 +34,27 @@ angular.module('udqApp', ['ionic'])
             }
         });
     })
-
-	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
-
+	.config(['$stateProvider', '$urlRouterProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, APP_CONFIG) {
 	    $stateProvider
         .state('login', {
             url: '/login',
             templateUrl: 'app/login/login.html',
-            controller: 'loginCtrl'
+            controller:'loginCtrl'
         })
-        /*车主主页*/
         .state('customerHome', {
             url: '/customerHome',
             templateUrl: 'app/customer/home/home.html',
             controller: 'customerHomeCtrl'
-        })
-        /*车主-我的订单*/
-        .state('customerMyOrder',{
-            url:'/customerMyOrder',
-            templateUrl:'app/customer/order/order.html',
-            controller:'customerOrderCtrl'
-        })
-        /*车主-我的点趣*/
-        .state('customerMyDQ',{
-            url:'/customerMyDQ',
-            templateUrl:'app/customer/memberCenter/memberCenter.html',
-            controller:'customerMemberCenterCtrl'
-        })
-        /*车主-车辆管理-添加车辆*/
-        .state('customerAutoAdd',{
-            url:'/customerAutoAdd',
-            templateUrl:'app/customer/autoAdd/autoAdd.html',
-            controller:'customerAutoAddCtrl'
-        })
-        /*车主-车辆管理*/
-        .state('customerAutoMgr',{
-            url:'/customerAutoMgr',
-            templateUrl:'app/customer/autoMgr/autoMgr.html',
-            controller:'customerAutoMgrCtrl'
-        })
-        /*车主-我的点趣-信息编辑*/
-        .state('customerMemberInfoEdit',{
-            url:'/customerMemberInfoEdit',
-            templateUrl:'app/customer/memberInfoEdit/memberInfoEdit.html',
-            controller:'customerMemberInfoEditCtrl'
-        })
-        /*车主-我的订单-订单评价*/
-        .state('customerOrderEvaluate',{
-            url:'/customerOrderEvaluate',
-            templateUrl:'app/customer/orderEvaluate/orderEvaluate.html',
-            controller:'customerOrderEvaluateCtrl'
-        })
-        /*车主-注册*/
-        .state('customerRegister',{
-            url:'/customerRegister',
-            templateUrl:'app/customer/register/register.html',
-            controller:'customerRegisterCtrl'
-        })
-        /*洗车店*/
-        .state('employeeHome',{
-            url:'/employeeHome',
-            templateUrl:'app/employee/home/home.html',
-            controller:'employeeHomeCtrl'
-        })
-        ;
+        });
 
-	    $urlRouterProvider.otherwise('/customerHome');
+	    //console.log(appConfigProvider);
+	    var y = APP_CONFIG;
+	    var surl = APP_CONFIG.server.address;
+
+	    $urlRouterProvider.otherwise('/login');
 
         /*test*/
 
 	}])
+
+
