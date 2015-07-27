@@ -95,4 +95,5 @@
   <vs:plugin name="org.apache.cordova.splashscreen" version="1.0.0" />
   <vs:plugin name="org.apache.cordova.contacts" version="" />
   <preference name="android-minSdkVersion" value="19" />
+  <vs:plugin name="com.msopentech.websql" version="0.0.9" />
 </widget>

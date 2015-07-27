@@ -28,5 +28,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.msopentech.websql": {
+        "source": {
+            "type": "registry",
+            "id": "com.msopentech.websql"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

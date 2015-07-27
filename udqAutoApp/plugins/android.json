@@ -63,6 +63,9 @@
         },
         "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
+        },
+        "com.msopentech.websql": {
+            "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
         }
     },
     "dependent_plugins": {}

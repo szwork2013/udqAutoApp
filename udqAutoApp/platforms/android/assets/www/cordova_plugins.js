@@ -112,7 +112,8 @@ module.exports.metadata =
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.contacts": "0.2.16",
     "org.apache.cordova.device": "0.3.0",
-    "org.apache.cordova.splashscreen": "1.0.0"
+    "org.apache.cordova.splashscreen": "1.0.0",
+    "com.msopentech.websql": "0.0.9"
 }
 // BOTTOM OF METADATA
 });
