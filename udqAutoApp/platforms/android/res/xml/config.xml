@@ -40,4 +40,7 @@
     <vs:plugin name="org.apache.cordova.splashscreen" version="1.0.0" />
     <vs:plugin name="org.apache.cordova.contacts" version="" />
     <preference name="android-minSdkVersion" value="19" />
+    <feature name="JPushPlugin">
+        <param name="android-package" value="cn.jpush.phonegap.JPushPlugin" />
+    </feature>
 </widget>

@@ -36,5 +36,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cn.jpush.phonegap.JPushPlugin": {
+        "source": {
+            "type": "local",
+            "path": "D:\\udqauto\\plugins\\jpush-phonegap-plugin-2.0.3"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
