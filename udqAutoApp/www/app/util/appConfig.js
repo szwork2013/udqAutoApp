@@ -9,6 +9,9 @@ app 配置信息
 angular.module('udqApp')
     .constant('APP_CONFIG', 
     {
+        /*
+        后台服务配置
+        */
         server: {
             address: 'www.udianqu.com',
             port: '8080',
@@ -16,6 +19,9 @@ angular.module('udqApp')
                 return this.address + this.port + '/';
             }
         },
+        /*
+        短信配置
+        */
         sms: {
             address: '1.2.3',
             port: '5699',
@@ -23,6 +29,9 @@ angular.module('udqApp')
                 return this.address + this.port + '/';
             }
         },
+        /*
+        消息推送服务配置
+        */
         pushNotify: {
             address: '3.2.1',
             port: '7899',
