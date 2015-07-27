@@ -36,16 +36,87 @@ angular.module('udqApp', ['ionic'])
     })
 	.config(['$stateProvider', '$urlRouterProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, APP_CONFIG) {
 	    $stateProvider
+        /*登录*/
         .state('login', {
             url: '/login',
             templateUrl: 'app/login/login.html',
             controller:'loginCtrl'
         })
+	    /*车主主页*/
         .state('customerHome', {
             url: '/customerHome',
             templateUrl: 'app/customer/home/home.html',
             controller: 'customerHomeCtrl'
-        });
+        })
+        /*车主-我的订单*/
+        .state('customerMyOrder', {
+            url: '/customerMyOrder',
+            templateUrl: 'app/customer/order/order.html',
+            controller: 'customerOrderCtrl'
+        })
+        /*车主-我的点趣*/
+        .state('customerMyDQ', {
+            url: '/customerMyDQ',
+            templateUrl: 'app/customer/memberCenter/memberCenter.html',
+            controller: 'customerMemberCenterCtrl'
+        })
+        /*车主-车辆管理-添加车辆*/
+        .state('customerAutoAdd', {
+            url: '/customerAutoAdd',
+            templateUrl: 'app/customer/autoMgr/autoAdd.html',
+            controller: 'customerAutoAddCtrl'
+        })
+        /*车主-车辆管理*/
+        .state('customerAutoMgr', {
+            url: '/customerAutoMgr',
+            templateUrl: 'app/customer/autoMgr/autoMgr.html',
+            controller: 'customerAutoMgrCtrl'
+        })
+        /*车主-我的点趣-信息编辑*/
+        .state('customerMemberInfoEdit', {
+            url: '/customerMemberInfoEdit',
+            templateUrl: 'app/customer/memberCenter/memberInfoEdit.html',
+            controller: 'customerMemberInfoEditCtrl'
+        })
+        /*车主-我的订单-订单评价*/
+        .state('customerOrderEvaluate', {
+            url: '/customerOrderEvaluate',
+            templateUrl: 'app/customer/order/orderEvaluate.html',
+            controller: 'customerOrderEvaluateCtrl'
+        })
+        /*车主-注册*/
+        .state('customerRegister', {
+            url: '/customerRegister',
+            templateUrl: 'app/customer/register/register.html',
+            controller: 'customerRegisterCtrl'
+        })
+        /*洗车店*/
+        .state('employeeHome', {
+            url: '/employeeHome',
+            templateUrl: 'app/employee/home/home.html',
+            controller: 'employeeHomeCtrl'
+        })
+        .state('employeeOrderToBeConfirmed',{
+            url:'employeeOrderToBeConfirmed',
+            templateUrl:'app/employee/order/orderToBeConfirmed.html',
+            controller: 'employeeOrderToBeConfirmedCtrl'
+        })
+/*        .state('',{
+            url:'',
+            templateUrl:'',
+            controller:''
+        })
+        .state('',{
+            url:'',
+            templateUrl:'',
+            controller:''
+        })
+        .state('',{
+            url:'',
+            templateUrl:'',
+            controller:''
+        })*/
+        ;
 
 	    //console.log(appConfigProvider);
 	    var y = APP_CONFIG;

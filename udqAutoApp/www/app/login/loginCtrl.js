@@ -13,9 +13,10 @@ angular.module('udqApp')
 
         $scope.login = function () {
             loginSvr.loginCheck($scope.user.userName, $scope.user.password).then(function (data, msg, xhr) {
-                alert("success"+data.userType);
+                console.log("登录成功");
+
             }, function (data, msg, xhr) {
-                alert("error");
+                console.log(data.error);
             });
         }
     }])
