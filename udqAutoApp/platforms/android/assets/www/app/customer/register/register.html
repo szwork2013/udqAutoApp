@@ -1,0 +1,29 @@
+<ion-view title="注册">
+    <div class="bar bar-header">
+        <div class="h1 title">注册</div>
+        <!--<a class="button button-clear icon ion-ios-search-strong"></a>-->
+        <button class="button button-icon icon ion-navicon"></button>
+    </div>
+
+    <ion-content padding="true" class="has-header">
+        <form>
+            <ion-list>
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="tel" name="userName" placeholder="请输入手机号码" ng-model="user.userName" required>
+                </label>
+
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="text" placeholder="输入手机验证码">
+                    </label>
+                    <button class="button button-small">
+                        获取手机验证码
+                    </button>
+                </div>
+
+            </ion-list>
+            <button class="button button-stable button-block ">下一步</button>
+        </form>
+    </ion-content>
+</ion-view>
