@@ -57,25 +57,25 @@ angular.module('udqApp', ['ionic'])
         /*车主-我的点趣*/
         .state('customerMyDQ', {
             url: '/customerMyDQ',
-            templateUrl: 'app/customer/memberCenter/memberCenter.html',
+            templateUrl: 'app/customer/member/memberCenter.html',
             controller: 'customerMemberCenterCtrl'
         })
         /*车主-车辆管理-添加车辆*/
         .state('customerAutoAdd', {
             url: '/customerAutoAdd',
-            templateUrl: 'app/customer/autoMgr/autoAdd.html',
+            templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
         /*车主-车辆管理*/
         .state('customerAutoMgr', {
             url: '/customerAutoMgr',
-            templateUrl: 'app/customer/autoMgr/autoMgr.html',
+            templateUrl: 'app/customer/auto/autoMgr.html',
             controller: 'customerAutoMgrCtrl'
         })
         /*车主-我的点趣-信息编辑*/
         .state('customerMemberInfoEdit', {
             url: '/customerMemberInfoEdit',
-            templateUrl: 'app/customer/memberCenter/memberInfoEdit.html',
+            templateUrl: 'app/customer/member/memberInfoEdit.html',
             controller: 'customerMemberInfoEditCtrl'
         })
         /*车主-我的订单-订单评价*/
