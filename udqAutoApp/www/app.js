@@ -96,17 +96,13 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/employee/home/home.html',
             controller: 'employeeHomeCtrl'
         })
+        /*洗车店-待确认*/
         .state('employeeOrderToBeConfirmed',{
-            url:'employeeOrderToBeConfirmed',
+            url:'/employeeOrderToBeConfirmed',
             templateUrl:'app/employee/order/orderToBeConfirmed.html',
             controller: 'employeeOrderToBeConfirmedCtrl'
         })
 /*        .state('',{
-            url:'',
-            templateUrl:'',
-            controller:''
-        })
-        .state('',{
             url:'',
             templateUrl:'',
             controller:''
@@ -122,7 +118,7 @@ angular.module('udqApp', ['ionic'])
 	    var y = APP_CONFIG;
 	    var surl = APP_CONFIG.server.address;
 
-	    $urlRouterProvider.otherwise('/login');
+	    $urlRouterProvider.otherwise('/customerRegister');
 
         /*test*/
 

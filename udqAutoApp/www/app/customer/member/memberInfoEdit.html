@@ -1,9 +1,9 @@
 <!--编辑车主信息-->
 <ion-view title="编辑个人信息">
     <ion-nav-bar>
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-arrow-left-c"></i>back
-        </ion-nav-back-button>
+<!--         <ion-nav-back-button class="button-clear">
+    <i class="ion-arrow-left-c"></i>back
+</ion-nav-back-button> -->
     </ion-nav-bar>
 
     <ion-content padding="true" class="has-header">
@@ -11,35 +11,37 @@
             <ion-list>
                 <!--输入称呼和性别-->
                 <label class="item item-input">
-                    <i class="icon ion-search placeholder-icon"></i>
+                    <i class="icon ion-ios-person placeholder-icon"></i>
                     <input type="text" name="name" placeholder="请输入您的称呼" required>
                 </label>
-                <label class="item item-input">
-                    <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" name="sex" placeholder="请输入您的性别"  required>
-                </label>
-                <!--选择小区-->
                 <label class="item item-input item-select">
-                    <div class="input-label">
-                        请选择城市
-                    </div>
-                    <select></select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        请选择区域
-                    </div>
+                    <div class="input-label">请选择性别</div>
                     <select>
+                        <option selected>男</option>
+                        <option>女</option>
+                    </select>
+                </label>
+                <!-- 选择小区 -->
+                <label class="item item-input item-select">
+                    <div class="input-label">请选择城市：</div>
+                    <select ng-model="city" ng-options="city.name for city in cities" ng-change="cityToRegion()">
+                        <option value="">请选择</option>
                     </select>
                 </label>
                 <label class="item item-input item-select">
-                    <div class="input-label">
-                        请选择小区
-                    </div>
-                    <select></select>
+                    <div class="input-label">请选择区域：</div>
+                    <select ng-model="region" ng-options="region.name for region in regions" ng-change="regionToDistrict()">
+                        <option value="">请选择</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">请选择小区：</div>
+                    <select ng-model="district" ng-options="district for district in districts">
+                        <option value="">请选择</option>
+                    </select>
                 </label>
             </ion-list>
-            <button class="button button-block button-positive ">保存信息</button>
+            <button class="button button-block button-positive " ng-click="saveMemberInfo()">保存信息</button>
         </form>
     </ion-content>
 </ion-view>
