@@ -1,0 +1,45 @@
+<!--编辑车主信息-->
+<ion-view title="编辑个人信息">
+    <ion-nav-bar>
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i>back
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content padding="true" class="has-header">
+        <form>
+            <ion-list>
+                <!--输入称呼和性别-->
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" name="name" placeholder="请输入您的称呼" required>
+                </label>
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" name="sex" placeholder="请输入您的性别"  required>
+                </label>
+                <!--选择小区-->
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        请选择城市
+                    </div>
+                    <select></select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        请选择区域
+                    </div>
+                    <select>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        请选择小区
+                    </div>
+                    <select></select>
+                </label>
+            </ion-list>
+            <button class="button button-block button-positive ">保存信息</button>
+        </form>
+    </ion-content>
+</ion-view>
