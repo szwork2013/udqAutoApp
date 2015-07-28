@@ -96,5 +96,5 @@
   <vs:plugin name="org.apache.cordova.contacts" version="" />
   <preference name="android-minSdkVersion" value="19" />
   <vs:plugin name="com.msopentech.websql" version="0.0.9" />
-  <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" src="D:\udqauto\plugins\jpush-phonegap-plugin-2.0.3" />
+  <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
 </widget>

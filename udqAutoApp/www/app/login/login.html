@@ -8,7 +8,14 @@
 
     <ion-content padding="true" class="has-header">
         <!-- 图片轮播 -->
-        <ion-slide-box ng-repeat="image in images">
+        <ion-slide-box >
+            <ion-slide>
+                <div style="line-height:200px;border:1px solid rgb(238,238,238);border-radius:3px;text-align:center;width:100%;height:auto;background-color:rgb(255,255,255);">
+                     <a href="#">
+                         <i class="icon ion-image" style="font-size:64px;color:rgb(136,136,136);vertical-align：middle;"></i>
+                     </a>
+                 </div>
+            </ion-slide>
             <ion-slide>
                 <div style="line-height:200px;border:1px solid rgb(238,238,238);border-radius:3px;text-align:center;width:100%;height:auto;background-color:rgb(255,255,255);">
                      <a href="#">
@@ -17,6 +24,7 @@
                  </div>
             </ion-slide>
          </ion-slide-box>
+
         <form>
             <ion-list>
                 <label class="item item-input">
