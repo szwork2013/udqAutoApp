@@ -8,7 +8,7 @@ angular.module('udqApp')
 				var data= {
 					   name:userInfo.userName,
 					   mobile:userInfo.phoneNumber,
-					   psd:userInfo.password,
+					   psd: hex_md5(userInfo.password),
 					   id:0
 					  };
 				var jsStr = angular.toJson(data,false);

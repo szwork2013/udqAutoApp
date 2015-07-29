@@ -6,7 +6,7 @@ cutomer 的注册页面
 3.继续添加，保存
 */
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerRegisterCtrl', ['$scope', '$state', '$ionicHistory','$ionicPopup','registerSvr', function ($scope, $state, $ionicHistory,$ionicPopup,registerSvr) {
+    .controller('customerRegisterCtrl', ['$scope', '$state', '$ionicHistory', '$ionicPopup', 'registerSvr', 'regionSvr', function ($scope, $state, $ionicHistory, $ionicPopup, registerSvr, regionSvr) {
 
         $scope.userInfo = {
             userName:'',
@@ -21,7 +21,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
 
         };
         /*下一步*/
-        $scope.goToLogin = function () {
+        $scope.goToAddAuto = function () {
         	/*跳转到信息编辑页面*/
             $state.go('customerAutoAdd');
             
@@ -33,7 +33,12 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 /*返回的数据如何判断是否注册成功
                 成功，调用regionSvr.setCities()服务,保存regions信息
                       保存用户注册ID*/
-                showAlertOfSuccess();
+        	    if (data.isSuccess) {
+        	        showAlertOfSuccess();
+        	    } else {
+        	        showAlertOfFail(data.msg);
+        	    }
+                
         	}, function(msg){
         		showAlertOfFail(msg);
         	});
@@ -44,8 +49,9 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             var alertPopup = $ionicPopup.alert({
                 template: '注册成功！'
             });
-            alertPopup.then(function(res){
-                $scope.goToLogin();
+            alertPopup.then(function (res) {
+                
+                $scope.goToAddAuto();
             });
         };
         /*失败注册后的popup提示*/
