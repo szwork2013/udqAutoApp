@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget defaultlocale="zh-CN" id="com.udianqu.auto" version="0.2.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
+<widget defaultlocale="zh-CN" id="io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
     <preference name="loglevel" value="DEBUG" />
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
@@ -31,7 +31,7 @@
     <splash density="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
     <name>udqAutoApp</name>
     <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">udianqu auto Team </author>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">Apache Cordova Team </author>
     <content src="index.html" />
     <access origin="*" />
     <vs:features />
@@ -42,8 +42,7 @@
     <vs:plugin name="org.apache.cordova.device" version="0.3.0" />
     <vs:plugin name="org.apache.cordova.splashscreen" version="1.0.0" />
     <vs:plugin name="org.apache.cordova.contacts" version="" />
-    <vs:plugin name="com.msopentech.websql" version="0.0.9" />
-    <vs:plugin name="cn.jpush.phonegap.JPushPlugin" src="D:\udqauto\plugins\jpush-phonegap-plugin-2.0.3" version="2.0.2" />
-    <preference name="BackupWebStorage" value="local" />
     <preference name="android-minSdkVersion" value="19" />
+    <vs:plugin name="com.msopentech.websql" version="0.0.9" />
+    <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
 </widget>

@@ -6,6 +6,6 @@ cutomer订单页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('orderCtrl', ['$scope', '$state', '$ionicHistory', function ($scope, $state, $ionicHistory) {
+    .controller('customerOrderCtrl', ['$scope', '$state', '$ionicHistory', function ($scope, $state, $ionicHistory) {
 
     }])

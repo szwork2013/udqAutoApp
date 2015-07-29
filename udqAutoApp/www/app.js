@@ -61,10 +61,16 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/member/memberCenter.html',
             controller: 'customerMemberCenterCtrl'
         })
-        /*车主-车辆管理-添加车辆*/
+        /*车主-车辆管理-添加车辆(注册添加)*/
         .state('customerAutoAdd', {
             url: '/customerAutoAdd',
             templateUrl: 'app/customer/auto/autoAdd.html',
+            controller: 'customerAutoAddCtrl'
+        })
+        /*车主-车辆管理-添加车辆(登录添加)*/
+        .state('customerAutoAdd1', {
+            url: '/customerAutoAdd1',
+            templateUrl: 'app/customer/auto/autoAdd1.html',
             controller: 'customerAutoAddCtrl'
         })
         /*车主-车辆管理*/
@@ -119,7 +125,7 @@ angular.module('udqApp', ['ionic'])
 	    var y = APP_CONFIG;
 	    var surl = APP_CONFIG.server.address;
 
-	    $urlRouterProvider.otherwise('/customerRegister');
+	    $urlRouterProvider.otherwise('/customerHome');
 
         /*test*/
 

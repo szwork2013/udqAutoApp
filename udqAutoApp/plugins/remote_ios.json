@@ -147,22 +147,22 @@
     },
     "installed_plugins": {
         "cn.jpush.phonegap.JPushPlugin": {
-            "PACKAGE_NAME": "com.udianqu.auto"
+            "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
         },
         "com.msopentech.websql": {
-            "PACKAGE_NAME": "com.udianqu.auto"
+            "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
         },
         "org.apache.cordova.camera": {
-            "PACKAGE_NAME": "com.udianqu.auto"
+            "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
         },
         "org.apache.cordova.contacts": {
-            "PACKAGE_NAME": "com.udianqu.auto"
+            "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.udianqu.auto"
+            "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
         },
         "org.apache.cordova.splashscreen": {
-            "PACKAGE_NAME": "com.udianqu.auto"
+            "PACKAGE_NAME": "io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb"
         }
     },
     "dependent_plugins": {}
