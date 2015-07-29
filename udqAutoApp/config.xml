@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="zh-CN">
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.udianqu.auto" version="0.2.1" xmlns="http://www.w3.org/ns/widgets" defaultlocale="zh-CN">
   <name>udqAutoApp</name>
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
-  <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
+  <author href="http://cordova.io" email="dev@cordova.apache.org">udianqu auto Team </author>
   <content src="index.html" />
   <access origin="*" />
   <vs:features />
@@ -94,7 +94,8 @@
   <vs:plugin name="org.apache.cordova.device" version="0.3.0" />
   <vs:plugin name="org.apache.cordova.splashscreen" version="1.0.0" />
   <vs:plugin name="org.apache.cordova.contacts" version="" />
-  <preference name="android-minSdkVersion" value="19" />
   <vs:plugin name="com.msopentech.websql" version="0.0.9" />
   <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" src="D:\udqauto\plugins\jpush-phonegap-plugin-2.0.3" />
+  <preference name="BackupWebStorage" value="local" />
+  <preference name="android-minSdkVersion" value="19" />
 </widget>
