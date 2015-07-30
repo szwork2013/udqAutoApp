@@ -1,14 +1,16 @@
-<ion-view view-title="车辆列表">
+<ion-view view-title="洗车类型">
 	<ion-nav-bar class="bar-stable" align-title="center">
 		<ion-nav-back-button class="button-clear"></ion-nav-back-button>
 	</ion-nav-bar>
 	<ion-content has-subheader="false">
-		<div class="list">
+		<div class="list" ng-repeat="type in types">
 
   			<label class="item item-radio">
     			<input type="radio" name="group">
     			<div class="item-content">
-      				Go
+      				<h2>{{type.name}}</h2><br/>
+					<p>服务内容：{{type.note}}</p><br/>
+					<p>价格：￥{{type.amount}}</p><br/>
     			</div>
     			<i class="radio-icon ion-checkmark"></i>
   			</label>
@@ -16,4 +18,4 @@
 
 		</div>
 	</ion-content>
-</ion-view>>
+</ion-view>
