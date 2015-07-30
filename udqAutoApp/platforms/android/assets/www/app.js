@@ -127,11 +127,7 @@ angular.module('udqApp', ['ionic'])
             templateUrl:'app/employee/order/orderToBeConfirmed.html',
             controller: 'employeeOrderToBeConfirmedCtrl'
         })
-       .state('sex',{
-            url:'/sex',
-            templateUrl:'app/util/sex.html',
-            controller:'sexCtrl'
-        })
+
 	    /*        .state('',{
             url:'',
             templateUrl:'',

@@ -159,7 +159,6 @@
     "www\\app\\customer\\auto\\autoSvr.js",
     "plugins\\org.apache.cordova.contacts\\doc\\de\\index.md",
     "plugins\\fetch.json",
-    "config.xml",
     "plugins\\org.apache.cordova.camera\\src\\windows\\CameraProxy.js",
     "www\\css\\star.css",
     "www\\lib\\ionic\\js\\angular\\angular.js",
@@ -384,7 +383,10 @@
     "www\\app\\customer\\auto\\autoList.html",
     "www\\app\\customer\\auto\\autoListCtrl.js",
     "www\\app\\customer\\order\\washtypeSvr.js",
-    "www\\app\\common\\regionSvr.js"
+    "www\\app\\common\\regionSvr.js",
+    "config.xml",
+    "www\\app\\customer\\register\\registersvr.js",
+    "www\\app\\customer\\order\\orderMakeSvr.js"
   ],
   "deletedFilesIos": [
     "www\\app\\util\\sex.html",
@@ -404,24 +406,12 @@
     "plugins\\android.json",
     "www\\app\\customer\\order\\orderMake.html",
     "www\\app\\customer\\order\\orderMakeCtrl.js",
-    "www\\app\\customer\\auto\\autoList.html",
-    "www\\app\\customer\\auto\\autoListCtrl.js",
-    "www\\app.js",
+    "www\\app\\customer\\order\\orderMakeSvr.js",
     "www\\index.html",
-    "www\\app\\customer\\order\\washtype.html",
     "www\\app\\customer\\order\\washtypeSvr.js",
-    "www\\app\\customer\\order\\washtypeCtrl.js",
-    "plugins\\remote_ios.json",
-    "www\\app\\customer\\auto\\autoSvr.js",
-    "www\\app\\util\\regionsvr.js",
-    "www\\app\\common\\regionSvr.js",
-    "www\\app\\util\\appConfig.js"
+    "www\\app\\customer\\order\\washtypeCtrl.js"
   ],
-  "deletedFiles": [
-    "www\\app\\util\\sex.html",
-    "www\\app\\util\\sexCtrl.js",
-    "www\\app\\util\\regionSvr.js"
-  ],
+  "deletedFiles": [],
   "addedPlugins": [],
   "deletedPlugins": []
 }
