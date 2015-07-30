@@ -33,7 +33,31 @@ angular.module('udqApp', ['ionic'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+            jPush.init(notificationCallback);
+            jPush.setAlias("123");
+
+            window.plugins.jPushPlugin.init();
+            windows.plugins.jPushPlugin.setDebugMode(true);
+
         });
+
+        var notificationCallback = function (data) {
+            console.log('received data :' + data);
+            var notification = angular.fromJson(data);
+            //app 是否处于正在运行状态
+            var isActive = notification.notification;
+
+            // here add your code
+            //ios
+            if (ionic.Platform.isIOS()) {
+                window.alert(notification);
+
+            } else {
+                //非 ios(android)
+            }
+        };
+
     })
 	.config(['$stateProvider', '$urlRouterProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, APP_CONFIG) {
 	    $stateProvider
@@ -143,7 +167,7 @@ angular.module('udqApp', ['ionic'])
 	    var y = APP_CONFIG;
 	    var surl = APP_CONFIG.server.address;
 
-	    $urlRouterProvider.otherwise('/customerOrderMake');
+	    $urlRouterProvider.otherwise('/login');
 
         /*test*/
 

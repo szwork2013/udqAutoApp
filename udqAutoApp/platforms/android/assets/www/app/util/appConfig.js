@@ -16,7 +16,8 @@ angular.module('udqApp')
             address: 'http://192.168.1.100',
             port: '8080',
             getUrl: function () {
-                return this.address + ':'+this.port + '/';
+                return this.address + ':' + this.port + '/';
+
             }
         },
         /*
