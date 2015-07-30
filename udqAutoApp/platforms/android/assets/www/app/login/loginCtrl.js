@@ -4,7 +4,7 @@
 根据不同的用户类型，跳转到不同的main页面
 */
 angular.module('udqApp')
-    .controller('loginCtrl', ['$scope', '$state', '$ionicHistory','$ionicPopup','loginSvr', function ($scope, $state, $ionicHistory,$ionicPopup, loginSvr) {
+    .controller('loginCtrl', ['$scope', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', function ($scope, $state, $ionicHistory, $ionicPopup, $window,loginSvr) {
         
         $scope.user = {
             userName : '',
@@ -22,13 +22,15 @@ angular.module('udqApp')
                 var userType = checkUserType(data.data.data.userType);
                 if (userType == 1)
                 {
-                    //跳转到车主页面
-                    $ionicHistory.clearHistory();
-                    $state.go('customerHome');
+                    //返回上一个页面
+                    $ionicHistory.backView();
+                    
                 } else if (userType == 2) {
-                    //跳转到洗车工页面
-                    $ionicHistory.clearHistory();
-                    $state.go('customerHome');
+                    /*车主*/
+                    $window.localStorage['userID'] = data.data.data.id;
+                    $window.localStorage['loginState'] = true;
+                    $ionicHistory.goBack();
+                    
                 }else{
                     //其他用户类型登录，暂时不管
                 }
@@ -45,6 +47,10 @@ angular.module('udqApp')
                 default:
                     return 0;
             }
+        };
+        /*点击注册*/
+        $scope.register = function () {
+            $state.go('customerRegister');
         };
         // An alert dialog
         var showAlert = function (msg) {

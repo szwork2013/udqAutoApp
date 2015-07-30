@@ -156,8 +156,10 @@
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenTest.xcodeproj\\xcshareddata\\xcschemes\\CDVSplashScreenLibTests.xcscheme",
     "plugins\\org.apache.cordova.splashscreen\\doc\\pl\\index.md",
     "res\\icons\\ios\\icon-60-3x.png",
+    "www\\app\\customer\\auto\\autoSvr.js",
     "plugins\\org.apache.cordova.contacts\\doc\\de\\index.md",
     "plugins\\fetch.json",
+    "config.xml",
     "plugins\\org.apache.cordova.camera\\src\\windows\\CameraProxy.js",
     "www\\css\\star.css",
     "www\\lib\\ionic\\js\\angular\\angular.js",
@@ -178,6 +180,7 @@
     "plugins\\org.apache.cordova.contacts\\tests\\plugin.xml",
     "plugins\\com.msopentech.websql\\src\\windows\\Community.CsharpSqlite.WinRT.dll",
     "plugins\\org.apache.cordova.camera\\doc\\ru\\index.md",
+    "www\\app\\customer\\auto\\autoAdd1.html",
     "plugins\\org.apache.cordova.camera\\src\\wp\\Camera.cs",
     "www\\app\\customer\\auto\\autoAdd.html",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest.xcworkspace\\xcshareddata\\CDVSplashScreenTest.xccheckout",
@@ -373,7 +376,14 @@
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "config.xml"
+    "www\\app\\customer\\auto\\automgr.js",
+    "www\\app\\util\\regionsvr.js",
+    "www\\app\\util\\sex.html",
+    "www\\app\\util\\sexCtrl.js",
+    "www\\app\\customer\\order\\orderMake.html",
+    "www\\app\\customer\\order\\orderMakeCtrl.js",
+    "www\\app\\customer\\order\\washtype.html",
+    "www\\app\\customer\\order\\washtypeCtrl.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -387,11 +397,8 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\register\\registerCtrl.js",
-    "www\\app\\customer\\auto\\autoAdd.html",
-    "www\\app\\customer\\auto\\autoAddCtrl.js",
-    "www\\app\\util\\regionSvr.js",
-    "www\\app\\customer\\register\\register.html"
+    "www\\app\\customer\\order\\washtypeCtrl.js",
+    "www\\app\\customer\\order\\orderMakeCtrl.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

@@ -2,39 +2,29 @@
     <div>
          <ion-nav-bar class="bar-stable">
             <ion-nav-back-button class="button-clear">
-                <i class="ion-arrow-left-c"></i>back
+                <div><i class="ion-ios-arrow-left"></i></div>
             </ion-nav-back-button>
 
             <ion-nav-buttons side="right">
-                <a class="button button-outline icon-right ion-navicon button-stable" ng-click="popover.show($event)"></a>
+                <a class="button button-clear ion-plus-round button-stable" ng-click="addAuto()"></a>
             </ion-nav-buttons>
          </ion-nav-bar>
     </div>
 
     <!--车辆展示-->
     <ion-content>
-        <ion-list show-delete="shouldShowDelete"
-                  show-reorder="shouldShowReorder"
-                  can-swipe="listCanSwipe">
+        <ion-list>
             <ion-item ng-repeat="item in autoItems"
                       class="item-thumbnail-left">
 
-                <h2>{{item.pn}}{{item.brand}}</h2>
+                <h2>车牌号：{{item.pn}}<br />品牌：{{item.brand}}</h2>
                 
                 <ion-option-button class="button-info"
-                                   ng-click="edit(item)">
-                    Edit
+                                   ng-click="delete(item)">
+                    <i class="icon ion-ios-trash"></i>
                 </ion-option-button>
-                <ion-delete-button class="ion-minus-circled"
-                                   ng-click="items.splice($index, 1)">
-                </ion-delete-button>
 
             </ion-item>
         </ion-list>
-        <!--<div class="card">
-            <div class="item item-text-wrap">
-                川A2324  奥迪 SUV
-            </div>
-        </div>-->
     </ion-content>
 </ion-view>
