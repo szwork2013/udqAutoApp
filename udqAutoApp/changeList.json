@@ -29,7 +29,6 @@
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\toolbar-right.png",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenTest.xcodeproj\\project.pbxproj",
     "plugins\\org.apache.cordova.device\\src\\ubuntu\\device.cpp",
-    "plugins\\remote_ios.json",
     "plugins\\org.apache.cordova.splashscreen\\src\\wp\\SplashScreen.cs",
     "res\\screens\\ios\\screen-iphone-landscape-736h.png",
     "plugins\\org.apache.cordova.camera\\doc\\de\\index.md",
@@ -83,7 +82,6 @@
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactOrganization.js",
     "plugins\\org.apache.cordova.contacts\\doc\\index.md",
     "www\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js",
-    "plugins\\android.json",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactPhoto.js",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenLibTests\\ImageNameTest.m",
     "plugins\\org.apache.cordova.camera\\src\\android\\FileHelper.java",
@@ -375,15 +373,7 @@
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\auto\\automgr.js",
-    "www\\app\\util\\regionsvr.js",
-    "www\\app\\util\\sex.html",
-    "www\\app\\util\\sexCtrl.js",
-    "www\\app\\customer\\order\\orderMake.html",
-    "www\\app\\customer\\order\\orderMakeCtrl.js",
-    "www\\app\\customer\\order\\washtype.html",
-    "www\\app\\customer\\order\\washtypeCtrl.js"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -395,11 +385,7 @@
     "cn.jpush.phonegap.JPushPlugin@2.0.2"
   ],
   "deletedPluginsIos": [],
-  "changedFiles": [
-    "plugins\\android.json",
-    "www\\app\\customer\\order\\washtypeCtrl.js",
-    "www\\app\\customer\\order\\orderMakeCtrl.js"
-  ],
+  "changedFiles": [],
   "deletedFiles": [],
   "addedPlugins": [],
   "deletedPlugins": []
