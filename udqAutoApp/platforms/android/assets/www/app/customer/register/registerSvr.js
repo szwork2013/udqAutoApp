@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.service('registerSvr', ['$http','$q', function($http,$q){
+	.service('registerSvr', ['$http', '$q', 'APP_CONFIG', function ($http, $q, APP_CONFIG) {
 		return{
 			/*注册服务*/
 			register:function(userInfo){
@@ -13,7 +13,7 @@ angular.module('udqApp')
 					  };
 				var jsStr = angular.toJson(data,false);
 			
-				$http.post('http://192.168.1.102:8080/fzmgr/login4App/registUser.do?userInfo='+jsStr).success(function(data, status, headers, config){
+				$http.post(APP_CONFIG.server.getUrl()+'fzmgr/login4App/registUser.do?userInfo='+jsStr).success(function(data, status, headers, config){
 					deferred.resolve(data);
 				}).error(function(data, status, headers, config){
 					deferred.reject(data);

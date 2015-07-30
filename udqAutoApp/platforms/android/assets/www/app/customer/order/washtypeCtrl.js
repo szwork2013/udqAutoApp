@@ -1,13 +1,17 @@
 angular.module('udqApp')
-	.controller('customerWashtypeCtrl', ['$scope','washtypeSvr', function($scope,washtypeSvr){
-		$scope.types = [];
-		var promise = washtypeSvr.getWashtype();
-		promise.then(
-			function (data, status, headers, config){
-				$scope.types = data.data.ls;
-			},
-			function (data, status, headers, config){
-				console.log("获取洗车类型失败");
-			}
-		);
+	.controller('customerWashtypeCtrl', ['$scope', 'customerWashtypeSvr', function ($scope, customerWashtypeSvr) {
+	    $scope.types = [];
+
+	    $scope.updateWashTypes = function(){
+	        customerWashtypeSvr.callWashType().then(
+	    		function(data){
+	    		    $scope.types = data.rows;
+	    		    customerWashtypeSvr.setWashTypes($scope.types);
+	    		}, 
+	    		function(data){
+	    			console.log(data);
+	    		}
+	    	);
+	    }
+	    $scope.updateWashTypes();
 	}])
