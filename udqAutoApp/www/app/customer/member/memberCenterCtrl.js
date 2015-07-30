@@ -8,4 +8,8 @@ angular.module('udqApp')
     	    
     	    $state.go('customerAutoMgr');
     	};
+
+    	$scope.goToEditOwnerInfo = function () {
+    	    $state.go('customerMemberInfoEdit');
+    	};
 	}])

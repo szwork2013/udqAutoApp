@@ -1,8 +1,8 @@
 angular.module('udqApp')
-	.service('regionSvr',['$http','$q',function($http,$q){
+	.service('regionSvr',['$http','$q','APP_CONFIG',function($http,$q,APP_CONFIG){
 		var cities = [];
 		var doRequest = function(){
-			var url = 'http://192.168.1.102:8080/fzmgr/region/getRegion4App.do';
+		    var url = APP_CONFIG.server.getUrl() + 'fzmgr/region/getRegion4App.do';
 			return $http.post(url);
 		};
 		return{
