@@ -9,6 +9,7 @@
             getAuto: function () {
                 var url = APP_CONFIG.server.getUrl() + 'fzmgr/auto/getAutoByUserId4App.do';
                 return $http.get(url);
+
             },
             /*删除一条车辆信息*/
             deleteAutoItem: function (id) {
