@@ -385,17 +385,8 @@
     "cn.jpush.phonegap.JPushPlugin@2.0.2"
   ],
   "deletedPluginsIos": [],
-  "changedFiles": [
-    "config.xml"
-  ],
+  "changedFiles": [],
   "deletedFiles": [],
-  "addedPlugins": [
-    "org.apache.cordova.camera@0.3.6",
-    "org.apache.cordova.device@0.3.0",
-    "org.apache.cordova.splashscreen@1.0.0",
-    "org.apache.cordova.contacts",
-    "com.msopentech.websql@0.0.9",
-    "cn.jpush.phonegap.JPushPlugin@2.0.2"
-  ],
+  "addedPlugins": [],
   "deletedPlugins": []
 }

@@ -9,6 +9,7 @@
             getAuto: function () {
                 var url = 'http://192.168.1.102:8080/fzmgr/auto/getAutoByUserId4App.do';
                 return $http.get(url);
+
             },
             /*删除一条车辆信息*/
             deleteAutoItem: function (id) {
