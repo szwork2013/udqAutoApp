@@ -29,6 +29,7 @@
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\toolbar-right.png",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenTest.xcodeproj\\project.pbxproj",
     "plugins\\org.apache.cordova.device\\src\\ubuntu\\device.cpp",
+    "plugins\\remote_ios.json",
     "plugins\\org.apache.cordova.splashscreen\\src\\wp\\SplashScreen.cs",
     "res\\screens\\ios\\screen-iphone-landscape-736h.png",
     "plugins\\org.apache.cordova.camera\\doc\\de\\index.md",
@@ -82,6 +83,7 @@
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactOrganization.js",
     "plugins\\org.apache.cordova.contacts\\doc\\index.md",
     "www\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js",
+    "plugins\\android.json",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactPhoto.js",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenLibTests\\ImageNameTest.m",
     "plugins\\org.apache.cordova.camera\\src\\android\\FileHelper.java",
@@ -357,7 +359,6 @@
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi-v7a\\libjpush175.so",
     "plugins\\org.apache.cordova.contacts\\www\\ContactFindOptions.js",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactField.js",
-    "www\\app\\util\\regionSvr.js",
     "res\\screens\\android\\screen-xhdpi-landscape.png",
     "www\\lib\\ionic\\js\\angular\\angular-resource.min.js",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactFindOptions.js",
@@ -373,9 +374,23 @@
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
+    "www\\app\\customer\\auto\\automgr.js",
+    "www\\app\\util\\regionsvr.js",
+    "www\\app\\customer\\order\\orderMake.html",
+    "www\\app\\customer\\order\\orderMakeCtrl.js",
+    "www\\app\\customer\\order\\washtype.html",
+    "www\\app\\customer\\order\\washtypeCtrl.js",
+    "www\\app\\customer\\auto\\autoList.html",
+    "www\\app\\customer\\auto\\autoListCtrl.js",
+    "www\\app\\customer\\order\\washtypeSvr.js",
+    "www\\app\\common\\regionSvr.js"
   ],
-  "deletedFilesIos": [],
+  "deletedFilesIos": [
+    "www\\app\\util\\sex.html",
+    "www\\app\\util\\sexCtrl.js",
+    "www\\app\\util\\regionSvr.js"
+  ],
   "addedPluginsIos": [
     "org.apache.cordova.camera@0.3.6",
     "org.apache.cordova.device@0.3.0",
@@ -385,8 +400,28 @@
     "cn.jpush.phonegap.JPushPlugin@2.0.2"
   ],
   "deletedPluginsIos": [],
-  "changedFiles": [],
-  "deletedFiles": [],
+  "changedFiles": [
+    "plugins\\android.json",
+    "www\\app\\customer\\order\\orderMake.html",
+    "www\\app\\customer\\order\\orderMakeCtrl.js",
+    "www\\app\\customer\\auto\\autoList.html",
+    "www\\app\\customer\\auto\\autoListCtrl.js",
+    "www\\app.js",
+    "www\\index.html",
+    "www\\app\\customer\\order\\washtype.html",
+    "www\\app\\customer\\order\\washtypeSvr.js",
+    "www\\app\\customer\\order\\washtypeCtrl.js",
+    "plugins\\remote_ios.json",
+    "www\\app\\customer\\auto\\autoSvr.js",
+    "www\\app\\util\\regionsvr.js",
+    "www\\app\\common\\regionSvr.js",
+    "www\\app\\util\\appConfig.js"
+  ],
+  "deletedFiles": [
+    "www\\app\\util\\sex.html",
+    "www\\app\\util\\sexCtrl.js",
+    "www\\app\\util\\regionSvr.js"
+  ],
   "addedPlugins": [],
   "deletedPlugins": []
 }

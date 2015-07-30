@@ -79,6 +79,12 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/auto/autoMgr.html',
             controller: 'customerAutoMgrCtrl'
         })
+        /*车主-我要洗车-车辆选择*/
+        .state('customerAutoList', {
+            url: '/customerAutoList',
+            templateUrl: 'app/customer/auto/autoList.html',
+            controller: 'customerAutoListCtrl'
+        })
         /*车主-我的点趣-信息编辑*/
         .state('customerMemberInfoEdit', {
             url: '/customerMemberInfoEdit',
@@ -90,6 +96,18 @@ angular.module('udqApp', ['ionic'])
             url: '/customerOrderEvaluate',
             templateUrl: 'app/customer/order/orderEvaluate.html',
             controller: 'customerOrderEvaluateCtrl'
+        })
+        /*车主-我要洗车*/
+        .state('customerOrderMake',{
+            url:'/customerOrderMake',
+            templateUrl:'app/customer/order/orderMake.html',
+            controller:'customerOrderMakeCtrl'
+        })
+        /*车主-我要洗车-洗车类型*/
+        .state('customerWashtype', {
+            url: '/customerWashtype',
+            templateUrl: 'app/customer/order/washtype.html',
+            controller: 'customerWashtypeCtrl'
         })
         /*车主-注册*/
         .state('customerRegister', {
@@ -109,12 +127,12 @@ angular.module('udqApp', ['ionic'])
             templateUrl:'app/employee/order/orderToBeConfirmed.html',
             controller: 'employeeOrderToBeConfirmedCtrl'
         })
-/*        .state('',{
-            url:'',
-            templateUrl:'',
-            controller:''
+       .state('sex',{
+            url:'/sex',
+            templateUrl:'app/util/sex.html',
+            controller:'sexCtrl'
         })
-        .state('',{
+	    /*        .state('',{
             url:'',
             templateUrl:'',
             controller:''
@@ -125,7 +143,7 @@ angular.module('udqApp', ['ionic'])
 	    var y = APP_CONFIG;
 	    var surl = APP_CONFIG.server.address;
 
-	    $urlRouterProvider.otherwise('/customerHome');
+	    $urlRouterProvider.otherwise('/customerOrderMake');
 
         /*test*/
 
