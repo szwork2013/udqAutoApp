@@ -8,15 +8,15 @@ angular.module('udqApp')
 		return{
 			/*注册服务*/
 			getRegion:function(){
-			    var s = doRequest();
+			    var s = doRequest(); 
 				return s;
 			},
-			setCities:function(citiesArray){
-				cities = citiesArray;
-			},
-			getCities:function(){
-				return cities;
-			},
+			//setCities:function(citiesArray){
+			//	cities = citiesArray;
+			//},
+			//getCities:function(){
+			//	return cities;
+			//},
 			/*将获取的数据转化成我想要的数据形式*/
 			getCitiesFromData:function(data) {
 				var tempCities = [];
