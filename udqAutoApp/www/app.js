@@ -19,10 +19,8 @@
 4.1 APP界面一般都没有超链接，用按钮来操作。
 */
 
-
-
 angular.module('udqApp', ['ionic'])
-    .run(function ($ionicPlatform) {
+    .run(['$ionicPlatform', '$rootScope', function ($ionicPlatform, $rootScope) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -34,31 +32,33 @@ angular.module('udqApp', ['ionic'])
                 StatusBar.styleDefault();
             }
 
-            jPush.init(notificationCallback);
-            jPush.setAlias("123");
+            var notifyCallBack = function (event,notice) {
+                var test = 100;
+            };
 
-            window.plugins.jPushPlugin.init();
-            windows.plugins.jPushPlugin.setDebugMode(true);
+            var success = function (data) {
+                data = {
+                    deviceType: 'ios', deviceToken:'123'
+                };
+            }
 
+            var error = function (data) {
+                data = {
+                    deviceType: 'ios', installationId:'1234',deviceToken: '123'
+                };
+            }
+
+            window.LeanPush.init();
+
+            window.LeanPush.getInstallation(success, error);
+
+            //$rootScope.on('leancloud:notificationReceived', notifyCallBack);
+
+            window.LeanPush.onNotificationReceived(notifyCallBack);
         });
 
-        var notificationCallback = function (data) {
-            console.log('received data :' + data);
-            var notification = angular.fromJson(data);
-            //app 是否处于正在运行状态
-            var isActive = notification.notification;
 
-            // here add your code
-            //ios
-            if (ionic.Platform.isIOS()) {
-                window.alert(notification);
-
-            } else {
-                //非 ios(android)
-            }
-        };
-
-    })
+    }])
 	.config(['$stateProvider', '$urlRouterProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, APP_CONFIG) {
 	    $stateProvider
         /*登录*/
@@ -152,7 +152,7 @@ angular.module('udqApp', ['ionic'])
             controller: 'employeeOrderToBeConfirmedCtrl'
         })
 
-	    /*        .state('',{
+	    /*.state('',{
             url:'',
             templateUrl:'',
             controller:''
@@ -160,8 +160,8 @@ angular.module('udqApp', ['ionic'])
         ;
 
 	    //console.log(appConfigProvider);
-	    var y = APP_CONFIG;
-	    var surl = APP_CONFIG.server.address;
+	    //var y = APP_CONFIG;
+	    //var surl = APP_CONFIG.server.address;
 
 	    $urlRouterProvider.otherwise('/login');
 
