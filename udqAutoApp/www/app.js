@@ -139,7 +139,7 @@ angular.module('udqApp', ['ionic'])
 	    var y = APP_CONFIG;
 	    var surl = APP_CONFIG.server.address;
 
-	    $urlRouterProvider.otherwise('/customerOrderMake');
+	    $urlRouterProvider.otherwise('/login');
 
         /*test*/
 

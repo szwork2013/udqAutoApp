@@ -1,24 +1,28 @@
 ﻿angular.module('udqApp')
 
-	.service('loginSvr', ['$http','$timeout','APP_CONFIG', function($http,$timeout,APP_CONFIG){
+	.service('loginSvr', ['$http', '$timeout', '$q', 'APP_CONFIG', function ($http, $timeout, $q, APP_CONFIG) {
+	    var baseUrl = APP_CONFIG.server.getUrl();
+	    
+	    this.loginCheck = function (user) {
+	        var url = baseUrl + 'fzmgr/login4App/login4App.do?userInfo=';
 
-	    var doRequest = function (userName, password) {
-            
-	        //return $http.post(APP_CONFIG.server.getUrl() + 'fzmgr/login4App/login4App.do', 
-            //    {
-	        //    'username': userName,
-	        //    'password': hex_md5(password)
-	        //    }
-	        //);
-	        return $http.post(APP_CONFIG.server.getUrl() + 'fzmgr/login4App/login4App.do?username=' + userName + '&password=' + hex_md5(password));
+	        var data = {
+	            username: user.userName,
+	            psd: hex_md5(user.password)
+	        };
+	        var userJS = JSON.stringify(data);
 
-		}
+	        var deferred = $q.defer();
 
-		return {
-		    loginCheck: function (userName, password) {
-		        var s = doRequest(userName, password);
-		        return s;
-		    }
-		}
+	        $http.post(url, userJS).success(
+                function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(
+                function (data, status, headers, config) {
+                    deferred.reject("登录失败");
+                });
+	        return deferred.promise;
+
+	    }
 	}])
     

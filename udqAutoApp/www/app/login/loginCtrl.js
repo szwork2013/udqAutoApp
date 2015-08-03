@@ -8,18 +8,18 @@ angular.module('udqApp')
         
         $scope.user = {
             userName : '',
-            password : ''
+            password: ''
         };
 
         $scope.login = function () {
-            loginSvr.loginCheck($scope.user.userName, $scope.user.password).then(function (data, status, headers, config) {
+            loginSvr.loginCheck($scope.user).then(function (data) {
                 //判断是否获取到数据
-                if (data.data.data == undefined) {
+                if (data.isSuccess == false) {
                     //弹出提示框：data.data.msg
-                    showAlert(data.data.msg);
+                    showAlert(data.msg);
                     return;
                 }
-                var userType = checkUserType(data.data.data.userType);
+                var userType = checkUserType(data.data.userType);
                 if (userType == 1)
                 {
                     //返回上一个页面
@@ -34,8 +34,8 @@ angular.module('udqApp')
                 }else{
                     //其他用户类型登录，暂时不管
                 }
-            }, function (data, status, headers, config) {
-                showAlert(data.data.msg);
+            }, function (data) {
+                showAlert(data);
             });
         }
         var checkUserType = function (userType) {
