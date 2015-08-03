@@ -1,6 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget defaultlocale="zh-CN" id="io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
+<widget defaultlocale="zh-CN" id="com.udianqu.auto" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
     <preference name="loglevel" value="DEBUG" />
+    <feature name="LeanPush">
+        <param name="android-package" value="me.xyzhang.cordova.leanpush.LeanPush" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="LeanAnalytics">
+        <param name="android-package" value="me.xyzhang.cordova.leanpush.LeanAnalytics" />
+    </feature>
+    <preference name="leancloud-appid" value="ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn" />
+    <preference name="leancloud-appkey" value="sdsezrx9i15zuhpxdja5cc70iebl07uks52kmvg9b048amd1" />
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
@@ -14,9 +23,6 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="JPushPlugin">
-        <param name="android-package" value="cn.jpush.phonegap.JPushPlugin" />
-    </feature>
     <icon density="ldpi" src="res/icons/android/icon-36-ldpi.png" />
     <icon density="mdpi" src="res/icons/android/icon-48-mdpi.png" />
     <icon density="hdpi" src="res/icons/android/icon-72-hdpi.png" />
@@ -29,7 +35,7 @@
     <splash density="port-ldpi" src="res/screens/android/screen-ldpi-portrait.png" />
     <splash density="port-mdpi" src="res/screens/android/screen-mdpi-portrait.png" />
     <splash density="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
-    <name>udqAutoApp</name>
+    <name>点趣洗车</name>
     <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">Apache Cordova Team </author>
     <content src="index.html" />
@@ -44,5 +50,8 @@
     <vs:plugin name="org.apache.cordova.contacts" version="" />
     <preference name="android-minSdkVersion" value="19" />
     <vs:plugin name="com.msopentech.websql" version="0.0.9" />
-    <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
+    <vs:plugin name="cordova-plugin-leanpush" src="D:\udqauto\plugins\cordova-plugin-leanpush-master" version="0.3.0">
+        <param name="LEAN_APP_ID" value="ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn" />
+        <param name="LEAN_APP_KEY" value="sdsezrx9i15zuhpxdja5cc70iebl07uks52kmvg9b048amd1" />
+    </vs:plugin>
 </widget>

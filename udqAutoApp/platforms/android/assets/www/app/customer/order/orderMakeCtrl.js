@@ -1,5 +1,5 @@
 angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$state', 'customerWashtypeSvr', 'customerOrderMakeSvr', function ($scope, $state, customerWashtypeSvr, customerOrderMakeSvr) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$state','$ionicHistory', 'customerWashtypeSvr', 'customerOrderMakeSvr', function ($scope, $state,$ionicHistory, customerWashtypeSvr, customerOrderMakeSvr) {
         $scope.order = {
             washTypeId: '',
             userId:'',
@@ -30,6 +30,7 @@ angular.module('udqApp')
 		}
 
 		$scope.defaultWashType = {};
+		$scope.myAuto = {};
 
 		$scope.updateDefaultWashType = function () {
 		    customerWashtypeSvr.callWashType().then(
@@ -44,4 +45,7 @@ angular.module('udqApp')
 
 		$scope.updateDefaultWashType();
 
+		$scope.goBack = function () {
+		    $ionicHistory.goBack();
+		}
 	}])

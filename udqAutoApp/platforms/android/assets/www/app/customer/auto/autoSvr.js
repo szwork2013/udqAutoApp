@@ -3,12 +3,21 @@
         var baseUrl = APP_CONFIG.server.getUrl();
         /*添加车辆*/
         this.addAutoItem=function(autoInfo){
+            //var data = {
+            //    pn: autoInfo.pn,
+            //    brand: autoInfo.brand,
+            //    color: autoInfo.color,
+            //    userId: 2,
+            //    model: autoInfo.model,
+            //    id: 0,
+            //    defaultRegionId: 4
+            //};
             var data = {
-                pn: autoInfo.pn,
-                brand: autoInfo.brand,
-                color: autoInfo.color,
+                pn: '川A232s2',
+                brand: '奥迪',
+                color: '红色',
                 userId: 2,
-                model: autoInfo.model,
+                model: 'SUV',
                 id: 0,
                 defaultRegionId: 4
             };
@@ -16,10 +25,10 @@
             var autoInfoJS = JSON.stringify(data);
             var url = baseUrl + 'fzmgr/auto/saveAuto4App.do?autoInfo=';
 
-            var deferred = $q.defer();
+            var deferred = $q.defer(); 
             $http.post(url, autoInfoJS).success(
                 function (data, status, headers, config) {
-                    deferred.resolve(data);
+                    deferred.resolve(data); 
                 }).error(
                 function (data, status, headers, config) {
                     deferred.reject("添加失败");

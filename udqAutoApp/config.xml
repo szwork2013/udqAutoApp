@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myappdea06ffbd8e54217914778d3b60ea3bb" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="zh-CN">
-  <name>udqAutoApp</name>
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.udianqu.auto" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="zh-CN">
+  <name>点趣洗车</name>
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
   <content src="index.html" />
@@ -96,5 +96,8 @@
   <vs:plugin name="org.apache.cordova.contacts" version="" />
   <preference name="android-minSdkVersion" value="19" />
   <vs:plugin name="com.msopentech.websql" version="0.0.9" />
-  <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
+  <vs:plugin name="cordova-plugin-leanpush" version="0.3.0" src="D:\udqauto\plugins\cordova-plugin-leanpush-master">
+    <param name="LEAN_APP_ID" value="ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn" />
+    <param name="LEAN_APP_KEY" value="sdsezrx9i15zuhpxdja5cc70iebl07uks52kmvg9b048amd1" />
+  </vs:plugin>
 </widget>

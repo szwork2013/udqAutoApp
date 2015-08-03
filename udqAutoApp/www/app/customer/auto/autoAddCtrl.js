@@ -14,7 +14,13 @@ angular.module('udqApp')
 		$scope.addAuto = function(){
 			/*1、检查车牌号、车品牌、颜色、型号、是否选择小区
 		      2、调用数据数据服务，添加车辆*/
-		    autoSvr.addAutoItem($scope.autoInfo);
+		    var promise = autoSvr.addAutoItem($scope.autoInfo);
+		    promise.then(
+                function (data) {
+                    console.log(data);
+                }, function (data) {
+                    console.log(data);
+                });
 		};
 		/*选择城市后自动联动区域*/
 		$scope.cityToRegion = function(mycity) {
@@ -41,10 +47,8 @@ angular.module('udqApp')
                 alert(data);
             });
 
-		/*跳过到主页面*/
-		$scope.skipToHome = function(){
-			$ionicHistory.clearHistory();
-			$state.go('customerHome');
+		$scope.goBack = function(){
+		    $ionicHistory.goBack();
 		};
 
 	}])

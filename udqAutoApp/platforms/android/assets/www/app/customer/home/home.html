@@ -5,52 +5,40 @@
     </div>
 
     <ion-content padding="true" scroll="false" class="has-header">
-        <ion-tabs class="tabs-stable tabs-icon-top">
-            <ion-tab title="点趣" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" class="active">
-                <ion-content padding="true" class="has-header">
-                    <!-- 图片轮播 -->
-                    <ion-slide-box>
-                        <ion-slide>
-                            <div style="line-height:200px;border:1px solid rgb(238,238,238);border-radius:3px;text-align:center;width:100%;height:auto;background-color:rgb(255,255,255);">
-                                <a href="#">
-                                    <i class="icon ion-image" style="font-size:64px;color:rgb(136,136,136);vertical-align：middle;"></i>
-                                </a>
-                            </div>
-                        </ion-slide>
-                        <ion-slide>
-                            <div style="line-height:200px;border:1px solid rgb(238,238,238);border-radius:3px;text-align:center;width:100%;height:auto;background-color:rgb(255,255,255);">
-                                <a href="#">
-                                    <i class="icon ion-image" style="font-size:64px;color:rgb(136,136,136);vertical-align：middle;"></i>
-                                </a>
-                            </div>
-                        </ion-slide>
-                    </ion-slide-box>
+        <!-- 图片轮播 -->
+        <ion-slide-box>
+            <ion-slide>
+                <div style="line-height:200px;border:1px solid rgb(238,238,238);border-radius:3px;text-align:center;width:100%;height:auto;background-color:rgb(255,255,255);">
+                    <a href="#">
+                        <i class="icon ion-image" style="font-size:64px;color:rgb(136,136,136);vertical-align：middle;"></i>
+                    </a>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div style="line-height:200px;border:1px solid rgb(238,238,238);border-radius:3px;text-align:center;width:100%;height:auto;background-color:rgb(255,255,255);">
+                    <a href="#">
+                        <i class="icon ion-image" style="font-size:64px;color:rgb(136,136,136);vertical-align：middle;"></i>
+                    </a>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
 
-                    <div class="spacer" style="width:300px;height:30px;"></div>
-                    <!-- 两排按钮 -->
-                    <div class="button-bar">
-                        <button class="button button-positive button-block">我要洗车</button>
-                        <button class="button button-positive button-block" ng-click="goToMyOrder()">我的订单</button>
-                    </div>
-                    <div class="button-bar">
-                        <button class="button button-positive button-block">服务介绍</button>
-                        <button class="button button-positive button-block" ng-click="goToMyDQ()">我的点趣</button>
-                    </div>
-
-                </ion-content>
-            </ion-tab>
-            <ion-tab title="我的" icon-on="ion-ios-heart" icon-off="ion-ios-heart-outline">
-                <ion-content padding="true">
-                    <!--                  -->
-                </ion-content>
-            </ion-tab>
-
-            <ion-tab title="关于" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
-                <ion-content padding="true">
-                    <!--   -->
-                </ion-content>
-            </ion-tab>
-        </ion-tabs>    
+        <div class="spacer" style="height:25px;"></div>
+        <!-- 两排按钮 -->
+        <div >
+            &nbsp&nbsp&nbsp&nbsp
+            <a class="button button-circle" ng-click="goToBookWash()">洗车</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a class="button button-circle" ng-click="goToMyOrder()">订单</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a class="button button-circle" ng-click="goToMyOrder()">车辆</a>
+        </div>
+        <div class="spacer" style="height:10px;"></div>
+        <div>
+            &nbsp&nbsp&nbsp&nbsp
+            <a class="button button-circle">优惠券</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a class="button button-circle">服务</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a class="button button-circle"ng-click="goToMyDQ()">我的</a>
+        </div>
+ 
     </ion-content>
 </ion-view>
     

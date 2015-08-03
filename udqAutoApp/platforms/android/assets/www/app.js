@@ -19,10 +19,8 @@
 4.1 APP界面一般都没有超链接，用按钮来操作。
 */
 
-
-
 angular.module('udqApp', ['ionic'])
-    .run(function ($ionicPlatform) {
+    .run(['$ionicPlatform', '$rootScope', function ($ionicPlatform, $rootScope) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -33,9 +31,36 @@ angular.module('udqApp', ['ionic'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+            var notifyCallBack = function (event,notice) {
+                var test = 100;
+            };
+
+            var success = function (data) {
+                data = {
+                    deviceType: 'ios', deviceToken:'123'
+                };
+            }
+
+            var error = function (data) {
+                data = {
+                    deviceType: 'ios', installationId:'1234',deviceToken: '123'
+                };
+            }
+
+            window.LeanPush.init();
+
+            window.LeanPush.getInstallation(success, error);
+
+            //$rootScope.on('leancloud:notificationReceived', notifyCallBack);
+
+            window.LeanPush.onNotificationReceived(notifyCallBack);
         });
-    })
-	.config(['$stateProvider', '$urlRouterProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, APP_CONFIG) {
+
+
+    }])
+	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, $httpProvider,APP_CONFIG) {
+
 	    $stateProvider
         /*登录*/
         .state('login', {
@@ -65,12 +90,6 @@ angular.module('udqApp', ['ionic'])
         .state('customerAutoAdd', {
             url: '/customerAutoAdd',
             templateUrl: 'app/customer/auto/autoAdd.html',
-            controller: 'customerAutoAddCtrl'
-        })
-        /*车主-车辆管理-添加车辆(登录添加)*/
-        .state('customerAutoAdd1', {
-            url: '/customerAutoAdd1',
-            templateUrl: 'app/customer/auto/autoAdd1.html',
             controller: 'customerAutoAddCtrl'
         })
         /*车主-车辆管理*/
@@ -128,21 +147,61 @@ angular.module('udqApp', ['ionic'])
             controller: 'employeeOrderToBeConfirmedCtrl'
         })
 
-	    /*        .state('',{
+	    /*.state('',{
             url:'',
             templateUrl:'',
             controller:''
         })*/
         ;
 
-	    //console.log(appConfigProvider);
-	    var y = APP_CONFIG;
-	    var surl = APP_CONFIG.server.address;
+	    $urlRouterProvider.otherwise('/customerHome');
 
-	    $urlRouterProvider.otherwise('/login');
-
-        /*test*/
-
+	    /*test*/
+	    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+	    // Override $http service's default transformRequest
+	    //$httpProvider.defaults.transformRequest = [function(data) {
+	    //    /**
+        //     * The workhorse; converts an object to x-www-form-urlencoded serialization.
+        //     * @param {Object} obj
+        //     * @return {String}
+        //     */
+	    //    var param = function(obj) {
+	    //        var query = '';
+	    //        var name, value, fullSubName, subName, subValue, innerObj, i;
+ 
+	    //        for (name in obj) {
+	    //            value = obj[name];
+ 
+	    //            if (value instanceof Array) {
+	    //                for (i = 0; i < value.length; ++i) {
+	    //                    subValue = value[i];
+	    //                    fullSubName = name + '[' + i + ']';
+	    //                    innerObj = {};
+	    //                    innerObj[fullSubName] = subValue;
+	    //                    query += param(innerObj) + '&';
+	    //                }
+	    //            } else if (value instanceof Object) {
+	    //                for (subName in value) {
+	    //                    subValue = value[subName];
+	    //                    fullSubName = name + '[' + subName + ']';
+	    //                    innerObj = {};
+	    //                    innerObj[fullSubName] = subValue;
+	    //                    query += param(innerObj) + '&';
+	    //                }
+	    //            } else if (value !== undefined && value !== null) {
+	    //                query += encodeURIComponent(name) + '='
+        //                        + encodeURIComponent(value) + '&';
+	    //            }
+	    //        }
+ 
+	    //        return query.length ? query.substr(0, query.length - 1) : query;
+	    //    };
+ 
+	    //    return angular.isObject(data) && String(data) !== '[object File]'
+        //            ? param(data)
+        //            : data;
+	    //}];
+	
 	}])
 
 

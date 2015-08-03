@@ -1,8 +1,8 @@
 <ion-view view-title="洗车预约">
 	<ion-nav-bar class="bar-stable" align-title="center">
-		<ion-nav-back-button class="button-clear">
-            <i class="ion-arrow-left-c"></i>back
-		</ion-nav-back-button>
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </ion-nav-buttons>
 	</ion-nav-bar>
 	<ion-content has-subheader="false">
 		<!-- 选择洗车类型 -->
@@ -23,7 +23,7 @@
 
             <a class="item item-icon-left  item-icon-right" ng-click="goToAutoList()">
                 <i class="icon ion-settings"></i>
-                {{myAuto.pn}}
+                    选择车辆
                 <i class="icon ion-chevron-right"></i>
             </a>
 

@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerWashtypeCtrl', ['$scope', 'customerWashtypeSvr', function ($scope, customerWashtypeSvr) {
+	.controller('customerWashtypeCtrl', ['$scope','$ionicHistory','customerWashtypeSvr', function ($scope, $ionicHistory,customerWashtypeSvr) {
 	    $scope.types = [];
 
 	    $scope.updateWashTypes = function(){
@@ -14,4 +14,8 @@ angular.module('udqApp')
 	    	);
 	    }
 	    $scope.updateWashTypes();
+
+	    $scope.goBack = function () {
+	        $ionicHistory.goBack();
+	    }
 	}])
