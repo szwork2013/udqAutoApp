@@ -32,29 +32,7 @@ angular.module('udqApp', ['ionic'])
                 StatusBar.styleDefault();
             }
 
-            var notifyCallBack = function (event,notice) {
-                var test = 100;
-            };
 
-            var success = function (data) {
-                data = {
-                    deviceType: 'ios', deviceToken:'123'
-                };
-            }
-
-            var error = function (data) {
-                data = {
-                    deviceType: 'ios', installationId:'1234',deviceToken: '123'
-                };
-            }
-
-            window.LeanPush.init();
-
-            window.LeanPush.getInstallation(success, error);
-
-            //$rootScope.on('leancloud:notificationReceived', notifyCallBack);
-
-            window.LeanPush.onNotificationReceived(notifyCallBack);
         });
 
 
@@ -157,7 +135,8 @@ angular.module('udqApp', ['ionic'])
 	    $urlRouterProvider.otherwise('/customerHome');
 
 	    /*test*/
-	    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+	    //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 	    // Override $http service's default transformRequest
 	    //$httpProvider.defaults.transformRequest = [function(data) {
 	    //    /**

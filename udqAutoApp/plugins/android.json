@@ -9,14 +9,6 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"LeanPush\"><param name=\"android-package\" value=\"me.xyzhang.cordova.leanpush.LeanPush\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"LeanAnalytics\"><param name=\"android-package\" value=\"me.xyzhang.cordova.leanpush.LeanAnalytics\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<preference name=\"leancloud-appid\" value=\"ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn\" />",
                             "count": 1
                         },
@@ -45,46 +37,8 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/manifest": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.READ_LOGS\" />",
-                            "count": 1
-                        }
-                    ],
-                    "/manifest/application": [
-                        {
-                            "xml": "<receiver android:name=\"com.avos.avoscloud.AVBroadcastReceiver\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /><action android:name=\"android.intent.action.USER_PRESENT\" /></intent-filter></receiver>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:name=\"com.avos.avoscloud.PushService\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<meta-data android:name=\"leancloud\" android:value=\"LeanCloud\" />",
-                            "count": 1
-                        }
-                    ],
+                    "/manifest": [],
+                    "/manifest/application": [],
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
@@ -109,11 +63,6 @@
     },
     "installed_plugins": {
         "com.msopentech.websql": {
-            "PACKAGE_NAME": "com.udianqu.auto"
-        },
-        "cordova-plugin-leanpush": {
-            "LEAN_APP_ID": "ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn",
-            "LEAN_APP_KEY": "sdsezrx9i15zuhpxdja5cc70iebl07uks52kmvg9b048amd1",
             "PACKAGE_NAME": "com.udianqu.auto"
         },
         "org.apache.cordova.camera": {
