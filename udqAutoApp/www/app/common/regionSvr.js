@@ -1,28 +1,24 @@
 angular.module('udqApp')
 	.service('regionSvr',['$http','$q','APP_CONFIG',function($http,$q,APP_CONFIG){
-	    var cities = [];
-	    var _districts = [];
+		var cities = [];
 		var doRequest = function(){
 		    var url = APP_CONFIG.server.getUrl() + 'fzmgr/region/getRegion4App.do';
 			return $http.post(url);
 		};
-		
+		return{
 			/*注册服务*/
-			this.getRegion=function(){
+			getRegion:function(){
 			    var s = doRequest(); 
 				return s;
-			}
-			this.setCities=function(citiesArray){
-				cities = citiesArray;
-			}
-			this.getCities=function(){
-				return cities;
-			}
-			this.getDistricts=function(){
-			    return _districts;
-			}
+			},
+			//setCities:function(citiesArray){
+			//	cities = citiesArray;
+			//},
+			//getCities:function(){
+			//	return cities;
+			//},
 			/*将获取的数据转化成我想要的数据形式*/
-			this.getCitiesFromData=function(data) {
+			getCitiesFromData:function(data) {
 				var tempCities = [];
 				if (data.data==undefined) {
 					return tempCities;
@@ -55,10 +51,8 @@ angular.module('udqApp')
 							district.id = regionObj[i].children[j].children[c].id;
 
 							districts.push(district);
-							_districts.push(district);
 						}
 						region.districts = districts;
-						
 						/*将区域添加到区域s里面*/
 						regions.push(region);
 					}
@@ -71,4 +65,5 @@ angular.module('udqApp')
 
             }
 
+		}
 	}])

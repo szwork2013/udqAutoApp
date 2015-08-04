@@ -1,22 +1,23 @@
 <ion-view view-title="洗车类型">
 	<ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfWashType()"></button>
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
         </ion-nav-buttons>
 	</ion-nav-bar>
 	<ion-content has-subheader="false">
+		<div class="list" ng-repeat="type in types">
 
-        <ul class="list"  ng-repeat="type in types">
-            <li class="item item-checkbox">
-                <label class="checkbox">
-                    <input type="checkbox" ng-click="selectwashTypes($event,type)"/>
-                </label>
-                <div class="item-content">
-                    <h2>{{type.name}}</h2><br />
-                    <p>服务内容：{{type.note}}</p><br />
-                    <p>价格：￥{{type.amount}}</p><br />
-                </div>
-            </li>
-        </ul>
+  			<label class="item item-radio">
+    			<input type="radio" name="group">
+    			<div class="item-content">
+      				<h2>{{type.name}}</h2><br/>
+					<p>服务内容：{{type.note}}</p><br/>
+					<p>价格：￥{{type.amount}}</p><br/>
+    			</div>
+    			<i class="radio-icon ion-checkmark"></i>
+  			</label>
+
+
+		</div>
 	</ion-content>
 </ion-view>

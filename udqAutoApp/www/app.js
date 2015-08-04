@@ -102,7 +102,7 @@ angular.module('udqApp', ['ionic'])
         .state('customerAutoList', {
             url: '/customerAutoList',
             templateUrl: 'app/customer/auto/autoList.html',
-            controller: 'customerOrderMakeCtrl'
+            controller: 'customerAutoListCtrl'
         })
         /*车主-我的点趣-信息编辑*/
         .state('customerMemberInfoEdit', {
@@ -126,7 +126,7 @@ angular.module('udqApp', ['ionic'])
         .state('customerWashtype', {
             url: '/customerWashtype',
             templateUrl: 'app/customer/order/washtype.html',
-            controller: 'customerOrderMakeCtrl'
+            controller: 'customerWashtypeCtrl'
         })
         /*车主-注册*/
         .state('customerRegister', {
@@ -146,18 +146,7 @@ angular.module('udqApp', ['ionic'])
             templateUrl:'app/employee/order/orderToBeConfirmed.html',
             controller: 'employeeOrderToBeConfirmedCtrl'
         })
-        /*我要洗车-选择小区-选择小区*/
-        .state('customerRegionSelect', {
-            url: '/customerRegionSelect',
-            templateUrl: 'app/customer/order/regionSelect.html',
-            controller: 'customerOrderMakeCtrl'
-        })
-        /*我要洗车-选择时间-预约时间*/
-        .state('customerOrderTime', {
-            url: '/customerOrderTime',
-            templateUrl: 'app/customer/order/orderTime.html',
-            controller: 'customerOrderMakeCtrl'
-        })
+
 	    /*.state('',{
             url:'',
             templateUrl:'',
@@ -169,7 +158,49 @@ angular.module('udqApp', ['ionic'])
 
 	    /*test*/
 	    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-	     
+	    // Override $http service's default transformRequest
+	    //$httpProvider.defaults.transformRequest = [function(data) {
+	    //    /**
+        //     * The workhorse; converts an object to x-www-form-urlencoded serialization.
+        //     * @param {Object} obj
+        //     * @return {String}
+        //     */
+	    //    var param = function(obj) {
+	    //        var query = '';
+	    //        var name, value, fullSubName, subName, subValue, innerObj, i;
+ 
+	    //        for (name in obj) {
+	    //            value = obj[name];
+ 
+	    //            if (value instanceof Array) {
+	    //                for (i = 0; i < value.length; ++i) {
+	    //                    subValue = value[i];
+	    //                    fullSubName = name + '[' + i + ']';
+	    //                    innerObj = {};
+	    //                    innerObj[fullSubName] = subValue;
+	    //                    query += param(innerObj) + '&';
+	    //                }
+	    //            } else if (value instanceof Object) {
+	    //                for (subName in value) {
+	    //                    subValue = value[subName];
+	    //                    fullSubName = name + '[' + subName + ']';
+	    //                    innerObj = {};
+	    //                    innerObj[fullSubName] = subValue;
+	    //                    query += param(innerObj) + '&';
+	    //                }
+	    //            } else if (value !== undefined && value !== null) {
+	    //                query += encodeURIComponent(name) + '='
+        //                        + encodeURIComponent(value) + '&';
+	    //            }
+	    //        }
+ 
+	    //        return query.length ? query.substr(0, query.length - 1) : query;
+	    //    };
+ 
+	    //    return angular.isObject(data) && String(data) !== '[object File]'
+        //            ? param(data)
+        //            : data;
+	    //}];
 	
 	}])
 

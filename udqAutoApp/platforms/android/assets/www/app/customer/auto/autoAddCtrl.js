@@ -41,7 +41,6 @@ angular.module('udqApp')
 		promise.then(
             function (data) {
                 var cities = regionSvr.getCitiesFromData(data);
-                regionSvr.setCities(cities);
                 $scope.cities = cities;
             },
             function (data) {
