@@ -36,16 +36,5 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "cordova-plugin-leanpush": {
-        "source": {
-            "type": "local",
-            "path": "D:\\udqauto\\plugins\\cordova-plugin-leanpush-master"
-        },
-        "is_top_level": true,
-        "variables": {
-            "LEAN_APP_ID": "ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn",
-            "LEAN_APP_KEY": "sdsezrx9i15zuhpxdja5cc70iebl07uks52kmvg9b048amd1"
-        }
     }
 }

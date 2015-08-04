@@ -1,0 +1,36 @@
+<ion-view title="我的订单">
+    <div>
+        <div>
+            <ion-nav-bar class="bar-stable">
+                <ion-nav-back-button class="button-clear">
+                    <i class="ion-arrow-left-c"></i>back
+                </ion-nav-back-button>
+            </ion-nav-bar>
+        </div>
+    </div>
+    <!--订单展示-->
+
+        <div class="tabs-striped tabs-top ">
+            <div class="tabs">
+                <a class="tab-item active" href="#">进行中</a>
+                <a class="tab-item" href="#">已完成</a>
+            </div>
+        </div>
+    <ion-tabs class="tabs-top">
+        <ion-tab title="进行中" href="#">
+            <ion-nav-view name="tab-dash"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="已完成" href="#">
+            <ion-nav-view name="tab-dash"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+
+</ion-view>
+<script id="templates/tab-dash.html" type="text/ng-template">
+    <ion-view title="Dashboard">
+        <ion-content padding="true">
+            <p>Example of Ionic tabs. Navigate to each tab, and navigate to child views of each tab and notice how each tab has its own navigation history.</p>
+        </ion-content>
+    </ion-view>
+</script>

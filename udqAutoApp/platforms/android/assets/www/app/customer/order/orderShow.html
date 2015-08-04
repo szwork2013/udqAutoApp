@@ -1,0 +1,24 @@
+<ion-popover-view style="width:350px;">
+    <ion-header-bar>
+         <h1 class="title">订单信息</h1>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list ng-controller="ownerOrderCtrl">
+            <ion-item>
+                订单编号：{{tempOrderItem.id}}
+            </ion-item>
+            <ion-item>
+                车牌号：{{tempOrderItem.pn}}
+            </ion-item>
+            <ion-item>
+                品牌：{{tempOrderItem.brand}}
+            </ion-item>
+            <ion-item>
+                预订时间：{{tempOrderItem.time}}
+            </ion-item>
+            <ion-item>
+                洗车店：{{tempOrderItem.washer}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-popover-view>

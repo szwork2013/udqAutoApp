@@ -96,8 +96,4 @@
   <vs:plugin name="org.apache.cordova.contacts" version="" />
   <preference name="android-minSdkVersion" value="19" />
   <vs:plugin name="com.msopentech.websql" version="0.0.9" />
-  <vs:plugin name="cordova-plugin-leanpush" version="0.3.0" src="D:\udqauto\plugins\cordova-plugin-leanpush-master">
-    <param name="LEAN_APP_ID" value="ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn" />
-    <param name="LEAN_APP_KEY" value="sdsezrx9i15zuhpxdja5cc70iebl07uks52kmvg9b048amd1" />
-  </vs:plugin>
 </widget>
