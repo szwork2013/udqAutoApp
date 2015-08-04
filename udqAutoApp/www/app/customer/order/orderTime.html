@@ -1,0 +1,25 @@
+﻿<ion-view view-title="预约时间">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-list>
+            <label class="item item-input item-select">
+                <div class="input-label">请选择日期：</div>
+                <select ng-model="date">
+                    <option value="">请选择</option>
+                    <option value="">今天</option>
+                    <option value="">明天</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">请选择时间：</div>
+                <select ng-model="timeSpot" ng-options="spot for spot in timeSpots">
+                    <option value="">请选择</option>
+                </select>
+            </label>
+        </ion-list>
+    </ion-content>
+</ion-view>

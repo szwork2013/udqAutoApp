@@ -1,6 +1,7 @@
 angular.module('udqApp')
 	.controller('customerAutoListCtrl', ['$scope', '$window', '$state','$ionicHistory', 'autoSvr', function ($scope, $window,$state,$ionicHistory, autoSvr) {
 	    $scope.autoInfo = [];
+        
 	    var promise = autoSvr.getAuto(2);
 	    promise.then(
             function (data) {
@@ -14,6 +15,8 @@ angular.module('udqApp')
 	        $state.go('customerAutoAdd');
 	    }
 	    $scope.goBack = function () {
+	        $state.go();
 	        $ionicHistory.goBack();
 	    }
+
 	}])
