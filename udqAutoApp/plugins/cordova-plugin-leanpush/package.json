@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/BenBBear/cordova-plugin-leanpush/issues"
   },
-  "homepage": "https://github.com/BenBBear/cordova-plugin-leanpush"
+  "homepage": "https://github.com/BenBBear/cordova-plugin-leanpush",
+  "devDependencies": {
+    "xml2js": "^0.4.9"
+  }
 }

@@ -21,8 +21,8 @@
       <feature name="LeanAnalytics">
         <param name="ios-package" value="CDVLeanAnalytics"/>
       </feature>
-      <preference name="leancloud-appid" value="$LEAN_APP_ID"/>
-      <preference name="leancloud-appkey" value="$LEAN_APP_KEY"/>
+      <preference name="leancloud-appid" value="so0w0vlsvdiwznl3kjeo5uha9eqxhixat1k1eik4bj2jv3tx"/>
+      <preference name="leancloud-appkey" value="a4sg6h1gqyfwxj91m6i93amk07i50qgsuqebo0jc4cs01d8u"/>
     </config-file>
 
     <!-- Plugin source code -->
@@ -56,8 +56,8 @@
       <feature name="LeanAnalytics">
         <param name="android-package" value="me.xyzhang.cordova.leanpush.LeanAnalytics"/>
       </feature>
-      <preference name="leancloud-appid" value="$LEAN_APP_ID"/>
-      <preference name="leancloud-appkey" value="$LEAN_APP_KEY"/>
+      <preference name="leancloud-appid" value="so0w0vlsvdiwznl3kjeo5uha9eqxhixat1k1eik4bj2jv3tx"/>
+      <preference name="leancloud-appkey" value="a4sg6h1gqyfwxj91m6i93amk07i50qgsuqebo0jc4cs01d8u"/>
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

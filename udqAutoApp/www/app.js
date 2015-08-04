@@ -32,29 +32,42 @@ angular.module('udqApp', ['ionic'])
                 StatusBar.styleDefault();
             }
 
-            var notifyCallBack = function (event,notice) {
+            var notifyCallBack = function (notice) {
                 var test = 100;
             };
 
-            var success = function (data) {
-                data = {
-                    deviceType: 'ios', deviceToken:'123'
-                };
+
+            try{
+                window.LeanPush.init();
+
+                window.LeanPush.subscribe(['ABC'],
+                    function (e) {
+
+                    },
+                    function (e) {
+
+                    }
+                );
+
+                window.LeanPush.getInstallation(
+                    function (data) {
+                        data.deviceToken = '123456';
+                        data.deviceType = 'iso';
+                        data.installationId = '123456';
+
+                    }, function (data) {
+                        alert('error!');
+                    });
+
+                //$rootScope.on('leancloud:notificationReceived', notifyCallBack);
+
+                window.LeanPush.onNotificationReceived(function (notice) {
+                    var test = 100;
+                });
+            } catch (e) {
+                alert(e);
             }
 
-            var error = function (data) {
-                data = {
-                    deviceType: 'ios', installationId:'1234',deviceToken: '123'
-                };
-            }
-
-            window.LeanPush.init();
-
-            window.LeanPush.getInstallation(success, error);
-
-            //$rootScope.on('leancloud:notificationReceived', notifyCallBack);
-
-            window.LeanPush.onNotificationReceived(notifyCallBack);
         });
 
 

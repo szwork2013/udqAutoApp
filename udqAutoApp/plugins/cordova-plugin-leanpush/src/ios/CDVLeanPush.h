@@ -1,7 +1,7 @@
 #import <Cordova/CDV.h>
 
-#define PROP_KEY_LEANCLOUD_APP_ID @"leancloud-appid"
-#define PROP_KEY_LEANCLOUD_APP_KEY @"leancloud-appkey"
+#define PROP_KEY_LEANCLOUD_APP_ID @"so0w0vlsvdiwznl3kjeo5uha9eqxhixat1k1eik4bj2jv3tx"
+#define PROP_KEY_LEANCLOUD_APP_KEY @"a4sg6h1gqyfwxj91m6i93amk07i50qgsuqebo0jc4cs01d8u"
 
 @interface CDVLeanPush:CDVPlugin
 

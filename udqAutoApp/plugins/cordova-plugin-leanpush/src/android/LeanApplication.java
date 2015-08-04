@@ -8,7 +8,7 @@ import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVAnalytics;
 
-import <%PACKAGE_NAME%>.MainActivity;
+import com.udianqu.auto.MainActivity;
 
 public class LeanApplication extends Application
 {
@@ -26,7 +26,7 @@ public class LeanApplication extends Application
     public void onCreate() {
         super.onCreate();
         // register device for leancloud
-        AVOSCloud.initialize(this, "<%LEAN_APP_ID%>", "<%LEAN_APP_KEY%>");
+        AVOSCloud.initialize(this, "so0w0vlsvdiwznl3kjeo5uha9eqxhixat1k1eik4bj2jv3tx", "a4sg6h1gqyfwxj91m6i93amk07i50qgsuqebo0jc4cs01d8u");
         AVInstallation.getCurrentInstallation().saveInBackground();
         PushService.setDefaultPushCallback(this, MainActivity.class);
         AVAnalytics.enableCrashReport(this.getApplicationContext(), true);

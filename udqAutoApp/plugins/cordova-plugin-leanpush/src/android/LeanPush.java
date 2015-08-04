@@ -21,8 +21,8 @@ import com.avos.avoscloud.AVOSCloud;
  */
 public class LeanPush extends CordovaPlugin {
 
-    public static final String PROP_KEY_LEANCLOUD_APP_ID = "leancloud-appid";
-    public static final String PROP_KEY_LEANCLOUD_APP_KEY = "leancloud-appkey";
+    public static final String PROP_KEY_LEANCLOUD_APP_ID = "so0w0vlsvdiwznl3kjeo5uha9eqxhixat1k1eik4bj2jv3tx";
+    public static final String PROP_KEY_LEANCLOUD_APP_KEY = "a4sg6h1gqyfwxj91m6i93amk07i50qgsuqebo0jc4cs01d8u";
 
     public static final String ACTION_SUBSCRIBE = "subscribe";
     public static final String ACTION_UNSUBSCRIBE = "unsubscribe";
