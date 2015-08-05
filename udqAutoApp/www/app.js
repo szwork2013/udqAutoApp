@@ -53,7 +53,7 @@ angular.module('udqApp', ['ionic'])
         /*车主我的订单*/
         .state('customerMyOrder', {
             url: '/customerMyOrder',
-            templateUrl: 'app/customer/order/order.html',
+            templateUrl: 'app/customer/order/orderList.html',
             controller: 'customerOrderCtrl'
         })
         /*车主我的点趣*/
@@ -84,7 +84,7 @@ angular.module('udqApp', ['ionic'])
         .state('customerMemberInfoEdit', {
             url: '/customerMemberInfoEdit',
             templateUrl: 'app/customer/member/memberInfoEdit.html',
-            controller: 'customerMemberInfoEditCtrl'
+            controller: 'customerMemberCenterCtrl'
         })
         /*车主我的订单订单评价*/
         .state('customerOrderEvaluate', {
@@ -104,7 +104,7 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/order/washtype.html',
             controller: 'customerOrderMakeCtrl'
         })
-/*车主注册*/
+        /*车主注册*/
          .state('customerRegister', {
              url: '/customerRegister',
              templateUrl: 'app/customer/register/register.html',

@@ -1,14 +1,9 @@
 <ion-view title="我的点趣">
-    <div>
-        <div>
-            <ion-nav-bar class="bar-stable ">
-                <ion-nav-back-button class="button-clear">
-                    <div><i class="ion-ios-arrow-left"></i></div>
-                </ion-nav-back-button>
-                <a class="button button-clear icon ion-ios-search-strong"></a>
-            </ion-nav-bar>
-        </div>
-    </div>
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
     <ion-content>
 
             <div class="item item-avatar" style="height:120px;">
@@ -16,28 +11,12 @@
                 <h2>Marty McFly</h2>
                 <p>November 05, 1955</p>
             </div>
-            <div class="button-bar">
-                <button class="button button-positive button-block button-clear " ng-click="goToMyOrder()">我的订单</button>
-                <button class="button button-positive button-block button-clear">我的优惠券</button>
-            </div>
            
 
         <!--分隔带-->
         <div class="spacer" style="height: 10px;"></div>
             <!--列表-->
          <div class="list">
-
-                <a class="item item-icon-left  item-icon-right" ng-click="goToAutoInfo()">
-                    <i class="icon ion-settings"></i>
-                    车辆
-                    <i class="icon ion-chevron-right"></i>
-                </a>
-
-                <a class="item item-icon-left item-icon-right" href="#">
-                    <i class="icon ion-chatbubble-working"></i>
-                    消息
-                    <i class="icon ion-chevron-right"></i>
-                </a>
 
                 <a class="item item-icon-left item-icon-right" ng-click="goToEditOwnerInfo()">
                     <i class="icon ion-gear-a"></i>

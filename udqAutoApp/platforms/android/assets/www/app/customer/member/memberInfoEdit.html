@@ -1,9 +1,9 @@
 <!--编辑车主信息-->
 <ion-view title="编辑个人信息">
     <ion-nav-bar>
-<!--         <ion-nav-back-button class="button-clear">
-    <i class="ion-arrow-left-c"></i>back
-</ion-nav-back-button> -->
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-content padding="true" class="has-header">
@@ -14,7 +14,7 @@
                     <i class="icon ion-ios-person placeholder-icon"></i>
                     <input type="text" name="name" ng-model='name' placeholder="请输入您的称呼" required>
                 </label>
-                
+
             </ion-list>
             <button class="button button-block button-positive " ng-click="saveMemberInfo()">保存信息</button>
         </form>

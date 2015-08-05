@@ -1,0 +1,34 @@
+﻿<ion-view view-title="我的订单">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfMain()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+        <ion-list>
+            <ion-item  ng-repeat="order in orderList" ng-swipe-left="showOptionButton(order)">
+                <!--车牌 状态  时间 金额-->
+                <div>
+                    <label>
+                        <h2>车牌号：{{order.pn}} </h2>
+                        <p>状态：{{order.state}}</p>
+                        <p>时间：{{order.date}} 金额：{{order.amount}}</p>
+                    </label>
+                </div>
+                <ion-option-button class="button-info" ng-show='!shouldCancel' ng-click="cancelOrder(order)">
+                    <i class="icon ion-ios-undo"></i>
+                </ion-option-button>
+                <ion-option-button class="button-info" ng-show='!shouldScan' ng-click="scanOrder(order)">
+                    <i class="icon ion-ios-eye"></i>
+                </ion-option-button>
+                <ion-option-button class="button-info" ng-show='!shouldJudge' ng-click="judgeOrder(order)">
+                    <i class="icon ion-ribbon-b"></i>
+                </ion-option-button>
+                <ion-option-button class="button-info" ng-show='!shouldShare' ng-click="shareOrder(order)">
+                    <i class="icon ion-share"></i>
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

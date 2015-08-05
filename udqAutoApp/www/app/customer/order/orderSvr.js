@@ -22,7 +22,20 @@
          this.getPN = function () {
              return _pn;
          }
+         /*获取所有订单*/
+         this.getOrdersList = function (userId) {
+             var url = bathUrl + 'fzmgr/order/getOrderByUserId4App.do?userId='+userId;
 
+             var deferred = $q.defer();
+             $http.get(url).success(
+                 function (data, status, headers, config) {
+                     deferred.resolve(data);
+                 }).error(
+                 function (data, status, headers, config) {
+                     deferred.reject("get order List failed");
+                 });
+             return deferred.promise;
+         }
          /*获取未确认订单*/
          this.getEvaluateOrders = function () {
              var url = bathUrl + '';
@@ -35,6 +48,7 @@
                  function (data, status, headers, config) {
                      deferred.reject("获取未确认订单失败");
                  });
+             return deferred.promise;
          }
          /*获取已完成订单*/
          this.getFinishedeOrders = function () {
@@ -48,6 +62,7 @@
                  function (data, status, headers, config) {
                      deferred.reject("获取已完成订单失败");
                  });
+             return deferred.promise;
          }
          /*订单评价*/
          this.markOrder = function (orderId, mark) {
@@ -62,5 +77,6 @@
                  function (data, status, headers, config) {
                      deferred.reject("提交评价失败");
                  });
+             return deferred.promise;
          }
      }])

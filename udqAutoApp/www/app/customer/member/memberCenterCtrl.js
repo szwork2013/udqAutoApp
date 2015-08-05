@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$state', function($scope, $state){
+	.controller('customerMemberCenterCtrl', ['$scope', '$state', '$ionicHistory', function ($scope, $state, $ionicHistory) {
 		/*跳转到我的订单*/
     	$scope.goToMyOrder = function(){
     		$state.go('customerMyOrder');
@@ -11,5 +11,11 @@ angular.module('udqApp')
 
     	$scope.goToEditOwnerInfo = function () {
     	    $state.go('customerMemberInfoEdit');
+    	};
+    	$scope.goBack = function () {
+    	    $ionicHistory.goBack();
+    	}
+    	$scope.saveMemberInfo = function () {
+
     	};
 	}])
