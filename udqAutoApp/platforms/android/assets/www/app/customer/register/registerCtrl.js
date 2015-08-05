@@ -64,6 +64,9 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 console.log(errorMsg);
             });
         };
+        $scope.goBack = function () {
+            $ionicHistory.goBack();
+        }
 
 
 

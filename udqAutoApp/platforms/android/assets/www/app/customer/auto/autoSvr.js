@@ -21,32 +21,24 @@
                  defaultRegionId: 4
              };
              /*转换成json格式*/
-             //var autoInfoJS = JSON.stringify(data);
+             var autoInfoJS = JSON.stringify(data);
              var url = baseUrl + 'fzmgr/auto/saveAuto4App.do';
 
              var deferred = $q.defer();
              $http({
                  method: 'post',
                  url: url,
-                 params: {
-                     autoInfo: autoInfo
+                 data: {
+                     autoInfo: autoInfoJS
                  }
              }).success(
 
-         //$http.post(url, autoInfoJS).success(
               function (data, status, headers, config) {
                   deferred.resolve(data);
               }).error(
               function (data, status, headers, config) {
                   deferred.reject("添加失败");
               });
-             /*$http.post(url, { autoinfo:autoInfo}).success(
-        function (data, status, headers, config) {
-            deferred.resolve(data); 
-        }).error(
-        function (data, status, headers, config) {
-            deferred.reject("添加失败");
-        });*/
              return deferred.promise;
          }
          /*获取用户下的所有汽车信息*/

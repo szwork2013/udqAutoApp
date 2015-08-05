@@ -9,8 +9,8 @@
         <!-- 选择洗车类型 -->
         <div class="list">
             <div class="spacer" style="height:10px;"></div>
-            <a class="item item-icon-left item-icon-right" ng-click="goToWashType()">
-                <i class="icon ion-model-s"></i>
+            <a class="item item-icon-right" ng-click="goToWashType()">
+                选择洗车类型
                 <div class="item-content">
                     <ul ng-repeat="selectedType in selectedTypes">
 
@@ -29,20 +29,17 @@
             <!-- 车辆信息、预约时间、详细地址（可选） -->
             <div class="spacer" style="height:10px;"></div>
 
-            <a class="item item-icon-left  item-icon-right" ng-click="goToAutoList()">
-                <i class="icon ion-android-options"></i>
-                选择车辆{{pn}}
+            <a class="item item-icon-right" ng-click="goToAutoList()">
+                选择车辆
                 <i class="icon ion-chevron-right"></i>
             </a>
             <div class="spacer" style="height:10px;"></div>
-            <a class="item item-icon-left item-icon-right" ng-click="goToRegionSelect()">
-                <i class="icon ion-android-people"></i>
-                小区
+            <a class="item item-icon-right" ng-click="goToRegionSelect()">
+                选择小区
                 <i class="icon ion-chevron-right"></i>
             </a>
             <div class="spacer" style="height:10px;"></div>
-            <a class="item item-icon-left item-icon-right" ng-click="goToOrderTime()">
-                <i class="icon ion-ios-time"></i>
+            <a class="item item-icon-right" ng-click="goToOrderTime()">
                 预约时间
                 <i class="icon ion-chevron-right"></i>
             </a>

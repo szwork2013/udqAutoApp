@@ -6,29 +6,29 @@
     </ion-nav-bar>
 
     <ion-content>
-        <ion-list>
-            <ion-item  ng-repeat="order in orderList" ng-swipe-left="showOptionButton(order)">
-                <!--车牌 状态  时间 金额-->
+        <ion-list class="list card" ng-repeat="order in orderList">
+            <ion-item >
                 <div>
-                    <label>
-                        <h2>车牌号：{{order.pn}} </h2>
-                        <p>状态：{{order.state}}</p>
-                        <p>时间：{{order.date}} 金额：{{order.amount}}</p>
-                    </label>
+                    <h2>车牌号：{{order.pn}}</h2>
+                    <p>时间：{{order.date}} &nbsp&nbsp&nbsp金额：{{order.finalAmount}}</p>
+                    <span class="badge badge-assertive">{{order.state}}</span>
+
+                    <ion-option-button class="button-info" ng-show="order.state==1" ng-click="cancelOrder(order)">
+                        <i class="icon ion-ios-undo"></i>
+                    </ion-option-button>
+                    <ion-option-button class="button-info" ng-show="order.state==3" ng-click="scanOrder(order)">
+                        <i class="icon ion-ios-eye"></i>
+                    </ion-option-button>
+                    <ion-option-button class="button-info" ng-show='order.state==4' ng-click="judgeOrder(order)">
+                        <i class="icon ion-ribbon-b"></i>
+                    </ion-option-button>
+                    <ion-option-button class="button-info" ng-show='order.state==4' ng-click="shareOrder(order)">
+                        <i class="icon ion-share"></i>
+                    </ion-option-button>
                 </div>
-                <ion-option-button class="button-info" ng-show='!shouldCancel' ng-click="cancelOrder(order)">
-                    <i class="icon ion-ios-undo"></i>
-                </ion-option-button>
-                <ion-option-button class="button-info" ng-show='!shouldScan' ng-click="scanOrder(order)">
-                    <i class="icon ion-ios-eye"></i>
-                </ion-option-button>
-                <ion-option-button class="button-info" ng-show='!shouldJudge' ng-click="judgeOrder(order)">
-                    <i class="icon ion-ribbon-b"></i>
-                </ion-option-button>
-                <ion-option-button class="button-info" ng-show='!shouldShare' ng-click="shareOrder(order)">
-                    <i class="icon ion-share"></i>
-                </ion-option-button>
             </ion-item>
         </ion-list>
+
+       
     </ion-content>
 </ion-view>

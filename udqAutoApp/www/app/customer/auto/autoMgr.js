@@ -1,22 +1,23 @@
 angular.module('udqApp')
-	.controller('customerAutoMgrCtrl', ['$scope', 'autoSvr', '$state', '$ionicHistory', function ($scope, autoSvr, $state, $ionicHistory) {
-	    $scope.autoItems = [];
-	    var promise = autoSvr.getAuto();
+	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', 'autoSvr', function ($scope, $state, $ionicHistory, autoSvr) {
+
+	    var promise = autoSvr.getAuto(2);
 	    promise.then(
             function (data) {
-                $scope.autoItems = data.data.rows;
+                $scope.autoInfo = data.rows;
             },
             function (data) {
                 alert(data);
             }
         );
-	    $scope.delete = function (item) {
+        /*É¾³ý³µÁ¾*/
+	    $scope.deleteAuto = function (item) {
 
 	        var promise = autoSvr.deleteAutoItem(item.id);
 	        promise.then(
                 function (data) {
-                    if (data.data.isSuccess) {
-                        $scope.autoItems.remove(item);
+                    if (data.isSuccess) {
+                        $scope.autoInfo.remove(item);
                     }
                 },
                 function (data) {
@@ -25,7 +26,10 @@ angular.module('udqApp')
             );
 	    };
         /*Ìí¼Ó³µÁ¾*/
-	    $scope.addAuto = function () {
-	        $state.go('customerAutoAdd1');
+	    $scope.goToAddauto = function () {
+	        $state.go('customerAutoAdd');
 	    };
+	    $scope.goBack = function () {
+	        $ionicHistory.goBack(); 
+	    }
 	}]);

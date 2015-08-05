@@ -10,7 +10,10 @@ angular.module('udqApp')
             userName : '',
             password: ''
         };
-
+        /*回跳*/
+        $scope.goBack = function () {
+            $ionicHistory.goBack();
+        }
         $scope.login = function () {
             loginSvr.loginCheck($scope.user).then(function (data) {
                 //判断是否获取到数据

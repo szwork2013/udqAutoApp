@@ -1,29 +1,24 @@
-<ion-view title="车辆管理">
-    <div>
-         <ion-nav-bar class="bar-stable">
-            <ion-nav-back-button class="button-clear">
-                <div><i class="ion-ios-arrow-left"></i></div>
-            </ion-nav-back-button>
+<ion-view view-title="车辆列表">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </ion-nav-buttons>
 
-            <ion-nav-buttons side="right">
-                <a class="button button-clear ion-plus-round button-stable" ng-click="addAuto()"></a>
-            </ion-nav-buttons>
-         </ion-nav-bar>
-    </div>
+        <ion-nav-buttons side="right">
+            <button class="button-clear" ng-click="goToAddauto()">
+                <span class="icon ion-plus-round"></span>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content has-subheader="false">
 
-    <!--车辆展示-->
-    <ion-content>
         <ion-list>
-            <ion-item ng-repeat="item in autoItems"
-                      class="item-thumbnail-left">
-
-                <h2>车牌号：{{item.pn}}<br />品牌：{{item.brand}}</h2>
-                
-                <ion-option-button class="button-info"
-                                   ng-click="delete(item)">
+            <ion-item ng-repeat="auto in autoInfo">
+                    <h2>车牌号：{{auto.pn}}</h2>
+                    <br />
+                    <p>品牌:{{auto.brand}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 型号：{{auto.model}}</p>
+                    <ion-option-button class="button-info" ng-click="deleteAuto(auto)">
                     <i class="icon ion-ios-trash"></i>
-                </ion-option-button>
-
             </ion-item>
         </ion-list>
     </ion-content>

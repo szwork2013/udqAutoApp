@@ -1,0 +1,17 @@
+﻿<ion-view view-title="服务介绍">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content has-subheader="false">
+        <div class="list card" ng-repeat="type in types">
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-model-s"></i>
+                <h2>{{type.name}}</h2>
+                <p>服务内容：{{type.note}}</p>
+                <span class="badge badge-assertive">{{type.amount}}</span>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

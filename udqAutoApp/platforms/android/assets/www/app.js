@@ -18,7 +18,7 @@
  4.页面
  4.1 APP界面一般都没有超链接，用按钮来操作。
  */
- 
+
 angular.module('udqApp', ['ionic'])
     .run(['$ionicPlatform', '$rootScope', function ($ionicPlatform, $rootScope) {
         $ionicPlatform.ready(function () {
@@ -32,17 +32,17 @@ angular.module('udqApp', ['ionic'])
                 StatusBar.styleDefault();
             }
         });
- 
- 
+
+
     }])
-   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, $httpProvider,APP_CONFIG) {
- 
+   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, $httpProvider, APP_CONFIG) {
+
        $stateProvider
         /*登录*/
         .state('login', {
             url: '/login',
             templateUrl: 'app/login/login.html',
-            controller:'loginCtrl'
+            controller: 'loginCtrl'
         })
        /*车主主页*/
         .state('customerHome', {
@@ -50,7 +50,7 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/home/home.html',
             controller: 'customerHomeCtrl'
         })
-        /*车主我的订单*/
+        /*车主-我的订单*/
         .state('customerMyOrder', {
             url: '/customerMyOrder',
             templateUrl: 'app/customer/order/orderList.html',
@@ -62,19 +62,19 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/member/memberCenter.html',
             controller: 'customerMemberCenterCtrl'
         })
-        /*车主车辆管理添加车辆(注册添加)*/
+        /*车主-添加车辆*/
         .state('customerAutoAdd', {
             url: '/customerAutoAdd',
             templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
-        /*车主车辆管理*/
+        /*车主-车辆*/
         .state('customerAutoMgr', {
             url: '/customerAutoMgr',
             templateUrl: 'app/customer/auto/autoMgr.html',
             controller: 'customerAutoMgrCtrl'
         })
-        /*车主我要洗车车辆选择*/
+        /*车主-我要洗车-车辆选择*/
         .state('customerAutoList', {
             url: '/customerAutoList',
             templateUrl: 'app/customer/auto/autoList.html',
@@ -86,25 +86,25 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/member/memberInfoEdit.html',
             controller: 'customerMemberCenterCtrl'
         })
-        /*车主我的订单订单评价*/
+        /*车主-我的订单-订单评价*/
         .state('customerOrderEvaluate', {
             url: '/customerOrderEvaluate',
             templateUrl: 'app/customer/order/orderEvaluate.html',
             controller: 'customerOrderEvaluateCtrl'
         })
-        /*车主我要洗车*/
-        .state('customerOrderMake',{
-            url:'/customerOrderMake',
-            templateUrl:'app/customer/order/orderMake.html',
-            controller:'customerOrderMakeCtrl'
-        })
-        /*车主我要洗车洗车类型*/
-        .state('customerWashtype', {
-            url: '/customerWashtype',
-            templateUrl: 'app/customer/order/washtype.html',
+        /*车主-我要洗车*/
+        .state('customerOrderMake', {
+            url: '/customerOrderMake',
+            templateUrl: 'app/customer/order/orderMake.html',
             controller: 'customerOrderMakeCtrl'
         })
-        /*车主注册*/
+        /*车主-我要洗车-洗车类型*/
+        .state('customerWashtype', {
+            url: '/customerWashtype',
+            templateUrl: 'app/customer/washType/washtypeSelect.html',
+            controller: 'customerOrderMakeCtrl'
+        })
+        /*车主-注册*/
          .state('customerRegister', {
              url: '/customerRegister',
              templateUrl: 'app/customer/register/register.html',
@@ -116,35 +116,87 @@ angular.module('udqApp', ['ionic'])
              templateUrl: 'app/employee/home/home.html',
              controller: 'employeeHomeCtrl'
          })
-         /*洗车店待确认*/
-         .state('employeeOrderToBeConfirmed',{
-             url:'/employeeOrderToBeConfirmed',
-             templateUrl:'app/employee/order/orderToBeConfirmed.html',
+         /*洗车店-待确认*/
+         .state('employeeOrderToBeConfirmed', {
+             url: '/employeeOrderToBeConfirmed',
+             templateUrl: 'app/employee/order/orderToBeConfirmed.html',
              controller: 'employeeOrderToBeConfirmedCtrl'
          })
-        /*我要洗车选择小区选择小区*/
+        /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
             url: '/customerRegionSelect',
             templateUrl: 'app/customer/order/regionSelect.html',
             controller: 'customerOrderMakeCtrl'
         })
-            /*我要洗车选择时间预约时间*/
-            .state('customerOrderTime', {
-                url: '/customerOrderTime',
-                templateUrl: 'app/customer/order/orderTime.html',
-                controller: 'customerOrderMakeCtrl'
-            })
-        
+        /*我要洗车-选择时间-预约时间*/
+        .state('customerOrderTime', {
+            url: '/customerOrderTime',
+            templateUrl: 'app/customer/order/orderTime.html',
+            controller: 'customerOrderMakeCtrl'
+        })
+       .state('customerWashTypeIntroduce', {
+           url: '/customerWashTypeIntroduce',
+           templateUrl: 'app/customer/washType/washTypeIntroduce.html',
+           controller: 'customerWashtypeCtrl'
+       })
+
        /*.state('',{
             url:'',
             templateUrl:'',
             controller:''
         })*/
        ;
- 
+
        $urlRouterProvider.otherwise('/customerHome');
- 
+
        /*test*/
        $httpProvider.defaults.headers.post['ContentType'] = 'application/xwwwformurlencoded';
+       /*修改put 和 post 的数据传递方式*/
+       $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+       $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+
+       /*修改默认的transformRequest 否则后台收不到值 */
+       $httpProvider.defaults.transformRequest = [function (data) {
+           /**
+    * The workhorse; converts an object to x-www-form-urlencoded serialization.
+    * @param {Object} obj
+    * @return {String}
+    */
+           var param = function (obj) {
+               var query = '';
+               var name, value, fullSubName, subName, subValue, innerObj, i;
+
+               for (name in obj) {
+                   value = obj[name];
+
+                   if (value instanceof Array) {
+                       for (i = 0; i < value.length; ++i) {
+                           subValue = value[i];
+                           fullSubName = name + '[' + i + ']';
+                           innerObj = {};
+                           innerObj[fullSubName] = subValue;
+                           query += param(innerObj) + '&';
+                       }
+                   } else if (value instanceof Object) {
+                       for (subName in value) {
+                           subValue = value[subName];
+                           fullSubName = name + '[' + subName + ']';
+                           innerObj = {};
+                           innerObj[fullSubName] = subValue;
+                           query += param(innerObj) + '&';
+                       }
+                   } else if (value !== undefined && value !== null) {
+                       query += encodeURIComponent(name) + '='
+                                  + encodeURIComponent(value) + '&';
+                   }
+               }
+
+               return query.length ? query.substr(0, query.length - 1) : query;
+           };
+
+           return angular.isObject(data) && String(data) !== '[object File]'
+                      ? param(data)
+                      : data;
+       }];
 
    }])
