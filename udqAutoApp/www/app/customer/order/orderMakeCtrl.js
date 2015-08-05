@@ -43,7 +43,7 @@ angular.module('udqApp')
 
         /*提交订单*/
         $scope.commitOrder = function () {
-            customerOrderMakeSvr.commitOrder(order).then(
+            customerOrderMakeSvr.commitOrder($scope.order).then(
                  function (data) {
                      //根据data内的数据判断时候成功
                  },

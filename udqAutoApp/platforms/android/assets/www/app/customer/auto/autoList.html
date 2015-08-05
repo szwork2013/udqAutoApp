@@ -1,27 +1,27 @@
 <ion-view view-title="车辆列表">
-	<ion-nav-bar class="bar-stable" align-title="center">
+    <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfAuto()"></button>
         </ion-nav-buttons>
 
         <ion-nav-buttons side="right">
             <button class="button-clear" ng-click="goToAddauto()">
-                <span class="icon ion-plus-round" ></span>
+                <span class="icon ion-plus-round"></span>
             </button>
         </ion-nav-buttons>
-	</ion-nav-bar>
-	<ion-content has-subheader="false">
-		<div class="list" ng-repeat="auto in autoInfo">
-  			<label class="item item-radio">
-    			<input type="radio" name="group">
+    </ion-nav-bar>
+    <ion-content has-subheader="false">
+        <div class="list" ng-repeat="auto in autoInfo">
+            <label class="item item-radio">
+                <input type="radio" name="group" value="{{auto.pn}}" ng-model="pn">
                 <a class="item item-icon-left ">
                     <i class="icon ion-model-s"></i>
                     <h2>车牌号：{{auto.pn}}</h2>
                     <br />
                     <p>品牌:{{auto.brand}}, 型号：{{auto.model}}</p>
                 </a>
-    			<i class="radio-icon ion-checkmark"></i>
-  			</label>
-		</div>
-	</ion-content>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+        </div>
+    </ion-content>
 </ion-view>

@@ -31,30 +31,6 @@ angular.module('udqApp', ['ionic'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
- 
-            var notifyCallBack = function (event,notice) {
-                var test = 100;
-            };
- 
-            var success = function (data) {
-                data = {
-                    deviceType: 'ios', deviceToken:'123'
-                };
-            }
- 
-            var error = function (data) {
-                data = {
-                    deviceType: 'ios', installationId:'1234',deviceToken: '123'
-                };
-            }
- 
-            window.LeanPush.init();
- 
-            window.LeanPush.getInstallation(success, error);
- 
-            //$rootScope.on('leancloud:notificationReceived', notifyCallBack);
- 
-            window.LeanPush.onNotificationReceived(notifyCallBack);
         });
  
  

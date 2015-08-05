@@ -1,20 +1,20 @@
-<ionview viewtitle="洗车预约">
-    <ionnavbar class="barstable" aligntitle="center">
-        <ionnavbuttons side="left">
-            <button class="buttonclear icon ionarrowleftc" ngclick="goBackMain()"></button>
-        </ionnavbuttons>
-    </ionnavbar>
-    <ioncontent hassubheader="false">
+<ion-view view-title="洗车预约">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackMain()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content has-subheader="false">
 
-        <! 选择洗车类型 >
+        <!-- 选择洗车类型 -->
         <div class="list">
             <div class="spacer" style="height:10px;"></div>
-            <a class="item itemiconleft itemiconright" ngclick="goToWashType()">
-                <i class="icon ionmodels"></i>
-                <div class="itemcontent">
-                    <ul ngrepeat="selectedType in selectedTypes">
+            <a class="item item-icon-left item-icon-right" ng-click="goToWashType()">
+                <i class="icon ion-model-s"></i>
+                <div class="item-content">
+                    <ul ng-repeat="selectedType in selectedTypes">
 
-                        <li style="float:left;liststyle:none;">
+                        <li style="float:left;list-style:none;">
                             <h2>{{selectedType.name}}</h2><br />
                             <p>服务内容：{{selectedType.note}}</p><br />
                             <p>价格：￥{{selectedType.amount}}</p><br />
@@ -23,28 +23,28 @@
 
                     </ul>
                 </div>
-                <i class="icon ionchevronright"></i>
+                <i class="icon ion-chevron-right"></i>
             </a>
 
-            <! 车辆信息、预约时间、详细地址（可选） >
+            <!-- 车辆信息、预约时间、详细地址（可选） -->
             <div class="spacer" style="height:10px;"></div>
 
-            <a class="item itemiconleft  itemiconright" ngclick="goToAutoList()">
-                <i class="icon ionandroidoptions"></i>
+            <a class="item item-icon-left  item-icon-right" ng-click="goToAutoList()">
+                <i class="icon ion-android-options"></i>
                 选择车辆{{pn}}
-                <i class="icon ionchevronright"></i>
+                <i class="icon ion-chevron-right"></i>
             </a>
             <div class="spacer" style="height:10px;"></div>
-            <a class="item itemiconleft itemiconright" ngclick="goToRegionSelect()">
-                <i class="icon ionandroidpeople"></i>
+            <a class="item item-icon-left item-icon-right" ng-click="goToRegionSelect()">
+                <i class="icon ion-android-people"></i>
                 小区
-                <i class="icon ionchevronright"></i>
+                <i class="icon ion-chevron-right"></i>
             </a>
             <div class="spacer" style="height:10px;"></div>
-            <a class="item itemiconleft itemiconright" ngclick="goToOrderTime()">
-                <i class="icon ioniostime"></i>
+            <a class="item item-icon-left item-icon-right" ng-click="goToOrderTime()">
+                <i class="icon ion-ios-time"></i>
                 预约时间
-                <i class="icon ionchevronright"></i>
+                <i class="icon ion-chevron-right"></i>
             </a>
             <div class="spacer" style="height:10px;"></div>
 
@@ -52,9 +52,10 @@
 
 
 
+
             <div class="spacer" style="height:10px;"></div>
-            <button class="button buttonblock buttonpositive " ngclick="commitOrder()">提交</button>
+            <button class="button button-block button-positive " ng-click="commitOrder()">提交</button>
 
         </div>
-    </ioncontent>
-</ionview>
+    </ion-content>
+</ion-view>
