@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-     .service('customerOrderSvr', ['$http', '$q', 'APP_CONFIG', function ($http, $q, APP_CONFIG) {
+     .service('customerOrderSvr', ['$http', '$q', '$window', 'APP_CONFIG', function ($http, $q, $window, APP_CONFIG) {
          var bathUrl = APP_CONFIG.server.getUrl();
 
          var _selectedTypes = [];
@@ -23,14 +23,16 @@
              return _pn;
          }
          /*获取所有订单*/
-         this.getOrdersList = function (userId) {
+         this.getOrdersList = function () {
+             //var userId = $window.localStorage['userID'];
+             var userId = 16;
              var url = bathUrl + 'fzmgr/order/getOrderByUserId4App.do?userId='+userId;
 
              var deferred = $q.defer();
              $http.get(url).success(
                  function (data, status, headers, config) {
                      deferred.resolve(data);
-                 }).error(
+                 }).error( 
                  function (data, status, headers, config) {
                      deferred.reject("get order List failed");
                  });
@@ -64,18 +66,53 @@
                  });
              return deferred.promise;
          }
-         /*订单评价*/
-         this.markOrder = function (orderId, mark) {
-             /*?orderId=&mark=*/
-             var url = bathUrl + '';
-
+         /*取消订单*/
+         this.cancelOrder = function (order) {
+             var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
+             var orderInfo = {
+                 orderNo: order.orderNo,
+                 state: 11
+             };
+             
              var deferred = $q.defer();
-             $http.post(url).success(
+             $http({
+                 method: 'post',
+                 url: url,
+                 data: {
+                     orderInfo: JSON.stringify(orderInfo)
+                 }
+             }).success(
                  function (data, status, headers, config) {
                      deferred.resolve(data);
                  }).error(
                  function (data, status, headers, config) {
-                     deferred.reject("提交评价失败");
+                     deferred.reject("取消订单失败");
+                 });
+             return deferred.promise;
+         } 
+         /*订单评价*/
+         this.judgeOrder = function (order) {
+             /*?orderId=&mark=*/
+             var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
+             var orderInfo = {
+                 orderNo: order.orderNo,
+                 gradeUser:order.gradeUser,
+                 state: 0
+             };
+             var deferred = $q.defer();
+
+             $http({
+                 method: 'post',
+                 url: url,
+                 data: {
+
+                 }
+             }).success(
+                 function (data, status, headers, config) {
+                     deferred.resolve(data);
+                 }).error(
+                 function (data, status, headers, config) {
+                     deferred.reject("评价订单失败");
                  });
              return deferred.promise;
          }

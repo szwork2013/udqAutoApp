@@ -94,7 +94,7 @@ angular.module('udqApp')
         }
         /***************************************************************/
         /*************************车辆选择******************************/
-
+        var way = $stateParams.way;
         $scope.autoInfo = [];
         $scope.pn = customerOrderSvr.getPN();
         /*获取userId为2*/
@@ -107,8 +107,20 @@ angular.module('udqApp')
                 console.log(data);
             }
         );
+        /*下拉刷新*/
+        $scope.doRefresh = function () {
+            autoSvr.getAuto().then(
+            function (data) {
+                $scope.autoInfo = data.rows;
+                console.log("获取车辆成功" + data.rows.length);
+            }, function (data) {
+                console.log(data);
+            }
+            );
+            $scope.$broadcast('scroll.refreshComplete');
+        }
         $scope.goToAddauto = function () {
-            $state.go('customerAutoAdd');
+            $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function () {
             customerOrderSvr.setAutoPN($scope.pn);

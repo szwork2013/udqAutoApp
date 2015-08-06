@@ -11,6 +11,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content has-subheader="false">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <div class="list" ng-repeat="auto in autoInfo">
             <label class="item item-radio">
                 <input type="radio" name="group" value="{{auto.pn}}" ng-model="pn">

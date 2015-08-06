@@ -4,17 +4,20 @@
 	    var baseUrl = APP_CONFIG.server.getUrl();
 	    
 	    this.loginCheck = function (user) {
-	        var url = baseUrl + 'fzmgr/login4App/login4App.do?userInfo=';
-
-	        var data = {
-	            username: user.userName,
-	            psd: hex_md5(user.password)
+	        var url = baseUrl + 'fzmgr/login/login4App.do';
+	        var userInfo = {
+	            mobile: user.mobile,
 	        };
-	        var userJS = JSON.stringify(data);
+	        var userInfoJS = JSON.stringify(userInfo);
 
 	        var deferred = $q.defer();
-
-	        $http.post(url, userJS).success(
+	        $http({
+	            method: 'post',
+	            url: url,
+	            params: {
+                    userInfo:userInfoJS
+	            }
+	        }).success(
                 function (data, status, headers, config) {
                     deferred.resolve(data);
                 }).error(

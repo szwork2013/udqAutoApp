@@ -11,7 +11,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content has-subheader="false">
-
+        <ion-refresher on-refresh ="doRefresh()"></ion-refresher>
         <ion-list>
             <ion-item ng-repeat="auto in autoInfo">
                     <h2>车牌号：{{auto.pn}}</h2>

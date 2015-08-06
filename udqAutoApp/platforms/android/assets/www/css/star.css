@@ -1,19 +1,34 @@
-﻿.rating {
-  color: #a9a9a9;
-  margin: 0;
-  padding: 0;
+﻿.right {
+  float: right;
 }
-ul.rating {
-  display: inline-block;
+
+.left {
+  float: left;
 }
-.rating li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 1px;
-  text-align: center;
-  font-weight: bold;
+
+.rating .stars {
+  margin-right: 15px;
+}
+
+.rating .stars .star {
+  float: left;
+  padding: 5px 2px;
   cursor: pointer;
 }
-.rating .filled {
-  color: #ffee33;
+
+.rating .stars .star:before {
+  font-family: 'FontAwesome';
+  content: '\f005';
+  color: #d0e8f0;
+  font-size: 3em;
+}
+
+.rating .stars .star:hover:before,
+.rating .stars .star.to_rate:before,
+.rating .stars .star.rated:before {
+  color: #80c1d5;
+}
+
+.rating .stars .star.no_to_rate:before {
+  color: #d0e8f0;
 }

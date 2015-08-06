@@ -1,12 +1,15 @@
 angular.module('udqApp')
-	.controller('customerAutoAddCtrl', ['$scope', '$state', '$ionicHistory', 'regionSvr', 'autoSvr', function ($scope, $state, $ionicHistory, regionSvr, autoSvr) {
+	.controller('customerAutoAddCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', function ($scope, $stateParams,$state, $ionicHistory, $window, regionSvr, autoSvr) {
 	    $scope.autoInfo = {
 	        pn: '',
 	        brand: '',
 	        color: '',
 	        model: '',
-            defaultRegionId:''
+	        defaultRegionId: 0,
+	        userId: $window.localStorage['userID'],
+            id:0/*0为添加，1为修改*/
 	    };
+	    var backName = $stateParams.backName;
 		/*检查车牌号的正则表达式*/
 		$scope.pnRe=/^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
 
@@ -17,11 +20,21 @@ angular.module('udqApp')
 		    var promise = autoSvr.addAutoItem($scope.autoInfo);
 		    promise.then(
                 function (data) {
-                    console.log(data);
+                    if (data.isSuccess) {
+                        console.log('添加车辆成功');
+                        $scope.goBack();
+                    } else {
+                        console.log(data.msg);
+                        return;
+                    }
+                    
                 }, function (data) {
                     console.log(data);
+                    return;
                 });
+		    
 		};
+
 		/*选择城市后自动联动区域*/
 		$scope.cityToRegion = function(mycity) {
 			console.log(mycity.name);
@@ -35,6 +48,7 @@ angular.module('udqApp')
 		$scope.getDefaultRegionId = function (id) {
 		    $scope.autoInfo.defaultRegionId = id;
 		};
+
 		$scope.cities = [];
 		var promise = regionSvr.getRegion();
 
@@ -46,9 +60,10 @@ angular.module('udqApp')
             function (data) {
                 alert(data);
             });
-
-		$scope.goBack = function(){
-		    $ionicHistory.goBack();
+        /*根据backName回跳之前的界面*/
+		$scope.goBack = function () {
+		    $state.go(backName);
+		    
 		};
 
 	}])

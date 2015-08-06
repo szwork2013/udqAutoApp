@@ -7,39 +7,52 @@ angular.module('udqApp')
     .controller('loginCtrl', ['$scope', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', function ($scope, $state, $ionicHistory, $ionicPopup, $window,loginSvr) {
         
         $scope.user = {
-            userName : '',
-            password: ''
+            mobile : '',
+            psd: ''
         };
         /*回跳*/
         $scope.goBack = function () {
             $ionicHistory.goBack();
         }
         $scope.login = function () {
-            loginSvr.loginCheck($scope.user).then(function (data) {
-                //判断是否获取到数据
-                if (data.isSuccess == false) {
-                    //弹出提示框：data.data.msg
-                    showAlert(data.msg);
-                    return;
-                }
-                var userType = checkUserType(data.data.userType);
-                if (userType == 1)
-                {
-                    //返回上一个页面
-                    $ionicHistory.backView();
-                    
-                } else if (userType == 2) {
-                    /*车主*/
-                    $window.localStorage['userID'] = data.data.data.id;
-                    $window.localStorage['loginState'] = true;
-                    $ionicHistory.goBack();
-                    
-                }else{
-                    //其他用户类型登录，暂时不管
-                }
-            }, function (data) {
-                showAlert(data);
-            });
+            /*1、检查本地是否保存该电话号码
+              2、检查该号码是否注册过
+            */
+            var userType = 2;
+            var returnData = {};
+            if ($window.localStorage['mobile'] !=undefined&& $window.localStorage['mobile'] == $scope.user.mobile) {
+                uerType = $window.localStorage['userType'];
+                $window.localStorage['loginState'] = 1;
+            } else {
+                loginSvr.loginCheck($scope.user).then(function (data) {
+                    //判断是否登录
+                    if (data.isSuccess == true) {
+                        console.log(data.msg);
+                        userType = checkUserType(data.data.userType);
+
+                        $window.localStorage['userID'] = data.data.id;
+                        $window.localStorage['loginState'] = 1;
+                        $window.localStorage['mobile'] = $scope.user.mobile;
+                    } else {
+                        showAlert(data.msg);
+                        return;
+                    }
+
+                }, function (data) {
+                    showAlert(data);
+                });
+            }
+
+            if (userType == 1) {
+                /*洗车工*/
+                $ionicHistory.goBack();
+            } else if (userType == 2) {
+                /*车主*/
+                $ionicHistory.goBack();
+
+            } else {
+                //其他用户类型登录，暂时不管
+            }
         }
         var checkUserType = function (userType) {
             switch (userType) {
@@ -55,14 +68,14 @@ angular.module('udqApp')
         $scope.register = function () {
             $state.go('customerRegister');
         };
-        // An alert dialog
+        /*登录出现问题*/
         var showAlert = function (msg) {
             var alertPopup = $ionicPopup.alert({
                 title: '温馨提示',
                 template: msg
             });
             alertPopup.then(function (res) {
-                console.log('登录失败，ERROR：'+msg);
+                console.log(msg);
             });
         };
     }])

@@ -64,7 +64,7 @@ angular.module('udqApp', ['ionic'])
         })
         /*车主-添加车辆*/
         .state('customerAutoAdd', {
-            url: '/customerAutoAdd',
+            url: '/customerAutoAdd?backName',
             templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
@@ -85,12 +85,6 @@ angular.module('udqApp', ['ionic'])
             url: '/customerMemberInfoEdit',
             templateUrl: 'app/customer/member/memberInfoEdit.html',
             controller: 'customerMemberCenterCtrl'
-        })
-        /*车主-我的订单-订单评价*/
-        .state('customerOrderEvaluate', {
-            url: '/customerOrderEvaluate',
-            templateUrl: 'app/customer/order/orderEvaluate.html',
-            controller: 'customerOrderEvaluateCtrl'
         })
         /*车主-我要洗车*/
         .state('customerOrderMake', {
@@ -115,12 +109,6 @@ angular.module('udqApp', ['ionic'])
              url: '/employeeHome',
              templateUrl: 'app/employee/home/home.html',
              controller: 'employeeHomeCtrl'
-         })
-         /*洗车店-待确认*/
-         .state('employeeOrderToBeConfirmed', {
-             url: '/employeeOrderToBeConfirmed',
-             templateUrl: 'app/employee/order/orderToBeConfirmed.html',
-             controller: 'employeeOrderToBeConfirmedCtrl'
          })
         /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
@@ -157,11 +145,7 @@ angular.module('udqApp', ['ionic'])
 
        /*修改默认的transformRequest 否则后台收不到值 */
        $httpProvider.defaults.transformRequest = [function (data) {
-           /**
-    * The workhorse; converts an object to x-www-form-urlencoded serialization.
-    * @param {Object} obj
-    * @return {String}
-    */
+
            var param = function (obj) {
                var query = '';
                var name, value, fullSubName, subName, subValue, innerObj, i;

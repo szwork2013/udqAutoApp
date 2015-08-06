@@ -6,23 +6,29 @@
     </ion-nav-bar>
 
     <ion-content>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <ion-list class="list card" ng-repeat="order in orderList">
             <ion-item >
                 <div>
                     <h2>车牌号：{{order.pn}}</h2>
                     <p>时间：{{order.date}} &nbsp&nbsp&nbsp金额：{{order.finalAmount}}</p>
                     <span class="badge badge-assertive">{{order.state}}</span>
-
+                    <!--1:表示客户已经下单
+                        2:表示门店接受预约
+                        3:表示洗车进行中
+                        4:表示洗车完成
+                        10:客户取消
+                        11:门店取消-->>
                     <ion-option-button class="button-info" ng-show="order.state==1" ng-click="cancelOrder(order)">
                         <i class="icon ion-ios-undo"></i>
                     </ion-option-button>
-                    <ion-option-button class="button-info" ng-show="order.state==3" ng-click="scanOrder(order)">
-                        <i class="icon ion-ios-eye"></i>
+                    <ion-option-button class="button-info" ng-show="order.state==2" ng-click="scanOrder(order)">
+                        <i class="icon ion-navicon"></i>
                     </ion-option-button>
-                    <ion-option-button class="button-info" ng-show='order.state==4' ng-click="judgeOrder(order)">
+                    <ion-option-button class="button-info" ng-show='order.state==4' ng-click="judgeOrder(order);openPopover($event);">
                         <i class="icon ion-ribbon-b"></i>
                     </ion-option-button>
-                    <ion-option-button class="button-info" ng-show='order.state==4' ng-click="shareOrder(order)">
+                    <ion-option-button class="button-info" ng-show='order.state==3' ng-click="shareOrder(order)">
                         <i class="icon ion-share"></i>
                     </ion-option-button>
                 </div>
@@ -32,3 +38,56 @@
        
     </ion-content>
 </ion-view>
+<!--订单展示-->
+<script id="orderShow.html" type="text/ng-template">
+    <ion-popover-view>
+        <ion-header-bar>
+            <h1 class="title">订单</h1>
+        </ion-header-bar>
+
+        <ion-content>
+            <h2>订单号：{{selectOrder.orderNo}}</h2>
+            <span class="badge badge-assertive">{{order.state}}</span>
+            <p>车牌号：{{selectOrder.pn}}</p>
+            <p>清洗工编号：{{selectOrder.washerId}}</p>
+            <p>预约时间：{{selectOrder.orderTime}}，结束时间：{{selectOrder.finishTime}}</p>
+            <p>金额：{{selectOrder.finalAmount}}</p>
+            <p>洗车备注：{{selectOrder.userNote}}</p>
+            <p>评分：{{selectOrder.gradeUser}}</p>
+            
+        </ion-content>
+    </ion-popover-view>
+</script>
+<!--订单评价-->
+<script id="orderJudge.html" type="text/ng-template">
+    <ion-popover-view>
+        <ion-header-bar>
+            <h1 class="title">评价</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div>
+                <h2>订单号：{{selectOrder.orderNo}}</h2>
+                <span class="badge badge-assertive">{{order.state}}</span>
+                <p>车牌号：{{selectOrder.pn}}</p>
+                <p>清洗工编号：{{selectOrder.washerId}}</p>
+                <p>预约时间：{{selectOrder.orderTime}}，结束时间：{{selectOrder.finishTime}}</p>
+                <p>金额：{{selectOrder.finalAmount}}</p>
+                <p>洗车备注：{{selectOrder.userNote}}</p>
+                <p>评分：{{selectOrder.gradeUser}}</p>
+            </div>
+            <div>
+                <label>本次洗车得分</label>
+                <div class="rating left">
+                    <div class="stars right">
+                        <a class="star rated"></a>
+                        <a class="star rated"></a>
+                        <a class="star rated"></a>
+                        <a class="star"></a>
+                        <a class="star"></a>
+                    </div>
+                </div>
+            </div>
+            
+        </ion-content>
+    </ion-popover-view>
+</script>

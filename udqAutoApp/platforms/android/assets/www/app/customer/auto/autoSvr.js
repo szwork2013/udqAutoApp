@@ -3,34 +3,16 @@
          var baseUrl = APP_CONFIG.server.getUrl();
          /*添加车辆*/
          this.addAutoItem = function (autosInfo) {
-             //var data = {
-             //    pn: autoInfo.pn,
-             //    brand: autoInfo.brand,
-             //    color: autoInfo.color,
-             //    userId: 2,
-             //    model: autoInfo.model,
-             //    id: 0,
-             //    defaultRegionId: 4
-             //};
-             var autoInfo = {
-                 brand: '奥迪',
-                 color: '红色',
-                 userId: 2,
-                 model: 'SUV',
-                 id: 0,
-                 defaultRegionId: 4
-             };
+
              /*转换成json格式*/
-             var autoInfoJS = JSON.stringify(data);
+             var autoInfoJS = JSON.stringify(autosInfo);
              var url = baseUrl + 'fzmgr/auto/saveAuto4App.do';
 
              var deferred = $q.defer();
              $http({
                  method: 'post',
                  url: url,
-                 data: {
-                     autoInfo: autoInfoJS
-                 }
+                 data: {autoInfo: autoInfoJS}
              }).success(
 
               function (data, status, headers, config) {
@@ -42,8 +24,10 @@
              return deferred.promise;
          }
          /*获取用户下的所有汽车信息*/
-         this.getAuto = function (userId) {
+         this.getAuto = function () {
+             var userId = $window.localStorage['userID'];
              var url = baseUrl + 'fzmgr/auto/getAutoByUserId4App.do?userId=' + userId;
+
 
              var deferred = $q.defer();
              $http.get(url).success(
