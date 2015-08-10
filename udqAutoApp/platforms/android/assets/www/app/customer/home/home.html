@@ -25,18 +25,15 @@
 
         <div class="spacer" style="height:25px;"></div>
         <!-- 两排按钮 -->
-        <div >
-            &nbsp&nbsp&nbsp&nbsp
-            <a class="button button-circle" ng-click="goToBookWash()">洗车</a>&nbsp&nbsp&nbsp&nbsp&nbsp
-            <a class="button button-circle" ng-click="goToMyOrder()">订单</a>&nbsp&nbsp&nbsp&nbsp&nbsp
-            <a class="button button-circle" ng-click="goToAutoList()">车辆</a>
+        <div class="row">
+            <div class="col"><a class="button button-circle" ng-click="goToBookWash()">洗车</a></div>
+            <div class="col"><a class="button button-circle" ng-click="goToMyOrder()">订单</a></div>
+            <div class="col"><a class="button button-circle" ng-click="goToAutoList()">车辆</a></div>
         </div>
-        <div class="spacer" style="height:10px;"></div>
-        <div>
-            &nbsp&nbsp&nbsp&nbsp
-            <a class="button button-circle">优惠券</a>&nbsp&nbsp&nbsp&nbsp&nbsp
-            <a class="button button-circle" ng-click="goToWashTypeIntroduce()">服务</a>&nbsp&nbsp&nbsp&nbsp&nbsp
-            <a class="button button-circle"ng-click="goToMyDQ()">我的</a>
+        <div class="row">
+            <div class="col"><a class="button button-circle">优惠券</a></div>
+            <div class="col"><a class="button button-circle" ng-click="goToWashTypeIntroduce()">服务</a></div>
+            <div class="col"><a class="button button-circle" ng-click="goToMyDQ()">我的</a></div>
         </div>
  
     </ion-content>

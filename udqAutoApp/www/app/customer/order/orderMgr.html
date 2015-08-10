@@ -1,0 +1,26 @@
+﻿<ion-view view-title="订单编号{{selectOrder.orderNo}}">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfMain()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <span class="badge badge-assertive">{{order.state}}</span>
+        <p>车牌号：{{selectOrder.pn}}</p>
+        <p>清洗工编号：{{selectOrder.washerId}}</p>
+        <p>预约时间：{{selectOrder.orderTime}}</p>
+        <p>结束时间：{{selectOrder.finishTime}}</p>
+        <p>金额：{{selectOrder.finalAmount}}</p>
+        <p>洗车备注：{{selectOrder.userNote}}</p>
+        <p>评分：{{selectOrder.gradeUser}}</p>
+        <div ng-show="!shouldMark">
+            本次洗车得分
+
+            <!--添加星级评价-->>
+
+            <button class="button-stable button-block">确认</button>
+            <button class="button-block buton-stable" ng-show="!shouldShare">分享</button>
+        </div>
+
+    </ion-content>
+</ion-view>

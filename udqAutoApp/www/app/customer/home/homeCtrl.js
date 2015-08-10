@@ -20,7 +20,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
     	    /*判断是否已经登录*/
     	    $state.go('customerMyOrder');
     	    if ($window.localStorage['loginState'] == '1') {
-    	        $state.go('customerMyOrder');
+    	        $state.go('login');
     	    } else {
     	        $state.go('login');
     	    }
@@ -29,7 +29,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
     	$scope.goToMyDQ = function () {
     	    /*判断是否已经登录*/
     	    if ($window.localStorage['loginState'] == '1') {
-    	        $state.go('customerMyDQ');
+    	        $state.go('login');
     	    } else {
     	        $state.go('login');
     	    }

@@ -12,15 +12,10 @@
             <a class="item item-icon-right" ng-click="goToWashType()">
                 选择洗车类型
                 <div class="item-content">
-                    <ul ng-repeat="selectedType in selectedTypes">
-
-                        <li style="float:left;list-style:none;">
-                            <h2>{{selectedType.name}}</h2><br />
-                            <p>服务内容：{{selectedType.note}}</p><br />
-                            <p>价格：￥{{selectedType.amount}}</p><br />
-
+                    <ul ng-repeat="type in types" ng-show="type.check ==1">
+                        <li>
+                            <h2>服务内容：{{type.name}}&nbsp;&nbsp;价格：￥{{type.amount}}</h2>
                         </li>
-
                     </ul>
                 </div>
                 <i class="icon ion-chevron-right"></i>
@@ -32,20 +27,30 @@
             <a class="item item-icon-right" ng-click="goToAutoList()">
                 选择车辆
                 <i class="icon ion-chevron-right"></i>
+                <div class="item-content">
+                    <ul ng-repeat="auto in autoInfo" ng-show="auto.id ==selectedAutoId">
+                        <li>
+                            车牌号:{{auto.pn}}
+                        </li>
+                    </ul>
+                </div>
             </a>
+
             <div class="spacer" style="height:10px;"></div>
             <a class="item item-icon-right" ng-click="goToRegionSelect()">
                 选择小区
                 <i class="icon ion-chevron-right"></i>
-            </a>
-            <div class="spacer" style="height:10px;"></div>
-            <a class="item item-icon-right" ng-click="goToOrderTime()">
-                预约时间
-                <i class="icon ion-chevron-right"></i>
+                <div class="item-content">
+                    <ul ng-repeat="dis in districts" ng-show="dis.id ==selectedRegionId">
+                        <li>
+                            默认小区:{{dis.name}}
+                        </li>
+                    </ul>
+                </div>
             </a>
             <div class="spacer" style="height:10px;"></div>
 
-            <textarea rows="3" placeholder="备注：" cols="50"></textarea>
+            <textarea rows="3" placeholder="备注：" cols="50" ng-model="order.userNote"></textarea>
 
 
 

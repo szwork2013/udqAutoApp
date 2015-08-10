@@ -2,6 +2,7 @@ angular.module('udqApp')
 	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', function ($scope, $state, $ionicHistory, $window,autoSvr) {
 
 	    var promise = autoSvr.getAuto();
+
 	    promise.then(
             function (data) {
                 $scope.autoInfo = data.rows;
@@ -45,6 +46,7 @@ angular.module('udqApp')
 	    $scope.goBack = function () {
 	        $ionicHistory.goBack();
 	    }
+
 	    var ArrayRemove = function (array, item) {
 	        var index = -1;
 	        for (var i = 0; i < array.length; i++) {

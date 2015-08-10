@@ -1,19 +1,74 @@
 angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', function ($scope, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
 
-
+        var typeSelect = $stateParams.typeSelect;
+        /*数据区*/
         $scope.order = {
-            washTypeId: '',
-            userId: '',
+            washTypeId: [],
+            userId: $window.localStorage['userID'],
             autoId: '',
             regionId: '',
             orgId: '',/*洗车店，需要？*/
             userNote: '',/*用户订单备注*/
             orderTime: '',
-            couponId: '',/*优惠券*/
-            couponAmount: '',/*优惠券金额*/
+            couponId: [],/*优惠券*/
+            couponAmount: [],/*优惠券金额*/
             fixedAmount: ''
         };
+
+        $scope.types = [];
+
+        $scope.districts = [];
+        $scope.districts = regionSvr.getDistricts();
+        /*获取地域信息*/
+        regionSvr.doRequest().then(
+            function (data) {
+                if ($scope.districts == undefined) {
+                    regionSvr.getCitiesFromData(data);
+                    $scope.districts = regionSvr.getDistricts();
+                }
+
+                autoSvr.getAuto().then(
+                    function (data) {
+                        $scope.autoInfo = data.rows;
+
+                        if ($scope.autoInfo.length == 0) {
+
+                        } else {
+                            /*选择的车辆、小区索引*/
+                            var indexOfAuto = 0;
+                            var indexOfRegion = 0;
+
+                            if (typeSelect == undefined) {
+                                indexOfAuto = 0;
+                            } else {
+
+                                $scope.selectedAutoId = customerOrderSvr.getSelectedAutoId();
+
+                                for (var i = 0; i < $scope.autoInfo.length; i++) {
+                                    if (autoId == $scope.autoInfo[i].id) {
+                                        indexOfAuto = i;
+                                    }
+                                }
+                                if (typeSelect == 'auto') {
+                                    $scope.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
+
+                                } else {
+                                    $scope.selectedRegionId = customerOrderSvr.getSelectedRegionId();
+                                }
+                            }
+                        }
+                    },
+    function (data) {
+        console.log(data);
+    }
+);
+            },
+            function (data) {
+                console.log(data);
+            }
+        );
+
 
         /*跳转到洗车类型选择*/
         $scope.goToWashType = function () {
@@ -43,6 +98,7 @@ angular.module('udqApp')
 
         /*提交订单*/
         $scope.commitOrder = function () {
+
             customerOrderMakeSvr.commitOrder($scope.order).then(
                  function (data) {
                      //根据data内的数据判断时候成功
@@ -53,60 +109,42 @@ angular.module('udqApp')
         }
 
         /*************************洗车类型******************************/
-        $scope.types = [];
-        /*选中的洗车类型数组和类型ID数组*/
-        $scope.selectedTypes = customerOrderSvr.getTypes();
-        $scope.selectedTypeId = customerOrderSvr.getTypeId();
+
 
         $scope.updateWashTypes = function () {
-            customerWashtypeSvr.callWashType().then(
-                function (data) {
-                    $scope.types = data.rows;
-                    customerWashtypeSvr.setWashTypes($scope.types);
-                },
-                function (data) {
-                    console.log(data);
-                }
-            );
+            $scope.types = customerOrderSvr.getTypes();
+            if ($scope.types == undefined) {
+                customerWashtypeSvr.callWashType().then(
+                    function (data) {
+                        $scope.types = data.rows;
+                        /*1表示选中，2表示未选中，‘快洗’设置为选中，其他默认未未选中*/
+                        for (var i = 0; i < data.rows.length; i++) {
+                            if (i == 0) {
+                                $scope.types[i].check = 1;
+                            } else {
+                                $scope.types[i].check = 2;
+                            }
+
+                        }
+
+                        customerWashtypeSvr.setWashTypes($scope.types);
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
+            }
         }
         $scope.updateWashTypes();
 
-        /*选取洗车类型*/
-        $scope.selectwashTypes = function ($event, type) {
-            var checkbox = $event.target;
-            var index = $scope.selectedTypeId.indexOf(type.id);
-
-            /*选中状态并且之前未被选中过*/
-            if (checkbox.checked && index == 1) {
-                $scope.selectedTypes.push(type);
-                $scope.selectedTypeId.push(type.id);
-
-            } else if (!checkbox.checked && index > 1) {
-                /*取消选中状态并且之前选中过*/
-
-                $scope.selectedTypes.splice(index, 1);
-                $scope.selectedTypeId.splice(index, 1);
-            }
-        }
+        /*返回预定洗车界面*/
         $scope.goBackOfWashType = function () {
-            customerOrderSvr.setType($scope.selectedTypes, $scope.selectedTypeId);
+            customerOrderSvr.setType($scope.types);
             $state.go("customerOrderMake");
         }
         /***************************************************************/
         /*************************车辆选择******************************/
-        var way = $stateParams.way;
-        $scope.autoInfo = [];
-        $scope.pn = customerOrderSvr.getPN();
-        /*获取userId为2*/
-        var promise = autoSvr.getAuto(2);
-        promise.then(
-            function (data) {
-                $scope.autoInfo = data.rows;
-                console.log("amount:" + data.rows.length);
-            }, function (data) {
-                console.log(data);
-            }
-        );
+
         /*下拉刷新*/
         $scope.doRefresh = function () {
             autoSvr.getAuto().then(
@@ -119,19 +157,30 @@ angular.module('udqApp')
             );
             $scope.$broadcast('scroll.refreshComplete');
         }
+
         $scope.goToAddauto = function () {
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function () {
-            customerOrderSvr.setAutoPN($scope.pn);
-            $state.go("customerOrderMake");
+            /*保存在service*/
+            customerOrderSvr.setSelectedAutoId($scope.selectedAutoId);
+            /*跳转*/
+            $state.go("customerOrderMake", { 'typeSelect': 'auto' });
         }
         /***************************************************************/
         /*****************************小区选择**************************/
-        $scope.districts = regionSvr.getDistricts();
+        $scope.doRefreshOfRegion = function () {
+            $scope.districts = regionSvr.getDistricts();
+            $scope.$broadcast('scroll.refreshComplete');
+        }
+        $scope.goBackOfRegionSelect = function () {
+            /*保存到service*/
+            customerOrderSvr.setSelectedRegionId($scope.selectedRegionId);
+            $state.go('customerOrderMake', { 'typeSelect': 'region' });
+        }
         /***************************************************************/
         /****************************预约时间***************************/
 
-        $scope.timeSpots = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"];
+        $scope.timeSpots = APP_CONFIG.bookTime.getTimeSpots();
         /***************************************************************/
     }])

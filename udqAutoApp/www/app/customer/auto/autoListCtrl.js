@@ -5,7 +5,7 @@ angular.module('udqApp')
 	    promise.then(
             function (data) {
                 $scope.autoInfo = data.rows;
-                console.log("获取车辆成功：" + data.rows.length);
+                console.log("我要洗车-选择车辆" + data.rows.length);
             }, function (data) {
                 console.log(data);
             }
@@ -15,7 +15,7 @@ angular.module('udqApp')
 	        autoSvr.getAuto().then(
             function (data) {
                 $scope.autoInfo = data.rows;
-                console.log("获取车辆成功" + data.rows.length);
+                console.log("我要洗车-选择车辆" + data.rows.length);
             }, function (data) {
                 console.log(data);
             }

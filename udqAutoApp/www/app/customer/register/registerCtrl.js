@@ -11,7 +11,8 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.userInfo = {
             userName:'',
             phoneNumber:'',
-            password:''
+            password: '',
+            sex:1
         };
         $scope.confirmPassword = '';
         /*获取验证码*/
@@ -23,13 +24,14 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         /*下一步*/
         $scope.goToAddAuto = function () {
         	/*跳转到信息编辑页面*/
-            $state.go('customerAutoAdd');
+            $state.go('customerHome');
             
         };
         /*注册*/
         $scope.register = function(){
             var promise = registerSvr.register($scope.userInfo);
-        	promise.then(function(data){
+            promise.then(
+                function (data) {
                 /*返回的数据如何判断是否注册成功
                 成功，调用regionSvr.setCities()服务,保存regions信息
                       保存用户注册ID*/
@@ -38,9 +40,8 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         	    } else {
         	        showAlertOfFail(data.msg);
         	    }
-                
-        	}, function(msg){
-        		showAlertOfFail(msg);
+        	}, function(data){
+        		showAlertOfFail('注册失败');
         	});
         };
 

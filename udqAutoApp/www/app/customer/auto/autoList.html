@@ -1,7 +1,7 @@
 <ion-view view-title="车辆列表">
     <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfAuto()"></button>
         </ion-nav-buttons>
 
         <ion-nav-buttons side="right">
@@ -13,8 +13,8 @@
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <div class="list" ng-repeat="auto in autoInfo">
-            <label class="item item-radio">
-                <input type="radio" name="group" value="{{auto.pn}}" ng-model="pn">
+            <label ng-class="{selected: selectedAutoId === '{{auto.id}}'}">
+                <input type="radio" ng-model="selectedAutoId" value="{{auto.id}}"> Blue
                 <a class="item item-icon-left ">
                     <i class="icon ion-model-s"></i>
                     <h2>车牌号：{{auto.pn}}</h2>
@@ -23,6 +23,7 @@
                 </a>
                 <i class="radio-icon ion-checkmark"></i>
             </label>
+            
         </div>
     </ion-content>
 </ion-view>

@@ -13,7 +13,7 @@ angular.module('udqApp')
         后台服务配置
         */
         server: {
-            address: 'http://192.168.1.102',
+            address: 'http://192.168.1.101',
             port: '8080',
             getUrl: function () {
                 return this.address + ':' + this.port + '/';
@@ -38,6 +38,15 @@ angular.module('udqApp')
             port: '7899',
             getUrl: function () {
                 return this.address + this.port + '/';
+            }
+        },
+        /*
+        预约时间配置
+        */
+        bookTime:{
+            timeSpots:["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"],
+            getTimeSpots:function(){
+                return this.timeSpots;
             }
         }
     });

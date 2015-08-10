@@ -64,18 +64,21 @@ angular.module('udqApp', ['ionic'])
         })
         /*车主-添加车辆*/
         .state('customerAutoAdd', {
+            cache: false,
             url: '/customerAutoAdd?backName',
             templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
         /*车主-车辆*/
         .state('customerAutoMgr', {
+            cache: false,
             url: '/customerAutoMgr',
             templateUrl: 'app/customer/auto/autoMgr.html',
             controller: 'customerAutoMgrCtrl'
         })
         /*车主-我要洗车-车辆选择*/
         .state('customerAutoList', {
+            cache:false,
             url: '/customerAutoList',
             templateUrl: 'app/customer/auto/autoList.html',
             controller: 'customerOrderMakeCtrl'
@@ -88,12 +91,14 @@ angular.module('udqApp', ['ionic'])
         })
         /*车主-我要洗车*/
         .state('customerOrderMake', {
-            url: '/customerOrderMake',
+            cache:false,
+            url: '/customerOrderMake?typeSelect',
             templateUrl: 'app/customer/order/orderMake.html',
             controller: 'customerOrderMakeCtrl'
         })
         /*车主-我要洗车-洗车类型*/
         .state('customerWashtype', {
+            cache: false,
             url: '/customerWashtype',
             templateUrl: 'app/customer/washType/washtypeSelect.html',
             controller: 'customerOrderMakeCtrl'
@@ -112,6 +117,7 @@ angular.module('udqApp', ['ionic'])
          })
         /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
+            cache: false,
             url: '/customerRegionSelect',
             templateUrl: 'app/customer/order/regionSelect.html',
             controller: 'customerOrderMakeCtrl'
@@ -122,12 +128,18 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/order/orderTime.html',
             controller: 'customerOrderMakeCtrl'
         })
+        /*服务*/
        .state('customerWashTypeIntroduce', {
            url: '/customerWashTypeIntroduce',
            templateUrl: 'app/customer/washType/washTypeIntroduce.html',
            controller: 'customerWashtypeCtrl'
        })
-
+       /*我的订单-单个订单信息查看评价*/
+       .state('customerOrderMgr', {
+           url: '/customerOrderMgr',
+           templateUrl: 'app/customer/order/orderMgr.html',
+           controller: 'customerOrderCtrl'
+       })
        /*.state('',{
             url:'',
             templateUrl:'',
@@ -137,8 +149,6 @@ angular.module('udqApp', ['ionic'])
 
        $urlRouterProvider.otherwise('/customerHome');
 
-       /*test*/
-       $httpProvider.defaults.headers.post['ContentType'] = 'application/xwwwformurlencoded';
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
        $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

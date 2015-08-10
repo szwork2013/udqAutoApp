@@ -2,26 +2,39 @@
      .service('customerOrderSvr', ['$http', '$q', '$window', 'APP_CONFIG', function ($http, $q, $window, APP_CONFIG) {
          var bathUrl = APP_CONFIG.server.getUrl();
 
-         var _selectedTypes = [];
-         var _selectedTypeId = [];
-         var _pn = '';
+         var _types;
+         var _selectedAutoId;
+         var _selectedRegionId;
+         var _selectedOrder = {};/*我的订单中当前选中的订单*/
 
-         this.setType = function (types, typeId) {
-             _selectedTypes = types;
-             _selectedTypeId = typeId;
+         this.getSelectedRegionId = function () {
+             return _selectedRegionId;
+         }
+         this.setSelectedRegionId = function (id) {
+             _selectedRegionId = id;
+         }
+
+         this.getSelectedOrder = function () {
+             return _selectedOrder;
+         }
+         this.setSelectedOrder = function (order) {
+             _selectedOrder = order;
+         }
+
+         this.setType = function (types) {
+             _types = types;
          }
          this.getTypes = function () {
-             return _selectedTypes;
+             return _types;
          }
-         this.getTypeId = function () {
-             return _selectedTypeId;
+
+         this.getSelectedAutoId = function () {
+             return _selectedAutoId;
          }
-         this.setAutoPN = function (pn) {
-             _pn = pn;
+         this.setSelectedAuto = function (autoId) {
+             _selectedAutoId = autoId;
          }
-         this.getPN = function () {
-             return _pn;
-         }
+
          /*获取所有订单*/
          this.getOrdersList = function () {
              //var userId = $window.localStorage['userID'];

@@ -10,8 +10,7 @@
 
             <li class="item item-checkbox">
                 <label class="checkbox">
-                    <input type="checkbox" ng-click="selectwashTypes($event,type)" />
-
+                    <input type="checkbox" ng-checked="type.check==1" ng-true-value="1" ng-false-value="2" ng-model="type.check"/>
                 </label>
                 <div class="item-content">
                     <h2>{{type.name}}</h2><br />
