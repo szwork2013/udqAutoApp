@@ -1,59 +1,100 @@
 ﻿angular.module('udqApp')
-    .service('employeeOrderSvr', ['$http', '$q', function ($http, $q) {
+    .service('employeeOrderSvr', ['$http', '$window', '$q', 'APP_CONFIG', function ($http, $window, $q, APP_CONFIG) {
         var baseUrl = APP_CONFIG.server.getUrl();
-        var doRequest = function (url,dataJS,msg) {
-            var deferred = $q.defer();
+        var _order = {};
+        
+        /*根据state获取订单信息*/
+        this.getOrderByState = function (state) {
+            var url = baseUrl + 'fzmgr/order/getOrderByState4App.do?state=' + state;
 
-            /*未传递参数*/
-            if(dataJS==0){
-                $http.get(url).success(
+            var deferred = $q.defer();
+            $http.post(url).success(
                 function (data, status, headers, config) {
                     deferred.resolve(data);
-                }).error(
-                function (data, status, headers, config) {
-                    deferred.reject(msg);
-                });
-                return deferred.promise;
-            }
-            /*传递了参数*/
-            $http.post(url, userJS).success(
-                function (data, status, headers, config) {
-                    deferred.resolve(data);
-                }).error(
-                function (data, status, headers, config) {
-                    deferred.reject(msg);
+                }).error(function (data, status, headers, config) {
+                    deferred.reject("获取失败");
                 });
             return deferred.promise;
         }
-        /*查看待确认订单*/
-        this.getWaitConfirmOrders=function(){
-            var url = baseUrl+'';
-            return doRequest(url,0,'获取待确认订单失败');
-        }
-        /*查看待洗车订单*/
-        this.getWaitWashOrders = function () {
-            var url = baseUrl + '';
-            return doRequest(url, 0, '获取待洗车订单失败');
-        }
-        /*查看已完成订单*/
-        this.getFinishedOrders = function () {
-            var url = baseUrl + '';
-            return doRequest(url, 0, '获取已完成订单失败');
-        }
-        /*接收待确认订单*/
-        this.acceptWaitConfirmOrder = function (orderId) {
-            /**/
-            var url = baseUrl + '?orderId=' + orderId;
-            return doRequest(url, 0, '接收待确认订单失败');
-        }
-        /*拒绝待确认订单*/
-        this.rejectWaitConfirmOrder = function (orderId) {
-            /**/
-            var url = baseUrl + '?orderId=' + orderId;
-            return doRequest(url, 0, '拒绝待确认订单失败');
-        }
-        /*反馈已完成订单*/
-        this.feedBackFinishedOrder = function () {
+        /*接收订单*/
+        this.acceptOrder = function (order) {
+            var data = {
+                orderNo: order.orderNo,
+                washerId: 12,
+                state: 2
+            };
+            /*转换成json格式*/
+            var orderInfoJS = JSON.stringify(data);
+            var url = baseUrl + 'fzmgr/order/handleOrder4App.do';
 
+            var deferred = $q.defer();
+            $http({
+                method: 'post',
+                url: url,
+                data: {
+                    orderInfo: orderInfoJS
+                }
+            }).success(
+                function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(
+                function (data, status, headers, config) {
+                    deferred.reject("失败");
+                });
+            return deferred.promise;
+        }
+        /*取消订单*/
+        this.cancelOrder = function (order) {
+            var data = {
+                orderNo: order.orderNo,
+                state: 11
+            };
+            var orderInfoJS = JSON.stringify(data);
+            var url = baseUrl + 'fzmgr/order/handleOrder4App.do';
+
+            var deferred = $q.defer();
+            $http({
+                method: 'post',
+                url: url,
+                data: { orderInfo: orderInfoJS }
+            }).success(
+                function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(
+                function (data, status, headers, config) {
+                    deferred.reject("失败");
+                });
+            return deferred.promise;
+        }
+        /*完成订单*/
+        this.finishOrder = function (order) {
+            var data = {
+                orderNo: order.orderNo,
+                state: 4
+            };
+            var orderInfoJS = JSON.stringify(data);
+            var url = baseUrl + 'fzmgr/order/handleOrder4App.do';
+
+            var deferred = $q.defer();
+            $http({
+                method: 'post',
+                url: url,
+                data: { orderInfo: orderInfoJS }
+            }).success(
+                function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(
+                function (data, status, headers, config) {
+                    deferred.reject("失败");
+                });
+            return deferred.promise;
+        }
+        this.getOrder = function ()
+        {
+            return _order;
+        }
+        /*查看某条订单时先保存到此*/
+        this.saveOrderInfo = function (order) {
+            _order = order;
         }
     }])
