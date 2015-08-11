@@ -119,6 +119,48 @@ angular.module('udqApp', ['ionic'])
              templateUrl: 'app/employee/home/home.html',
              controller: 'employeeHomeCtrl'
          })
+         /*洗车店-订单信息*/
+        .state('employeeOrderList', {
+            url: '/employeeOrderList',
+            templateUrl: 'app/employee/order/orderList.html',
+            controller: 'employeeOrderListCtrl'
+        })
+         /*洗车店-新订单信息*/
+        .state('employeeOrderList.newOrder', {
+            url: "/newOrder",
+            views: {
+                'newOrder-tab': {
+                    templateUrl: "app/employee/order/newOrder.html",
+                    controller: 'employeeNewOrderCtrl'
+                }
+            }
+        })
+         /*洗车店-已接收订单信息*/
+        .state('employeeOrderList.acceptedOrder', {
+            url: "/acceptedOrder",
+            views: {
+                'acceptedOrder-tab': {
+                    templateUrl: "app/employee/order/acceptedOrder.html",
+                    controller: "employeeAcceptedOrderCtrl"
+                }
+            }
+        })
+         /*洗车店-已完成订单信息*/
+        .state('employeeOrderList.finishedOrder', {
+            url: "/finishedOrder",
+            views: {
+                'finishedOrder-tab': {
+                    templateUrl: "app/employee/order/finishedOrder.html",
+                    controller: "employeeFinishedOrderCtrl"
+                }
+            }
+        })
+          /*洗车店-查看一条订单全部信息*/
+        .state('employeeOrderInfo', {
+            url: '/employeeOrderInfo',
+            templateUrl: 'app/employee/order/orderInfo.html',
+            controller: 'employeeOrderInfoCtrl'
+        })
         /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
             cache: false,
@@ -151,7 +193,7 @@ angular.module('udqApp', ['ionic'])
         })*/
        ;
 
-       $urlRouterProvider.otherwise('/customerHome');
+       $urlRouterProvider.otherwise('/employeeOrderList');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
