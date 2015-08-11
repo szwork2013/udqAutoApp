@@ -31,6 +31,10 @@ angular.module('udqApp', ['ionic'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                console.log(navigator.contacts);
+            }
         });
 
 
@@ -83,7 +87,7 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/auto/autoList.html',
             controller: 'customerOrderMakeCtrl'
         })
-        /*车主我的点趣信息编辑*/
+        /*车主我的点趣-信息编辑*/
         .state('customerMemberInfoEdit', {
             url: '/customerMemberInfoEdit',
             templateUrl: 'app/customer/member/memberInfoEdit.html',

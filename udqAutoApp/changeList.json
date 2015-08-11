@@ -362,9 +362,7 @@
     "plugins\\org.apache.cordova.camera\\tests\\ios\\README.md",
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
-    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "www\\app\\customer\\auto\\autolist.html",
-    "www\\app\\customer\\order\\ordermake.html"
+    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -738,9 +736,7 @@
     "plugins\\org.apache.cordova.camera\\tests\\ios\\README.md",
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
-    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "www\\app\\customer\\auto\\autolist.html",
-    "www\\app\\customer\\order\\ordermake.html"
+    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h"
   ],
   "deletedFiles": [],
   "addedPlugins": [

@@ -31,7 +31,7 @@
          this.getSelectedAutoId = function () {
              return _selectedAutoId;
          }
-         this.setSelectedAuto = function (autoId) {
+         this.setSelectedAutoId = function (autoId) {
              _selectedAutoId = autoId;
          }
 

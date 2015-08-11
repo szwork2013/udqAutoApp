@@ -4,28 +4,16 @@
         var baseUrl = APP_CONFIG.server.getUrl();
         /*提交订单*/
         this.commitOrder = function (order) {
-            /*var orderInfo = {
-                washTypeId: order.washTypeId,
-                couponId: order.couponId,
-                fixedAmount: order.fixedAmount,
-                userId: order.userId,
-                autoId: order.id,
-                regionId: order.regionId,
-                orgId: order.orgId,
-                userNote: order.userNote,
-                orderTime:order.orderTime
-            };*/
             var orderInfo = {
-                washTypeIds: [1,2,3],
+                washTypeIds: order.washTypeId,
                 couponIds: [],
-                couponAmounts:[],
-                fixedAmounts: [9.9,9.9,9.9],
-                userId: 44,
-                autoId: 25,
-                regionId: 5,
-                orgId: 10,
-                userNote: 'good',
-                orderTime: '2015.08.10 09:36'
+                fixedAmounts: order.fixedAmount,
+                userId: order.userId,
+                autoId: order.autoId,
+                regionId: order.regionId,
+                orgId: order.regionId,
+                userNote: order.userNote,
+                //orderTime: '2015.08.10 09:36'
             };
 
             url = baseUrl + 'fzmgr/order/submitOrder4App.do';

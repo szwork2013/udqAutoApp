@@ -8,17 +8,10 @@
     </ion-nav-bar>
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
-        <div class="list" ng-repeat="district in districts">
-            <label class="item item-checkbox">
-                <input type="checkbox" name="group" ng-checked="district.check==1" ng-true-value="1" ng-false-value="0" ng-model="district.select">
-                <a class="item">
-                    <h2>小区名称：{{district.name}}</h2>
-                </a>
-                <i class="radio-icon ion-checkmark"></i>
 
-            </label>
-
-        </div>
+        <ion-list ng-repeat="district in districts">
+            <ion-radio ng-model="selectedAuto.selectedRegionId" value={{district.id}}>{{district.name}}</ion-radio>
+        </ion-list>
 
     </ion-content>
 

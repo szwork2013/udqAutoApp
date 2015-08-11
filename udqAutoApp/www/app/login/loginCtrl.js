@@ -23,6 +23,8 @@ angular.module('udqApp')
             if ($window.localStorage['mobile'] !=undefined&& $window.localStorage['mobile'] == $scope.user.mobile) {
                 uerType = $window.localStorage['userType'];
                 $window.localStorage['loginState'] = 1;
+                /*跳转*/
+                goToHomeByUserType(userType);
             } else {
                 loginSvr.loginCheck($scope.user).then(function (data) {
                     //判断是否登录
@@ -33,25 +35,17 @@ angular.module('udqApp')
                         $window.localStorage['userID'] = data.data.id;
                         $window.localStorage['loginState'] = 1;
                         $window.localStorage['mobile'] = $scope.user.mobile;
+                        $window.localStorage['userName'] = data.data.name;
+                        $window.localStorage['userType'] = data.data.userType;
+                        /*跳转*/
+                        goToHomeByUserType(userType);
                     } else {
                         showAlert(data.msg);
                         return;
                     }
-
                 }, function (data) {
                     showAlert(data);
                 });
-            }
-
-            if (userType == 1) {
-                /*洗车工*/
-                $ionicHistory.goBack();
-            } else if (userType == 2) {
-                /*车主*/
-                $ionicHistory.goBack();
-
-            } else {
-                //其他用户类型登录，暂时不管
             }
         }
         var checkUserType = function (userType) {
@@ -64,6 +58,18 @@ angular.module('udqApp')
                     return 0;
             }
         };
+        var goToHomeByUserType = function (userType) {
+            if (userType == 1) {
+                /*洗车工*/
+                $ionicHistory.goBack();
+            } else if (userType == 2) {
+                /*车主*/
+                $ionicHistory.goBack();
+
+            } else {
+                //其他用户类型登录，暂时不管
+            }
+        }
         /*点击注册*/
         $scope.register = function () {
             $state.go('customerRegister');

@@ -6,7 +6,7 @@ cutomer 的注册页面
 3.继续添加，保存
 */
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerRegisterCtrl', ['$scope', '$state', '$ionicHistory', '$ionicPopup', 'registerSvr', 'regionSvr', function ($scope, $state, $ionicHistory, $ionicPopup, registerSvr, regionSvr) {
+    .controller('customerRegisterCtrl', ['$scope', '$state', '$ionicHistory', '$ionicPopup','$window', 'registerSvr', 'regionSvr', function ($scope, $state, $ionicHistory, $ionicPopup, $window,registerSvr, regionSvr) {
 
         $scope.userInfo = {
             userName:'',
@@ -32,14 +32,15 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             var promise = registerSvr.register($scope.userInfo);
             promise.then(
                 function (data) {
-                /*返回的数据如何判断是否注册成功
-                成功，调用regionSvr.setCities()服务,保存regions信息
-                      保存用户注册ID*/
-        	    if (data.isSuccess) {
-        	        showAlertOfSuccess();
-        	    } else {
-        	        showAlertOfFail(data.msg);
-        	    }
+                    if (data.isSuccess) {
+                        $window.localStorage['loginState'] = 1;
+                        $window.localStorage['mobile'] = $scope.userInfo.phoneNumber;
+                        $window.localStorage['userName'] = $scope.userInfo.userName;
+                        $window.localStorage['userID'] = data.data.id;
+        	            showAlertOfSuccess();
+        	        } else {
+        	            showAlertOfFail(data.msg);
+        	        }
         	}, function(data){
         		showAlertOfFail('注册失败');
         	});
