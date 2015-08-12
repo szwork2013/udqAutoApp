@@ -1,0 +1,54 @@
+﻿<ion-view title="订单信息">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content padding="true" class="has-header">
+        <p><h4>订单基本信息</h4></p>
+        <table>
+            <tr>
+                <td>订单编号：{{order.orderNo}}</td><td>订单状态: {{order.state}}</td>
+            </tr>
+            <tr>
+                <td>客户姓名：{{order.customerName}}</td><td>联系电话：{{order.customerMobile}}</td>
+            </tr>
+            <tr>
+                <td>洗车类型：{{order.washerTypeName}}</td><td>客户评价：{{order.customerGrade}}</td>
+            </tr>
+            <tr>
+                <td>车牌号码：{{order.autoPN}}</td><td>所属小区：{{order.regionName}}</td>
+            </tr>
+            <tr>
+                <td>下单时间：{{order.billTime}}</td>
+            </tr>
+            <tr>
+                <td>预约时间：{{order.orderTime}}</td>
+            </tr>
+            <tr>
+                <td>优惠券：{{order.couponName}}</td><td>优惠金额：{{order.couponAmount}}</td>
+            </tr>
+            <tr>
+                <td>固定价格：{{order.fixedAmount}}</td><td>结算价格：{{order.finalAmount}}</td>
+            </tr>
+            <tr>
+                <td>订单备注：{{order.userNote}}</td>
+            </tr>
+        </table>
+        <p><h4>订单处理信息</h4></p>
+        <table>
+            <tr>
+                <td>接单员工：{{order.washerName}}</td>
+            </tr>
+            <tr>
+                <td>接单时间：{{order.acceptTime}}</td>
+            </tr>
+            <tr>
+                <td>开始时间：{{order.beginTime}}</td>
+            </tr>
+            <tr>
+                <td>结束时间：{{order.finishTime}}</td>
+            </tr>
+        </table>
+    </ion-content>
+</ion-view>

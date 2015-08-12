@@ -1,0 +1,19 @@
+﻿<ion-view title="订单信息">
+    <ion-nav-bar class="bar-stable" align-title="center">
+    </ion-nav-bar>
+    <!--订单展示-->
+    <ion-tabs class="tabs-top">
+        <ion-tab title="新订单" href="#/employeeOrderList/newOrder">
+            <ion-nav-view name="newOrder-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="已接收" href="#/employeeOrderList/acceptedOrder">
+            <ion-nav-view name="acceptedOrder-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="已完成" href="#/employeeOrderList/finishedOrder">
+            <ion-nav-view name="finishedOrder-tab"></ion-nav-view>
+        </ion-tab>
+
+    </ion-tabs>
+</ion-view>
