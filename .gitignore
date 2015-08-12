@@ -190,4 +190,5 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 # platforms directory 
+platforms/
 /udqAutoApp/platforms/*
