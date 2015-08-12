@@ -11,7 +11,7 @@
                console.log(data);
            }
        );
-       /*查看某条订单信息*/
+       /*按钮-查看某条订单信息*/
        $scope.goToOrderInfo = function (order) {
            $state.go('employeeOrderInfo');
            employeeOrderSvr.setSelectedOrder(order);
