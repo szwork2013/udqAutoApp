@@ -11,10 +11,22 @@
                console.log(data);
            }
        );
+       /*下拉刷新*/
+       $scope.doRefresh = function () {
+           employeeOrderSvr.getOrderByState(1).then(
+           function (data) {
+               $scope.orderInfo = data.rows;
+               console.log("获取订单成功");
+           },
+           function (data) {
+               console.log(data);
+           });
+           $scope.$broadcast('scroll.refreshComplete');
+       }
        /*查看某条订单信息*/
        $scope.goToOrderInfo = function (order) {
            $state.go('employeeOrderInfo');
-           employeeOrderSvr.saveOrderInfo(order);
+           employeeOrderSvr.setSelectedOrder(order);
            
        }
        /*接收订单*/
@@ -25,7 +37,18 @@
            });
            confirmPopup.then(function (res) {
                if (res) {
-                   employeeOrderSvr.acceptOrder(order);
+                   employeeOrderSvr.acceptOrder(order).then(
+                        function (data) {
+                            if (data.isSuccess) {
+                                console.log("操作成功");
+                                $scope.doRefresh();
+                            } else {
+                                console.log(data.msg);
+                            }
+                        },
+                function (data) {
+                    console.log(data.msg);
+                });
                } else {
                    console.log('You are not sure');
                }
@@ -40,7 +63,18 @@
            });
            confirmPopup.then(function (res) {
                if (res) {
-                   employeeOrderSvr.cancelOrder(order);
+                   employeeOrderSvr.cancelOrder(order).then(
+                        function (data) {
+                            if (data.isSuccess) {
+                                console.log("取消订单成功");
+                                $scope.doRefresh();
+                            } else {
+                                console.log(data.msg);
+                            }
+                        },
+                function (data) {
+                    console.log(data.msg);
+                });
                } else {
                    console.log('You are not sure');
                }

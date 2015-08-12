@@ -123,6 +123,7 @@ angular.module('udqApp', ['ionic'])
         })
          /*洗车店-新订单信息*/
         .state('employeeOrderList.newOrder', {
+            cache: false,
             url: "/newOrder",
             views: {
                 'newOrder-tab': {
@@ -133,6 +134,7 @@ angular.module('udqApp', ['ionic'])
         })
          /*洗车店-已接收订单信息*/
         .state('employeeOrderList.acceptedOrder', {
+            cache: false,
             url: "/acceptedOrder",
             views: {
                 'acceptedOrder-tab': {
@@ -143,6 +145,7 @@ angular.module('udqApp', ['ionic'])
         })
          /*洗车店-已完成订单信息*/
         .state('employeeOrderList.finishedOrder', {
+            cache: false,
             url: "/finishedOrder",
             views: {
                 'finishedOrder-tab': {
@@ -153,6 +156,7 @@ angular.module('udqApp', ['ionic'])
         })
           /*洗车店-查看一条订单全部信息*/
         .state('employeeOrderInfo', {
+            cache: false,
             url: '/employeeOrderInfo',
             templateUrl: 'app/employee/order/orderInfo.html',
             controller: 'employeeOrderInfoCtrl'

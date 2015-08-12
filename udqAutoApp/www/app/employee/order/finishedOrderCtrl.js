@@ -14,7 +14,7 @@
        /*查看某条订单信息*/
        $scope.goToOrderInfo = function (order) {
            $state.go('employeeOrderInfo');
-           employeeOrderSvr.saveOrderInfo(order);
+           employeeOrderSvr.setSelectedOrder(order);
 
        }
    }])
