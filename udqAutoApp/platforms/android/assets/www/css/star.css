@@ -1,34 +1,42 @@
-﻿.right {
-  float: right;
-}
+﻿
 
-.left {
-  float: left;
+.score {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  border: 0;
+  font-size: 0;
 }
-
-.rating .stars {
-  margin-right: 15px;
+.score legend {
+  overflow: hidden;
+  height: 0;
 }
-
-.rating .stars .star {
-  float: left;
-  padding: 5px 2px;
-  cursor: pointer;
+.score label {
+  font-size: 32px; font-size: 2rem;
+  line-height: 32px; line-height: 2rem;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 1.2em;
+  height: 1em;
+  overflow: hidden;
+  text-indent: 100%;
 }
-
-.rating .stars .star:before {
-  font-family: 'FontAwesome';
-  content: '\f005';
-  color: #d0e8f0;
-  font-size: 3em;
+.score label:before {
+   content: "☆";
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   text-indent: 0;
+   line-height: 1em;
+   color: #aaa;
 }
-
-.rating .stars .star:hover:before,
-.rating .stars .star.to_rate:before,
-.rating .stars .star.rated:before {
-  color: #80c1d5;
+.score label:hover:before,
+.score label:hover ~ label:before,
+.score input:checked ~ label:before {
+   content: "★";
+   color: #ffbb04;
 }
-
-.rating .stars .star.no_to_rate:before {
-  color: #d0e8f0;
+.score label:active {
+  position: relative;
+  top: 1px;
 }

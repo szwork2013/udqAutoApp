@@ -56,6 +56,7 @@ angular.module('udqApp', ['ionic'])
         })
         /*车主-我的订单*/
         .state('customerMyOrder', {
+            cache: false,
             url: '/customerMyOrder',
             templateUrl: 'app/customer/order/orderList.html',
             controller: 'customerOrderCtrl'
@@ -193,7 +194,7 @@ angular.module('udqApp', ['ionic'])
         })*/
        ;
 
-       $urlRouterProvider.otherwise('/employeeOrderList');
+       $urlRouterProvider.otherwise('/customerHome');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

@@ -32,6 +32,11 @@ angular.module('udqApp')
     	    });
     	    alertPopup.then(function (res) {
     	        $window.localStorage['loginState'] = 0;
+                $window.localStorage['userID'] = 0;
+                $window.localStorage['mobile'] = '';
+                $window.localStorage['userName'] = '';
+                $window.localStorage['userType'] = 0;
+
     	        $state.go('customerHome');
     	        console.log('退出当前用户');
     	    });
