@@ -37,8 +37,7 @@
 
          /*获取所有订单*/
          this.getOrdersList = function () {
-             //var userId = $window.localStorage['userID'];
-             var userId = 16;
+             var userId = $window.localStorage['userID'];
              var url = bathUrl + 'fzmgr/order/getOrderByUserId4App.do?userId='+userId;
 
              var deferred = $q.defer();
@@ -105,12 +104,11 @@
          } 
          /*订单评价*/
          this.judgeOrder = function (order) {
-             /*?orderId=&mark=*/
              var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
              var orderInfo = {
                  orderNo: order.orderNo,
                  gradeUser:order.gradeUser,
-                 state: 0
+                 state: 5
              };
              var deferred = $q.defer();
 
@@ -118,7 +116,7 @@
                  method: 'post',
                  url: url,
                  data: {
-
+                     orderInfo: JSON.stringify(orderInfo)
                  }
              }).success(
                  function (data, status, headers, config) {

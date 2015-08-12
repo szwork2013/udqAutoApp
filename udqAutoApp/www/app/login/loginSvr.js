@@ -14,7 +14,7 @@
 	        $http({
 	            method: 'post',
 	            url: url,
-	            params: {
+	            data: {
                     userInfo:userInfoJS
 	            }
 	        }).success(

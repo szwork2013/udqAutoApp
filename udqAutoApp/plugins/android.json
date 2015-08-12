@@ -9,14 +9,6 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<preference name=\"leancloud-appid\" value=\"ck1hpsp80usw32kllgjn7ocdcrl6u54copcemmnnqwn0gwhn\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"leancloud-appkey\" value=\"sdsezrx9i15zuhpxdja5cc70iebl07uks52kmvg9b048amd1\" />",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
                         },
@@ -37,8 +29,6 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/manifest": [],
-                    "/manifest/application": [],
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",

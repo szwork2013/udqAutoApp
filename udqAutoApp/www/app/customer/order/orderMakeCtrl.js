@@ -105,6 +105,9 @@ angular.module('udqApp')
         /*提交订单*/
         $scope.commitOrder = function () {
             /*获取洗车类型*/
+            if ($scope.types == undefined) {
+                return;
+            }
             for (var i = 0; i < $scope.types.length; i++) {
                 if ($scope.types[i].check = 1) {
                     $scope.order.washTypeId.push($scope.types[i].id);
