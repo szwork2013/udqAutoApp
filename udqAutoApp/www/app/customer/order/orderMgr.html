@@ -1,4 +1,4 @@
-﻿<ion-view view-title="订单编号{{selectOrder.orderNo}}">
+﻿<ion-view view-title="{{selectOrder.orderNo}}">
     <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
             <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfMain()"></button>
@@ -6,21 +6,40 @@
     </ion-nav-bar>
     <ion-content>
         <span class="badge badge-assertive">{{order.state}}</span>
-        <p>车牌号：{{selectOrder.pn}}</p>
+        <p>车牌号：{{selectOrder.autoPN}}</p>
         <p>清洗工编号：{{selectOrder.washerId}}</p>
         <p>预约时间：{{selectOrder.orderTime}}</p>
         <p>结束时间：{{selectOrder.finishTime}}</p>
         <p>金额：{{selectOrder.finalAmount}}</p>
         <p>洗车备注：{{selectOrder.userNote}}</p>
         <p>评分：{{selectOrder.gradeUser}}</p>
-        <div ng-show="!shouldMark">
-            本次洗车得分
+        <div class="spacer" style="height:10px;"></div>
+        <div ng-show="selectOrder.state==4">
+            请为此次洗车评分：
 
-            <!--添加星级评价-->>
+            <!--添加星级评价-->
+            <fieldset class="score">
+                <legend>Score:</legend>
+                <input type="radio" id="score-5" name="score" value="5" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
+                <label title="5 stars" for="score-5">5 stars</label>
 
-            <button class="button-stable button-block">确认</button>
-            <button class="button-block buton-stable" ng-show="!shouldShare">分享</button>
+                <input type="radio" id="score-4" name="score" value="4" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
+                <label title="4 stars" for="score-4">4 stars</label>
+
+                <input type="radio" id="score-3" name="score" value="3" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
+                <label title="3 stars" for="score-3">3 stars</label>
+
+                <input type="radio" id="score-2" name="score" value="2" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
+                <label title="2 stars" for="score-2">2 stars</label>
+
+                <input type="radio" id="score-1" name="score" value="1" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
+                <label title="1 stars" for="score-1">1 stars</label>
+            </fieldset>
+
+            <button class="button-stable button-block" ng-show="selectOrder.state==4" ng-click="judge(selectOrder)">确认</button>
         </div>
+                <button class="button-block buton-stable" ng-show="selectOrder.state==5">分享</button>
+
 
     </ion-content>
 </ion-view>

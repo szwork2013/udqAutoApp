@@ -12,18 +12,10 @@
     </ion-nav-bar>
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div class="list" ng-repeat="auto in autoInfo">
-            <label ng-class="{selected: selectedAutoId === '{{auto.id}}'}">
-                <input type="radio" ng-model="selectedAutoId" value="{{auto.id}}"> Blue
-                <a class="item item-icon-left ">
-                    <i class="icon ion-model-s"></i>
-                    <h2>车牌号：{{auto.pn}}</h2>
-                    <br />
-                    <p>品牌:{{auto.brand}}, 型号：{{auto.model}}</p>
-                </a>
-                <i class="radio-icon ion-checkmark"></i>
-            </label>
-            
-        </div>
+        
+        <ion-list ng-repeat="auto in autoInfo" >
+            <ion-radio ng-model="selectedAuto.selectedAutoId" value={{auto.id}}>{{auto.pn}}</ion-radio>
+        </ion-list>
+
     </ion-content>
 </ion-view>

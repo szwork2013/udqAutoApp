@@ -1,6 +1,7 @@
 angular.module('udqApp')
     .controller('customerOrderMakeCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
 
+
         var typeSelect = $stateParams.typeSelect;
         /*数据区*/
         $scope.order = {
@@ -13,12 +14,12 @@ angular.module('udqApp')
             orderTime: '',
             couponId: [],/*优惠券*/
             couponAmount: [],/*优惠券金额*/
-            fixedAmount: ''
+            fixedAmount: []
         };
 
         $scope.types = [];
+        $scope.selectedAuto = {};
 
-        $scope.districts = [];
         $scope.districts = regionSvr.getDistricts();
         /*获取地域信息*/
         regionSvr.doRequest().then(
@@ -40,29 +41,34 @@ angular.module('udqApp')
                             var indexOfRegion = 0;
 
                             if (typeSelect == undefined) {
-                                indexOfAuto = 0;
+                                $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();;
+                                $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId(); 
+                                if ($scope.selectedAuto.selectedAutoId == undefined || $scope.selectedAuto.selectedRegionId==undefined) {
+                                    $scope.selectedAuto.selectedAutoId = $scope.autoInfo[0].id;
+                                    $scope.selectedAuto.selectedRegionId = $scope.autoInfo[0].defaultRegionId;
+                                }
                             } else {
 
-                                $scope.selectedAutoId = customerOrderSvr.getSelectedAutoId();
+                                $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();
 
                                 for (var i = 0; i < $scope.autoInfo.length; i++) {
-                                    if (autoId == $scope.autoInfo[i].id) {
+                                    if ($scope.selectedAuto.selectedAutoId == $scope.autoInfo[i].id) {
                                         indexOfAuto = i;
                                     }
                                 }
                                 if (typeSelect == 'auto') {
-                                    $scope.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
+                                    $scope.selectedAuto.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
 
                                 } else {
-                                    $scope.selectedRegionId = customerOrderSvr.getSelectedRegionId();
+                                    $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
                                 }
                             }
                         }
                     },
-    function (data) {
-        console.log(data);
-    }
-);
+                    function (data) {
+                        console.log(data);
+                    }
+                );
             },
             function (data) {
                 console.log(data);
@@ -98,10 +104,26 @@ angular.module('udqApp')
 
         /*提交订单*/
         $scope.commitOrder = function () {
-
+            /*获取洗车类型*/
+            if ($scope.types == undefined) {
+                return;
+            }
+            for (var i = 0; i < $scope.types.length; i++) {
+                if ($scope.types[i].check = 1) {
+                    $scope.order.washTypeId.push($scope.types[i].id);
+                    $scope.order.fixedAmount.push($scope.types[i].amount);
+                }
+            }
+            /*获取车辆Id,小区Id*/
+            $scope.order.autoId = $scope.selectedAuto.selectedAutoId;
+            $scope.order.regionId = $scope.selectedAuto.selectedRegionId;
+            
             customerOrderMakeSvr.commitOrder($scope.order).then(
                  function (data) {
                      //根据data内的数据判断时候成功
+                     if (data.isSuccess) {
+                         console.log('提交成功');
+                     }
                  },
                  function (data) {
                      console.log(data);
@@ -126,7 +148,6 @@ angular.module('udqApp')
                             }
 
                         }
-
                         customerWashtypeSvr.setWashTypes($scope.types);
                     },
                     function (data) {
@@ -163,7 +184,7 @@ angular.module('udqApp')
         }
         $scope.goBackOfAuto = function () {
             /*保存在service*/
-            customerOrderSvr.setSelectedAutoId($scope.selectedAutoId);
+            customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
             /*跳转*/
             $state.go("customerOrderMake", { 'typeSelect': 'auto' });
         }
@@ -175,7 +196,7 @@ angular.module('udqApp')
         }
         $scope.goBackOfRegionSelect = function () {
             /*保存到service*/
-            customerOrderSvr.setSelectedRegionId($scope.selectedRegionId);
+            customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
             $state.go('customerOrderMake', { 'typeSelect': 'region' });
         }
         /***************************************************************/

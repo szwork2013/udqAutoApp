@@ -10,26 +10,30 @@
         <ion-list class="list card" ng-repeat="order in orderList">
             <ion-item ng-click="goToSeeOrder(order)">
                 <div>
-                    <h2>车牌号：{{order.pn}}</h2>
-                    <p>时间：{{order.date}} &nbsp&nbsp&nbsp金额：{{order.finalAmount}}</p>
-                    <span class="badge badge-assertive">{{order.state}}</span>
+                    <h2>订单编号：{{order.orderNo}}</h2>
+                    <p>车牌号：{{order.autoPN}} &nbsp&nbsp&nbsp金额：{{order.finalAmount}}</p>
+                    <span class="badge badge-stable" ng-show="order.state==1">已下单</span>
+                    <span class="badge badge-stable" ng-show="order.state==2||order.state==3||order.state==10||order.state==11">已接受</span>
+                    <span class="badge badge-stable" ng-show="order.state==4">进行中</span>
+                    <span class="badge badge-stable" ng-show="order.state==5">已完成</span>
+                    
                     <!--1:表示客户已经下单
                         2:表示门店接受预约
                         3:表示洗车进行中
                         4:表示洗车完成
                         10:客户取消
-                        11:门店取消-->>
+                        11:门店取消-->
                     <ion-option-button class="button-info" ng-show="order.state==1" ng-click="cancelOrder(order)">
-                        <i class="icon ion-ios-undo"></i>
+                        取消
                     </ion-option-button>
-                    <ion-option-button class="button-info" ng-show="order.state==2" ng-click="scanOrder(order)">
-                        <i class="icon ion-navicon"></i>
+                    <ion-option-button class="button-info" ng-show="order.state==2||order.state==3||order.state==10||order.state==11" ng-click="scanOrder(order)">
+                        查看
                     </ion-option-button>
                     <ion-option-button class="button-info" ng-show='order.state==4' ng-click="judgeOrder(order)">
-                        <i class="icon ion-ribbon-b"></i>
+                        评价
                     </ion-option-button>
-                    <ion-option-button class="button-info" ng-show='order.state==3' ng-click="shareOrder(order)">
-                        <i class="icon ion-share"></i>
+                    <ion-option-button class="button-info" ng-show='order.state==5' ng-click="shareOrder(order)">
+                        分享
                     </ion-option-button>
                 </div>
             </ion-item>
