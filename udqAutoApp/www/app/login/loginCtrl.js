@@ -61,7 +61,7 @@ angular.module('udqApp')
         var goToHomeByUserType = function (userType) {
             if (userType == 1) {
                 /*洗车工*/
-                $ionicHistory.goBack();
+                $state.go('employeeOrderList');
             } else if (userType == 2) {
                 /*车主*/
                 $ionicHistory.goBack();
