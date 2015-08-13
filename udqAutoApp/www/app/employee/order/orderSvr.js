@@ -26,7 +26,7 @@
         this.acceptOrder = function (order) {
             var data = {
                 orderNo: order.orderNo,
-                washerId: 12,
+                washerId: $window.localStorage['userID'],
                 state: 2
             };
             /*转换成json格式*/
