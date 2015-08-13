@@ -275,6 +275,7 @@
     "res\\icons\\windows\\Square310x310Logo.scale-100.png",
     "plugins\\com.msopentech.websql\\src\\windows\\SQLite.Proxy\\SQLite.Proxy\\Lib\\System.Data.Ersatz.WinRT.dll",
     "plugins\\org.apache.cordova.contacts\\www\\Contact.js",
+    "www\\lib\\pingpp_pay.js",
     "www\\app\\employee\\order\\order\\acceptedOrderCtrl.js",
     "plugins\\org.apache.cordova.splashscreen\\doc\\ja\\index.md",
     "taco.json",
@@ -379,7 +380,8 @@
     "plugins\\org.apache.cordova.camera\\tests\\ios\\README.md",
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
-    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h"
+    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
+    "plugins\\android.json"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [

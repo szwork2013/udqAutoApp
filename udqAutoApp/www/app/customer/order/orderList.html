@@ -13,8 +13,8 @@
                     <h2>订单编号：{{order.orderNo}}</h2>
                     <p>车牌号：{{order.autoPN}} &nbsp&nbsp&nbsp金额：{{order.finalAmount}}</p>
                     <span class="badge badge-stable" ng-show="order.state==1">已下单</span>
-                    <span class="badge badge-stable" ng-show="order.state==2||order.state==3||order.state==10||order.state==11">已接受</span>
-                    <span class="badge badge-stable" ng-show="order.state==4">进行中</span>
+                    <span class="badge badge-stable" ng-show="order.state==2||order.state==3||order.state==10||order.state==11">进行中</span>
+                    <span class="badge badge-stable" ng-show="order.state==4">已完成</span>
                     <span class="badge badge-stable" ng-show="order.state==5">已完成</span>
                     
                     <!--1:表示客户已经下单

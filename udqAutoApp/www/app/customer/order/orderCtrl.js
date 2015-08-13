@@ -22,7 +22,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             );
         /*回跳到我的订单*/
         $scope.goBackOfMain = function () {
-            $state.go('customerMyOrder');
+            $state.go('customerHome');
         }
         /*下拉刷新*/
         $scope.doRefresh = function () {
@@ -86,7 +86,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             customerOrderSvr.judgeOrder(order).then(
                 function (data) {
                     if (data.isSuccess) {
-                        console.log(评价成功);
+                        console.log('评价成功');
                         $state.go('customerOrderMgr');
                     } else {
                         console.log(data.msg);
@@ -100,7 +100,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.shareOrder = function (order) {
             $ionicActionSheet.show({
                 buttons: [
-                    { text: '<b>分享至微信朋友圈</b>' },
+                    { text: '分享至微信朋友圈' },
                     { text: '分享给微信好友' }
                 ],
                 titleText: '分享',
