@@ -10,11 +10,18 @@
             _selectedOrder = order;
         }
         /*根据state获取订单信息*/
-        this.getOrderByState = function (state) {
-            var url = baseUrl + 'fzmgr/order/getOrderByState4App.do?state=' + state;
+        this.getOrderByState = function (order) {
+            var orderInfoJS = JSON.stringify(order);
+            var url = baseUrl + 'fzmgr/order/getOrderByState4App.do';
 
             var deferred = $q.defer();
-            $http.post(url).success(
+            $http({
+                method: 'post',
+                url: url,
+                data: {
+                    orderInfo: orderInfoJS
+                }
+            }).success(
                 function (data, status, headers, config) {
                     deferred.resolve(data);
                 }).error(function (data, status, headers, config) {

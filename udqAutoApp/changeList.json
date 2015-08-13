@@ -85,7 +85,6 @@
     "plugins\\org.apache.cordova.contacts\\doc\\index.md",
     "www\\app\\employee\\order\\acceptedOrder.html",
     "www\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js",
-    "plugins\\android.json",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactPhoto.js",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenLibTests\\ImageNameTest.m",
     "plugins\\org.apache.cordova.camera\\src\\android\\FileHelper.java",
@@ -381,7 +380,8 @@
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\android.json"
+    "plugins\\android.json",
+    "www\\app\\employee\\order\\acceptedorderctrl.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
