@@ -100,7 +100,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.shareOrder = function (order) {
             $ionicActionSheet.show({
                 buttons: [
-                    { text: '<b>分享至微信朋友圈</b>' },
+                    { text: '分享至微信朋友圈' },
                     { text: '分享给微信好友' }
                 ],
                 titleText: '分享',

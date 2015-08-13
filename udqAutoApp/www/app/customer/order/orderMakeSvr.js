@@ -13,6 +13,7 @@
                 regionId: order.regionId,
                 orgId: order.regionId,
                 userNote: order.userNote,
+                channel:order.channel
                 //orderTime: '2015.08.10 09:36'
             };
 

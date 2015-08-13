@@ -1,27 +1,28 @@
-angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
+ï»¿angular.module('udqApp')
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
 
 
         var typeSelect = $stateParams.typeSelect;
-        /*Êı¾İÇø*/
+        /*æ•°æ®åŒº*/
         $scope.order = {
             washTypeId: [],
             userId: $window.localStorage['userID'],
             autoId: '',
             regionId: '',
-            orgId: '',/*Ï´³µµê£¬ĞèÒª£¿*/
-            userNote: '',/*ÓÃ»§¶©µ¥±¸×¢*/
+            orgId: '',/*æ´—è½¦åº—ï¼Œéœ€è¦ï¼Ÿ*/
+            userNote: '',/*ç”¨æˆ·è®¢å•å¤‡æ³¨*/
             orderTime: '',
-            couponId: [],/*ÓÅ»İÈ¯*/
-            couponAmount: [],/*ÓÅ»İÈ¯½ğ¶î*/
-            fixedAmount: []
+            couponId: [],/*ä¼˜æƒ åˆ¸*/
+            couponAmount: [],/*ä¼˜æƒ åˆ¸é‡‘é¢*/
+            fixedAmount: [],
+            channel: ''/*æ”¯ä»˜æ–¹å¼*/
         };
 
         $scope.types = [];
         $scope.selectedAuto = {};
 
         $scope.districts = regionSvr.getDistricts();
-        /*»ñÈ¡µØÓòĞÅÏ¢*/
+        /*è·å–åœ°åŸŸä¿¡æ¯*/
         regionSvr.doRequest().then(
             function (data) {
                 if ($scope.districts == undefined) {
@@ -36,14 +37,14 @@ angular.module('udqApp')
                         if ($scope.autoInfo.length == 0) {
 
                         } else {
-                            /*Ñ¡ÔñµÄ³µÁ¾¡¢Ğ¡ÇøË÷Òı*/
+                            /*é€‰æ‹©çš„è½¦è¾†ã€å°åŒºç´¢å¼•*/
                             var indexOfAuto = 0;
                             var indexOfRegion = 0;
 
                             if (typeSelect == undefined) {
                                 $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();;
-                                $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId(); 
-                                if ($scope.selectedAuto.selectedAutoId == undefined || $scope.selectedAuto.selectedRegionId==undefined) {
+                                $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
+                                if ($scope.selectedAuto.selectedAutoId == undefined || $scope.selectedAuto.selectedRegionId == undefined) {
                                     $scope.selectedAuto.selectedAutoId = $scope.autoInfo[0].id;
                                     $scope.selectedAuto.selectedRegionId = $scope.autoInfo[0].defaultRegionId;
                                 }
@@ -76,35 +77,71 @@ angular.module('udqApp')
         );
 
 
-        /*Ìø×ªµ½Ï´³µÀàĞÍÑ¡Ôñ*/
+        /*è·³è½¬åˆ°æ´—è½¦ç±»å‹é€‰æ‹©*/
         $scope.goToWashType = function () {
             $state.go('customerWashtype');
         }
-        /*Ìø×ªµ½³µÁ¾Ñ¡Ôñ*/
+        /*è·³è½¬åˆ°è½¦è¾†é€‰æ‹©*/
         $scope.goToAutoList = function () {
             $state.go('customerAutoList');
         }
-        /*Ìø×ªµ½Ğ¡ÇøÑ¡Ôñ*/
+        /*è·³è½¬åˆ°å°åŒºé€‰æ‹©*/
         $scope.goToRegionSelect = function () {
             $state.go('customerRegionSelect');
         }
-        /*Ìø×ªµ½Ô¤Ô¼Ê±¼äÑ¡Ôñ*/
+        /*è·³è½¬åˆ°é¢„çº¦æ—¶é—´é€‰æ‹©*/
         $scope.goToOrderTime = function () {
             $state.go('customerOrderTime');
         }
-        /*Ô¤Ô¼Ï´³µ»Ø×ª*/
+        /*é¢„çº¦æ´—è½¦å›è½¬*/
         $scope.goBackMain = function () {
             $state.go('customerHome');
         }
-        /*(Ï´³µÀàĞÍ¡¢³µÁ¾Ñ¡Ôñ¡¢Ğ¡ÇøÑ¡Ôñ¡¢Ê±¼äÔ¤Ô¼)*/
+        /*(æ´—è½¦ç±»å‹ã€è½¦è¾†é€‰æ‹©ã€å°åŒºé€‰æ‹©ã€æ—¶é—´é¢„çº¦)*/
         $scope.goBack = function () {
             $ionicHistory.goBack();
         }
-
-
-        /*Ìá½»¶©µ¥*/
+        /*æäº¤è®¢å•*/
         $scope.commitOrder = function () {
-            /*»ñÈ¡Ï´³µÀàĞÍ*/
+            /*é€‰æ‹©æ”¯ä»˜æ–¹å¼*/
+            var hideSheet = $ionicActionSheet.show({
+                buttons: [
+                    { text: 'æ”¯ä»˜å®' },
+                    { text: 'å¾®ä¿¡æ”¯ä»˜' },
+                    { text: 'é“¶è”æ”¯ä»˜' },
+                    { text: 'æ˜“å®æ”¯ä»˜' },
+                    { text: 'äº¬ä¸œæ”¯ä»˜' },
+                    { text: 'Apple Pay' }
+                ],
+                titleText: 'é€‰æ‹©æ”¯ä»˜æ–¹å¼',
+                cancelText: 'å–æ¶ˆ',
+                cancel: function () {
+                    /*å–æ¶ˆé€‰æ‹©*/
+                },
+                buttonClicked: function (index) {
+                    switch (index) {
+                        case 0:/*æ”¯ä»˜å®*/
+                            $scope.order.channel = 'alipay';
+                            break;
+                        case 1:/*å¾®ä¿¡æ”¯ä»˜*/
+                            $scope.order.channel = 'wx';
+                            break;
+                        case 2:/*é“¶è”æ”¯ä»˜*/
+                            $scope.order.channel = 'upacp';
+                            break;
+                        case 3:/*æ˜“å®æ”¯ä»˜*/
+                            $scope.order.channel = 'yeepay_wap';
+                            break;
+                        case 4:/*äº¬ä¸œæ”¯ä»˜*/
+                            $scope.order.channel = 'jdpay_wap';
+                            break;
+                        case 5:/*Apple Pay*/
+                            $scope.order.channel = 'apple_pay';
+                            break;
+                    }
+                }
+            });
+            /*è·å–æ´—è½¦ç±»å‹*/
             if ($scope.types == undefined) {
                 return;
             }
@@ -114,15 +151,15 @@ angular.module('udqApp')
                     $scope.order.fixedAmount.push($scope.types[i].amount);
                 }
             }
-            /*»ñÈ¡³µÁ¾Id,Ğ¡ÇøId*/
+            /*è·å–è½¦è¾†Id,å°åŒºId*/
             $scope.order.autoId = $scope.selectedAuto.selectedAutoId;
             $scope.order.regionId = $scope.selectedAuto.selectedRegionId;
-            
+
             customerOrderMakeSvr.commitOrder($scope.order).then(
                  function (data) {
-                     //¸ù¾İdataÄÚµÄÊı¾İÅĞ¶ÏÊ±ºò³É¹¦
+                     //æ ¹æ®dataå†…çš„æ•°æ®åˆ¤æ–­æ—¶å€™æˆåŠŸ
                      if (data.isSuccess) {
-                         console.log('Ìá½»³É¹¦');
+                         console.log('æäº¤æˆåŠŸ');
                      }
                  },
                  function (data) {
@@ -130,19 +167,21 @@ angular.module('udqApp')
                  });
         }
 
-        /*************************Ï´³µÀàĞÍ******************************/
+        /*************************æ´—è½¦ç±»å‹******************************/
 
 
         $scope.updateWashTypes = function () {
+            $scope.totalAmount = 0;
             $scope.types = customerOrderSvr.getTypes();
             if ($scope.types == undefined) {
                 customerWashtypeSvr.callWashType().then(
                     function (data) {
                         $scope.types = data.rows;
-                        /*1±íÊ¾Ñ¡ÖĞ£¬2±íÊ¾Î´Ñ¡ÖĞ£¬¡®¿ìÏ´¡¯ÉèÖÃÎªÑ¡ÖĞ£¬ÆäËûÄ¬ÈÏÎ´Î´Ñ¡ÖĞ*/
+                        /*1è¡¨ç¤ºé€‰ä¸­ï¼Œ2è¡¨ç¤ºæœªé€‰ä¸­ï¼Œâ€˜å¿«æ´—â€™è®¾ç½®ä¸ºé€‰ä¸­ï¼Œå…¶ä»–é»˜è®¤æœªæœªé€‰ä¸­*/
                         for (var i = 0; i < data.rows.length; i++) {
                             if (i == 0) {
                                 $scope.types[i].check = 1;
+                                $scope.totalAmount = $scope.types[i].amount;
                             } else {
                                 $scope.types[i].check = 2;
                             }
@@ -154,24 +193,31 @@ angular.module('udqApp')
                         console.log(data);
                     }
                 );
+            } else {
+                for (var i = 0; i < $scope.types.length; i++) {
+                    if ($scope.types[i].check == 1) {
+                        $scope.totalAmount += $scope.types[i].amount;
+                    }
+                }
+                $scope.totalAmount = $scope.totalAmount.toFixed(2);
             }
         }
         $scope.updateWashTypes();
 
-        /*·µ»ØÔ¤¶¨Ï´³µ½çÃæ*/
+        /*è¿”å›é¢„å®šæ´—è½¦ç•Œé¢*/
         $scope.goBackOfWashType = function () {
             customerOrderSvr.setType($scope.types);
             $state.go("customerOrderMake");
         }
         /***************************************************************/
-        /*************************³µÁ¾Ñ¡Ôñ******************************/
+        /*************************è½¦è¾†é€‰æ‹©******************************/
 
-        /*ÏÂÀ­Ë¢ĞÂ*/
+        /*ä¸‹æ‹‰åˆ·æ–°*/
         $scope.doRefresh = function () {
             autoSvr.getAuto().then(
             function (data) {
                 $scope.autoInfo = data.rows;
-                console.log("»ñÈ¡³µÁ¾³É¹¦" + data.rows.length);
+                console.log("è·å–è½¦è¾†æˆåŠŸ" + data.rows.length);
             }, function (data) {
                 console.log(data);
             }
@@ -183,24 +229,24 @@ angular.module('udqApp')
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function () {
-            /*±£´æÔÚservice*/
+            /*ä¿å­˜åœ¨service*/
             customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
-            /*Ìø×ª*/
+            /*è·³è½¬*/
             $state.go("customerOrderMake", { 'typeSelect': 'auto' });
         }
         /***************************************************************/
-        /*****************************Ğ¡ÇøÑ¡Ôñ**************************/
+        /*****************************å°åŒºé€‰æ‹©**************************/
         $scope.doRefreshOfRegion = function () {
             $scope.districts = regionSvr.getDistricts();
             $scope.$broadcast('scroll.refreshComplete');
         }
         $scope.goBackOfRegionSelect = function () {
-            /*±£´æµ½service*/
+            /*ä¿å­˜åˆ°service*/
             customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
             $state.go('customerOrderMake', { 'typeSelect': 'region' });
         }
         /***************************************************************/
-        /****************************Ô¤Ô¼Ê±¼ä***************************/
+        /****************************é¢„çº¦æ—¶é—´***************************/
 
         $scope.timeSpots = APP_CONFIG.bookTime.getTimeSpots();
         /***************************************************************/
