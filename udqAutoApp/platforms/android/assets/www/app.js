@@ -31,10 +31,7 @@ angular.module('udqApp', ['ionic'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
-            document.addEventListener("deviceready", onDeviceReady, false);
-            function onDeviceReady() {
-                console.log(navigator.contacts);
-            }
+
         });
 
 
