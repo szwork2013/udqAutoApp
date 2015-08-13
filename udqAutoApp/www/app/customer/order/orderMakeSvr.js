@@ -14,7 +14,6 @@
                 orgId: order.regionId,
                 userNote: order.userNote,
                 channel:order.channel
-                //orderTime: '2015.08.10 09:36'
             };
 
             url = baseUrl + 'fzmgr/order/submitOrder4App.do';

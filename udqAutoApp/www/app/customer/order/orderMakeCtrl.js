@@ -139,11 +139,16 @@
                             $scope.order.channel = 'apple_pay';
                             break;
                     }
+                    /*检查，提交订单提交*/
+                    return checkOrder();
+                    
                 }
-            });
+            });            
+        }
+        var checkOrder = function () {
             /*获取洗车类型*/
             if ($scope.types == undefined) {
-                return;
+                return true;
             }
             for (var i = 0; i < $scope.types.length; i++) {
                 if ($scope.types[i].check = 1) {
@@ -160,10 +165,20 @@
                      //根据data内的数据判断时候成功
                      if (data.isSuccess) {
                          console.log('提交成功');
+                         pingpp.createPayment(data.data.charge, function (result, error) {
+                             if (result == "success") {
+                                 // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
+                             } else if (result == "fail") {
+                                 // charge 不正确或者微信公众账号支付失败时会在此处返回
+                             } else if (result == "cancel") {
+                                 // 微信公众账号支付取消支付
+                             }
+                         });
                      }
                  },
                  function (data) {
                      console.log(data);
+                     return true;
                  });
         }
 
