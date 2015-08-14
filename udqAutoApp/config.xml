@@ -100,25 +100,9 @@
      over HTTP and HTTPS.
      *NOT RECOMMENDED* -->
   <allow-navigation href="*" />
-  <!-- Allow all unrecognized URLs to open installed apps
-     *NOT RECOMMENDED* -->
-  <allow-intent href="*" />
-  <!-- Don't block any requests -->
-  <access origin="*" />
-  <preference name="KeepRunning" value="True" />
-  <preference name="ShowTitle" value="False" />
-  <preference name="InAppBrowserStorageEnabled" value="True" />
-  <preference name="SuppressesIncrementalRendering" value="False" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
+  <preference name="KeepRunning" value="False" />
+  <preference name="ShowTitle" value="True" />
+  <preference name="InAppBrowserStorageEnabled" value="False" />
+  <preference name="SuppressesIncrementalRendering" value="True" />
+  <vs:plugin name="cordova-plugin-whitelist" version="1.0.0" />
 </widget>
