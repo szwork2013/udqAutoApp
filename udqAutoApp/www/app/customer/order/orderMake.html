@@ -8,13 +8,12 @@
 
         <!-- 选择洗车类型 -->
         <div class="list">
-            <div class="spacer" style="height:10px;"></div>
             <a class="item item-icon-right" ng-click="goToWashType()">
                 选择洗车类型
                 <div class="item-content">
                     <ul ng-repeat="type in types" ng-show="type.check ==1">
                         <li>
-                            <h2>服务内容：{{type.name}}&nbsp;&nbsp;价格：￥{{type.amount}}</h2>
+                            <h2>服务内容：{{type.name}}&nbsp;&nbsp;价格：{{type.amount}}元</h2>
                         </li>
                     </ul>
                 </div>
@@ -46,14 +45,17 @@
                     </ul>
                 </div>
             </a>
+            
+            <a class="item item-icon-right">
+            需要支付
+                <span class="badge badge-light">{{totalAmount}}&nbsp 元</span>
+                
+            </a>
+            <label class="item item-input">
+                <textarea placeholder="您还有什么要求呢？" ng-model="order.userNote"></textarea>
+            </label>
 
-            <textarea rows="3" placeholder="您还有什么要求呢？" cols="50" ng-model="order.userNote"></textarea>
-
-
-
-
-            <div class="spacer" style="height:10px;"></div>
-            <button class="button button-block button-positive " ng-click="commitOrder()">提交</button>
+            <button class="button button-block button-positive " ng-click="commitOrder()">支付</button>
 
         </div>
     </ion-content>

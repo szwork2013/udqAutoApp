@@ -1,8 +1,10 @@
 ﻿angular.module('udqApp')
    .controller('employeeAcceptedOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory','$ionicPopup', 'employeeOrderSvr', function ($scope, $window, $state, $ionicHistory,$ionicPopup, employeeOrderSvr) {
-       $scope.orderInfo = {
+       $scope.order = {
+           states: [2,3],
+           washerId: $window.localStorage['userID']
        };
-       var promise = employeeOrderSvr.getOrderByState(2);
+       var promise = employeeOrderSvr.getOrderByState($scope.order);
        promise.then(
            function (data) {
                $scope.orderInfo = data.rows;
@@ -13,7 +15,7 @@
        );
        /*下拉刷新*/
        $scope.doRefresh = function () {
-           employeeOrderSvr.getOrderByState(2).then(
+           employeeOrderSvr.getOrderByState($scope.order).then(
            function (data) {
                $scope.orderInfo = data.rows;
                console.log("获取订单成功");

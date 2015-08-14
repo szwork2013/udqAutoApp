@@ -1,5 +1,6 @@
 ﻿<ion-view>
     <ion-content padding="true" class="has-header">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <ion-list>
             <ion-item ng-repeat="order in orderInfo" ng-click="goToOrderInfo(order)">
                 <p>车牌: {{order.autoPN}}</p>

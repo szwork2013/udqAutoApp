@@ -13,7 +13,8 @@ angular.module('udqApp')
 		/*检查车牌号的正则表达式*/
 	    $scope.pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
 
-	    var checkAutoInfo = function () {
+	    var checkAutoInfo = function (auto) {
+
 	        return false;
 	    }
 
@@ -21,7 +22,7 @@ angular.module('udqApp')
 		$scope.addAuto = function () {
 		    /*1、检查车牌号、车品牌、颜色、型号、是否选择小区
 		      2、调用数据数据服务，添加车辆*/
-		    if (checkAutoInfo()) {
+		    if (checkAutoInfo($scope.autoInfo)) {
 
 		    }
 		    var promise = autoSvr.addAutoItem($scope.autoInfo);
@@ -33,7 +34,7 @@ angular.module('udqApp')
                     } else {
                         console.log(data.msg);
                         return;
-                }
+                    }
 
                 }, function (data) {
                     console.log(data);
