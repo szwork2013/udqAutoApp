@@ -10,17 +10,17 @@ angular.module('udqApp')
         */
         this.uploadWashPhoto = function (imgURI,params, successCallBack, failCallBack, progressCallBack) {
 
-            var svrURI = encodeURI(APP_CONFIG.server.getUrl() + "fzmgr/upload/addWashPhoto.do");
+            var svrURI = encodeURI(APP_CONFIG.server.getUrl() + "fzmgr/upload/addWashPhoto4App.do");
 
             var opts = new FileUploadOptions();
 
             opts.fileKey = "washPhoto";
-            opts.fileName = imgURI.substr(imageURI.lastIndexOf('/') + 1);
+            opts.fileName = imgURI.substr(imgURI.lastIndexOf('/') + 1);
             opts.mimeType = "image/jpeg";
             opts.params = params;   
             var ft = new FileTransfer();
 
-            ft.upload(imageURI, svrURI, successCallBack, failCallBack, fileUploadOptions);
+            ft.upload(imgURI, svrURI, successCallBack, failCallBack, opts);
             ft.onprogress = progressCallBack;
 
 
