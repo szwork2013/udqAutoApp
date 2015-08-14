@@ -40,7 +40,15 @@
     "cordova-plugin-whitelist": {
         "source": {
             "type": "local",
-            "path": "F:\\gongsi\\点趣车生活\\cordova-plugin-whitelist-master"
+            "path": "D:\\code\\plugins\\cordova-plugin-whitelist-r1.0.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-file-transfer": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-file-transfer"
         },
         "is_top_level": true,
         "variables": {}
