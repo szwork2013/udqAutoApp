@@ -4,8 +4,13 @@
 根据不同的用户类型，跳转到不同的main页面
 */
 angular.module('udqApp')
-    .controller('loginCtrl', ['$scope', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', function ($scope, $state, $ionicHistory, $ionicPopup, $window,loginSvr) {
+    .controller('loginCtrl', ['$scope', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr',  function ($scope, $state, $ionicHistory, $ionicPopup, $window, loginSvr) {
         
+        /*照相测试*/
+
+
+
+
         $scope.user = {
             mobile : '',
             psd: ''
