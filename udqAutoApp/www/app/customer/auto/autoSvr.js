@@ -1,6 +1,29 @@
 ﻿angular.module('udqApp')
      .service('autoSvr', ['$http', '$window', '$q', 'APP_CONFIG', function ($http, $window, $q, APP_CONFIG) {
          var baseUrl = APP_CONFIG.server.getUrl();
+         var _selectedDistrictId;
+         var _selectedRegionId;
+         var _selectedCityId;
+
+         this.getSelectedDistrictId = function () {
+             return _selectedDistrictId;
+         }
+         this.setSelectedDistrictId = function (id) {
+             _selectedDistrictId = id;
+         }
+         this.getSelectedRegionId = function () {
+             return _selectedRegionId;
+         }
+         this.setSelectedRegionId = function (id) {
+             _selectedRegionId = id;
+         }
+         this.getSelectedCityId = function () {
+             return _selectedCityId;
+         }
+         this.setSelectedCityId = function (id) {
+             _selectedCityId = id;
+         }
+
          /*添加车辆*/
          this.addAutoItem = function (autosInfo) {
 

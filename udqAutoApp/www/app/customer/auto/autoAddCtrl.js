@@ -9,6 +9,7 @@ angular.module('udqApp')
 	        userId: $window.localStorage['userID'],
             id:0/*0为添加，1为修改*/
 	    };
+        $scope.selected = {};
 	    var backName = $stateParams.backName;
 		/*检查车牌号的正则表达式*/
 	    $scope.pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
@@ -16,6 +17,9 @@ angular.module('udqApp')
 	    var checkAutoInfo = function () {
 	        return false;
 	    }
+	    $scope.cities = regionSvr.getCities();
+	    $scope.regions = regionSvr.getRegions();
+	    $scope.districts = regionSvr.getDistricts();
 
 		/*点击"确认"*/
 		$scope.addAuto = function () {
@@ -41,7 +45,18 @@ angular.module('udqApp')
 		});
 
 		};
-
+	    /*跳转到城市选择*/
+		$scope.goToCitySelect = function () {
+		    $state.go('customerCitySelect');
+		}
+	    /*跳转到区域选择*/
+		$scope.goToRegionSelect = function () {
+		    $state.go('customerRegion');
+		}
+	    /*跳转到小区选择*/
+		$scope.goToDistrictSelect = function () {
+		    $state.go('customerDistrictSelect');
+		}
 		/*选择城市后自动联动区域*/
 		$scope.cityToRegion = function(mycity) {
 			console.log(mycity.name);
@@ -55,6 +70,39 @@ angular.module('udqApp')
 		$scope.getDefaultRegionId = function (id) {
 		    $scope.autoInfo.defaultRegionId = id;
 		};
+
+		$scope.selected.selectedCityId = autoSvr.getSelectedCityId();
+		$scope.selected.selectedRegionId = autoSvr.getSelectedRegionId();
+		$scope.selected.selectedDistrictId = autoSvr.getSelectedDistrictId();
+	    /***************************************************************/
+	    /*****************************地址选择**************************/
+		$scope.doRefreshOfCity = function () {
+		    $scope.Cities = regionSvr.getCities();
+		    $scope.$broadcast('scroll.refreshComplete');
+		}
+		$scope.doRefreshOfRegion = function () {
+		    $scope.Regions = regionSvr.getRegions();
+		    $scope.$broadcast('scroll.refreshComplete');
+		}
+		$scope.doRefreshOfDistrict = function () {
+		    $scope.Districts = regionSvr.getDistricts();
+		    $scope.$broadcast('scroll.refreshComplete');
+		}
+		$scope.goBackOfCitySelect = function () {
+		    /*保存到service*/
+		    autoSvr.setSelectedCityId($scope.selected.selectedCityId);
+		    $state.go('customerAutoAdd', { 'typeSelect': 'city' });
+		}
+		$scope.goBackOfRegionSelect = function () {
+		    /*保存到service*/
+		    autoSvr.setSelectedRegionId($scope.selected.selectedRegionId);
+		    $state.go('customerAutoAdd', { 'typeSelect': 'region' });
+		}
+		$scope.goBackOfDistrictSelect = function () {
+		    /*保存到service*/
+		    autoSvr.setSelectedDistrictId($scope.selected.selectedDistrictId);
+		    $state.go('customerAutoAdd', { 'typeSelect': 'district' });
+		}
 
         /*获取地域信息*/
 		regionSvr.doRequest().then(

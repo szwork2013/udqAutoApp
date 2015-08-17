@@ -71,6 +71,27 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
+        /*车主-添加车辆-选择城市*/
+        .state('customerCitySelect', {
+            cache: false,
+            url: '/customerCitySelect',
+            templateUrl: 'app/customer/auto/citySelect.html',
+            controller: 'customerAutoAddCtrl'
+        })
+         /*车主-添加车辆-选择区域*/
+        .state('customerRegion', {
+            cache: false,
+            url: '/customerRegion',
+            templateUrl: 'app/customer/auto/regionSelect.html',
+            controller: 'customerAutoAddCtrl'
+        })
+         /*车主-添加车辆-选择小区*/
+        .state('customerDistrictSelect', {
+            cache: false,
+            url: '/customerDistrictSelect',
+            templateUrl: 'app/customer/auto/districtSelect.html',
+            controller: 'customerAutoAddCtrl'
+        })
         /*车主-车辆*/
         .state('customerAutoMgr', {
             cache: false,
