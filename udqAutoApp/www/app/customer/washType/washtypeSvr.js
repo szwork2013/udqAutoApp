@@ -1,11 +1,6 @@
 angular.module('udqApp')
  	.service('customerWashtypeSvr', ['$http', '$q', 'APP_CONFIG', function ($http, $q, APP_CONFIG) {
  	    var url = APP_CONFIG.server.getUrl() + 'fzmgr/washType/getWashTypeList4App.do';
- 	    var _defaultWashType = {};
-
- 	    this.setWashTypes = function (washTypes) {
- 	        _washTypes = washTypes;
- 	    }
 
  	    this.callWashType = function () {
  	        var deferred = $q.defer();

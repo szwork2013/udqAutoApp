@@ -96,4 +96,13 @@
   <vs:plugin name="org.apache.cordova.contacts" version="" />
   <preference name="android-minSdkVersion" value="19" />
   <vs:plugin name="com.msopentech.websql" version="0.0.9" />
+  <!-- A wildcard can be used to whitelist the entire network,
+     over HTTP and HTTPS.
+     *NOT RECOMMENDED* -->
+  <allow-navigation href="*" />
+  <preference name="KeepRunning" value="False" />
+  <preference name="ShowTitle" value="True" />
+  <preference name="InAppBrowserStorageEnabled" value="False" />
+  <preference name="SuppressesIncrementalRendering" value="True" />
+  <vs:plugin name="cordova-plugin-whitelist" version="1.0.0" />
 </widget>

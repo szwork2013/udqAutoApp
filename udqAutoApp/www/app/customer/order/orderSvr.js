@@ -97,7 +97,7 @@
              var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
              var orderInfo = {
                  orderNo: order.orderNo,
-                 state: 11
+                 state: 10
              };
              
              var deferred = $q.defer();

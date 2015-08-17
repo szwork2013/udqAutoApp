@@ -1,5 +1,6 @@
 angular.module('udqApp')
  	.service('regionSvr', ['$http', '$q', 'APP_CONFIG', function ($http, $q, APP_CONFIG) {
+
  	    var baseUrl = APP_CONFIG.server.getUrl();
  	    var _cities;
  	    var _regions;
@@ -37,7 +38,7 @@ angular.module('udqApp')
  	        var deferred = $q.defer();
  	        $http({
  	            url: url,
- 	            method: 'get',
+ 	            method: 'get'
  	        }).success(function (data, status, headers, config) {
  	            deferred.resolve(data);
  	        })

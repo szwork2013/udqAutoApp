@@ -10,15 +10,20 @@
         <ion-list>
             <label class="item item-input">
                 <i class="icon ion-ios-telephone placeholder-icon"></i>
-                <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.phoneNumber" required>
+                <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" required>
             </label>
-            <label class="item item-input item-button-right">
-                <i class="icon ion-ios-chatboxes-outline placeholder-icon"></i>
-                <input type="password" name="password" placeholder="请输入手机验证码" ng-model="userInfo.password" >
-                <button class="button button-stable">
-                    获取验证码
+            
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper ">
+                    
+                    <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd">
+                    
+                </label>
+                <button class="button button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
+                    {{tips}}
                 </button>
-            </label>
+                
+            </div>
             <div class="spacer" style="height:30px;"></div>
             <label class="item item-input">
                 <i class="icon ion-ios-person placeholder-icon"></i>
@@ -32,7 +37,7 @@
 
 
         </ion-list>
-        <button class="button button-stable button-block " ng-click="register()">注册</button>
+        <button class="button button-stable button-block button-small" ng-click="register()" ng-disabled="registerDisabled">注册</button>
 
     </ion-content>
 </ion-view>

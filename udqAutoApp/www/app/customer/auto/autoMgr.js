@@ -8,7 +8,7 @@ angular.module('udqApp')
                 $scope.autoInfo = data.rows;
             },
             function (data) {
-                alert(data);
+                console.log(data);
             }
         );
 	    /*É¾³ý³µÁ¾*/
@@ -22,7 +22,7 @@ angular.module('udqApp')
                     }
                 },
                 function (data) {
-                    alert(data);
+                    console.log(data);
                 }
             );
 	        $scope.doRefresh();
@@ -34,7 +34,7 @@ angular.module('udqApp')
                     $scope.autoInfo = data.rows;
                 },
             function (data) {
-                alert(data);
+                console.log(data);
             }
                 );
 	        $scope.$broadcast('scroll.refreshComplete');

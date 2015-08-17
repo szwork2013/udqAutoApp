@@ -118,16 +118,25 @@
                 cancel: function () {
                     /*取消选择*/
                 },
+                /*  channels = {
+    alipay_wap: 'alipay_wap',
+    upmp_wap: 'upmp_wap',
+    upacp_wap: 'upacp_wap',
+    bfb_wap: 'bfb_wap',
+    wx_pub: 'wx_pub',
+    yeepay_wap: 'yeepay_wap',
+    jdpay_wap: 'jdpay_wap'
+  };*/
                 buttonClicked: function (index) {
                     switch (index) {
                         case 0:/*支付宝*/
                             $scope.order.channel = 'alipay';
                             break;
                         case 1:/*微信支付*/
-                            $scope.order.channel = 'wx';
+                            $scope.order.channel = 'wx_pub';
                             break;
                         case 2:/*银联支付*/
-                            $scope.order.channel = 'upacp';
+                            $scope.order.channel = 'upacp_wap';
                             break;
                         case 3:/*易宝支付*/
                             $scope.order.channel = 'yeepay_wap';
@@ -165,11 +174,15 @@
                      //根据data内的数据判断时候成功
                      if (data.isSuccess) {
                          console.log('提交成功');
-                         pingpp.createPayment(data.data.charge, function (result, error) {
+                         pingpp.createPayment(JSON.stringify(data.data.charge), function (result, error) {
                              if (result == "success") {
                                  // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
+                                 /*从data中获取新添加的order*/
+                                 customerOrderSvr.setSelectedOrder(order);
+                                 $state.go('customerOrderMgr');
                              } else if (result == "fail") {
                                  // charge 不正确或者微信公众账号支付失败时会在此处返回
+
                              } else if (result == "cancel") {
                                  // 微信公众账号支付取消支付
                              }
@@ -202,7 +215,7 @@
                             }
 
                         }
-                        customerWashtypeSvr.setWashTypes($scope.types);
+                        customerOrderSvr.setType($scope.types);
                     },
                     function (data) {
                         console.log(data);

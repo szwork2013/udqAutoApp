@@ -36,5 +36,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "local",
+            "path": "F:\\gongsi\\点趣车生活\\cordova-plugin-whitelist"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
