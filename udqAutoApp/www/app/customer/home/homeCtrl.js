@@ -26,11 +26,6 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
     	};
         /*跳转到'我的点趣'*/
     	$scope.goToMyDQ = function () {
-
-    	    /*photo test!!!!!----------------------------测试only----------------------------*/
-
-    	    cameraSvr.getPhoto();
-
     	    /*判断是否已经登录*/
     	    if ($window.localStorage['loginState'] == '1') {
     	        $state.go('customerMyDQ');

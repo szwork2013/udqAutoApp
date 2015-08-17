@@ -14,7 +14,6 @@ angular.module('udqApp')
 	    $scope.pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
 
 	    var checkAutoInfo = function (auto) {
-
 	        return false;
 	    }
 
@@ -41,21 +40,21 @@ angular.module('udqApp')
                     return;
 		});
 
-		};
+		}
 
 		/*选择城市后自动联动区域*/
 		$scope.cityToRegion = function(mycity) {
 			console.log(mycity.name);
 			$scope.regions = mycity.regions;
-		};
+		}
 		/*选择区域后自动联动小区*/
 		$scope.regionToDistrict = function (myregion) {
 			console.log(myregion.name);
 			$scope.districts = myregion.districts;
-		};
+		}
 		$scope.getDefaultRegionId = function (id) {
 		    $scope.autoInfo.defaultRegionId = id;
-		};
+		}
 
         /*获取地域信息*/
 		regionSvr.doRequest().then(
@@ -71,6 +70,6 @@ angular.module('udqApp')
 		$scope.goBack = function () {
 		    $state.go(backName);
 		    
-		};
+		}
 
 	}])

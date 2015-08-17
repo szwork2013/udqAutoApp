@@ -177,8 +177,12 @@
                          pingpp.createPayment(JSON.stringify(data.data.charge), function (result, error) {
                              if (result == "success") {
                                  // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
+                                 /*从data中获取新添加的order*/
+                                 customerOrderSvr.setSelectedOrder(order);
+                                 $state.go('customerOrderMgr');
                              } else if (result == "fail") {
                                  // charge 不正确或者微信公众账号支付失败时会在此处返回
+
                              } else if (result == "cancel") {
                                  // 微信公众账号支付取消支付
                              }
@@ -211,7 +215,7 @@
                             }
 
                         }
-                        customerWashtypeSvr.setWashTypes($scope.types);
+                        customerOrderSvr.setType($scope.types);
                     },
                     function (data) {
                         console.log(data);

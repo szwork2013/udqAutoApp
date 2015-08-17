@@ -11,7 +11,6 @@
 	        var userInfoJS = JSON.stringify(userInfo);
 
 	        var deferred = $q.defer();
-	        //$http.post(url, { userInfo: userInfoJS })
 	        $http({
 	            method: 'post',
 	            url: url,
@@ -20,7 +19,6 @@
 	            }
 	        }).success(
                 function (data, status, headers, config) {
-
                     deferred.resolve(data);
                 }).error(
                 function (data, status, headers, config) {
