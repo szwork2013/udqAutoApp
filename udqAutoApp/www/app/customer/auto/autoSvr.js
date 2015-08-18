@@ -1,10 +1,29 @@
 ﻿angular.module('udqApp')
      .service('autoSvr', ['$http', '$window', '$q', 'APP_CONFIG', function ($http, $window, $q, APP_CONFIG) {
          var baseUrl = APP_CONFIG.server.getUrl();
+         var _autoInfo = {
+             pn: '',
+             userId: '',
+             brand: '',
+             color: '',
+             model:'',
+             defaultRegionId:'',
+             userId: $window.localStorage['userID'],
+             id: 0/*0为添加，1为修改*/
+         };
          var _selectedDistrictId;
          var _selectedRegionId;
          var _selectedCityId;
-
+         var _defaultRegionId;
+         this.setDefaultRegionId = function (id) {
+             _autoInfo.defaultRegionId = id;
+         }
+         this.getAutoInfo = function () {
+             return _autoInfo;
+         }
+         this.setAutoInfo = function (autoInfo) {
+             _autoInfo = autoInfo;
+         }
          this.getSelectedDistrictId = function () {
              return _selectedDistrictId;
          }

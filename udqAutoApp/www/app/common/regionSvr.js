@@ -72,6 +72,7 @@ angular.module('udqApp')
  	                var region = {};
  	                region.name = regionObj[i].children[j].name;
  	                region.id = regionObj[i].children[j].id;
+ 	                region.pid = regionObj[i].children[j].pid;
 
  	                /*如果该区域下有小区，则获取下面的小区信息*/
  	                if (regionObj[i].children[j].children.length == 0) {
@@ -82,6 +83,7 @@ angular.module('udqApp')
  	                    var district = {};
  	                    district.name = regionObj[i].children[j].children[c].name;
  	                    district.id = regionObj[i].children[j].children[c].id;
+ 	                    district.pid = regionObj[i].children[j].children[c].pid;
 
  	                    districts.push(district);
  	                    _districts.push(district);

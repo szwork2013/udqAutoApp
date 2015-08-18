@@ -29,7 +29,10 @@
        $scope.goToOrderInfo = function (order) {
            $state.go('employeeOrderInfo');
            employeeOrderSvr.setSelectedOrder(order);
-
+       }
+       $scope.gotoPhotograph = function (order) {
+           $state.go('employeePhotograph');
+           employeeOrderSvr.setSelectedOrder(order);
        }
        /*完成订单*/
        $scope.finishOrder = function (order) {
@@ -51,31 +54,6 @@
                      function (data) {
                          console.log(data.msg);
                    });
-               } else {
-                   console.log('You are not sure');
-               }
-           });
-       };
-       /*取消订单*/
-       $scope.cancelOrder = function (order) {
-           var confirmPopup = $ionicPopup.confirm({
-               title: '提示信息',
-               template: '确定取消此订单?'
-           });
-           confirmPopup.then(function (res) {
-               if (res) {
-                   employeeOrderSvr.cancelOrder(order).then(
-                       function (data) {
-                           if (data.isSuccess) {
-                               console.log("操作成功");
-                               $scope.doRefresh();
-                           } else {
-                               console.log(data.msg);
-                           }
-                       },
-                function (data) {
-                    console.log(data.msg);
-                });
                } else {
                    console.log('You are not sure');
                }
