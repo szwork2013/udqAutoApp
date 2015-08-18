@@ -4,14 +4,28 @@
 
          var _types;
          var _selectedAutoId;
+         var _selectedDistrictId;
          var _selectedRegionId;
+         var _selectedCityId;
          var _selectedOrder = {};/*我的订单中当前选中的订单*/
 
+         this.getSelectedDistrictId = function () {
+             return _selectedDistrictId;
+         }
+         this.setSelectedDistrictId = function (id) {
+             _selectedDistrictId = id;
+         }
          this.getSelectedRegionId = function () {
              return _selectedRegionId;
          }
          this.setSelectedRegionId = function (id) {
              _selectedRegionId = id;
+         }
+         this.getSelectedCityId = function () {
+             return _selectedCityId;
+         }
+         this.setSelectedCityId = function (id) {
+             _selectedCityId = id;
          }
 
          this.getSelectedOrder = function () {

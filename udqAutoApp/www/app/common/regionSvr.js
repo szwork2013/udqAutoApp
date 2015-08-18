@@ -3,6 +3,7 @@ angular.module('udqApp')
 
  	    var baseUrl = APP_CONFIG.server.getUrl();
  	    var _cities;
+ 	    var _regions;
  	    var _districts;
 
  	    ///*注册服务*/
@@ -23,6 +24,9 @@ angular.module('udqApp')
  	    //}
  	    this.getCities = function () {
  	        return _cities;
+ 	    }
+ 	    this.getRegions = function () {
+ 	        return _regions;
  	    }
  	    this.getDistricts = function () {
  	        return _districts;
@@ -46,6 +50,8 @@ angular.module('udqApp')
  	    /*将获取的数据转化成我想要的数据形式*/
  	    this.getCitiesFromData = function (data) {
  	        _districts = [];
+ 	        _cities = [];
+ 	        _regions = [];
  	        var tempCities = [];
  	        if (data == undefined) {
  	            return tempCities;
@@ -66,6 +72,7 @@ angular.module('udqApp')
  	                var region = {};
  	                region.name = regionObj[i].children[j].name;
  	                region.id = regionObj[i].children[j].id;
+ 	                region.pid = regionObj[i].children[j].pid;
 
  	                /*如果该区域下有小区，则获取下面的小区信息*/
  	                if (regionObj[i].children[j].children.length == 0) {
@@ -76,6 +83,7 @@ angular.module('udqApp')
  	                    var district = {};
  	                    district.name = regionObj[i].children[j].children[c].name;
  	                    district.id = regionObj[i].children[j].children[c].id;
+ 	                    district.pid = regionObj[i].children[j].children[c].pid;
 
  	                    districts.push(district);
  	                    _districts.push(district);
@@ -84,10 +92,12 @@ angular.module('udqApp')
 
  	                /*将区域添加到区域s里面*/
  	                regions.push(region);
+ 	                _regions.push(region);
  	            }
  	            city.regions = regions;
  	            /*将城市添加到城市列表里面*/
  	            tempCities.push(city);
+ 	            _cities.push(city);
  	        }
 
  	        return tempCities;

@@ -71,6 +71,27 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
+        /*车主-添加车辆-选择城市*/
+        .state('customerCitySelect', {
+            cache: false,
+            url: '/customerCitySelect',
+            templateUrl: 'app/customer/auto/citySelect.html',
+            controller: 'customerAutoAddCtrl'
+        })
+         /*车主-添加车辆-选择区域*/
+        .state('customerRegion', {
+            cache: false,
+            url: '/customerRegion',
+            templateUrl: 'app/customer/auto/regionSelect.html',
+            controller: 'customerAutoAddCtrl'
+        })
+         /*车主-添加车辆-选择小区*/
+        .state('customerDistrictSelect', {
+            cache: false,
+            url: '/customerDistrictSelect',
+            templateUrl: 'app/customer/auto/districtSelect.html',
+            controller: 'customerAutoAddCtrl'
+        })
         /*车主-车辆*/
         .state('customerAutoMgr', {
             cache: false,
@@ -156,6 +177,13 @@ angular.module('udqApp', ['ionic'])
                 }
             }
         })
+        /*洗车店-完成订单拍照*/
+        .state('employeephotograph', {
+            cache: false,
+            url: '/employeephotograph',
+            templateUrl: 'app/employee/order/photograph.html',
+            controller: 'employeephotographCtrl'
+        })
           /*洗车店-查看一条订单全部信息*/
         .state('employeeOrderInfo', {
             cache: false,
@@ -195,7 +223,7 @@ angular.module('udqApp', ['ionic'])
         })*/
        ;
 
-       $urlRouterProvider.otherwise('/customerHome');
+       $urlRouterProvider.otherwise('/employeephotograph');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

@@ -26,24 +26,42 @@
                 </label>
                 <div class="spacer" style="height:10px;"></div>
                 <!-- 选择小区 -->
-                <label class="item item-input item-select">
-                    <div class="input-label">请选择城市：</div>
-                    <select ng-model="mycity" ng-options="city.name for city in cities" ng-change="cityToRegion(mycity)">
-                        <option value="">请选择</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">请选择区域：</div>
-                    <select ng-model="myregion" ng-options="region.name for region in regions" ng-change="regionToDistrict(myregion)">
-                        <option value="">请选择</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">请选择小区：</div>
-                    <select ng-model="mydistrict" ng-options="district.name for district in districts" ng-change="getDefaultRegionId(mydistrict.id)">
-                        <option value="">请选择</option>
-                    </select>
-                </label>
+                <a class="item item-icon-right" ng-click="goToCitySelect()">
+                    选择城市
+                    <i class="icon ion-chevron-right"></i>
+
+                    <div class="item-content">
+                        <ul ng-repeat="city in cities" ng-show="city.id ==selected.selectedCityId">
+                            <li>
+                                选择城市:{{city.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+                <a class="item item-icon-right" ng-click="goToRegionSelect()">
+                    选择区域
+                    <i class="icon ion-chevron-right"></i>
+
+                    <div class="item-content">
+                        <ul ng-repeat="region in regions" ng-show="region.id ==selected.selectedRegionId">
+                            <li>
+                                选择区域:{{region.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+                <a class="item item-icon-right" ng-click="goToDistrictSelect()">
+                    选择小区
+                    <i class="icon ion-chevron-right"></i>
+
+                    <div class="item-content">
+                        <ul ng-repeat="dis in districts" ng-show="dis.id ==selected.selectedDistrictId">
+                            <li>
+                                选择小区:{{dis.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </a>
             </ion-list>
             <button class="button button-block button-positive " ng-click="addAuto()">确认</button>
         </form>

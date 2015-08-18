@@ -1,16 +1,15 @@
-﻿<ion-view view-title="选择小区">
+﻿<ion-view view-title="选择区域">
     <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
             <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfRegionSelect()"></button>
-
         </ion-nav-buttons>
 
     </ion-nav-bar>
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
 
-        <ion-list ng-repeat="district in districts">
-            <ion-radio ng-model="selectedAuto.selectedRegionId" ng-change="regionToDistrict(selectedAuto.selectedRegionId)" value={{district.id}}>{{district.name}}</ion-radio>
+        <ion-list ng-repeat="region in regions"  ng-show="region.pid ==selectedRegionPid">
+            <ion-radio ng-model="selected.selectedRegionId" value={{region.id}}>{{region.name}}</ion-radio>
         </ion-list>
 
     </ion-content>

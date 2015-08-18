@@ -1,0 +1,18 @@
+﻿<ion-view view-title="选择城市">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfCitySelect()"></button>
+
+        </ion-nav-buttons>
+
+    </ion-nav-bar>
+    <ion-content has-subheader="false">
+        <ion-refresher on-refresh="doRefreshOfCity()"></ion-refresher>
+
+        <ion-list ng-repeat="city in cities">
+            <ion-radio ng-model="selected.selectedCityId"  ng-change="cityToRegion(selected.selectedCityId)" value={{city.id}}>{{city.name}}</ion-radio>
+        </ion-list>
+
+    </ion-content>
+
+</ion-view>
