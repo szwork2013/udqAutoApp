@@ -12,8 +12,8 @@
     </ion-nav-bar>
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div style="text-align:center;">
-            <h4 ng-show="autoInfo ==undefined">暂无车辆,赶紧来添加吧</h4>
+        <div style="text-align:center;" ng-show="hasNoAuto">
+            <h4 >暂无车辆,赶紧来添加吧</h4>
         </div>
         <ion-list>
             <ion-item ng-repeat="auto in autoInfo">

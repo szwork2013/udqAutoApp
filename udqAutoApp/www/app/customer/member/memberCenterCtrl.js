@@ -1,10 +1,14 @@
 angular.module('udqApp')
 	.controller('customerMemberCenterCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', function ($scope, $state, $ionicHistory, $window, $ionicPopup, CustomerMemberInfoSvr) {
 	    
+	    $scope.user = {
+	        name: $window.localStorage['userName'],
+	        sex: $window.localStorage['sex'],
+            mobile:$window.localStorage['mobile']
+	    };
     	$scope.goToCenter = function () {
-
     	    $state.go('customerMyDQ');
-    	};
+    	}
 
     	$scope.goToEditOwnerInfo = function () {
     	    $state.go('customerMemberInfoEdit');
@@ -13,10 +17,11 @@ angular.module('udqApp')
     	    $ionicHistory.goBack();
     	}
     	$scope.saveMemberInfo = function () {
-    	    if ($scope.name != $window.localStorage['userName']) {
-    	        customerMemberInfoSvr.editUserInfo($scope.name).then(
+    	    if ($scope.user.name != $window.localStorage['userName'] || $scope.user.sex != $window.localStorage['sex']) {
+    	        customerMemberInfoSvr.editUserInfo($scope.user).then(
                     function (data) {
-                        $window.localStorage['userName'] = $scope.name;
+                        $window.localStorage['userName'] = $scope.user.name;
+                        $window.localStorage['sex'] = $scope.user.sex;
                         $scope.goToCenter();
                     },
                     function (data) {
@@ -36,6 +41,7 @@ angular.module('udqApp')
                 $window.localStorage['mobile'] = '';
                 $window.localStorage['userName'] = '';
                 $window.localStorage['userType'] = 0;
+                $window.localStorage['sex'] = 0;
 
     	        $state.go('customerHome');
     	        console.log('退出当前用户');

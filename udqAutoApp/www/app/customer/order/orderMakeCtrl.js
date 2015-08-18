@@ -1,68 +1,36 @@
 ﻿angular.module('udqApp')
     .controller('customerOrderMakeCtrl', ['$scope', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
 
+        /*从服务中获取选择的洗车类型、车辆以及小区*/
+        var getWashTypeAndSelectAutoInfo = function () {
+            $scope.types = customerOrderSvr.getTypes();
+            $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();
+            $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
+        }
+        /*保存选择的洗车类型，选择的车辆以及选择的小区*/
+        var saveWashTypeAndSelectAutoInfo = function () {
+            customerOrderSvr.setType($scope.types);
+            customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
+            customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
+        }
 
-        var typeSelect = $stateParams.typeSelect;
-        /*数据区*/
-        $scope.order = {
-            washTypeId: [],
-            userId: $window.localStorage['userID'],
-            autoId: '',
-            regionId: '',
-            orgId: '',/*洗车店，需要？*/
-            userNote: '',/*用户订单备注*/
-            orderTime: '',
-            couponId: [],/*优惠券*/
-            couponAmount: [],/*优惠券金额*/
-            fixedAmount: [],
-            channel: ''/*支付方式*/
-        };
-
-        $scope.types = [];
         $scope.selectedAuto = {};
 
-        $scope.districts = regionSvr.getDistricts();
-        /*获取地域信息*/
-        regionSvr.doRequest().then(
-            function (data) {
-                if ($scope.districts == undefined) {
-                    regionSvr.getCitiesFromData(data);
-                    $scope.districts = regionSvr.getDistricts();
-                }
-
-                autoSvr.getAuto().then(
+        var typeSelect = $stateParams.typeSelect;
+        switch (typeSelect) {
+            case 'main':
+                /*获取洗车类型，车辆信息，小区信息*/
+                customerWashtypeSvr.callWashType().then(
                     function (data) {
-                        $scope.autoInfo = data.rows;
-
-                        if ($scope.autoInfo.length == 0) {
-
-                        } else {
-                            /*选择的车辆、小区索引*/
-                            var indexOfAuto = 0;
-                            var indexOfRegion = 0;
-
-                            if (typeSelect == undefined) {
-                                $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();;
-                                $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
-                                if ($scope.selectedAuto.selectedAutoId == undefined || $scope.selectedAuto.selectedRegionId == undefined) {
-                                    $scope.selectedAuto.selectedAutoId = $scope.autoInfo[0].id;
-                                    $scope.selectedAuto.selectedRegionId = $scope.autoInfo[0].defaultRegionId;
-                                }
+                        $scope.totalAmount = 0;
+                        $scope.types = data.rows;
+                        /*1表示选中，2表示未选中，‘快洗’设置为选中，其他默认未未选中*/
+                        for (var i = 0; i < data.rows.length; i++) {
+                            if (i == 0) {
+                                $scope.types[i].check = 1;
+                                $scope.totalAmount = $scope.types[i].amount;
                             } else {
-
-                                $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();
-
-                                for (var i = 0; i < $scope.autoInfo.length; i++) {
-                                    if ($scope.selectedAuto.selectedAutoId == $scope.autoInfo[i].id) {
-                                        indexOfAuto = i;
-                                    }
-                                }
-                                if (typeSelect == 'auto') {
-                                    $scope.selectedAuto.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
-
-                                } else {
-                                    $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
-                                }
+                                $scope.types[i].check = 2;
                             }
                         }
                     },
@@ -70,28 +38,149 @@
                         console.log(data);
                     }
                 );
-            },
-            function (data) {
-                console.log(data);
-            }
-        );
+                autoSvr.getAuto().then(
+                    function (data) {
+                        if (data.isSuccess) {
+                            if (data.rows.length > 0) {
+                                $scope.autoInfo = data.rows;
+                                $scope.hasNoAuto = false;
+                                /*设置默认的车辆、小区*/
+                                if ($scope.autoInfo != undefined && $scope.autoInfo.length > 0) {
+                                    $scope.selectedAuto.selectedAutoId = $scope.autoInfo[0].id;
+                                    $scope.selectedAuto.selectedRegionId = $scope.autoInfo[0].defaultRegionId;
+                                }
+                            } else {
+                                console.log('用户无车辆信息，未添加车辆');
+                                $scope.hasNoAuto = true;
+                            }
+                        } else {
+                            console.log(data.msg);
+                        }
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
+                regionSvr.doRequest().then(
+                    function (data) {
+                        if (data!=undefined) {
+                            regionSvr.getCitiesFromData(data);
+                            $scope.districts = regionSvr.getDistricts();
+                        }
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
+                
+                break;
+            case 'washTypeReturn':
+            case 'autoReturn':
+            case 'regionReturn':
+                /**/
+                $scope.types = customerOrderSvr.getTypes();
+                $scope.totalAmount = 0;
+                if ($scope.types != undefined && $scope.types.length > 0) {
+                    for (var i = 0; i < $scope.types.length; i++) {
+                        if ($scope.types[i].check == 1) {
+                            $scope.totalAmount += $scope.types[i].amount;
+                        }
+                    }
+                    $scope.totalAmount = $scope.totalAmount.toFixed(2);
+                }
+                /*获取车辆、小区*/
+                autoSvr.getAuto().then(
+                    function (data) {
+                        if (data.isSuccess) {
+                            if (data.rows.length > 0) {
+                                $scope.autoInfo = data.rows;
+                                $scope.hasNoAuto = false;
+                            } else {
+                                console.log('用户无车辆信息，未添加车辆');
+                                $scope.hasNoAuto = true;
+                            }
+                        } else {
+                            console.log(data.msg);
+                        }
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
+                regionSvr.doRequest().then(
+                    function (data) {
+                        if ($scope.districts == undefined) {
+                            regionSvr.getCitiesFromData(data);
+                            $scope.districts = regionSvr.getDistricts();
+                        }
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
 
-
-        /*跳转到洗车类型选择*/
+                getWashTypeAndSelectAutoInfo();
+                break;
+            case 'goToWashType':
+                /*从服务获取洗车类型*/
+                $scope.types = customerOrderSvr.getTypes();
+                break;
+            case 'goToAuto':
+                /*从后台获取车辆信息*/
+                autoSvr.getAuto().then(
+                    function (data) {
+                        if (data.isSuccess) {
+                            if (data.rows.length > 0) {
+                                $scope.autoInfo = data.rows;
+                                $scope.hasNoAuto = false;
+                                $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();
+                            } else {
+                                console.log('用户无车辆信息，未添加车辆');
+                                $scope.hasNoAuto = true;
+                            }
+                        } else {
+                            console.log(data.msg);
+                        }
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
+                break;
+            case 'goToRegion':
+                /*从后台获取小区*/
+                regionSvr.doRequest().then(
+                    function (data) {
+                        if ($scope.districts == undefined) {
+                            regionSvr.getCitiesFromData(data);
+                            $scope.districts = regionSvr.getDistricts();
+                            $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
+                        }
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
+                break;
+        }
+        /*数据区*/
+        $scope.order = {
+            userId: $window.localStorage['userID']
+        };
+        /*保存选择，跳转到洗车类型选择*/
         $scope.goToWashType = function () {
-            $state.go('customerWashtype');
+            saveWashTypeAndSelectAutoInfo();
+            $state.go('customerWashtype', { 'typeSelect': 'goToWashType' });
         }
-        /*跳转到车辆选择*/
+        /*保存选择，跳转到车辆选择*/
         $scope.goToAutoList = function () {
-            $state.go('customerAutoList');
+            saveWashTypeAndSelectAutoInfo();
+            $state.go('customerAutoList', { 'typeSelect': 'goToAuto' });
         }
-        /*跳转到小区选择*/
+        /*保存选择，跳转到小区选择*/
         $scope.goToRegionSelect = function () {
-            $state.go('customerRegionSelect');
-        }
-        /*跳转到预约时间选择*/
-        $scope.goToOrderTime = function () {
-            $state.go('customerOrderTime');
+            saveWashTypeAndSelectAutoInfo();
+            $state.go('customerRegionSelect', { 'typeSelect': 'goToRegion' });
         }
         /*预约洗车回转*/
         $scope.goBackMain = function () {
@@ -118,15 +207,6 @@
                 cancel: function () {
                     /*取消选择*/
                 },
-                /*  channels = {
-    alipay_wap: 'alipay_wap',
-    upmp_wap: 'upmp_wap',
-    upacp_wap: 'upacp_wap',
-    bfb_wap: 'bfb_wap',
-    wx_pub: 'wx_pub',
-    yeepay_wap: 'yeepay_wap',
-    jdpay_wap: 'jdpay_wap'
-  };*/
                 buttonClicked: function (index) {
                     switch (index) {
                         case 0:/*支付宝*/
@@ -150,15 +230,17 @@
                     }
                     /*检查，提交订单提交*/
                     return checkOrder();
-                    
+
                 }
-            });            
+            });
         }
         var checkOrder = function () {
             /*获取洗车类型*/
             if ($scope.types == undefined) {
                 return true;
             }
+            $scope.order.washTypeId = [];
+            $scope.order.fixedAmount = [];
             for (var i = 0; i < $scope.types.length; i++) {
                 if ($scope.types[i].check = 1) {
                     $scope.order.washTypeId.push($scope.types[i].id);
@@ -194,73 +276,54 @@
                      return true;
                  });
         }
-
         /*************************洗车类型******************************/
-
-
-        $scope.updateWashTypes = function () {
-            $scope.totalAmount = 0;
-            $scope.types = customerOrderSvr.getTypes();
-            if ($scope.types == undefined) {
-                customerWashtypeSvr.callWashType().then(
-                    function (data) {
-                        $scope.types = data.rows;
-                        /*1表示选中，2表示未选中，‘快洗’设置为选中，其他默认未未选中*/
-                        for (var i = 0; i < data.rows.length; i++) {
-                            if (i == 0) {
-                                $scope.types[i].check = 1;
-                                $scope.totalAmount = $scope.types[i].amount;
-                            } else {
-                                $scope.types[i].check = 2;
-                            }
-
-                        }
-                        customerOrderSvr.setType($scope.types);
-                    },
-                    function (data) {
-                        console.log(data);
-                    }
-                );
-            } else {
-                for (var i = 0; i < $scope.types.length; i++) {
-                    if ($scope.types[i].check == 1) {
-                        $scope.totalAmount += $scope.types[i].amount;
-                    }
-                }
-                $scope.totalAmount = $scope.totalAmount.toFixed(2);
-            }
-        }
-        $scope.updateWashTypes();
-
         /*返回预定洗车界面*/
         $scope.goBackOfWashType = function () {
-            customerOrderSvr.setType($scope.types);
-            $state.go("customerOrderMake");
+            if ($scope.types != undefined && $scope.types.length > 0) {
+                customerOrderSvr.setType($scope.types);
+            }
+            $state.go("customerOrderMake", { 'typeSelect': 'washTypeReturn' });
         }
         /***************************************************************/
         /*************************车辆选择******************************/
-
         /*下拉刷新*/
         $scope.doRefresh = function () {
             autoSvr.getAuto().then(
             function (data) {
-                $scope.autoInfo = data.rows;
-                console.log("获取车辆成功" + data.rows.length);
+                if (data.isSuccess) {
+                    if (data.rows.length > 0) {
+                        $scope.autoInfo = data.rows;
+                        console.log("获取车辆成功" + data.rows.length);
+                    }
+                } else {
+                    console.log(data.msg);
+                }
             }, function (data) {
                 console.log(data);
             }
             );
             $scope.$broadcast('scroll.refreshComplete');
         }
-
         $scope.goToAddauto = function () {
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function () {
             /*保存在service*/
-            customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
+            if ($scope.autoInfo != undefined && $scope.autoInfo.length > 0) {
+                customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
+                /*选择车辆改变，则联动小区也改变*/
+                var indexOfAuto = 0;
+                for (var i = 0; i < $scope.autoInfo.length; i++) {
+                    if ($scope.selectedAuto.selectedAutoId == $scope.autoInfo[i].id) {
+                        indexOfAuto = i;
+                    }
+                }
+                $scope.selectedAuto.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
+
+            }
+            
             /*跳转*/
-            $state.go("customerOrderMake", { 'typeSelect': 'auto' });
+            $state.go("customerOrderMake", { 'typeSelect': 'autoReturn' });
         }
         /***************************************************************/
         /*****************************小区选择**************************/
@@ -270,12 +333,9 @@
         }
         $scope.goBackOfRegionSelect = function () {
             /*保存到service*/
-            customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
-            $state.go('customerOrderMake', { 'typeSelect': 'region' });
+            if ($scope.districts != undefined && $scope.districts.length > 0) {
+                customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
+            }
+            $state.go('customerOrderMake', { 'typeSelect': 'regionReturn' });
         }
-        /***************************************************************/
-        /****************************预约时间***************************/
-
-        $scope.timeSpots = APP_CONFIG.bookTime.getTimeSpots();
-        /***************************************************************/
     }])

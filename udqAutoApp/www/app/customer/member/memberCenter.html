@@ -5,24 +5,25 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
-
-        <div class="item item-avatar" style="height:120px;">
-            <img src="../images/ownerIcon.jpg">
-            <h2>Marty McFly</h2>
-            <p>November 05, 1955</p>
-        </div>
-
-
-        <!--分隔带-->
-        <div class="spacer" style="height: 10px;"></div>
         <!--列表-->
         <div class="list">
-
+            <ion-item class="item item-icon-left ">
+                <i class="icon ion-ios-person"></i>
+                {{user.name}}
+            </ion-item>
+            <ion-item class="item item-icon-left ">
+                <i class="icon ion-ios-telephone"></i>
+                {{user.mobile}}
+            </ion-item>
+            <ion-item class="item item-icon-left ">
+                <i class="icon ion-ios-body"></i>
+                <p ng-show="user.sex ==1">男</p>
+                <p ng-show="user.sex ==2">女</p>
+            </ion-item>
             <a class="item item-icon-left " ng-click="goToEditOwnerInfo()">
                 <i class="icon ion-compose"></i>
-                设置
+                修改信息
             </a>
-
             <button class="button button-block button-positive " ng-click="exitCurrentUser()">退出账号</button>
         </div>
     </ion-content>

@@ -1,11 +1,6 @@
 angular.module('udqApp')
 	.controller('customerAutoAddCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', function ($scope, $stateParams,$state, $ionicHistory, $window, regionSvr, autoSvr) {
 	    $scope.autoInfo = {
-	        pn: '',
-	        brand: '',
-	        color: '',
-	        model: '',
-	        defaultRegionId: 0,
 	        userId: $window.localStorage['userID'],
             id:0/*0为添加，1为修改*/
 	    };
@@ -13,16 +8,35 @@ angular.module('udqApp')
 		/*检查车牌号的正则表达式*/
 	    $scope.pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
 
+        /*检查输入车辆信息是否合法*/
 	    var checkAutoInfo = function (auto) {
-	        return false;
+            /*车牌号*/
+	        var pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
+	        if (pnRe.test(auto.pn)) {
+	            auto.pn = angular.uppercase(auto.pn);
+	        } else {
+	            return '车牌号输入不合法';
+	        }
+	        /*品牌*/
+	        if (auto.brand == undefined) {
+	            return '请输入您的爱车品牌';
+	        }
+	        /*颜色、型号*/
+	        /*小区*/
+	        if (auto.defaultRegionId == undefined) {
+	            return '请选择小区';
+	        }
+	        return;
 	    }
 
 		/*点击"确认"*/
 		$scope.addAuto = function () {
 		    /*1、检查车牌号、车品牌、颜色、型号、是否选择小区
 		      2、调用数据数据服务，添加车辆*/
-		    if (checkAutoInfo($scope.autoInfo)) {
-
+		    var temp = checkAutoInfo($scope.autoInfo);
+		    if (temp != undefined) {
+		        showAlert(temp);
+		        return;
 		    }
 		    var promise = autoSvr.addAutoItem($scope.autoInfo);
 		    promise.then(
@@ -70,6 +84,16 @@ angular.module('udqApp')
 		$scope.goBack = function () {
 		    $state.go(backName);
 		    
+		}
+
+		var showAlert = function (msg) {
+		    var alertPopup = $ionicPopup.alert({
+		        title: '温馨提示',
+		        template: msg
+		    });
+		    alertPopup.then(function (res) {
+		        console.log(msg);
+		    });
 		}
 
 	}])

@@ -1,12 +1,13 @@
 ﻿<ion-view view-title="我的订单">
     <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfMain()"></button>
+            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBackOfMain()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-content>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div style="text-align:center;" ng-show="hasNoOrder"><h4>暂无订单</h4></div>
         <ion-list class="list card" ng-repeat="order in orderList">
             <ion-item ng-click="goToSeeOrder(order)">
                 <div>

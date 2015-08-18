@@ -26,6 +26,7 @@
                 选择车辆
                 <i class="icon ion-chevron-right"></i>
                 <div class="item-content">
+                    <p ng-show="hasNoAuto">暂未添加车辆</p>
                     <ul ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
                         <li>
                             选择车辆:{{auto.pn}}

@@ -44,7 +44,7 @@ angular.module('udqApp')
                     }
                 },
                 function (data) {
-                    showAlert('登录操作失败');
+                    showAlert('data');
                 });
 
         }
@@ -128,6 +128,7 @@ angular.module('udqApp')
                         $window.localStorage['mobile'] = $scope.user.mobile;
                         $window.localStorage['userName'] = data.data.name;
                         $window.localStorage['userType'] = data.data.userType;
+                        $window.localStorage['sex'] = data.data.sex;
                         /*跳转*/
                         goToHomeByUserType(userType);
                     } else {

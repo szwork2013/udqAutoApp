@@ -6,15 +6,25 @@ cutomer订单页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$window','$ionicActionSheet', 'customerOrderSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $window,$ionicActionSheet, customerOrderSvr) {
+    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$window', '$ionicActionSheet', 'customerOrderSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $window, $ionicActionSheet, customerOrderSvr) {
 
         $scope.selectedOrder = customerOrderSvr.getSelectedOrder();
-        
+
         var promise = customerOrderSvr.getOrdersList();
         promise.then(
             function (data) {
-                $scope.orderList = data.rows;
-                console.log("获取订单成功");
+                if (data.isSuccess) {
+                    if (data.rows.length > 0) {
+                        $scope.orderList = data.rows;
+                        $scope.hasNoOrder = false;
+                        console.log("获取订单成功");
+                    } else {
+                        $scope.hasNoOrder = true;
+                    }
+                } else {
+                    console.log(data.msg);
+                }
+
             },
             function (data) {
                 console.log(data);
@@ -31,8 +41,18 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.doRefresh = function () {
             customerOrderSvr.getOrdersList().then(
             function (data) {
-                $scope.orderList = data.rows;
-                console.log("获取订单成功");
+                if (data.isSuccess) {
+                    if (data.rows.length > 0) {
+                        $scope.orderList = data.rows;
+                        $scope.hasNoOrder = false;
+                        console.log("获取订单成功");
+                    } else {
+                        $scope.hasNoOrder = true;
+                    }
+                } else {
+                    console.log(data.msg);
+                }
+
             },
             function (data) {
                 console.log(data);
@@ -76,7 +96,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                     $scope.popover = popover;
                 });
             }
-            
+
         }
         /*评价订单*/
         $scope.judgeOrder = function (order) {
@@ -108,16 +128,16 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 ],
                 titleText: '分享',
                 cancelText: '取消',
-                cancel: function() {
+                cancel: function () {
                     // 取消时执行
                 },
-                buttonClicked: function(index) {
+                buttonClicked: function (index) {
                     if (index == 0) {
                         //title, desc, url, thumb
-                  //      $scope.shareViaWechat(WeChat.Scene.timeline, title, desc, url, thumb);
+                        //      $scope.shareViaWechat(WeChat.Scene.timeline, title, desc, url, thumb);
                     }
-                    if(index ==1 ) {
-                    //    $scope.shareViaWechat(WeChat.Scene.session, title, desc, url, thumb);
+                    if (index == 1) {
+                        //    $scope.shareViaWechat(WeChat.Scene.session, title, desc, url, thumb);
                     }
                 }
             })
@@ -151,5 +171,5 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         }
 
         $scope.selectOrder = customerOrderSvr.getSelectedOrder();
-        
+
     }])

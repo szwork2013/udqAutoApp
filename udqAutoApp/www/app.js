@@ -81,7 +81,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车-车辆选择*/
         .state('customerAutoList', {
             cache:false,
-            url: '/customerAutoList',
+            url: '/customerAutoList?typeSelect',
             templateUrl: 'app/customer/auto/autoList.html',
             controller: 'customerOrderMakeCtrl'
         })
@@ -101,7 +101,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车-洗车类型*/
         .state('customerWashtype', {
             cache: false,
-            url: '/customerWashtype',
+            url: '/customerWashtype?typeSelect',
             templateUrl: 'app/customer/washType/washtypeSelect.html',
             controller: 'customerOrderMakeCtrl'
         })
@@ -166,7 +166,7 @@ angular.module('udqApp', ['ionic'])
         /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
             cache: false,
-            url: '/customerRegionSelect',
+            url: '/customerRegionSelect?typeSelect',
             templateUrl: 'app/customer/order/regionSelect.html',
             controller: 'customerOrderMakeCtrl'
         })
