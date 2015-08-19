@@ -24,13 +24,15 @@
                     function (data) {
                         $scope.totalAmount = 0;
                         $scope.types = data.rows;
-                        /*1表示选中，2表示未选中，‘快洗’设置为选中，其他默认未未选中*/
-                        for (var i = 0; i < data.rows.length; i++) {
-                            if (i == 0) {
-                                $scope.types[i].check = 1;
-                                $scope.totalAmount = $scope.types[i].amount;
-                            } else {
-                                $scope.types[i].check = 2;
+                        if (data.rows.length != 0) {
+                            /*1表示选中，2表示未选中，‘快洗’设置为选中，其他默认未未选中*/
+                            for (var i = 0; i < data.rows.length; i++) {
+                                if (i == 0) {
+                                    $scope.types[i].check = 1;
+                                    $scope.totalAmount = $scope.types[i].amount;
+                                } else {
+                                    $scope.types[i].check = 2;
+                                }
                             }
                         }
                     },
@@ -77,8 +79,9 @@
             case 'washTypeReturn':
             case 'autoReturn':
             case 'regionReturn':
-                /**/
-                $scope.types = customerOrderSvr.getTypes();
+            case 'payOrderReturn':
+                /*计算金额*/
+                getWashTypeAndSelectAutoInfo();
                 $scope.totalAmount = 0;
                 if ($scope.types != undefined && $scope.types.length > 0) {
                     for (var i = 0; i < $scope.types.length; i++) {
@@ -118,8 +121,6 @@
                         console.log(data);
                     }
                 );
-
-                getWashTypeAndSelectAutoInfo();
                 break;
             case 'goToWashType':
                 /*从服务获取洗车类型*/
@@ -190,49 +191,10 @@
         $scope.goBack = function () {
             $ionicHistory.goBack();
         }
-        /*提交订单*/
+        /*前去订单*/
         $scope.commitOrder = function () {
-            /*选择支付方式*/
-            var hideSheet = $ionicActionSheet.show({
-                buttons: [
-                    { text: '支付宝' },
-                    { text: '微信支付' },
-                    { text: '银联支付' },
-                    { text: '易宝支付' },
-                    { text: '京东支付' },
-                    { text: 'Apple Pay' }
-                ],
-                titleText: '选择支付方式',
-                cancelText: '取消',
-                cancel: function () {
-                    /*取消选择*/
-                },
-                buttonClicked: function (index) {
-                    switch (index) {
-                        case 0:/*支付宝*/
-                            $scope.order.channel = 'alipay';
-                            break;
-                        case 1:/*微信支付*/
-                            $scope.order.channel = 'wx_pub';
-                            break;
-                        case 2:/*银联支付*/
-                            $scope.order.channel = 'upacp_wap';
-                            break;
-                        case 3:/*易宝支付*/
-                            $scope.order.channel = 'yeepay_wap';
-                            break;
-                        case 4:/*京东支付*/
-                            $scope.order.channel = 'jdpay_wap';
-                            break;
-                        case 5:/*Apple Pay*/
-                            $scope.order.channel = 'apple_pay';
-                            break;
-                    }
-                    /*检查，提交订单提交*/
-                    return checkOrder();
-
-                }
-            });
+            checkOrder();
+            $state.go('customerOrderpay', { 'order': angular.toJson($scope.order), 'state': 'customerOrderMake' });
         }
         var checkOrder = function () {
             /*获取洗车类型*/
@@ -242,7 +204,7 @@
             $scope.order.washTypeId = [];
             $scope.order.fixedAmount = [];
             for (var i = 0; i < $scope.types.length; i++) {
-                if ($scope.types[i].check = 1) {
+                if ($scope.types[i].check == 1) {
                     $scope.order.washTypeId.push($scope.types[i].id);
                     $scope.order.fixedAmount.push($scope.types[i].amount);
                 }
@@ -251,30 +213,30 @@
             $scope.order.autoId = $scope.selectedAuto.selectedAutoId;
             $scope.order.regionId = $scope.selectedAuto.selectedRegionId;
 
-            customerOrderMakeSvr.commitOrder($scope.order).then(
-                 function (data) {
-                     //根据data内的数据判断时候成功
-                     if (data.isSuccess) {
-                         console.log('提交成功');
-                         pingpp.createPayment(JSON.stringify(data.data.charge), function (result, error) {
-                             if (result == "success") {
-                                 // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
-                                 /*从data中获取新添加的order*/
-                                 customerOrderSvr.setSelectedOrder(order);
-                                 $state.go('customerOrderMgr');
-                             } else if (result == "fail") {
-                                 // charge 不正确或者微信公众账号支付失败时会在此处返回
+            //customerOrderMakeSvr.commitOrder($scope.order).then(
+            //     function (data) {
+            //         //根据data内的数据判断时候成功
+            //         if (data.isSuccess) {
+            //             console.log('提交成功');
+            //             pingpp.createPayment(JSON.stringify(data.data.charge), function (result, error) {
+            //                 if (result == "success") {
+            //                     // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
+            //                     /*从data中获取新添加的order*/
+            //                     customerOrderSvr.setSelectedOrder(order);
+            //                     $state.go('customerOrderMgr');
+            //                 } else if (result == "fail") {
+            //                     // charge 不正确或者微信公众账号支付失败时会在此处返回
 
-                             } else if (result == "cancel") {
-                                 // 微信公众账号支付取消支付
-                             }
-                         });
-                     }
-                 },
-                 function (data) {
-                     console.log(data);
-                     return true;
-                 });
+            //                 } else if (result == "cancel") {
+            //                     // 微信公众账号支付取消支付
+            //                 }
+            //             });
+            //         }
+            //     },
+            //     function (data) {
+            //         console.log(data);
+            //         return true;
+            //     });
         }
         /*************************洗车类型******************************/
         /*返回预定洗车界面*/
@@ -305,6 +267,19 @@
             $scope.$broadcast('scroll.refreshComplete');
         }
         $scope.goToAddauto = function () {
+            /*保存在service*/
+            if ($scope.autoInfo != undefined && $scope.autoInfo.length > 0) {
+                customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
+                /*选择车辆改变，则联动小区也改变*/
+                var indexOfAuto = 0;
+                for (var i = 0; i < $scope.autoInfo.length; i++) {
+                    if ($scope.selectedAuto.selectedAutoId == $scope.autoInfo[i].id) {
+                        indexOfAuto = i;
+                    }
+                }
+                $scope.selectedAuto.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
+
+            }
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function () {

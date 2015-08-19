@@ -37,6 +37,57 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.goBackOfOrderList = function () {
             $state.go('customerMyOrder');
         }
+
+        $scope.isOrderUpdated = function () {
+            customerOrderSvr.getOrdersList().then(
+            function (data) {
+                if (data.isSuccess) {
+                    if (data.rows.length > 0) {
+                        if (data.rows.length == $scope.orderList.length) {
+                            for (var i = 0; i < data.rows.length; i++) {
+                                if ($scope.orderList[i].state == data.rows[i].state) {
+                                    return true;
+                                }
+                                if (i == $scope.orderList.length-1) {
+                                    return false;
+                                }
+                            }
+                        }else{
+                            return true;
+                        }
+                    }else {
+                        console.log(data.msg);
+                        return false;
+                    }
+                }},
+            function (data) {
+                return false;
+            }
+            );
+        }
+        /*上拉更新*/
+        $scope.updateOrders = function () {
+            /**/
+            customerOrderSvr.getOrdersList().then(
+            function (data) {
+                if (data.isSuccess) {
+                    if (data.rows.length > 0) {
+                        $scope.orderList = data.rows;
+                        $scope.hasNoOrder = false;
+                        console.log("获取订单成功");
+                    } else {
+                        $scope.hasNoOrder = true;
+                    }
+                } else {
+                    console.log(data.msg);
+                }
+
+            },
+            function (data) {
+                console.log(data);
+            });
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        }
         /*下拉刷新*/
         $scope.doRefresh = function () {
             customerOrderSvr.getOrdersList().then(
@@ -58,6 +109,23 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 console.log(data);
             });
             $scope.$broadcast('scroll.refreshComplete');
+        }
+        /*支付订单*/
+        $scope.payOrder = function (order) {
+            switch (order.payType) {
+                case 1:
+                    order.channel = 'alipay';
+                    break;
+                case 2:
+                    order.channel = 'wx';
+                    break;
+                case 3:
+                    order.channel = 'upacp';
+                    break;
+                default:
+                    break;
+            }
+            $state.go('', { 'order': angular.toJson(order), 'state': 'employeeOrderList' });
         }
         /*取消订单*/
         $scope.cancelOrder = function (order) {

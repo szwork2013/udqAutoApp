@@ -216,6 +216,11 @@ angular.module('udqApp', ['ionic'])
            templateUrl: 'app/customer/order/orderMgr.html',
            controller: 'customerOrderCtrl'
        })
+       .state('customerOrderpay', {
+           url: '/customerOrderpay?order&state',
+           templateUrl: 'app/customer/order/orderPay.html',
+           controller: 'customerOrderPayCtrl'
+       })
        /*.state('',{
             url:'',
             templateUrl:'',
@@ -223,7 +228,7 @@ angular.module('udqApp', ['ionic'])
         })*/
        ;
 
-       $urlRouterProvider.otherwise('/employeephotograph');
+       $urlRouterProvider.otherwise('/customerHome');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

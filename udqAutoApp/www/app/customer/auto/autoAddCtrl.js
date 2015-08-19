@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerAutoAddCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', function ($scope, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr) {
+	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', function ($scope,$ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr) {
 	    $scope.autoInfo = {
 	        userId: $window.localStorage['userID'],
 	        id: 0/*0为添加，1为修改*/
@@ -8,8 +8,8 @@ angular.module('udqApp')
 	    $scope.selectedDistrictPid;
 	    $scope.selectedRegionPid;
 	    var backName = $stateParams.backName;
-		/*检查车牌号的正则表达式*/
-	    $scope.pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
+	    autoSvr.setBackName(backName);
+	    backName = autoSvr.getBackName();
 
         /*检查输入车辆信息是否合法*/
 	    var checkAutoInfo = function (auto) {
@@ -32,9 +32,19 @@ angular.module('udqApp')
 	        return;
 	    }
 	    $scope.autoInfo.pn;
-	    $scope.cities = regionSvr.getCities();
-	    $scope.regions = regionSvr.getRegions();
-	    $scope.districts = regionSvr.getDistricts();
+	    regionSvr.doRequest().then(
+                    function (data) {
+                        if (data != undefined) {
+                            regionSvr.getCitiesFromData(data);
+                            $scope.cities = regionSvr.getCities();
+                            $scope.regions = regionSvr.getRegions();
+                            $scope.districts = regionSvr.getDistricts();
+                        }
+                    },
+                    function (data) {
+                        console.log(data);
+                    }
+                );
 
 		/*点击"确认"*/
 		$scope.addAuto = function () {
@@ -81,8 +91,6 @@ angular.module('udqApp')
 		    $scope.autoInfo.defaultRegionId = id;
 		}
 
-	    $scope.autoInfo = autoSvr.getAutoInfo();
-
 	    //联动地址
 	    $scope.selectedRegionPid = autoSvr.getSelectedCityId();
 	    $scope.selectedDistrictPid = autoSvr.getSelectedRegionId();
@@ -120,20 +128,15 @@ angular.module('udqApp')
 	        autoSvr.setDefaultRegionId($scope.selected.selectedDistrictId);
 	        $state.go('customerAutoAdd', { 'typeSelect': 'district' });
 	    }
-
-        /*获取地域信息*/
-		regionSvr.doRequest().then(
-            function (data) {
-                $scope.cities = regionSvr.getCitiesFromData(data);
-            },
-            function (data) {
-                console.log(data);
-            }
-        );
 		
         /*根据backName回跳之前的界面*/
-		$scope.goBack = function () {
-		    $state.go(backName);
+	    $scope.goBack = function () {
+	        if (backName == 'customerAutoList') {
+	            $state.go(backName, {'typeSelect':'goToAuto'});
+	        } else {
+	            $state.go(backName);
+	        }
+		    
 		    
 		}
 

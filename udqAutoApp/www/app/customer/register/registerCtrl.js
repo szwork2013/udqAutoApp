@@ -7,12 +7,7 @@ cutomer 的注册页面
 */
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
     .controller('customerRegisterCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'registerSvr', 'regionSvr', 'loginSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, registerSvr, regionSvr, loginSvr) {
-        //$scope.check = function () {
-        //    if ($scope.userInfo.psd == $scope.verifyCode) {
-        //        var template = '<i class="icon ion-ios-checkmark-outline placeholder-icon"></i>';
-        //        angular.element('#' + 'verifyInput').append($compile(template)($scope));
-        //    }
-        //}
+
         $scope.userInfo = {
             sex:1
         };
@@ -63,7 +58,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         }
         /*倒计时*/
         var count;
-        $scope.countInterval = 100;
+        $scope.countInterval = 60;
         $scope.verifyDisabled = false;
         /*倒计时*/
         $scope.countDown = function () {
@@ -90,7 +85,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         }
         /*重置*/
         $scope.resetCount = function () {
-            $scope.countInterval = 100;
+            $scope.countInterval = 60;
             $scope.verifyDisabled = false;
             $scope.tips = '验证码';
             count = undefined;

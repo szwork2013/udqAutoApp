@@ -59,7 +59,7 @@ angular.module('udqApp')
         }
         /*倒计时*/
         var count;
-        $scope.countInterval = 100;
+        $scope.countInterval = 60;
         $scope.verifyDisabled = false;
         /*倒计时*/
         $scope.countDown = function () {
@@ -86,7 +86,7 @@ angular.module('udqApp')
         }
         /*重置*/
         $scope.resetCount = function () {
-            $scope.countInterval = 100;
+            $scope.countInterval = 60;
             $scope.verifyDisabled = false;
             $scope.tips = '验证码';
             count = undefined;
@@ -111,12 +111,6 @@ angular.module('udqApp')
 
             var userType = 2;
             var returnData = {};
-            if ($window.localStorage['mobile'] !=undefined&& $window.localStorage['mobile'] == $scope.user.mobile) {
-                uerType = $window.localStorage['userType'];
-                $window.localStorage['loginState'] = 1;
-                /*跳转*/
-                goToHomeByUserType(userType);
-            } else {
                 loginSvr.loginCheck($scope.user).then(function (data) {
                     //判断该电话号码是否已经注册
                     if (data.isSuccess == true) {
@@ -139,7 +133,7 @@ angular.module('udqApp')
                     showAlert(data);
                 });
             }
-        }
+        //}
         var checkUserType = function (userType) {
             switch (userType) {
                 case 4:
@@ -147,7 +141,7 @@ angular.module('udqApp')
                 case 8:
                     return 2;
                 default:
-                    return 0;
+                    return 1;
             }
         };
         var goToHomeByUserType = function (userType) {
