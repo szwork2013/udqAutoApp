@@ -209,34 +209,23 @@
                     $scope.order.fixedAmount.push($scope.types[i].amount);
                 }
             }
+            if ($scope.selectedAuto.selectedAutoId == undefined || $scope.selectedAuto.selectedRegionId==undefined) {
+                showAlertOfFail('获取信息失败');
+                return true;
+            }
             /*获取车辆Id,小区Id*/
             $scope.order.autoId = $scope.selectedAuto.selectedAutoId;
             $scope.order.regionId = $scope.selectedAuto.selectedRegionId;
 
-            //customerOrderMakeSvr.commitOrder($scope.order).then(
-            //     function (data) {
-            //         //根据data内的数据判断时候成功
-            //         if (data.isSuccess) {
-            //             console.log('提交成功');
-            //             pingpp.createPayment(JSON.stringify(data.data.charge), function (result, error) {
-            //                 if (result == "success") {
-            //                     // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
-            //                     /*从data中获取新添加的order*/
-            //                     customerOrderSvr.setSelectedOrder(order);
-            //                     $state.go('customerOrderMgr');
-            //                 } else if (result == "fail") {
-            //                     // charge 不正确或者微信公众账号支付失败时会在此处返回
-
-            //                 } else if (result == "cancel") {
-            //                     // 微信公众账号支付取消支付
-            //                 }
-            //             });
-            //         }
-            //     },
-            //     function (data) {
-            //         console.log(data);
-            //         return true;
-            //     });
+        }
+        var showAlertOfFail = function (errorMsg) {
+            var alertPopup = $ionicPopup.alert({
+                title: '温馨提示',
+                template: errorMsg
+            });
+            alertPopup.then(function (res) {
+                console.log(errorMsg);
+            });
         }
         /*************************洗车类型******************************/
         /*返回预定洗车界面*/

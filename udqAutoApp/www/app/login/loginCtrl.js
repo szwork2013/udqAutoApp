@@ -37,8 +37,8 @@ angular.module('udqApp')
                                     $scope.verifyCode = data.msg;
                                 }
                             }, function (data) {
-                                console.log(data);
-                                showAlert(data);
+                                console.log(data.msg);
+                                showAlert(data.msg);
                             });
                         $scope.countDown();
                     }

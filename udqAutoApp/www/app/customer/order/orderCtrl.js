@@ -6,9 +6,10 @@ cutomer订单页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$window', '$ionicActionSheet', 'customerOrderSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $window, $ionicActionSheet, customerOrderSvr) {
+    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$window', '$ionicActionSheet','customerOrderSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $window, $ionicActionSheet, customerOrderSvr) {
 
         $scope.selectedOrder = customerOrderSvr.getSelectedOrder();
+        $scope.noMoreOrderAvailable = true;
 
         var promise = customerOrderSvr.getOrdersList();
         promise.then(
@@ -38,7 +39,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             $state.go('customerMyOrder');
         }
 
-        $scope.isOrderUpdated = function () {
+        $scope.moreDataCanBeLoaded = function () {
             customerOrderSvr.getOrdersList().then(
             function (data) {
                 if (data.isSuccess) {
@@ -77,6 +78,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                         console.log("获取订单成功");
                     } else {
                         $scope.hasNoOrder = true;
+                        $scope.noMoreOrderAvailable = false;
                     }
                 } else {
                     console.log(data.msg);

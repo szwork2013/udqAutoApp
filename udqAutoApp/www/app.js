@@ -221,6 +221,11 @@ angular.module('udqApp', ['ionic'])
            templateUrl: 'app/customer/order/orderPay.html',
            controller: 'customerOrderPayCtrl'
        })
+       .state('takePhoto', {
+           url: '/takePhoto',
+           templateUrl: 'app/util/takePicture.html',
+           controller: 'takePhotoCtrl'
+       })
        /*.state('',{
             url:'',
             templateUrl:'',

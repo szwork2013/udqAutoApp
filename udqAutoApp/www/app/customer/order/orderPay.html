@@ -8,10 +8,10 @@
     <ion-content>
         <ion-list>
             <ion-radio ng-model="order.channel" value="alipay">支付宝</ion-radio>
-            <ion-radio ng-model="order.channel" value="wx">微信支付</ion-radio>
-            <ion-radio ng-model="order.channel" value="upacp">银联支付</ion-radio>
+            <ion-radio ng-model="order.channel" value="wx_pub">微信支付</ion-radio>
+            <!--<ion-radio ng-model="order.channel" value="upacp">银联支付</ion-radio>-->
         </ion-list>
         <div class="spacer" style="height:20px;"></div>
-        <button class="button-stable button-block" ng-click="commitOrder()">提交订单</button>
+        <button class="button button-stable button-block" ng-click="commitOrder()">提交订单</button>
     </ion-content>
 </ion-view>

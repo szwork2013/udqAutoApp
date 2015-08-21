@@ -84,6 +84,7 @@ angular.module('udqApp')
  	                    district.name = regionObj[i].children[j].children[c].name;
  	                    district.id = regionObj[i].children[j].children[c].id;
  	                    district.pid = regionObj[i].children[j].children[c].pid;
+ 	                    district.defaultOrgId = regionObj[i].children[j].children[c].orgId;
 
  	                    districts.push(district);
  	                    _districts.push(district);

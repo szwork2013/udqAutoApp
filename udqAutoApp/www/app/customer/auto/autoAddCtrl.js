@@ -55,6 +55,7 @@ angular.module('udqApp')
 		        showAlert(temp);
 		        return;
 		    }
+		    
 		    var promise = autoSvr.addAutoItem($scope.autoInfo);
 		    promise.then(
                 function (data) {
