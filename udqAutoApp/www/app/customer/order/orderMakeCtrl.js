@@ -6,16 +6,21 @@
             $scope.types = customerOrderSvr.getTypes();
             $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();
             $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
+            $scope.order.userNote = customerOrderSvr.getUserNote();
         }
         /*保存选择的洗车类型，选择的车辆以及选择的小区*/
         var saveWashTypeAndSelectAutoInfo = function () {
             customerOrderSvr.setType($scope.types);
             customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
             customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
+            customerOrderSvr.setUserNote($scope.order.userNote);
         }
 
         $scope.selectedAuto = {};
-
+        /*数据区*/
+        $scope.order = {
+            userId: $window.localStorage['userID']
+        };
         var typeSelect = $stateParams.typeSelect;
         switch (typeSelect) {
             case 'main':
@@ -164,10 +169,7 @@
                 );
                 break;
         }
-        /*数据区*/
-        $scope.order = {
-            userId: $window.localStorage['userID']
-        };
+
         /*保存选择，跳转到洗车类型选择*/
         $scope.goToWashType = function () {
             saveWashTypeAndSelectAutoInfo();
@@ -193,6 +195,9 @@
         }
         /*前去订单*/
         $scope.commitOrder = function () {
+            if ($window.localStorage["loginState"] == 1) {
+                return;
+            }
             checkOrder();
             $state.go('customerOrderpay', { 'order': angular.toJson($scope.order), 'state': 'customerOrderMake' });
         }

@@ -9,8 +9,8 @@
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefreshOfDistrict()"></ion-refresher>
 
-        <ion-list ng-repeat="district in districts" ng-show="district.pid ==selectedDistrictPid">
-            <ion-radio ng-model="selected.selectedDistrictId" value={{district.id}}>{{district.name}}</ion-radio>
+        <ion-list ng-repeat="district in districts" ng-show="district.pid ==autoInfo.selectedDistrictPid">
+            <ion-radio ng-model="autoInfo.selectedDistrictId" value={{district.id}}>{{district.name}}</ion-radio>
         </ion-list>
 
     </ion-content>

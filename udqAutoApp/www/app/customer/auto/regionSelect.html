@@ -8,8 +8,8 @@
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
 
-        <ion-list ng-repeat="region in regions"  ng-show="region.pid ==selectedRegionPid">
-            <ion-radio ng-model="selected.selectedRegionId" value={{region.id}}>{{region.name}}</ion-radio>
+        <ion-list ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid">
+            <ion-radio ng-model="autoInfo.selectedRegionId" value={{region.id}}>{{region.name}}</ion-radio>
         </ion-list>
 
     </ion-content>

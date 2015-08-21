@@ -1,19 +1,7 @@
 ﻿angular.module('udqApp')
      .service('autoSvr', ['$http', '$window', '$q', 'APP_CONFIG', function ($http, $window, $q, APP_CONFIG) {
          var baseUrl = APP_CONFIG.server.getUrl();
-         var _autoInfo = {
-             pn: '',
-             userId: '',
-             brand: '',
-             color: '',
-             model:'',
-             defaultRegionId:'',
-             userId: $window.localStorage['userID'],
-             id: 0/*0为添加，1为修改*/
-         };
-         var _selectedDistrictId;
-         var _selectedRegionId;
-         var _selectedCityId;
+         var _autoInfo;
          var _defaultRegionId;
          var _backName;
          this.getBackName = function () {
@@ -24,34 +12,14 @@
                  _backName = backName;
              }
          }
-         this.setDefaultRegionId = function (id) {
-             _autoInfo.defaultRegionId = id;
-         }
          this.getAutoInfo = function () {
              return _autoInfo;
          }
          this.setAutoInfo = function (autoInfo) {
              _autoInfo = autoInfo;
+             _autoInfo.selectedRegionPid = autoInfo.selectedCityId;
+             _autoInfo.selectedDistrictPid = autoInfo.selectedRegionId;
          }
-         this.getSelectedDistrictId = function () {
-             return _selectedDistrictId;
-         }
-         this.setSelectedDistrictId = function (id) {
-             _selectedDistrictId = id;
-         }
-         this.getSelectedRegionId = function () {
-             return _selectedRegionId;
-         }
-         this.setSelectedRegionId = function (id) {
-             _selectedRegionId = id;
-         }
-         this.getSelectedCityId = function () {
-             return _selectedCityId;
-         }
-         this.setSelectedCityId = function (id) {
-             _selectedCityId = id;
-         }
-
          /*添加车辆*/
          this.addAutoItem = function (autosInfo) {
 

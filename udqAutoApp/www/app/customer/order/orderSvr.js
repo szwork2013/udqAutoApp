@@ -8,7 +8,15 @@
          var _selectedRegionId;
          var _selectedCityId;
          var _selectOrgId;
+         var _userNote;
          var _selectedOrder = {};/*我的订单中当前选中的订单*/
+
+         this.getUserNote = function () {
+             return _userNote;
+         }
+         this.setUserNote = function (note) {
+             _userNote = note;
+         }
 
          this.getSelectedOrgId = function () {
              return _selectOrgId;
