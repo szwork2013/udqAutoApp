@@ -1,11 +1,18 @@
 angular.module('udqApp')
-	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', function ($scope, $state, $ionicHistory, $window,autoSvr) {
+	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', function ($scope, $state, $ionicHistory, $window, autoSvr) {
 
-	    var promise = autoSvr.getAuto();
-
-	    promise.then(
+	    autoSvr.getAuto().then(
             function (data) {
-                $scope.autoInfo = data.rows;
+                if (data.isSuccess) {
+                    if (data.rows.length > 0) {
+                        $scope.autoInfo = data.rows;
+                        $scope.hasNoAuto = false;
+                    } else {
+                        $scope.hasNoAuto = true;
+                    }
+                } else {
+                    console.log(data.msg);
+                }
             },
             function (data) {
                 console.log(data);
@@ -26,12 +33,21 @@ angular.module('udqApp')
                 }
             );
 	        $scope.doRefresh();
-	    };
+	    }
 	    /*下拉刷新*/
 	    $scope.doRefresh = function () {
 	        autoSvr.getAuto().then(
                 function (data) {
-                    $scope.autoInfo = data.rows;
+                    if (data.isSuccess) {
+                        if (data.rows.length > 0) {
+                            $scope.autoInfo = data.rows;
+                            $scope.hasNoAuto = false;
+                        } else {
+                            $scope.hasNoAuto = true;
+                        }
+                    } else {
+                        console.log(data.msg);
+                    }
                 },
             function (data) {
                 console.log(data);
@@ -42,11 +58,12 @@ angular.module('udqApp')
 	    /*添加车辆*/
 	    $scope.goToAddauto = function () {
 	        $state.go('customerAutoAdd', { 'backName': 'customerAutoMgr' });
-	    };
-	    $scope.goBack = function () {
-	        $ionicHistory.goBack();
 	    }
-
+	    /*回跳*/
+	    $scope.goBack = function () {
+	        $state.go('customerHome');
+	    }
+	    /*(自定义)数组移除指定元素*/
 	    var ArrayRemove = function (array, item) {
 	        var index = -1;
 	        for (var i = 0; i < array.length; i++) {

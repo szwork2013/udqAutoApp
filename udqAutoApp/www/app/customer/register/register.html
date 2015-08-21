@@ -1,7 +1,7 @@
 <ion-view title="注册">
     <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBack()"></button>
+            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
@@ -19,7 +19,7 @@
                     <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd">
                     
                 </label>
-                <button class="button button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
+                <button class=" button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
                     {{tips}}
                 </button>
                 
@@ -37,7 +37,7 @@
 
 
         </ion-list>
-        <button class="button button-stable button-block button-small" ng-click="register()" ng-disabled="registerDisabled">注册</button>
+        <button class="button button-stable button-block button-small" ng-click="register()">注册</button>
 
     </ion-content>
 </ion-view>

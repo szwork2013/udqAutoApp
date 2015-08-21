@@ -15,6 +15,15 @@
          var _selectedRegionId;
          var _selectedCityId;
          var _defaultRegionId;
+         var _backName;
+         this.getBackName = function () {
+             return _backName;
+         }
+         this.setBackName = function (backName) {
+             if (backName == 'customerAutoMgr' || backName == 'customerAutoList') {
+                 _backName = backName;
+             }
+         }
          this.setDefaultRegionId = function (id) {
              _autoInfo.defaultRegionId = id;
          }

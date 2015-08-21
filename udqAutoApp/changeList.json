@@ -213,7 +213,6 @@
     "www\\css\\ownMenu.css",
     "plugins\\cordova-plugin-file-transfer\\www\\blackberry10\\FileTransfer.js",
     "plugins\\cordova-plugin-file\\www\\blackberry10\\requestFileSystem.js",
-    "www\\app\\customer\\auto\\autoListCtrl.js",
     "www\\lib\\ionic\\version.json",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest.xcworkspace\\xcshareddata\\xcschemes\\CordovaLib.xcscheme",
     "plugins\\cordova-plugin-file\\www\\wp\\FileUploadOptions.js",
@@ -241,7 +240,6 @@
     "config.xml",
     "plugins\\org.apache.cordova.camera\\src\\windows\\CameraProxy.js",
     "plugins\\cordova-plugin-file\\www\\fileSystems.js",
-    "www\\app\\employee\\order\\photo.html",
     "www\\css\\star.css",
     "plugins\\cordova-plugin-file-transfer\\src\\wp\\FileTransfer.cs",
     "www\\lib\\ionic\\js\\angular\\angular.js",
@@ -266,7 +264,6 @@
     "plugins\\com.msopentech.websql\\src\\windows\\Community.CsharpSqlite.WinRT.dll",
     "plugins\\org.apache.cordova.camera\\doc\\ru\\index.md",
     "plugins\\com.msopentech.websql\\src\\windows\\SQLite.Proxy.winmd",
-    "www\\app\\customer\\auto\\autoAdd1.html",
     "plugins\\org.apache.cordova.camera\\src\\wp\\Camera.cs",
     "plugins\\cordova-plugin-file\\doc\\it\\plugins.md",
     "www\\app\\customer\\auto\\autoAdd.html",
@@ -309,7 +306,6 @@
     "plugins\\cordova-plugin-file\\www\\blackberry10\\copyTo.js",
     "plugins\\com.msopentech.websql\\src\\windows\\WebSqlProxy.js",
     "res\\icons\\windows\\Wide310x150Logo.scale-240.png",
-    "www\\app\\employee\\order\\photo.js",
     "res\\icons\\windows\\Wide310x150Logo.scale-100.png",
     "plugins\\cordova-plugin-file\\doc\\zh\\plugins.md",
     "plugins\\com.msopentech.websql\\www\\windows\\SqlTransaction.js",
@@ -364,7 +360,6 @@
     "plugins\\cordova-plugin-file\\README.md",
     "plugins\\org.apache.cordova.splashscreen\\package.json",
     "www\\index.html",
-    "www\\app\\employee\\order\\photograph.html",
     "res\\icons\\ios\\icon-40.png",
     "plugins\\org.apache.cordova.device\\tests\\plugin.xml",
     "plugins\\org.apache.cordova.contacts\\src\\ios\\CDVContacts.h",
@@ -557,7 +552,8 @@
     "plugins\\org.apache.cordova.camera\\tests\\ios\\README.md",
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
-    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h"
+    "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
+    "www\\app\\customer\\order\\orderlist.html"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -571,8 +567,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\employee\\order\\photograph.html",
-    "www\\app\\employee\\order\\orderInfo.html"
+    "www\\app\\customer\\order\\orderlist.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

@@ -5,10 +5,11 @@ angular.module('udqApp')
 	    var _userInfo = {};
         
 	    /*保存用户信息*/
-	    this.editUserInfo = function (name) {
-	        var url = baseUrl + '';
+	    this.editUserInfo = function (user) {
+	        var url = baseUrl + 'fzmgr/user/editUser4App.do';
 	        var userInfo = {
-	            userName:name
+	            userName: user.name,
+                sex:user.sex
 	        };
 	        var deferred = $q.defer();
 	        $http({
@@ -27,7 +28,25 @@ angular.module('udqApp')
 	    }
 	    /*获取用户信息*/
 	    this.getUserInfo = function(){
-	        return _userInfo;
+	        var url = baseUrl + 'fzmgr/user/getUser4App.do';
+	        var userInfo = {
+	            userName: user.name,
+	            sex: user.sex
+	        };
+	        var deferred = $q.defer();
+	        $http({
+	            method: 'post',
+	            url: url,
+	            data: { userInfo: JSON.stringify(userInfo) }
+	        }).then(
+            function (data, status, headers, config) {
+                deferred.resolve(data);
+            },
+            function (data, status, headers, config) {
+                deferred.reject('获取用户信息失败');
+            }
+            );
+	        return deferred.promise;
 	    }
 	    /*设置userInfo*/
 	    this.setUserInfo = function (userInfo) {

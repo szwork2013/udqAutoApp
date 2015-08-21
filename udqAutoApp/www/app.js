@@ -102,7 +102,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车-车辆选择*/
         .state('customerAutoList', {
             cache:false,
-            url: '/customerAutoList',
+            url: '/customerAutoList?typeSelect',
             templateUrl: 'app/customer/auto/autoList.html',
             controller: 'customerOrderMakeCtrl'
         })
@@ -122,7 +122,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车-洗车类型*/
         .state('customerWashtype', {
             cache: false,
-            url: '/customerWashtype',
+            url: '/customerWashtype?typeSelect',
             templateUrl: 'app/customer/washType/washtypeSelect.html',
             controller: 'customerOrderMakeCtrl'
         })
@@ -199,7 +199,7 @@ angular.module('udqApp', ['ionic'])
         /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
             cache: false,
-            url: '/customerRegionSelect',
+            url: '/customerRegionSelect?typeSelect',
             templateUrl: 'app/customer/order/regionSelect.html',
             controller: 'customerOrderMakeCtrl'
         })
@@ -221,6 +221,16 @@ angular.module('udqApp', ['ionic'])
            templateUrl: 'app/customer/order/orderMgr.html',
            controller: 'customerOrderCtrl'
        })
+       .state('customerOrderpay', {
+           url: '/customerOrderpay?order&state',
+           templateUrl: 'app/customer/order/orderPay.html',
+           controller: 'customerOrderPayCtrl'
+       })
+       .state('takePhoto', {
+           url: '/takePhoto',
+           templateUrl: 'app/util/takePicture.html',
+           controller: 'takePhotoCtrl'
+       })
        /*.state('',{
             url:'',
             templateUrl:'',
@@ -228,7 +238,7 @@ angular.module('udqApp', ['ionic'])
         })*/
        ;
 
-       $urlRouterProvider.otherwise('/employeeOrderList');
+       $urlRouterProvider.otherwise('/customerHome');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

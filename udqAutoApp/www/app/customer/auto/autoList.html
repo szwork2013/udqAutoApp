@@ -1,7 +1,7 @@
 <ion-view view-title="车辆列表">
     <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfAuto()"></button>
+            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBackOfAuto()"></button>
         </ion-nav-buttons>
 
         <ion-nav-buttons side="right">
@@ -11,6 +11,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content has-subheader="false">
+        <div style="text-align:center;" ng-show="hasNoAuto"><h4>暂无车辆,赶紧来添加吧</h4></div>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         
         <ion-list ng-repeat="auto in autoInfo" >

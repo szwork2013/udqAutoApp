@@ -1,7 +1,7 @@
 <ion-view view-title="洗车预约">
     <ion-nav-bar class="bar-stable" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackMain()"></button>
+            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBackMain()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content has-subheader="false">
@@ -26,6 +26,7 @@
                 选择车辆
                 <i class="icon ion-chevron-right"></i>
                 <div class="item-content">
+                    <p ng-show="hasNoAuto">暂未添加车辆</p>
                     <ul ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
                         <li>
                             选择车辆:{{auto.pn}}

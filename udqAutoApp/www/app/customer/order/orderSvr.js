@@ -7,8 +7,15 @@
          var _selectedDistrictId;
          var _selectedRegionId;
          var _selectedCityId;
+         var _selectOrgId;
          var _selectedOrder = {};/*我的订单中当前选中的订单*/
 
+         this.getSelectedOrgId = function () {
+             return _selectOrgId;
+         }
+         this.setSelectedOrgId = function (id) {
+             _selectOrgId = id;
+         }
          this.getSelectedDistrictId = function () {
              return _selectedDistrictId;
          }
