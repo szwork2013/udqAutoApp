@@ -31,7 +31,7 @@
                     <i class="icon ion-chevron-right"></i>
 
                     <div class="item-content">
-                        <ul ng-repeat="city in cities" ng-show="city.id ==selected.selectedCityId">
+                        <ul ng-repeat="city in cities" ng-show="city.id ==autoInfo.selectedCityId">
                             <li>
                                 选择城市:{{city.name}}
                             </li>
@@ -43,7 +43,7 @@
                     <i class="icon ion-chevron-right"></i>
 
                     <div class="item-content">
-                        <ul ng-repeat="region in regions" ng-show="region.id ==selected.selectedRegionId">
+                        <ul ng-repeat="region in regions" ng-show="region.id ==autoInfo.selectedRegionId">
                             <li>
                                 选择区域:{{region.name}}
                             </li>
@@ -55,7 +55,7 @@
                     <i class="icon ion-chevron-right"></i>
 
                     <div class="item-content">
-                        <ul ng-repeat="dis in districts" ng-show="dis.id ==selected.selectedDistrictId">
+                        <ul ng-repeat="dis in districts" ng-show="dis.id ==autoInfo.selectedDistrictId">
                             <li>
                                 选择小区:{{dis.name}}
                             </li>
@@ -63,7 +63,7 @@
                     </div>
                 </a>
             </ion-list>
-            <button class="button-block button-positive " ng-click="addAuto()">确认</button>
+            <button class="button button-block button-positive " ng-click="addAuto()">确认</button>
         </form>
     </ion-content>
 </ion-view>
