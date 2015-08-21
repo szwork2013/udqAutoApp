@@ -1,0 +1,46 @@
+﻿<ion-view view-title="完成订单">
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackToOrder()"></button>
+        </ion-nav-buttons>
+
+    </ion-nav-bar>
+    <ion-content class="scroll-content has-header">
+        <div class="item item-input">
+            客户姓名：{{order.customerName}}
+        </div>
+        <div class="item item-input">
+            联系电话：{{order.customerMobile}}
+        </div>
+        <div class="item item-input">
+            车牌号码：{{order.autoPN}}
+        </div>
+        <div class="row">
+            <div class="col"><img src="" id="img1" ng-click="gotoPhoto(1)" style="width:90px;height:auto"></div>
+            <div class="col"><img src="" id="img2" ng-click="gotoPhoto(2)" style="width:90px;height:auto"></div>
+            <div class="col"><img src="" id="img3" ng-click="gotoPhoto(3)" style="width:90px;height:auto"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button ng-click="takePhoto(1)" class="icon ion-plus-round"></button>
+                <button ng-click="delete(1)" class="icon ion-minus-round"></button>
+            </div>
+            <div class="col">
+                <button ng-click="takePhoto(2)" class="icon ion-plus-round"></button>
+                <button ng-click="delete(2)" class="icon ion-minus-round"></button>
+            </div>
+            <div class="col">
+                <button ng-click="takePhoto(3)" class="icon ion-plus-round"></button>
+                <button ng-click="delete(3)" class="icon ion-minus-round"></button>
+            </div>
+        </div>
+        <div>
+            <textarea rows="4">描述:</textarea>
+        </div>
+        <div class="row">
+            <button class="button button-block" ng-click="finish()">完成</button>
+        </div>
+        
+</ion-content>
+
+</ion-view>

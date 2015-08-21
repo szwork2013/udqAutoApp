@@ -30,9 +30,11 @@
            $state.go('employeeOrderInfo');
            employeeOrderSvr.setSelectedOrder(order);
        }
+       /*完成-跳转*/
        $scope.gotoPhotograph = function (order) {
            $state.go('employeePhotograph');
            employeeOrderSvr.setSelectedOrder(order);
+           $scope.doRefresh();
        }
        /*完成订单*/
        $scope.finishOrder = function (order) {

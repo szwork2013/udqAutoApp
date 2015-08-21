@@ -178,11 +178,10 @@ angular.module('udqApp', ['ionic'])
             }
         })
         /*洗车店-完成订单拍照*/
-        .state('employeephotograph', {
-            cache: false,
-            url: '/employeephotograph',
+        .state('employeePhotograph', {
+            url: '/employeePhotograph',
             templateUrl: 'app/employee/order/photograph.html',
-            controller: 'employeephotographCtrl'
+            controller: 'employeePhotographCtrl'
         })
           /*洗车店-查看一条订单全部信息*/
         .state('employeeOrderInfo', {
@@ -190,6 +189,12 @@ angular.module('udqApp', ['ionic'])
             url: '/employeeOrderInfo',
             templateUrl: 'app/employee/order/orderInfo.html',
             controller: 'employeeOrderInfoCtrl'
+        })
+        /*洗车店-查看照片*/
+        .state('employeePhoto', {
+            url: '/employeePhoto',
+            templateUrl: 'app/employee/order/photo.html',
+            controller: 'employeePhotoCtrl'
         })
         /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
@@ -223,7 +228,7 @@ angular.module('udqApp', ['ionic'])
         })*/
        ;
 
-       $urlRouterProvider.otherwise('/employeephotograph');
+       $urlRouterProvider.otherwise('/employeeOrderList');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

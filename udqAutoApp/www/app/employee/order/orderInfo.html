@@ -49,5 +49,13 @@
                 </tr>
             </table>
         </div>
+        <div ng-show="order.state==4||order.state==5">
+            <p><h4>照片信息</h4></p>
+            <div class="row">
+                <div class="col"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:90px;height:auto"></div>
+                <div class="col"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:90px;height:auto"></div>
+                <div class="col"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:90px;height:auto"></div>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

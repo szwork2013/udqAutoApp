@@ -7,6 +7,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
     .controller('customerHomeCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicTabsDelegate', 'cameraSvr', '$ionicPopup','fileTransferSvr', function ($scope, $state, $ionicHistory, $window, $ionicTabsDelegate, cameraSvr, $ionicPopup,fileTransferSvr) {
     	/*轮播图片*/
         $scope.images = [];
+        $scope.image;
         /*跳转到我要洗车*/
         $scope.goToBookWash = function () {
             $state.go('customerOrderMake');
@@ -57,12 +58,11 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
 
     	    function cSuccess(imgURI) {
     	        var params = { orderId: 101 };
-
-    	        fileTransferSvr.uploadWashPhoto(imgURI, params, tSuccess, tFail, tProgress)
+    	        fileTransferSvr.uploadWashPhoto(imgURI, params, tSuccess, tFail, tProgress);
 
     	    }
     	    function cFail(message) {
-
+    	        console.log(message);
     	    }
 
 

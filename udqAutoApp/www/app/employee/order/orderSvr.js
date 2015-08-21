@@ -2,12 +2,19 @@
     .service('employeeOrderSvr', ['$http', '$window', '$q', 'APP_CONFIG', function ($http, $window, $q, APP_CONFIG) {
         var baseUrl = APP_CONFIG.server.getUrl();
         var _selectedOrder;
+        var _src;
         
         this.getSelectedOrder = function () {
             return _selectedOrder;
         }
         this.setSelectedOrder = function (order) {
             _selectedOrder = order;
+        }
+        this.getImgSrc = function () {
+            return _src;
+        }
+        this.setImgSrc = function (src) {
+            _src = src;
         }
         /*根据state获取订单信息*/
         this.getOrderByState = function (order) {

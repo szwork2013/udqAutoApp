@@ -241,6 +241,7 @@
     "config.xml",
     "plugins\\org.apache.cordova.camera\\src\\windows\\CameraProxy.js",
     "plugins\\cordova-plugin-file\\www\\fileSystems.js",
+    "www\\app\\employee\\order\\photo.html",
     "www\\css\\star.css",
     "plugins\\cordova-plugin-file-transfer\\src\\wp\\FileTransfer.cs",
     "www\\lib\\ionic\\js\\angular\\angular.js",
@@ -308,6 +309,7 @@
     "plugins\\cordova-plugin-file\\www\\blackberry10\\copyTo.js",
     "plugins\\com.msopentech.websql\\src\\windows\\WebSqlProxy.js",
     "res\\icons\\windows\\Wide310x150Logo.scale-240.png",
+    "www\\app\\employee\\order\\photo.js",
     "res\\icons\\windows\\Wide310x150Logo.scale-100.png",
     "plugins\\cordova-plugin-file\\doc\\zh\\plugins.md",
     "plugins\\com.msopentech.websql\\www\\windows\\SqlTransaction.js",
@@ -568,7 +570,9 @@
   ],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "plugins\\android.json"
+    "plugins\\android.json",
+    "www\\app\\employee\\order\\photograph.html",
+    "www\\app\\employee\\order\\orderInfo.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
