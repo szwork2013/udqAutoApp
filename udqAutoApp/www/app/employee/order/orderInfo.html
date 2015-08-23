@@ -6,35 +6,50 @@
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
         <p><h4>订单基本信息</h4></p>
-        <table>
+        <table style="height:230px;">
             <tr>
-                <td>订单编号：{{order.orderNo}}</td><td>订单状态: {{order.stateNote}}</td>
+                <td>订单编号：{{order.orderNo}}</td>
             </tr>
             <tr>
-                <td>客户姓名：{{order.customerName}}</td><td>联系电话：{{order.customerMobile}}</td>
+                <td>订单状态: {{order.stateNote}}</td>
             </tr>
             <tr>
-                <td>洗车类型：{{order.washTypeName}}</td><td>客户评价：{{order.customerGrade}}</td>
+                <td>客户姓名：{{order.customerName}}</td>
             </tr>
             <tr>
-                <td>车牌号码：{{order.autoPN}}</td><td>所属小区：{{order.regionName}}</td>
+                <td>联系电话：{{order.customerMobile}}</td>
+            </tr>
+            <tr>
+                <td>洗车类型：{{order.washTypeName}}</td>
+            </tr>
+            <tr>
+                <td>车牌号码：{{order.autoPN}}</td>
+            </tr>
+            <tr>
+                <td>所属小区：{{order.regionName}}</td>
             </tr>
             <tr>
                 <td>下单时间：{{order.billTime}}</td>
             </tr>
             <tr>
-                <td>优惠券：{{order.couponName}}</td><td>优惠金额：{{order.couponAmount}}</td>
-            </tr>
-            <tr>
-                <td>固定价格：{{order.fixedAmount}}</td><td>结算价格：{{order.finalAmount}}</td>
-            </tr>
-            <tr>
                 <td>订单备注：{{order.userNote}}</td>
+            </tr>
+            <tr>
+                <td>优惠券：{{order.couponName}}</td>
+            </tr>
+            <tr>
+                <td>优惠金额：{{order.couponAmount}}</td>
+            </tr>
+            <tr>
+                <td>固定价格：{{order.fixedAmount}}</td>
+            </tr>
+            <tr>
+                <td>结算价格：{{order.finalAmount}}</td>
             </tr>
         </table>
         <div ng-show="order.state==2||order.state==3||order.state==4||order.state==5">
             <p><h4>订单处理信息</h4></p>
-            <table>
+            <table style="height:140px">
                 <tr>
                     <td>接单员工：{{order.washerName}}</td>
                 </tr>
@@ -47,14 +62,17 @@
                 <tr>
                     <td>结束时间：{{order.finishTime}}</td>
                 </tr>
+                <tr>
+                    <td>客户评价：{{order.customerGrade}}</td>
+                </tr>
             </table>
         </div>
         <div ng-show="order.state==4||order.state==5">
             <p><h4>照片信息</h4></p>
-            <div class="row">
-                <div class="col"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:90px;height:auto"></div>
-                <div class="col"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:90px;height:auto"></div>
-                <div class="col"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:90px;height:auto"></div>
+            <div class="row" style="width:100%;margin:0px;padding:0px;">
+                <div class="col"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                <div class="col"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                <div class="col"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
             </div>
         </div>
     </ion-content>

@@ -1,7 +1,8 @@
 ﻿angular.module('udqApp')
    .controller('employeeNewOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'employeeOrderSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, employeeOrderSvr) {
        $scope.order = {
-           state: 1
+           state: 1,
+           orgId: $window.localStorage['orgId']
        };
        var promise = employeeOrderSvr.getOrderByState($scope.order);
        promise.then(
@@ -32,29 +33,22 @@
        }
        /*接收订单*/
        $scope.acceptOrder = function (order) {
-           var confirmPopup = $ionicPopup.confirm({
-               title: '提示信息',
-               template: '确定接收此订单?'
-           });
-           confirmPopup.then(function (res) {
-               if (res) {
-                   employeeOrderSvr.acceptOrder(order).then(
-                        function (data) {
-                            if (data.isSuccess) {
-                                console.log("操作成功");
-                                $scope.doRefresh();
-                            } else {
-                                console.log(data.msg);
-                            }
-                        },
-                function (data) {
-                    console.log(data.msg);
-                });
-               } else {
-                   console.log('You are not sure');
-               }
-           });
-       };
+           employeeOrderSvr.acceptOrder(order).then(
+                         function (data) {
+                             if (data.isSuccess) {
+                                 console.log("操作成功");
+                                 $scope.doRefresh();
+                             } else {
+                                 console.log(data.msg);
+                                 if (data.msg == "此订单已被接收") {
+                                     showAlert('此订单已被接收');
+                                 }
+                             }
+                         },
+                         function (data) {
+                           console.log(data.msg);
+                         });
+       }
        
        /*取消订单*/
        $scope.cancelOrder = function (order) {

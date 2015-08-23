@@ -1,7 +1,8 @@
 ﻿angular.module('udqApp')
    .controller('employeePhotographCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr, cameraSvr, $ionicPopup, fileTransferSvr) {
-       
+      
        $scope.order = employeeOrderSvr.getSelectedOrder();
+       //$scope.imgUrlInfo = employeeOrderSvr.getImgUrlInfo();
        /*完成按钮*/
        $scope.finish = function () {
            employeeOrderSvr.finishOrder($scope.order)
@@ -22,9 +23,18 @@
        $scope.delete = function (No) {
            var image = document.getElementById("img" + No);
            image.src = "";
-           //image.style.display = "none";
-           //var currentBtn = document.getElementById("btn" + No);
-           //currentBtn.style.display = "block";
+           //删除Svr中保存的photoUrl
+           switch (No) {
+               case 1:
+                   $scope.order.photoUrl1 = ""; break;
+               case 2:
+                   $scope.order.photoUrl2 = ""; break;
+               case 3:
+                   $scope.order.photoUrl3 = ""; break;
+           }
+           employeeOrderSvr.setSelectedOrder($scope.order);
+           //删除后台照片，更新数据库
+           employeeOrderSvr.deletePhoto($scope.order.orderNo, No);
            $scope.doRefresh();
        }
        /*点击缩略图-跳转到大图*/
@@ -37,16 +47,10 @@
                $state.go("employeePhoto");
            }
        }
+       /*下拉刷新*/
        $scope.doRefresh = function () {
-           //employeeOrderSvr.getSelectedOrder().then(
-           //function (data) {
-           //    $scope.order = data;
-           //    console.log("成功刷新");
-           //},
-           //function (data) {
-           //    console.log(data);
-           //});
-           //$scope.$broadcast('scroll.refreshComplete');
+           $scope.order = employeeOrderSvr.getSelectedOrder();
+           $scope.$broadcast('scroll.refreshComplete');
        }
        /*拍照上传*/
        $scope.takePhoto = function (No) {
@@ -72,16 +76,27 @@
                var params = $scope.order;
                var image = document.getElementById("img"+No);
                image.src = imgURI;
-               //image.style.display = "block";
-               //var currentBtn = document.getElementById("btn"+No);
-               //currentBtn.style.display = "none";
+               /*拍照候将imgURI临时保存到order中*/
+               switch(No){
+                   case 1:
+                       $scope.order.photoUrl1 = imgURI;
+                       break;
+                   case 2:
+                       $scope.order.photoUrl2 = imgURI;
+                       break;
+                   case 3:
+                       $scope.order.photoUrl3 = imgURI;
+                       break;
+               }
+               employeeOrderSvr.setSelectedOrder($scope.order);
+               /*上传图片到服务器*/
                fileTransferSvr.uploadWashPhoto(imgURI, params, No, tSuccess, tFail, tProgress)
 
            }
            function cFail(message) {
                console.log(message);
            }
-           cameraSvr.getPicture(50, cSuccess, cFail);
+           cameraSvr.getPicture(30, cSuccess, cFail);
        }
 
        $scope.goBackToOrder = function () {

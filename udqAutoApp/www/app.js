@@ -179,6 +179,7 @@ angular.module('udqApp', ['ionic'])
         })
         /*洗车店-完成订单拍照*/
         .state('employeePhotograph', {
+            cache: false,
             url: '/employeePhotograph',
             templateUrl: 'app/employee/order/photograph.html',
             controller: 'employeePhotographCtrl'
@@ -192,6 +193,7 @@ angular.module('udqApp', ['ionic'])
         })
         /*洗车店-查看照片*/
         .state('employeePhoto', {
+            cache: false,
             url: '/employeePhoto',
             templateUrl: 'app/employee/order/photo.html',
             controller: 'employeePhotoCtrl'

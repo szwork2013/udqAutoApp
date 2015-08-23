@@ -170,6 +170,7 @@
     "www\\app\\employee\\home\\home.html",
     "plugins\\org.apache.cordova.device\\CONTRIBUTING.md",
     "plugins\\cordova-plugin-file\\www\\ProgressEvent.js",
+    "www\\app\\customer\\order\\orderPay.js",
     "plugins\\org.apache.cordova.splashscreen\\RELEASENOTES.md",
     "plugins\\org.apache.cordova.splashscreen\\doc\\it\\index.md",
     "www\\lib\\ionic\\js\\ionic-angular.js",
@@ -221,6 +222,7 @@
     "plugins\\cordova-plugin-file-transfer\\src\\android\\FileTransfer.java",
     "plugins\\cordova-plugin-file-transfer\\doc\\ko\\index.md",
     "plugins\\org.apache.cordova.contacts\\doc\\zh\\index.md",
+    "www\\app\\util\\takePhotoCtrl.js",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\shoot.png",
     "plugins\\org.apache.cordova.contacts\\src\\wp\\ContactPicker.xaml.cs",
     "plugins\\org.apache.cordova.device\\doc\\ja\\index.md",
@@ -240,6 +242,7 @@
     "config.xml",
     "plugins\\org.apache.cordova.camera\\src\\windows\\CameraProxy.js",
     "plugins\\cordova-plugin-file\\www\\fileSystems.js",
+    "www\\app\\employee\\order\\photo.html",
     "www\\css\\star.css",
     "plugins\\cordova-plugin-file-transfer\\src\\wp\\FileTransfer.cs",
     "www\\lib\\ionic\\js\\angular\\angular.js",
@@ -306,6 +309,7 @@
     "plugins\\cordova-plugin-file\\www\\blackberry10\\copyTo.js",
     "plugins\\com.msopentech.websql\\src\\windows\\WebSqlProxy.js",
     "res\\icons\\windows\\Wide310x150Logo.scale-240.png",
+    "www\\app\\employee\\order\\photo.js",
     "res\\icons\\windows\\Wide310x150Logo.scale-100.png",
     "plugins\\cordova-plugin-file\\doc\\zh\\plugins.md",
     "plugins\\com.msopentech.websql\\www\\windows\\SqlTransaction.js",
@@ -360,6 +364,7 @@
     "plugins\\cordova-plugin-file\\README.md",
     "plugins\\org.apache.cordova.splashscreen\\package.json",
     "www\\index.html",
+    "www\\app\\employee\\order\\photograph.html",
     "res\\icons\\ios\\icon-40.png",
     "plugins\\org.apache.cordova.device\\tests\\plugin.xml",
     "plugins\\org.apache.cordova.contacts\\src\\ios\\CDVContacts.h",
@@ -480,6 +485,7 @@
     "plugins\\org.apache.cordova.device\\src\\windows\\DeviceProxy.js",
     "plugins\\org.apache.cordova.camera\\doc\\es\\index.md",
     "res\\icons\\ios\\icon-40-2x.png",
+    "www\\app\\customer\\order\\orderPay.html",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenTest.xcodeproj\\project.xcworkspace\\contents.xcworkspacedata",
     "plugins\\org.apache.cordova.splashscreen\\www\\windows8\\SplashScreenProxy.js",
     "plugins\\org.apache.cordova.splashscreen\\README.md",
@@ -553,7 +559,9 @@
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "www\\app\\customer\\order\\orderlist.html"
+    "www\\app\\employee\\order\\orderinfo.html",
+    "www\\app\\employee\\order\\ordersvr.js",
+    "www\\app\\employee\\order\\neworderctrl.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -567,7 +575,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\order\\orderlist.html"
+    "www\\app.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

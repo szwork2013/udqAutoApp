@@ -6,6 +6,7 @@
 
     </ion-nav-bar>
     <ion-content class="scroll-content has-header">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <div class="item item-input">
             客户姓名：{{order.customerName}}
         </div>
@@ -15,10 +16,10 @@
         <div class="item item-input">
             车牌号码：{{order.autoPN}}
         </div>
-        <div class="row">
-            <div class="col"><img src="" id="img1" ng-click="gotoPhoto(1)" style="width:90px;height:auto"></div>
-            <div class="col"><img src="" id="img2" ng-click="gotoPhoto(2)" style="width:90px;height:auto"></div>
-            <div class="col"><img src="" id="img3" ng-click="gotoPhoto(3)" style="width:90px;height:auto"></div>
+        <div class="row" style="margin:0px;padding:0px;">
+            <div class="col"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto"></div>
+            <div class="col"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:100%;height:auto"></div>
+            <div class="col"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:100%;height:auto"></div>
         </div>
         <div class="row">
             <div class="col">
@@ -35,7 +36,7 @@
             </div>
         </div>
         <div>
-            <textarea rows="4">描述:</textarea>
+            <textarea placeholder="描述：" ng-model="order.washerNote"></textarea>
         </div>
         <div class="row">
             <button class="button button-block" ng-click="finish()">完成</button>

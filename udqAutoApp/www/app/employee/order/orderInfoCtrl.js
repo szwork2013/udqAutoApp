@@ -2,9 +2,15 @@
    .controller('employeeOrderInfoCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'APP_CONFIG', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr,APP_CONFIG) {
        var baseUrl = APP_CONFIG.server.getUrl();
        $scope.order = employeeOrderSvr.getSelectedOrder();
-       $scope.order.photoUrl1 = baseUrl +"fzmgr/"+ $scope.order.photoUrl1;
-       $scope.order.photoUrl2 = baseUrl + "fzmgr/" + $scope.order.photoUrl2;
-       $scope.order.photoUrl3 = baseUrl + "fzmgr/" + $scope.order.photoUrl3;
+       if ($scope.order.couponName == "") {
+           $scope.order.couponName = "未使用优惠券";
+       }
+       if ($scope.order.userNote == "") {
+           $scope.order.userNote = "无";
+       }
+       if ($scope.order.customerGrade == "") {
+           $scope.order.customerGrade = "无";
+       }
 
        /*点击缩略图-跳转到大图*/
        $scope.gotoPhoto = function (No) {
