@@ -591,7 +591,9 @@
     "plugins\\cn.jpush.phonegap.JPushPlugin\\document\\iOS_handle_install.md",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\document\\iOS_detail_api.md",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\document\\Common_detail_api.md",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\example\\css\\mobiscroll.jqm-2.0.1.css"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\example\\css\\mobiscroll.jqm-2.0.1.css",
+    "www\\app\\login\\loginctrl.js",
+    "www\\app\\employee\\order\\ordersvr.js"
   ],
   "deletedFilesIos": [
     "www\\app\\util\\takePhotoCtrl.js"

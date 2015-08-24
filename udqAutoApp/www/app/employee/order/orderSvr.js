@@ -99,6 +99,7 @@
         /*取消订单*/
         this.cancelOrder = function (order) {
             var data = {
+                userId:order.userId,
                 orderNo: order.orderNo,
                 state: 11
             };
@@ -122,6 +123,7 @@
         /*完成订单*/
         this.finishOrder = function (order) {
             var data = {
+                userId: order.userId,
                 orderNo: order.orderNo,
                 washerNote: order.washerNote,
                 state: 4
