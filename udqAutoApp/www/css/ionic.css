@@ -6641,6 +6641,36 @@ progress {
         background-color: #b2b2b2;
         box-shadow: none;
         color: #fff; }
+.button-udq-show {
+    border-color:#ddd;
+    background-color: #b2b2b2;
+    color: #fff; 
+    font-size:12px;
+}
+.button-udq-accept{
+    border-color:#ddd;
+    background-color: #e42012;
+    color: #fff; 
+    font-size:12px;
+}
+.button-udq-share{
+    border-color:#ddd;
+    background-color: #e42012;
+    color: #fff; 
+    font-size:12px;
+}
+.button-udq-cancel{
+    border-color:#ddd;
+    background-color: #f87d14;
+    color: #fff; 
+    font-size:12px;
+}
+.button-udq-complete{
+    border-color:#ddd;
+    background-color: #e42012;
+    color: #fff; 
+    font-size:12px;
+}
   .button.button-positive {
     border-color: #0c63ee;
     background-color: #387ef5;

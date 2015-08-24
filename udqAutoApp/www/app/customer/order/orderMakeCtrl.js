@@ -195,7 +195,7 @@
         }
         /*前去订单*/
         $scope.commitOrder = function () {
-            if ($window.localStorage["loginState"] == 1) {
+            if ($window.localStorage["loginState"] != 1) {
                 return;
             }
             checkOrder();

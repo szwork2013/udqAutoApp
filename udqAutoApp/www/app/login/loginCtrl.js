@@ -118,6 +118,7 @@ angular.module('udqApp')
                         userType = checkUserType(data.data.userType);
 
                         $window.localStorage['userID'] = data.data.id;
+                        $window.localStorage['orgId'] = data.data.orgId;
                         $window.localStorage['loginState'] = 1;
                         $window.localStorage['mobile'] = $scope.user.mobile;
                         $window.localStorage['userName'] = data.data.name;
