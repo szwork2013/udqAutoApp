@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .service('jpushSvr', ['$scope', function ($scope) {
+    .service('jpushSvr', [function () {
         /*初始化*/
         this.init = function () {
             window.plugins.jPushPlugin.init();
