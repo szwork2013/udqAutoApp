@@ -4,8 +4,9 @@
         var orderParam = angular.fromJson($stateParams.order);/*传递过来的订单信息*/
         var state = $stateParams.state;/*前一个页面的state*/
         $scope.order = orderParam;
-        $scope.order.channel = 'alipay';/*设置支付方式初始值：支付宝*/
-
+        if ($scope.order.channel == undefined) {
+            $scope.order.channel = 'alipay';/*设置支付方式初始值：支付宝*/
+        }
         /*提交订单*/
         $scope.commitOrder = function () {
             customerOrderMakeSvr.commitOrder($scope.order).then(

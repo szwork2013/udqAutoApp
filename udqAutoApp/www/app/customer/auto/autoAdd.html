@@ -28,24 +28,25 @@
                 <!-- 选择小区 -->
                 <a class="item item-icon-right" ng-click="goToCitySelect()">
                     选择城市
-                    <i class="icon ion-chevron-right"></i>
-
-                    <div class="item-content">
+                    <div class="item-content" style="float:right;">
                         <ul ng-repeat="city in cities" ng-show="city.id ==autoInfo.selectedCityId">
                             <li>
-                                选择城市:{{city.name}}
+                                {{city.name}}
                             </li>
                         </ul>
                     </div>
+                    <i class="icon ion-chevron-right"></i>
+
+                    
                 </a>
                 <a class="item item-icon-right" ng-click="goToRegionSelect()">
                     选择区域
                     <i class="icon ion-chevron-right"></i>
 
-                    <div class="item-content">
+                    <div class="item-content" style="float:right;">
                         <ul ng-repeat="region in regions" ng-show="region.id ==autoInfo.selectedRegionId">
                             <li>
-                                选择区域:{{region.name}}
+                                {{region.name}}
                             </li>
                         </ul>
                     </div>
@@ -54,10 +55,10 @@
                     选择小区
                     <i class="icon ion-chevron-right"></i>
 
-                    <div class="item-content">
+                    <div class="item-content" style="float:right;">
                         <ul ng-repeat="dis in districts" ng-show="dis.id ==autoInfo.selectedDistrictId">
                             <li>
-                                选择小区:{{dis.name}}
+                                {{dis.name}}
                             </li>
                         </ul>
                     </div>
