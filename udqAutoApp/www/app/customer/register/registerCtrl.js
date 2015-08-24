@@ -119,7 +119,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                         $window.localStorage['sex'] = data.data.sex;
                         /*推送*/
                         jpushSvr.init();
-                        jpushSvr.setAlias(data.data.id);
+                        jpushSvr.setTagsWithAlias(['customer'], data.data.id);
 
         	            showAlertOfSuccess();
         	        } else {

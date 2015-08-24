@@ -4,7 +4,7 @@
 根据不同的用户类型，跳转到不同的main页面
 */
 angular.module('udqApp')
-    .controller('loginCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', 'registerSvr', function ($scope,$interval, $state, $ionicHistory, $ionicPopup, $window, loginSvr, registerSvr) {
+    .controller('loginCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', 'registerSvr', 'jpushSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, loginSvr, registerSvr, jpushSvr) {
 
         $scope.user = {
             mobile : '',
@@ -108,7 +108,6 @@ angular.module('udqApp')
             /*1、检查本地是否保存该电话号码
               2、检查该号码是否注册过
             */
-
             var userType = 2;
             var returnData = {};
                 loginSvr.loginCheck($scope.user).then(function (data) {
@@ -124,8 +123,17 @@ angular.module('udqApp')
                         $window.localStorage['userName'] = data.data.name;
                         $window.localStorage['userType'] = data.data.userType;
                         $window.localStorage['sex'] = data.data.sex;
+                        /*推送*/
+                        jpushSvr.init();
+                        if (userType == 1) {/*洗车工*/
+                            jpushSvr.setAlias([data.data.orgId], 'org'+data.data.id);
+                        } else if (userType == 2) {/*车主*/
+                            jpushSvr.setAlias(['customer'], 'customer'+data.data.id);
+                        }
+                        
                         /*跳转*/
                         goToHomeByUserType(userType);
+
                     } else {
                         showAlert(data.msg);
                         return;

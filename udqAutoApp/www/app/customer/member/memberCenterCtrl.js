@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', function ($scope, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr) {
+	.controller('customerMemberCenterCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', 'jpushSvr', function ($scope, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr, jpushSvr) {
 	    
 	    $scope.user = {
 	        name: $window.localStorage['userName'],
@@ -42,6 +42,8 @@ angular.module('udqApp')
                 $window.localStorage['userName'] = '';
                 $window.localStorage['userType'] = 0;
                 $window.localStorage['sex'] = 0;
+    	        /*关闭推送*/
+                //jpushSvr.stopPush();
 
     	        $state.go('customerHome');
     	        console.log('退出当前用户');
