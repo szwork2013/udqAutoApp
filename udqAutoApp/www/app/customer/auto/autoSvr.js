@@ -22,9 +22,17 @@
          }
          /*添加车辆*/
          this.addAutoItem = function (autosInfo) {
-
+             var auto = {
+                 id: autosInfo.id,
+                 userId: autosInfo.userId,
+                 pn: autosInfo.pn,
+                 brand: autosInfo.brand,
+                 model: autosInfo.model,
+                 color: autosInfo.color,
+                 defaultRegionId: autosInfo.selectedDistrictId
+             };
              /*转换成json格式*/
-             var autoInfoJS = JSON.stringify(autosInfo);
+             var autoInfoJS = JSON.stringify(auto);
              var url = baseUrl + 'fzmgr/auto/saveAuto4App.do';
 
              var deferred = $q.defer();

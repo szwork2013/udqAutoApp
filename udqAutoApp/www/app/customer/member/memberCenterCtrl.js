@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', function ($scope, $state, $ionicHistory, $window, $ionicPopup, CustomerMemberInfoSvr) {
+	.controller('customerMemberCenterCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', function ($scope, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr) {
 	    
 	    $scope.user = {
 	        name: $window.localStorage['userName'],

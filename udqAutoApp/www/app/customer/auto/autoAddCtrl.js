@@ -35,7 +35,10 @@ angular.module('udqApp')
 
         /*检查输入车辆信息是否合法*/
 	    var checkAutoInfo = function (auto) {
-            /*车牌号*/
+	        /*车牌号*/
+	        if (auto.pn == undefined) {
+	            return '车牌号不能为空';
+	        }
 	        var pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
 	        auto.pn = auto.pn.replace(/\s+/g, "")
 	        if (pnRe.test(auto.pn)) {

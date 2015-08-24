@@ -125,9 +125,10 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                     order.channel = 'upacp';
                     break;
                 default:
+                    order.channel = 'wx';
                     break;
             }
-            $state.go('', { 'order': angular.toJson(order), 'state': 'employeeOrderList' });
+            $state.go('customerOrderpay', { 'order': angular.toJson(order), 'state': 'customerMyOrder' });
         }
         /*取消订单*/
         $scope.cancelOrder = function (order) {
