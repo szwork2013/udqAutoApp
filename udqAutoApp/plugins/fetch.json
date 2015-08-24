@@ -44,5 +44,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cn.jpush.phonegap.JPushPlugin": {
+        "source": {
+            "type": "local",
+            "path": "F:\\gongsi\\点趣车生活\\jpush-phonegap-plugin-master"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
