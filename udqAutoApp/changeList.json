@@ -139,7 +139,7 @@
     "www\\app\\employee\\order\\acceptedOrder.html",
     "plugins\\cordova-plugin-file\\doc\\de\\README.md",
     "www\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js",
-    "www\\app\\util\\takePicture.html",
+    "plugins\\android.json",
     "plugins\\cordova-plugin-file\\doc\\ko\\plugins.md",
     "plugins\\com.msopentech.websql\\www\\windows\\Database.js",
     "plugins\\cordova-plugin-file\\src\\android\\Filesystem.java",
@@ -236,7 +236,6 @@
     "plugins\\cordova-plugin-file-transfer\\src\\android\\FileTransfer.java",
     "plugins\\cordova-plugin-file-transfer\\doc\\ko\\index.md",
     "plugins\\org.apache.cordova.contacts\\doc\\zh\\index.md",
-    "www\\app\\util\\takePhotoCtrl.js",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\shoot.png",
     "plugins\\org.apache.cordova.contacts\\src\\wp\\ContactPicker.xaml.cs",
     "plugins\\org.apache.cordova.device\\doc\\ja\\index.md",
@@ -254,7 +253,6 @@
     "www\\app\\customer\\auto\\autoSvr.js",
     "plugins\\org.apache.cordova.contacts\\doc\\de\\index.md",
     "plugins\\fetch.json",
-    "config.xml",
     "plugins\\org.apache.cordova.camera\\src\\windows\\CameraProxy.js",
     "plugins\\cordova-plugin-file\\www\\fileSystems.js",
     "www\\app\\employee\\order\\photo.html",
@@ -592,7 +590,13 @@
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "www\\app\\customer\\order\\orderlist.html"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
+    "config.xml",
+    "www\\app\\customer\\auto\\autosvr.js",
+    "www\\app\\customer\\auto\\autoadd.html",
+    "www\\app\\customer\\auto\\autoaddctrl.js",
+    "www\\app\\customer\\order\\orderlist.html",
+    "www\\app\\customer\\order\\orderpay.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -607,17 +611,10 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\order\\orderlist.html"
+    "www\\app\\customer\\member\\memberCenterCtrl.js",
+    "www\\app\\util\\jpushSvr.js"
   ],
   "deletedFiles": [],
-  "addedPlugins": [
-    "org.apache.cordova.camera@0.3.6",
-    "org.apache.cordova.device@0.3.0",
-    "org.apache.cordova.splashscreen@1.0.0",
-    "org.apache.cordova.contacts",
-    "com.msopentech.websql@0.0.9",
-    "cordova-plugin-whitelist@1.0.0",
-    "cn.jpush.phonegap.JPushPlugin@2.0.2"
-  ],
+  "addedPlugins": [],
   "deletedPlugins": []
 }
