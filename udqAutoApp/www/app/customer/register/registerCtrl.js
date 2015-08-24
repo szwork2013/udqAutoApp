@@ -6,7 +6,7 @@ cutomer 的注册页面
 3.继续添加，保存
 */
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerRegisterCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'registerSvr', 'regionSvr', 'loginSvr', 'jpushSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, registerSvr, regionSvr, loginSvr, jpushSvr) {
+    .controller('customerRegisterCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'registerSvr', 'regionSvr', 'loginSvr', 'jpushSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, registerSvr, regionSvr,loginSvr,jpushSvr) {
 
         $scope.userInfo = {
             sex:1

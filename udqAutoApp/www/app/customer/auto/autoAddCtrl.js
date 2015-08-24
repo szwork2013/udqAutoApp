@@ -37,6 +37,7 @@ angular.module('udqApp')
 	    var checkAutoInfo = function (auto) {
             /*车牌号*/
 	        var pnRe = /^[\u4E00-\u9FA5][\da-zA-Z]{6}$/;
+	        auto.pn = auto.pn.replace(/\s+/g, "")
 	        if (pnRe.test(auto.pn)) {
 	            auto.pn = angular.uppercase(auto.pn);
 	        } else {
@@ -47,8 +48,8 @@ angular.module('udqApp')
 	            return '请输入您的爱车品牌';
 	        }
 	        /*颜色、型号*/
-	        /*小区*/
-	        if (auto.defaultRegionId == undefined) {
+	        /*小区selectedRegionId*/
+	        if (auto.selectedRegionId == undefined) {
 	            return '请选择小区';
 	        }
 	        return;
