@@ -31,25 +31,17 @@ angular.module('udqApp', ['ionic'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
-            //if(window.plugins&&window.plugins.jPushPlugin){
-            //    window.plugins.jPushPlugin.init();
-            //}
-            
-            //由于phonegap插件采用了Lazy load的特性，   所以这里建议在js文件能执行的最开始就加
 
-            /*启动极光推送服务，并设置调试模式*/
-            //jpushSvr.init();
+            var onDeviceReady = function () {
+                /*启动极光推送服务，并设置调试模式*/
+                jpushSvr.init();
+            }
+            var onOpenNotification = function (event) {
+                jpushSvr.openNotification();
+            }
+            document.addEventListener("deviceready", onDeviceReady, false);
+            document.addEventListener("jpush.openNotification", onOpenNotification, false);
 
-            //var onGetRegistradionID = function (data) {
-            //    try {
-            //        alert("JPushPlugin:registrationID is" + data);
-            //        model.console.push("JPushPlugin:registrationID is " + data);
-            //    }
-            //    catch (exception) {
-            //        model.console.push(exception);
-            //    }
-            //};
-            //window.plugins.jPushPlugin.getRegistrationID(onGetRegistradionID);
         });
 
 
@@ -252,8 +244,14 @@ angular.module('udqApp', ['ionic'])
             controller:''
         })*/
        ;
-
-       $urlRouterProvider.otherwise('/customerHome');
+       if (window.localStorage['loginState'] == 1 && window.localStorage['userType']==2) {/*已经登录，并且用户是车主*/
+           $urlRouterProvider.otherwise('/customerHome');
+       } else if (window.localStorage['loginState'] == 1 && window.localStorage['userType'] == 1) {/*已经登录，并且用户是洗车工*/
+           $urlRouterProvider.otherwise('/employeeHome');
+       } else {
+           $urlRouterProvider.otherwise('/customerHome');
+       }
+       
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
