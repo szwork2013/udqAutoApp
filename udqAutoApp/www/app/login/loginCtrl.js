@@ -123,8 +123,8 @@ angular.module('udqApp')
                         $window.localStorage['userName'] = data.data.name;
                         $window.localStorage['userType'] = data.data.userType;
                         $window.localStorage['sex'] = data.data.sex;
-                        /*推送*/
-                        jpushSvr.init();
+
+                        /*根据用户类型设置别名和标签*/
                         if (userType == 1) {/*洗车工*/
                             jpushSvr.setAlias([data.data.orgId], 'org'+data.data.id);
                         } else if (userType == 2) {/*车主*/
