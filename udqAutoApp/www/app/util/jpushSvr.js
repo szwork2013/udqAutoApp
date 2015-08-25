@@ -4,7 +4,7 @@
         this.init = function () {
             try{
                 window.plugins.jPushPlugin.init();
-
+                /*设置调试模式*/
                 if (device.platform != "Android") {
                     window.plugins.jPushPlugin.setDebugModeFromIos();
                     window.plugins.jPushPlugin.setApplicationIconBadgeNumber(0);

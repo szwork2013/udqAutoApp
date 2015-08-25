@@ -20,7 +20,7 @@
  */
 
 angular.module('udqApp', ['ionic'])
-    .run(['$ionicPlatform', '$rootScope', function ($ionicPlatform, $rootScope) {
+    .run(['$ionicPlatform', '$rootScope', 'jpushSvr', function ($ionicPlatform, $rootScope, jpushSvr) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -32,6 +32,19 @@ angular.module('udqApp', ['ionic'])
                 StatusBar.styleDefault();
             }
 
+            /*启动极光推送服务，并设置调试模式*/
+            jpushSvr.init();
+
+            var onGetRegistradionID = function (data) {
+                try {
+                    alert("JPushPlugin:registrationID is" + data);
+                    model.console.push("JPushPlugin:registrationID is " + data);
+                }
+                catch (exception) {
+                    model.console.push(exception);
+                }
+            };
+            window.plugins.jPushPlugin.getRegistrationID(onGetRegistradionID);
         });
 
 
