@@ -126,9 +126,9 @@ angular.module('udqApp')
                         /*推送*/
                         jpushSvr.init();
                         if (userType == 1) {/*洗车工*/
-                            jpushSvr.setAlias([data.data.orgId], 'org'+data.data.id);
+                            jpushSvr.setTagsWithAlias([data.data.orgId], 'org' + data.data.id);
                         } else if (userType == 2) {/*车主*/
-                            jpushSvr.setAlias(['customer'], 'customer'+data.data.id);
+                            jpushSvr.setTagsWithAlias(['customer'], 'customer' + data.data.id);
                         }
                         
                         /*跳转*/
