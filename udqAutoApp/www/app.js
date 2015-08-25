@@ -31,20 +31,25 @@ angular.module('udqApp', ['ionic'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+            //if(window.plugins&&window.plugins.jPushPlugin){
+            //    window.plugins.jPushPlugin.init();
+            //}
+            
+            //由于phonegap插件采用了Lazy load的特性，   所以这里建议在js文件能执行的最开始就加
 
             /*启动极光推送服务，并设置调试模式*/
-            jpushSvr.init();
+            //jpushSvr.init();
 
-            var onGetRegistradionID = function (data) {
-                try {
-                    alert("JPushPlugin:registrationID is" + data);
-                    model.console.push("JPushPlugin:registrationID is " + data);
-                }
-                catch (exception) {
-                    model.console.push(exception);
-                }
-            };
-            window.plugins.jPushPlugin.getRegistrationID(onGetRegistradionID);
+            //var onGetRegistradionID = function (data) {
+            //    try {
+            //        alert("JPushPlugin:registrationID is" + data);
+            //        model.console.push("JPushPlugin:registrationID is " + data);
+            //    }
+            //    catch (exception) {
+            //        model.console.push(exception);
+            //    }
+            //};
+            //window.plugins.jPushPlugin.getRegistrationID(onGetRegistradionID);
         });
 
 
