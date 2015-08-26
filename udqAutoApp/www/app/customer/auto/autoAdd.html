@@ -1,37 +1,37 @@
-<ion-view title="添加车辆信息">
-    <ion-nav-bar>
-        <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
+<ion-view title="添加车辆信息" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
+        <ion-nav-buttons side="left" >
+            <button class="button-clear icon ion-chevron-left" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
         <form>
             <ion-list>
-                <label class="item item-input">
+                <label class="item item-input input-costume">
                     <i class="icon ion-model-s placeholder-icon"></i>
-                    <input type="text" name="pn" ng-model="autoInfo.pn" placeholder="请输入车牌号" ng-trim="true" ngMaxlength="11" required>
+                    <input type="text" name="pn" ng-model="autoInfo.pn" placeholder="请输入车牌号" ng-trim="true" ngMaxlength="11" class="input-costume" required>
                 </label>
                 <div class="spacer" style="height:10px;"></div>
-                <label class="item item-input">
+                <label class="item item-input input-costume">
                     <i class="icon ion-ios-color-filter-outline placeholder-icon"></i>
-                    <input type="text" name="brand" ng-model="autoInfo.brand" placeholder="请输入品牌" required>
+                    <input type="text" name="brand" ng-model="autoInfo.brand" placeholder="请输入品牌" class="input-costume" required>
                 </label>
-                <label class="item item-input">
+                <label class="item item-input input-costume">
                     <i class="icon ion-android-color-palette placeholder-icon"></i>
-                    <input type="text" name="color" ng-model="autoInfo.color" placeholder="请输入颜色"  >
+                    <input type="text" name="color" ng-model="autoInfo.color" class="input-costume" placeholder="请输入颜色"  >
                 </label>
-                <label class="item item-input">
+                <label class="item item-input input-costume">
                     <i class="icon ion-android-options placeholder-icon"></i>
-                    <input type="text" name="model" ng-model="autoInfo.model" placeholder="请输入型号"  >
+                    <input type="text" name="model" ng-model="autoInfo.model" placeholder="请输入型号" class="input-costume" >
                 </label>
                 <div class="spacer" style="height:10px;"></div>
                 <!-- 选择小区 -->
-                <a class="item item-icon-right" ng-click="goToCitySelect()">
-                    选择城市
-                    <div class="item-content" style="float:right;">
+                <a class="item item-icon-right input-costume" ng-click="goToCitySelect()">
+                    <h2>选择城市</h2>
+                    <div class="item-content input-costume" style="float:right;">
                         <ul ng-repeat="city in cities" ng-show="city.id ==autoInfo.selectedCityId">
                             <li>
-                                {{city.name}}
+                                <h3>{{city.name}}</h3>
                             </li>
                         </ul>
                     </div>
@@ -39,32 +39,32 @@
 
                     
                 </a>
-                <a class="item item-icon-right" ng-click="goToRegionSelect()">
-                    选择区域
+                <a class="item item-icon-right input-costume" ng-click="goToRegionSelect()">
+                    <h2>选择区域</h2>
                     <i class="icon ion-chevron-right"></i>
 
                     <div class="item-content" style="float:right;">
                         <ul ng-repeat="region in regions" ng-show="region.id ==autoInfo.selectedRegionId">
                             <li>
-                                {{region.name}}
+                                <h3>{{region.name}}</h3>
                             </li>
                         </ul>
                     </div>
                 </a>
-                <a class="item item-icon-right" ng-click="goToDistrictSelect()">
-                    选择小区
+                <a class="item item-icon-right input-costume" ng-click="goToDistrictSelect()">
+                    <h2>选择小区</h2>
                     <i class="icon ion-chevron-right"></i>
 
-                    <div class="item-content" style="float:right;">
+                    <div class="item-content input-costume" style="float:right;">
                         <ul ng-repeat="dis in districts" ng-show="dis.id ==autoInfo.selectedDistrictId">
                             <li>
-                                {{dis.name}}
+                                <h3>{{dis.name}}</h3>
                             </li>
                         </ul>
                     </div>
                 </a>
             </ion-list>
-            <button class="button button-block button-positive " ng-click="addAuto()">确认</button>
+            <button class="button button-block" ng-click="addAuto()">确认</button>
         </form>
     </ion-content>
 </ion-view>

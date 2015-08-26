@@ -1,7 +1,7 @@
-<ion-view view-title="车辆列表">
-    <ion-nav-bar class="bar-stable" align-title="center">
+<ion-view view-title="车辆列表" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBack()"></button>
         </ion-nav-buttons>
 
         <ion-nav-buttons side="right">
@@ -10,19 +10,18 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content has-subheader="false">
+    <ion-content>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <div style="text-align:center;" ng-show="hasNoAuto">
-            <h4 >暂无车辆,赶紧来添加吧</h4>
+            <h4>暂无车辆,赶紧来添加吧</h4>
         </div>
         <ion-list>
-            <ion-item ng-repeat="auto in autoInfo">
+            <ion-item ng-repeat="auto in autoInfo" class="input-costume">
                 <h2>车牌号：{{auto.pn}}</h2>
-                <br />
-                <p>品牌:{{auto.brand}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 型号：{{auto.model}}</p>
-                <ion-option-button class="button-assertive" ng-click="deleteAuto(auto)">
-                    <i class="icon ion-ios-trash"></i>
+                <h3>品牌:{{auto.brand}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 型号：{{auto.model}}</h3>
+                <ion-option-button ng-click="deleteAuto(auto)"><span class="input-label"><h2>删除</h2></span></ion-option-button>
             </ion-item>
         </ion-list>
+
     </ion-content>
 </ion-view>

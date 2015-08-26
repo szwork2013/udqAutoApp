@@ -1,22 +1,22 @@
-<ion-view title="注册">
-    <ion-nav-bar class="bar-stable" align-title="center">
+<ion-view title="注册" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-content padding="true" class="has-header">
 
         <ion-list>
-            <label class="item item-input">
+            <label class="item item-input input-costume">
                 <i class="icon ion-ios-telephone placeholder-icon"></i>
-                <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" required>
+                <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" class="input-costume" required>
             </label>
             
-            <div class="item item-input-inset">
-                <label class="item-input-wrapper ">
-                    
-                    <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd">
+            <div class="item item-input-inset input-costume">
+                <label class="item-input-wrapper input-costume">
+                    <i class="icon ion-key placeholder-icon"></i>
+                    <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd" class="input-costume">
                     
                 </label>
                 <button class="button button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
@@ -25,14 +25,14 @@
                 
             </div>
             <div class="spacer" style="height:30px;"></div>
-            <label class="item item-input">
+            <label class="item item-input input-costume">
                 <i class="icon ion-ios-person placeholder-icon"></i>
-                <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" >
+                <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" class="input-costume">
             </label>
 
-            <ion-item>
-                <input type="radio" name="sex" checked ng-model="userInfo.sex" value='1'/>男士&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <input type="radio" name="sex" ng-model="userInfo.sex" value='2' />女士
+            <ion-item class="input-costume" style="color:white;font-weight:lighter;">
+                <input type="radio" name="sex" checked ng-model="userInfo.sex" value='1'class="input-costume"/>男士&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="sex" ng-model="userInfo.sex" value='2' class="input-costume" />女士
             </ion-item>
 
 

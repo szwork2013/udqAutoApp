@@ -6,6 +6,8 @@ angular.module('udqApp')
 	        sex: $window.localStorage['sex'],
             mobile:$window.localStorage['mobile']
 	    };
+	    $scope.man = '男';
+	    $scope.woman = '女';
     	$scope.goToCenter = function () {
     	    $state.go('customerMyDQ');
     	}

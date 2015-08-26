@@ -1,15 +1,15 @@
-﻿<ion-view view-title="选择区域">
-    <ion-nav-bar class="bar-stable" align-title="center">
+﻿<ion-view view-title="选择区域" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackOfRegionSelect()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfRegionSelect()"></button>
         </ion-nav-buttons>
 
     </ion-nav-bar>
     <ion-content has-subheader="false">
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
 
-        <ion-list ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid">
-            <ion-radio ng-model="autoInfo.selectedRegionId" value={{region.id}}>{{region.name}}</ion-radio>
+        <ion-list class="input-costume" ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid" >
+            <ion-radio ng-model="autoInfo.selectedRegionId" value={{region.id}} class="input-costume">{{region.name}}</ion-radio>
         </ion-list>
 
     </ion-content>

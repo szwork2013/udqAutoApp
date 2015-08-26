@@ -2,12 +2,12 @@
   -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
-  background-color: #eeeeee;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fbfbfb), color-stop(100%, #e1e1e1));
-  background: -webkit-linear-gradient(top, #fbfbfb, #e1e1e1);
-  background: -moz-linear-gradient(top, #fbfbfb, #e1e1e1);
-  background: -o-linear-gradient(top, #fbfbfb, #e1e1e1);
-  background: linear-gradient(top, #fbfbfb, #e1e1e1);
+  background-color: #d87e04;/*#eeeeee;*/
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d87e04), color-stop(100%, #d87e04));/*fbfbfb*/
+  background: -webkit-linear-gradient(top, #d87e04, #d87e04);
+  background: -moz-linear-gradient(top, #d87e04, #d87e04);
+  background: -o-linear-gradient(top, #d87e04, #d87e04);
+  background: linear-gradient(top, #d87e04, #d87e04);/*e1e1e1*/
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -30,11 +30,11 @@
 
 .button:hover {
   background-color: #eeeeee;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
-  background: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
-  background: -moz-linear-gradient(top, #ffffff, #dcdcdc);
-  background: -o-linear-gradient(top, #ffffff, #dcdcdc);
-  background: linear-gradient(top, #ffffff, #dcdcdc);
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffb859), color-stop(100%, #ffb859));/*ffffff dcdcdc*/
+  background: -webkit-linear-gradient(top, #ffb859, #ffb859);
+  background: -moz-linear-gradient(top, #ffb859, #ffb859);
+  background: -o-linear-gradient(top, #ffb859, #ffb859);
+  background: linear-gradient(top, #ffb859, #ffb859);
 }
 
 .button:active {

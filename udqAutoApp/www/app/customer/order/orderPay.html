@@ -1,7 +1,7 @@
-﻿<ion-view view-title="选择支付方式">
-    <ion-nav-bar class="bar-stable" align-title="center">
+﻿<ion-view view-title="选择支付方式" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-android-arrow-back" ng-click="goBack()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
@@ -9,7 +9,6 @@
         <ion-list>
             <ion-radio ng-model="order.channel" value="alipay">支付宝</ion-radio>
             <ion-radio ng-model="order.channel" value="wx">微信支付</ion-radio>
-            <!--<ion-radio ng-model="order.channel" value="upacp">银联支付</ion-radio>-->
         </ion-list>
         <div class="spacer" style="height:20px;"></div>
         <button class="button button-stable button-block" ng-click="commitOrder()">提交订单</button>

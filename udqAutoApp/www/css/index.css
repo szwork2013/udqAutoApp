@@ -1,1 +1,18 @@
-﻿
+﻿.ion-view-costum{
+    background-color:#374d58;
+}
+.ion-nav-bar-costume {
+    background-color:#425a66;
+    font-size:x-large;
+    font-weight:900;
+    color:white;
+}
+.input-costume{
+    background-color:#425a66;
+}
+.ion-option-button-delete{
+    background-color:red;
+}
+h2,h3,h4,p{
+    color:white;
+}
