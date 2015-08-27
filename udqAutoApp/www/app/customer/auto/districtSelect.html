@@ -10,7 +10,7 @@
         <ion-refresher on-refresh="doRefreshOfDistrict()"></ion-refresher>
 
         <ion-list class="input-costume" ng-repeat="district in districts" ng-show="district.pid ==autoInfo.selectedDistrictPid" >
-            <ion-radio ng-model="autoInfo.selectedDistrictId" value={{district.id}} class="input-costume">{{district.name}}</ion-radio>
+            <ion-radio ng-model="autoInfo.selectedDistrictId" value={{district.id}} class="input-costume"><h2>{{district.name}}</h2></ion-radio>
         </ion-list>
 
     </ion-content>

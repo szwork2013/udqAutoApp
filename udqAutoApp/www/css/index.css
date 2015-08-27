@@ -8,11 +8,14 @@
     color:white;
 }
 .input-costume{
-    background-color:#425a66;
-}
-.ion-option-button-delete{
-    background-color:red;
+    background-color:#374d58;
 }
 h2,h3,h4,p{
     color:white;
+}
+ion-item.item div.item-content{
+    background-color:#374d58;
+}
+ion-list div label.item div.item-content{
+    background-color:#374d58;
 }

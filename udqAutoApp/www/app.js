@@ -247,7 +247,7 @@ angular.module('udqApp', ['ionic'])
        if (window.localStorage['loginState'] == 1 && window.localStorage['userType']==2) {/*已经登录，并且用户是车主*/
            $urlRouterProvider.otherwise('/customerHome');
        } else if (window.localStorage['loginState'] == 1 && window.localStorage['userType'] == 1) {/*已经登录，并且用户是洗车工*/
-           $urlRouterProvider.otherwise('/employeeHome');
+           $urlRouterProvider.otherwise('/employeeOrderList');
        } else {
            $urlRouterProvider.otherwise('/customerHome');
        }

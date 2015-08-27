@@ -16,10 +16,10 @@
             <h4>暂无车辆,赶紧来添加吧</h4>
         </div>
         <ion-list>
-            <ion-item ng-repeat="auto in autoInfo" class="input-costume">
+            <ion-item ng-repeat="auto in autoInfo" ng-class="'input-costume'">
                 <h2>车牌号：{{auto.pn}}</h2>
                 <h3>品牌:{{auto.brand}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 型号：{{auto.model}}</h3>
-                <ion-option-button ng-click="deleteAuto(auto)"><span class="input-label"><h2>删除</h2></span></ion-option-button>
+                <ion-option-button ng-click="deleteAuto(auto)" ><span class="input-label"><h2>删除</h2></span></ion-option-button>
             </ion-item>
         </ion-list>
 

@@ -5,13 +5,16 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content has-subheader="false">
-        <div class="list card" ng-repeat="type in types">
-            <a href="#" class="item item-icon-left">
-                <i class="icon ion-model-s"></i>
-                <h2>{{type.name}}</h2>
-                <p>服务内容：{{type.note}}</p>
-                <span class="badge badge-light">{{type.amount}}元</span>
-            </a>
-        </div>
+
+        <ion-list>
+            <ion-item ng-repeat="type in types" class="input-costume">
+                
+                    <i class="icon ion-model-s"></i>
+                    <h2>{{type.name}}</h2>
+                    <p>服务内容：{{type.note}}</p>
+                    <span class="badge input-costume">{{type.amount}}元</span>
+
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>

@@ -14,10 +14,8 @@
         <div style="text-align:center;" ng-show="hasNoAuto"><h4>暂无车辆,赶紧来添加吧</h4></div>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         
-        <ion-list ng-repeat="auto in autoInfo" >
-            <label class="input-costume">
-                <ion-radio ng-model="selectedAuto.selectedAutoId" value={{auto.id}}>{{auto.pn}}</ion-radio>
-            </label>
+        <ion-list >
+                <ion-radio class="input-costume" ng-model="selectedAuto.selectedAutoId" value={{auto.id}} ng-repeat="auto in autoInfo">{{auto.pn}}</ion-radio>
         </ion-list>
 
     </ion-content>

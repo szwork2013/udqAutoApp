@@ -9,16 +9,16 @@
         <div class="list">
             <label class="item item-input input-costume">
                 <span class="input-label"><h2>称呼</h2></span>
-                <input type="text" name="name" ng-model='user.name' placeholder="请输入您的称呼" class="input-costume" required>
+                <input type="text" name="name" ng-model='user.name' placeholder="请输入您的称呼" required>
             </label>
             <label class="item item-input input-costume">
                 <span class="input-label"><h2>电话号码</h2></span>
-                <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您的称呼" class="input-costume" required>
+                <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您的称呼"  required>
             </label>
             <label class="item item-input input-costume">
                 <span class="input-label"><h2>性别</h2></span>
-                <input type="text" name="sex" ng-model="man" placeholder="请输入您的称呼" class="input-costume" ng-show="user.sex ==1">
-                <input type="text" name="sex" ng-model="woman" placeholder="请输入您的称呼" class="input-costume" ng-show="user.sex ==2">
+                <input type="text" name="sex" ng-model="man" placeholder="请输入您的称呼"  ng-show="user.sex ==1">
+                <input type="text" name="sex" ng-model="woman" placeholder="请输入您的称呼"  ng-show="user.sex ==2">
             </label>
             <a class="item item-icon-right input-costume" ng-click="goToEditOwnerInfo()">
                 <h2>修改信息</h2>
