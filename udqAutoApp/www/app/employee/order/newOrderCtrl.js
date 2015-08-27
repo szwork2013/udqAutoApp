@@ -75,4 +75,14 @@
                }
            });
        };
+       /*提示窗*/
+       var showAlert = function (msg) {
+           var alertPopup = $ionicPopup.alert({
+               title: '温馨提示',
+               template: msg
+           });
+           alertPopup.then(function (res) {
+               console.log(msg);
+           });
+       };
    }])

@@ -13,6 +13,9 @@
                                $state.go('employeeOrderList.acceptedOrder');
                            } else {
                                console.log(data.msg);
+                               if (data.msg == "操作失败") {
+                                   showAlert('消息推送失败！');
+                               }
                            }
                        },
                      function (data) {
@@ -102,4 +105,14 @@
        $scope.goBackToOrder = function () {
            $state.go('employeeOrderList.acceptedOrder');
        }
+       /*提示窗*/
+       var showAlert = function (msg) {
+           var alertPopup = $ionicPopup.alert({
+               title: '温馨提示',
+               template: msg
+           });
+           alertPopup.then(function (res) {
+               console.log(msg);
+           });
+       };
    }])

@@ -592,6 +592,13 @@
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
+    "www\\app\\customer\\register\\registerctrl.js",
+    "www\\app\\util\\jpushsvr.js",
+    "www\\app\\login\\loginctrl.js",
+    "plugins\\ios.json",
+    "www\\image\\customerHome2.jpg",
+    "www\\image\\customerHome3.png",
+    "www\\image\\customerHome1.jpg",
     "www\\app\\util\\appconfig.js"
   ],
   "deletedFilesIos": [],
