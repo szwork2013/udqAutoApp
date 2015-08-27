@@ -121,7 +121,7 @@ angular.module('udqApp')
                         $window.localStorage['loginState'] = 1;
                         $window.localStorage['mobile'] = $scope.user.mobile;
                         $window.localStorage['userName'] = data.data.name;
-                        $window.localStorage['userType'] = data.data.userType;
+                        $window.localStorage['userType'] = userType;
                         $window.localStorage['sex'] = data.data.sex;
 
                         /*根据用户类型设置别名和标签*/
