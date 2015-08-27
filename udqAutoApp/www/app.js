@@ -38,7 +38,7 @@ angular.module('udqApp', ['ionic'])
             //由于phonegap插件采用了Lazy load的特性，   所以这里建议在js文件能执行的最开始就加
 
             /*启动极光推送服务，并设置调试模式*/
-            //jpushSvr.init();
+            jpushSvr.init();
 
             //var onGetRegistradionID = function (data) {
             //    try {
@@ -253,7 +253,7 @@ angular.module('udqApp', ['ionic'])
         })*/
        ;
 
-       $urlRouterProvider.otherwise('/customerHome');
+       $urlRouterProvider.otherwise('/employeeOrderList');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

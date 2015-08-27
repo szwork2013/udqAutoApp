@@ -124,6 +124,7 @@
         this.finishOrder = function (order) {
             var data = {
                 userId: order.userId,
+                autoPN: order.autoPN,
                 orderNo: order.orderNo,
                 washerNote: order.washerNote,
                 state: 4
