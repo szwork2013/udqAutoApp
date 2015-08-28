@@ -2,13 +2,15 @@
     "org.apache.cordova.camera": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.camera"
-        }
+            "id": "org.apache.cordova.camera@0.3.6"
+        },
+        "is_top_level": true,
+        "variables": {}
     },
     "org.apache.cordova.device": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.device"
+            "id": "org.apache.cordova.device@0.3.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -16,7 +18,7 @@
     "org.apache.cordova.splashscreen": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.splashscreen"
+            "id": "org.apache.cordova.splashscreen@1.0.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -32,15 +34,15 @@
     "com.msopentech.websql": {
         "source": {
             "type": "registry",
-            "id": "com.msopentech.websql"
+            "id": "com.msopentech.websql@0.0.9"
         },
         "is_top_level": true,
         "variables": {}
     },
     "cordova-plugin-whitelist": {
         "source": {
-            "type": "local",
-            "path": "F:\\gongsi\\点趣车生活\\cordova-plugin-whitelist"
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1.0.0"
         },
         "is_top_level": true,
         "variables": {}

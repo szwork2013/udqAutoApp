@@ -1,4 +1,4 @@
-﻿.button {
+﻿.ownbutton {
   -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
@@ -28,9 +28,9 @@
   text-align: center;
 }
 
-.button:hover {
+/*.button:hover {
   background-color: #eeeeee;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffb859), color-stop(100%, #ffb859));/*ffffff dcdcdc*/
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffb859), color-stop(100%, #ffb859));
   background: -webkit-linear-gradient(top, #ffb859, #ffb859);
   background: -moz-linear-gradient(top, #ffb859, #ffb859);
   background: -o-linear-gradient(top, #ffb859, #ffb859);
@@ -88,11 +88,11 @@ button.button:disabled {
   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.04);
   padding: 10px;
   display: inline-block;
-}
+}*/
 
 
 
-.button-circle {
+.ownbutton-circle {
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
@@ -108,7 +108,7 @@ button.button:disabled {
 }
 
 
-.button-primary {
+/*.button-primary {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #00b5e5), color-stop(100%, #008db2));
   background: -webkit-linear-gradient(top, #00b5e5, #008db2);
   background: -moz-linear-gradient(top, #00b5e5, #008db2);
@@ -240,5 +240,5 @@ button.button:disabled {
 .button-royal:active {
   background: #764479;
   color: #3e1740;
-}
+}*/
 

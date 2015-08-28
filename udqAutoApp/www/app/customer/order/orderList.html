@@ -20,11 +20,11 @@
                     <span class="badge input-costume" ng-show="order.state==2||order.state==3">洗车中</span>
                     <span class="badge input-costume" ng-show="order.state==4||order.state==5">已完成</span>
                 </div>
-                <ion-option-button class="input-costume" ng-show="order.state==0" ng-click="payOrder(order)">支付</ion-option-button>
-                <ion-option-button class="input-costume" ng-show="order.state==1" ng-click="cancelOrder(order)">取消</ion-option-button>
-                <ion-option-button class="input-costume" ng-show="order.state==2||order.state==3||order.state==10||order.state==11" ng-click="scanOrder(order)">查看</ion-option-button>
-                <ion-option-button class="input-costume" ng-show='order.state==4' ng-click="judgeOrder(order)">评价</ion-option-button>
-                <ion-option-button class="input-costume" ng-show='order.state==5' ng-click="shareOrder(order)">分享</ion-option-button>
+                <ion-option-button class="button-balanced" ng-show="order.state==0" ng-click="payOrder(order)">支付</ion-option-button>
+                <ion-option-button class="button-assertive" ng-show="order.state==1" ng-click="cancelOrder(order)">取消</ion-option-button>
+                <ion-option-button class="button-positive" ng-show="order.state==2||order.state==3||order.state==10||order.state==11" ng-click="scanOrder(order)">查看</ion-option-button>
+                <ion-option-button class="button-royal" ng-show='order.state==4' ng-click="judgeOrder(order)">评价</ion-option-button>
+                <ion-option-button class="button-energized" ng-show='order.state==5' ng-click="shareOrder(order)">分享</ion-option-button>
             </ion-item>
         </ion-list>
     </ion-content>

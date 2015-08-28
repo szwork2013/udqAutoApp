@@ -11,15 +11,7 @@
     color:white;
     background-color:#374d58;
 }
-.ion-tab-color{
-    background-color:#374851;
-}
-textarea{
-    width:100%;
-    color:white;
-    background-color:#d7e7f2;
-}
-h2,h3,h4,p,table{
+h2,h3,h4,p{
     color:white;
 }
 ion-item.item div.item-content{
@@ -27,4 +19,7 @@ ion-item.item div.item-content{
 }
 ion-list div label.item div.item-content{
     background-color:#374d58;
+}
+h2,h3,h4,p,.item p{
+    color:white;
 }

@@ -211,6 +211,7 @@
         /*前去订单*/
         $scope.commitOrder = function () {
             if ($window.localStorage["loginState"] != 1) {
+                showAlertOfLogin('用户尚未登录或者注册');
                 return;
             }
             if (!checkOrder()) {
