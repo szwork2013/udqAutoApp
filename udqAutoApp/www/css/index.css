@@ -8,10 +8,12 @@
     color:white;
 }
 .input-costume{
+    color:white;
     background-color:#374d58;
 }
-
-
+h2,h3,h4,p{
+    color:white;
+}
 ion-item.item div.item-content{
     background-color:#374d58;
 }
