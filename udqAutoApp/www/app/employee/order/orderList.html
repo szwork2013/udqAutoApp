@@ -1,7 +1,7 @@
-﻿<ion-view view-title="洗车店">
+﻿<ion-view view-title="洗车店" class="ion-view-costum">
     <!-- header -->
     <div>
-        <ion-nav-bar class="bar-stable">
+        <ion-nav-bar class="ion-nav-bar-costume">
             <ion-nav-buttons side="right">
                 <button class="button-clear icon ion-close-circled" ng-click="exitCurrentUser()"></button>
             </ion-nav-buttons>
@@ -9,15 +9,15 @@
     </div>
     <!--订单展示-->
     <ion-tabs class="tabs-top">
-        <ion-tab title="新订单" href="#/employeeOrderList/newOrder">
+        <ion-tab title="新订单" class="ion-tab-color" href="#/employeeOrderList/newOrder">
             <ion-nav-view name="newOrder-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="已接收" href="#/employeeOrderList/acceptedOrder">
+        <ion-tab title="已接收" class="ion-tab-color" href="#/employeeOrderList/acceptedOrder">
             <ion-nav-view name="acceptedOrder-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="已完成" href="#/employeeOrderList/finishedOrder">
+        <ion-tab title="已完成" class="ion-tab-color" href="#/employeeOrderList/finishedOrder">
             <ion-nav-view name="finishedOrder-tab"></ion-nav-view>
         </ion-tab>
     </ion-tabs>

@@ -8,9 +8,18 @@
     color:white;
 }
 .input-costume{
+    color:white;
     background-color:#374d58;
 }
-h2,h3,h4,p{
+.ion-tab-color{
+    background-color:#374851;
+}
+textarea{
+    width:100%;
+    color:white;
+    background-color:#d7e7f2;
+}
+h2,h3,h4,p,table{
     color:white;
 }
 ion-item.item div.item-content{

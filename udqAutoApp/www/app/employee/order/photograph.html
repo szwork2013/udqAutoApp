@@ -1,5 +1,5 @@
 ﻿<ion-view view-title="完成订单">
-    <ion-nav-bar class="bar-stable" align-title="center">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
             <button class="button-clear icon ion-arrow-left-c" ng-click="goBackToOrder()"></button>
         </ion-nav-buttons>
@@ -7,13 +7,13 @@
     </ion-nav-bar>
     <ion-content class="scroll-content has-header">
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div class="item item-input">
+        <div class="item item-input input-costume">
             客户姓名：{{order.customerName}}
         </div>
-        <div class="item item-input">
+        <div class="item item-input input-costume">
             联系电话：{{order.customerMobile}}
         </div>
-        <div class="item item-input">
+        <div class="item item-input input-costume">
             车牌号码：{{order.autoPN}}
         </div>
         <div class="row" style="margin:0px;padding:0px;">
@@ -41,8 +41,8 @@
                 <button ng-click="delete(3)" class="button-clear ion-minus-round"></button>
             </div>
         </div>
-        <div>
-            <textarea placeholder="描述：" ng-model="order.washerNote"></textarea>
+        <div class="row">
+            <textarea name="note" placeholder="描述：" ng-model="order.washerNote"></textarea>
         </div>
         <div class="row">
             <button class="button button-block" ng-click="finish()">完成</button>
