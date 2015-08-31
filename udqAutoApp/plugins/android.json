@@ -163,9 +163,6 @@
         "cn.jpush.phonegap.JPushPlugin": {
             "PACKAGE_NAME": "com.udianqu.auto"
         },
-        "co.airsia.cordova.pingpp": {
-            "PACKAGE_NAME": "com.udianqu.auto"
-        },
         "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.udianqu.auto"
         },
