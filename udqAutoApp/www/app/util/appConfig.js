@@ -13,7 +13,7 @@ angular.module('udqApp')
         后台服务配置
         */
         server: {
-            address: 'http://192.168.1.4',
+            address: 'http://192.168.1.104',
             port: '8080',
             getUrl: function () {
                 return this.address + ':' + this.port + '/';

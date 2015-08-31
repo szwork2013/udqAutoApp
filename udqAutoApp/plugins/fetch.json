@@ -1,66 +1,66 @@
 {
-    "org.apache.cordova.camera": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.camera@0.3.6"
-        },
-        "is_top_level": true,
-        "variables": {}
+  "org.apache.cordova.camera": {
+    "source": {
+      "type": "registry",
+      "id": "org.apache.cordova.camera@0.3.6"
     },
-    "org.apache.cordova.device": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.device@0.3.0"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": { }
+  },
+  "org.apache.cordova.device": {
+    "source": {
+      "type": "registry",
+      "id": "org.apache.cordova.device@0.3.0"
     },
-    "org.apache.cordova.splashscreen": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.splashscreen@1.0.0"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": { }
+  },
+  "org.apache.cordova.splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "org.apache.cordova.splashscreen@1.0.0"
     },
-    "org.apache.cordova.contacts": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.contacts"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": { }
+  },
+  "org.apache.cordova.contacts": {
+    "source": {
+      "type": "registry",
+      "id": "org.apache.cordova.contacts"
     },
-    "com.msopentech.websql": {
-        "source": {
-            "type": "registry",
-            "id": "com.msopentech.websql@0.0.9"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": { }
+  },
+  "com.msopentech.websql": {
+    "source": {
+      "type": "registry",
+      "id": "com.msopentech.websql@0.0.9"
     },
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1.0.0"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": { }
+  },
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1.0.0"
     },
-    "cn.jpush.phonegap.JPushPlugin": {
-        "source": {
-            "type": "local",
-            "path": "F:\\gongsi\\src\\jpush-phonegap-plugin-master"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": { }
+  },
+  "cn.jpush.phonegap.JPushPlugin": {
+    "source": {
+      "type": "local",
+      "path": "F:\\gongsi\\src\\jpush-phonegap-plugin-master"
     },
-    "co.airsia.cordova.pingpp": {
-        "source": {
-            "type": "registry",
-            "id": "co.airsia.cordova.pingpp@0.0.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    }
+    "is_top_level": true,
+    "variables": { }
+  },
+  "co.airsia.cordova.pingpp": {
+    "source": {
+      "type": "local",
+      "path": "F:\\gongsi\\src\\cordova-plugin-pingpp-master"
+    },
+    "is_top_level": true,
+    "variables": { }
+  }
 }
