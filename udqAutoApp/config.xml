@@ -100,10 +100,13 @@
      over HTTP and HTTPS.
      *NOT RECOMMENDED* -->
   <allow-navigation href="*" />
-  <preference name="KeepRunning" value="False" />
-  <preference name="ShowTitle" value="True" />
-  <preference name="InAppBrowserStorageEnabled" value="False" />
-  <preference name="SuppressesIncrementalRendering" value="True" />
+  <preference name="KeepRunning" value="True" />
+  <preference name="ShowTitle" value="False" />
+  <preference name="InAppBrowserStorageEnabled" value="True" />
+  <preference name="SuppressesIncrementalRendering" value="False" />
   <vs:plugin name="cordova-plugin-whitelist" version="1.0.0" />
   <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
+  <vs:plugin name="co.airsia.cordova.pingpp" version="0.0.1">
+    <param name="URL_SCHEME" value="udianqu://" />
+  </vs:plugin>
 </widget>
