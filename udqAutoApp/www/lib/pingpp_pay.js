@@ -15,7 +15,8 @@ var
     PINGPP_MOCK_URL: 'http://sissi.pingxx.com/mock.php'
   },
   channels = {
-     // wx:'wx',
+      wx: 'wx',
+      alipay: 'alipay',
     alipay_wap: 'alipay_wap',
     upmp_wap: 'upmp_wap',
     upacp_wap: 'upacp_wap',

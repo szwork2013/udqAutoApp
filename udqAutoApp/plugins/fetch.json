@@ -54,5 +54,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "co.airsia.cordova.pingpp": {
+        "source": {
+            "type": "local",
+            "path": "F:\\gongsi\\src\\cordova-plugin-pingpp-master"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
