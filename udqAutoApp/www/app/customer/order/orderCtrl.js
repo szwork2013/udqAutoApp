@@ -181,6 +181,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 function (data) {
                     if (data.isSuccess) {
                         console.log('评价成功');
+                        customerOrderSvr.setSelectedOrder(order);
                         $state.go('customerOrderMgr');
                     } else {
                         console.log(data.msg);

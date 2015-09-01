@@ -13,4 +13,6 @@ angular.module('udqApp')
 	    $scope.goBack = function () {
 	        $ionicHistory.goBack();
 	    }
+        /*washTypeNote页面显示信息*/
+	    $scope.type = customerWashtypeSvr.getWashType();
 	}])

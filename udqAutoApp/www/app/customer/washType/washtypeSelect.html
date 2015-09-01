@@ -8,12 +8,10 @@
         <ion-list class="input-costume">
             <ion-checkbox ng-model="types[0].check" ng-true-value="1" ng-false-value="1" class="input-costume" disabled>
                 <h2>{{types[0].name}}</h2><br />
-                <p>服务内容：{{types[0].note}}</p><br />
                 <p>价格：￥{{types[0].amount}}</p><br />
             </ion-checkbox>
-            <ion-checkbox ng-model="type.check" ng-repeat="type in types" ng-true-value="1" ng-false-value="2" class="input-costume" ng-hide="type ==types[0]">
+            <ion-checkbox ng-model="type.check" ng-click="goToTypeNote(type)" ng-repeat="type in types" ng-true-value="1" ng-false-value="2" class="input-costume" ng-hide="type ==types[0]">
                 <h2>{{type.name}}</h2><br />
-                <p>服务内容：{{type.note}}</p><br />
                 <p>价格：￥{{type.amount}}</p><br />
             </ion-checkbox>
         </ion-list>

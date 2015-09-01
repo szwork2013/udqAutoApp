@@ -20,8 +20,8 @@
                 <p>{{selectOrder.autoPN}}</p>
             </label>
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>清洗工编号</h2></span>
-                <p>{{selectOrder.washerId}}</p>
+                <span class="input-label"><h2>洗车工姓名</h2></span>
+                <p>{{selectOrder.washerName}}</p>
             </label>
 
             <label class="item item-input input-costume">
@@ -42,7 +42,7 @@
             </label>
             <label class="item item-input input-costume">
                 <span class="input-label"><h2>评分</h2></span>
-                <p>{{selectOrder.gradeUser}}</p>
+                <p>{{selectOrder.customerGrade}}</p>
             </label>
         </ion-list>
         
@@ -71,7 +71,7 @@
 
             <button class="button-balanced button-block" ng-show="selectOrder.state==4" ng-click="judge(selectOrder)">确认</button>
         </div>
-                <button class="button-block buton-energized" ng-show="selectOrder.state==5">分享</button>
+                <button class="button-block button-energized" ng-show="selectOrder.state==5">分享</button>
 
 
     </ion-content>
