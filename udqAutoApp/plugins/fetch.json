@@ -57,10 +57,12 @@
     },
     "co.airsia.cordova.pingpp": {
         "source": {
-            "type": "local",
-            "path": "F:\\gongsi\\src\\cordova-plugin-pingpp-master"
+            "type": "registry",
+            "id": "co.airsia.cordova.pingpp"
         },
         "is_top_level": true,
-        "variables": {}
+        "variables": {
+            "URL_SCHEME": "udianqu://"
+        }
     }
 }
