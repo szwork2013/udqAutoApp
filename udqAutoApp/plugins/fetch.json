@@ -58,9 +58,11 @@
     "co.airsia.cordova.pingpp": {
         "source": {
             "type": "registry",
-            "id": "co.airsia.cordova.pingpp@0.0.1"
+            "id": "co.airsia.cordova.pingpp"
         },
         "is_top_level": true,
-        "variables": {}
+        "variables": {
+            "URL_SCHEME": "udianqu://"
+        }
     }
 }

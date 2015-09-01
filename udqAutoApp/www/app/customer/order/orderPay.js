@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderPayCtrl', ['$scope', '$stateParams', '$state', 'customerOrderMakeSvr', function ($scope, $stateParams, $state, customerOrderMakeSvr) {
+    .controller('customerOrderPayCtrl', ['$scope', '$stateParams','$state', 'customerOrderMakeSvr', function ($scope, $stateParams,$state, customerOrderMakeSvr) {
         
         var orderParam = angular.fromJson($stateParams.order);/*传递过来的订单信息*/
         var state = $stateParams.state;/*前一个页面的state*/
@@ -15,8 +15,7 @@
                      if (data.isSuccess) {
                          console.log('提交成功');
                          pingpp.createPayment(data.data.charge, function (result) {
-                             //console.log('suc: ' + result);  //"success"
-                             alert('yes');
+                             alert('suc: ' + result);
                              /*从data中获取新添加的order*/
                           customerOrderSvr.setSelectedOrder(order);
                           $state.go('customerOrderMgr');

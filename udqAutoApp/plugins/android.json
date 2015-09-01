@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PingppPlugin\"><param name=\"android-package\" value=\"co.airsia.cordova.PingppPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -153,6 +157,64 @@
                         {
                             "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.SEND_SMS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.SYSTEM_ALERT_WINDOW\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_SMS\" />",
+                            "count": 1
+                        }
+                    ],
+                    "application": [
+                        {
+                            "xml": "<activity android:launchMode=\"singleTop\" android:name=\"com.pingplusplus.android.PaymentActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity-alias android:exported=\"true\" android:name=\".wxapi.WXPayEntryActivity\" android:targetActivity=\"com.pingplusplus.android.PaymentActivity\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"orientation|keyboardHidden|navigation\" android:exported=\"false\" android:name=\"com.alipay.sdk.app.H5PayActivity\" android:screenOrientation=\"behind\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"orientation|keyboardHidden|navigation\" android:exported=\"false\" android:name=\"com.alipay.sdk.auth.AuthActivity\" android:screenOrientation=\"behind\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -182,6 +244,10 @@
             "PACKAGE_NAME": "com.udianqu.auto"
         },
         "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.udianqu.auto"
+        },
+        "co.airsia.cordova.pingpp": {
+            "URL_SCHEME": "udianqu://",
             "PACKAGE_NAME": "com.udianqu.auto"
         }
     },
