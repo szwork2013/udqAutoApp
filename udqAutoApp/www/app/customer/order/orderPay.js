@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderPayCtrl', ['$scope', '$stateParams','$state', 'customerOrderMakeSvr', function ($scope, $stateParams,$state, customerOrderMakeSvr) {
+    .controller('customerOrderPayCtrl', ['$scope', '$stateParams', '$state', 'customerOrderMakeSvr', 'customerOrderSvr', function ($scope, $stateParams, $state, customerOrderMakeSvr, customerOrderSvr) {
         
         var orderParam = angular.fromJson($stateParams.order);/*传递过来的订单信息*/
         var state = $stateParams.state;/*前一个页面的state*/
