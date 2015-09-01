@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderPayCtrl', ['$scope', '$stateParams', '$state', 'customerOrderMakeSvr', 'pingpp', function ($scope, $stateParams, $state, customerOrderMakeSvr, pingpp) {
+    .controller('customerOrderPayCtrl', ['$scope', '$stateParams', '$state', 'customerOrderMakeSvr', function ($scope, $stateParams, $state, customerOrderMakeSvr) {
         
         var orderParam = angular.fromJson($stateParams.order);/*传递过来的订单信息*/
         var state = $stateParams.state;/*前一个页面的state*/
@@ -23,15 +23,6 @@
                          }, function (result) {
                              alert('err: ' + result);
                          });
-                         //pingpp.createPayment(JSON.stringify(data.data.charge), function (result, error) {
-                         //    if (result == "success") {
-                         //        // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
-                         //    } else if (result == "fail") {
-                         //        // charge 不正确或者微信公众账号支付失败时会在此处返回
-                         //    } else if (result == "cancel") {
-                         //        // 微信公众账号支付取消支付
-                         //    }
-                         //});
                      }
                  },
                  function (data) {

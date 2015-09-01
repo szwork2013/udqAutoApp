@@ -126,7 +126,7 @@ angular.module('udqApp')
 
                         /*根据用户类型设置别名和标签*/
                         if (userType == 1) {/*洗车工*/
-                            jpushSvr.setTagsWithAlias([data.data.orgId], 'org' + data.data.id);
+                            jpushSvr.setTagsWithAlias([data.data.orgId], 'user' + data.data.id);
                         } else if (userType == 2) {/*车主*/
                             jpushSvr.setTagsWithAlias(['customer'], 'customer' + data.data.id);
                         }
