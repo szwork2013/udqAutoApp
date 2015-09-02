@@ -167,6 +167,7 @@
     "plugins\\org.apache.cordova.contacts\\src\\android\\ContactAccessorSdk5.java",
     "plugins\\org.apache.cordova.device\\src\\ubuntu\\device.js",
     "plugins\\org.apache.cordova.device\\src\\ubuntu\\device.h",
+    "res\\native\\android\\udqApp.keystore",
     "plugins\\cordova-plugin-file\\src\\ios\\CDVAssetLibraryFilesystem.m",
     "plugins\\co.airsia.cordova.pingpp\\www\\src\\ios\\PingppPlugin.m",
     "plugins\\org.apache.cordova.camera\\src\\ios\\CDVJpegHeaderWriter.h",
