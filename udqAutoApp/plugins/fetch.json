@@ -64,5 +64,15 @@
         "variables": {
             "URL_SCHEME": "udianqu://"
         }
+    },
+    "com.wordsbaking.cordova.wechat": {
+        "source": {
+            "type": "registry",
+            "id": "com.wordsbaking.cordova.wechat"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "[wxfab7f26e34c3c5c3]"
+        }
     }
 }

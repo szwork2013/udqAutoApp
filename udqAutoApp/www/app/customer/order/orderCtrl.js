@@ -192,7 +192,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 });
         }
         /*分享订单*/
-        $scope.shareOrder = function (order) {
+        $scope.shareOrder = function (title, desc, url, thumb) {
             $ionicActionSheet.show({
                 buttons: [
                     { text: '分享至微信朋友圈' },
@@ -206,12 +206,13 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 buttonClicked: function (index) {
                     if (index == 0) {
                         //title, desc, url, thumb
-                            //$scope.shareViaWechat(WeChat.Scene.timeline, title, desc, url, thumb);
+                            $scope.shareViaWechat(WeChat.Scene.timeline, title, desc, url, thumb);
                     }
                     if (index == 1) {
-                            //$scope.shareViaWechat(WeChat.Scene.session, title, desc, url, thumb);
+                            $scope.shareViaWechat(WeChat.Scene.session, title, desc, url, thumb);
                     }
                 }
+
             })
         }
         $scope.shareViaWechat = function (scene, title, desc, url, thumb) {
