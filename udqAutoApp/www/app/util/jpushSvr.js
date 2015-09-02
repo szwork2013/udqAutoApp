@@ -5,13 +5,13 @@
             try {
                 //由于phonegap插件采用了Lazy load的特性，   所以这里建议在js文件能执行的最开始就加
                 window.plugins.jPushPlugin.init();
-                /*设置调试模式*/
-                if (device.platform != "Android") {
-                    window.plugins.jPushPlugin.setDebugModeFromIos();
-                    window.plugins.jPushPlugin.setApplicationIconBadgeNumber(0);
-                } else {
-                    window.plugins.jPushPlugin.setDebugMode(true);
-                }
+                ///*设置调试模式*/
+                //if (device.platform != "Android") {
+                //    window.plugins.jPushPlugin.setDebugModeFromIos();
+                //    window.plugins.jPushPlugin.setApplicationIconBadgeNumber(0);
+                //} else {
+                //    window.plugins.jPushPlugin.setDebugMode(true);
+                //}
             } catch (exception) {
                 console.log(exception);
             }
@@ -28,6 +28,15 @@
         /*设置标签和别名*/
         this.setTagsWithAlias = function (tags, alias) {
             window.plugins.jPushPlugin.setTagsWithAlias(tags, alias);
+            console.log('tags:'+tags+',alias:'+alias);
+            //try {
+            //    var arrayTagWithAlias = [tags];
+            //    arrayTagWithAlias.unshift(alias);
+            //    this.call_native("setTagsWithAlias", arrayTagWithAlias, null);
+            //}
+            //catch (exception) {
+            //    console.log(exception);
+            //}
         }
         /*获取点击通知内容*/
         this.openNotification = function () {
