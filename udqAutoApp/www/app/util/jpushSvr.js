@@ -28,6 +28,15 @@
         /*设置标签和别名*/
         this.setTagsWithAlias = function (tags, alias) {
             window.plugins.jPushPlugin.setTagsWithAlias(tags, alias);
+            console.log('tags:'+tags+',alias:'+alias);
+            //try {
+            //    var arrayTagWithAlias = [tags];
+            //    arrayTagWithAlias.unshift(alias);
+            //    this.call_native("setTagsWithAlias", arrayTagWithAlias, null);
+            //}
+            //catch (exception) {
+            //    console.log(exception);
+            //}
         }
         /*获取点击通知内容*/
         this.openNotification = function () {

@@ -9,7 +9,7 @@
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
 
         <ion-list class="input-costume" ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid" >
-            <ion-radio ng-model="autoInfo.selectedRegionId" value={{region.id}} class="input-costume"><h2>{{region.name}}</h2></ion-radio>
+            <ion-radio ng-model="autoInfo.selectedRegionId"  ng-click="goBackOfCitySelect()" value={{region.id}} class="input-costume"><h2>{{region.name}}</h2></ion-radio>
         </ion-list>
 
     </ion-content>
