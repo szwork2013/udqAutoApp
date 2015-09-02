@@ -275,6 +275,11 @@
             }
             $state.go("customerOrderMake", { 'typeSelect': 'washTypeReturn' });
         }
+        /*查看洗车类型服务详情*/
+        $scope.goToTypeNote = function (type) {
+            customerWashtypeSvr.setWashType(type);
+            $state.go("customerWashtypeNote");
+        }
         /***************************************************************/
         /*************************车辆选择******************************/
         /*下拉刷新*/

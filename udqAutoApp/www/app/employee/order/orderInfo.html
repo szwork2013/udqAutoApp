@@ -5,75 +5,99 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
-        <p><h4>订单基本信息</h4></p>
-        <table style="height:230px;">
-            <tr>
-                <td>订单编号：{{order.orderNo}}</td>
-            </tr>
-            <tr>
-                <td>订单状态: {{order.stateNote}}</td>
-            </tr>
-            <tr>
-                <td>客户姓名：{{order.customerName}}</td>
-            </tr>
-            <tr>
-                <td>联系电话：{{order.customerMobile}}</td>
-            </tr>
-            <tr>
-                <td>洗车类型：{{order.washTypeName}}</td>
-            </tr>
-            <tr>
-                <td>车牌号码：{{order.autoPN}}</td>
-            </tr>
-            <tr>
-                <td>所属小区：{{order.regionName}}</td>
-            </tr>
-            <tr>
-                <td>下单时间：{{order.billTime}}</td>
-            </tr>
-            <tr>
-                <td>订单备注：{{order.userNote}}</td>
-            </tr>
-            <tr>
-                <td>优惠券：{{order.couponName}}</td>
-            </tr>
-            <tr>
-                <td>优惠金额：{{order.couponAmount}}</td>
-            </tr>
-            <tr>
-                <td>固定价格：{{order.fixedAmount}}</td>
-            </tr>
-            <tr>
-                <td>结算价格：{{order.finalAmount}}</td>
-            </tr>
-        </table>
+        <ion-list>
+            <label class="item item-input input-costume">
+                <h2>订单基本信息</h2>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>订单编号</h2></span>
+                <p>{{order.orderNo}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>订单状态</h2></span>
+                <p>{{order.stateNote}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>客户姓名</h2></span>
+                <p>{{order.customerName}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>联系电话</h2></span>
+                <p>{{order.customerMobile}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>洗车类型</h2></span>
+                <p>{{order.washTypeName}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>车牌号码</h2></span>
+                <p>{{order.autoPN}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>所属小区</h2></span>
+                <p>{{order.regionName}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>下单时间</h2></span>
+                <p>{{order.billTime}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>订单备注</h2></span>
+                <p>{{order.userNote}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>优惠券</h2></span>
+                <p>{{order.couponName}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>优惠金额</h2></span>
+                <p>{{order.couponAmount}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>固定价格</h2></span>
+                <p>{{order.fixedAmount}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>结算价格</h2></span>
+                <p>{{order.finalAmount}}</p>
+            </label>
+        </ion-list>
         <div ng-show="order.state==2||order.state==3||order.state==4||order.state==5">
-            <p><h4>订单处理信息</h4></p>
-            <table style="height:140px">
-                <tr>
-                    <td>接单员工：{{order.washerName}}</td>
-                </tr>
-                <tr>
-                    <td>接单时间：{{order.acceptTime}}</td>
-                </tr>
-                <tr>
-                    <td>开始时间：{{order.beginTime}}</td>
-                </tr>
-                <tr>
-                    <td>结束时间：{{order.finishTime}}</td>
-                </tr>
-                <tr>
-                    <td>客户评价：{{order.customerGrade}}</td>
-                </tr>
-            </table>
-        </div>
-        <div ng-show="order.state==4||order.state==5">
-            <p><h4>照片信息</h4></p>
-            <div class="row" style="width:100%;margin:0px;padding:0px;">
-                <div class="col"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
-                <div class="col"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
-                <div class="col"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
-            </div>
-        </div>
-    </ion-content>
+                <ion-list>
+                    <label class="item item-input input-costume">
+                        <h2>订单处理信息</h2>
+                    </label>
+                    <label class="item item-input input-costume">
+                        <span class="input-label"><h2>接单员工</h2></span>
+                        <p>{{order.washerName}}</p>
+                    </label>
+                    <label class="item item-input input-costume">
+                        <span class="input-label"><h2>接单时间</h2></span>
+                        <p>{{order.acceptTime}}</p>
+                    </label>
+                    <label class="item item-input input-costume">
+                        <span class="input-label"><h2>开始时间</h2></span>
+                        <p>{{order.beginTime}}</p>
+                    </label>
+                    <label class="item item-input input-costume">
+                        <span class="input-label"><h2>结束时间</h2></span>
+                        <p>{{order.finishTime}}</p>
+                    </label>
+                    <label class="item item-input input-costume">
+                        <span class="input-label"><h2>客户评价</h2></span>
+                        <p>{{order.customerGrade}}</p>
+                    </label>
+                </ion-list>
+         </div>
+         <div ng-show="order.state==4||order.state==5">
+                 <label class="item item-input input-costume">
+                        <h2>照片信息</h2>
+                 </label>
+                <div class="row" style="width:100%;margin:0px;padding:0px;">
+                    <div class="col"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                    <div class="col"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                    <div class="col"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                </div>
+         </div>
+</ion-content>
 </ion-view>

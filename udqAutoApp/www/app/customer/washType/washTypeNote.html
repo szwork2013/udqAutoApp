@@ -1,0 +1,12 @@
+﻿<ion-view view-title="{{type.name}}" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-chevron-left" ng-click="goBack()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-list>
+            <span class="input-label"><h2>内容</h2></span>
+            <textarea style="width:100%">{{type.note}}</textarea>
+    </ion-content>
+</ion-view>

@@ -136,6 +136,13 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/washType/washtypeSelect.html',
             controller: 'customerOrderMakeCtrl'
         })
+        /*车主-我要洗车-洗车类型描述*/
+        .state('customerWashtypeNote', {
+            cache: false,
+            url: '/customerWashtypeNote',
+            templateUrl: 'app/customer/washType/washTypeNote.html',
+            controller: 'customerWashtypeCtrl'
+        })
         /*车主-注册*/
          .state('customerRegister', {
              url: '/customerRegister',

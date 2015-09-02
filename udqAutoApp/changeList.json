@@ -474,7 +474,6 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Channels\\Alipay\\AlipaySDK.framework\\Info.plist",
     "plugins\\com.msopentech.websql\\src\\windows\\SQLite.Proxy\\SQLite.Proxy\\Lib\\System.Data.Ersatz.WinRT.dll",
     "plugins\\org.apache.cordova.contacts\\www\\Contact.js",
-    "plugins\\co.airsia.cordova.pingpp\\libs\\ios\\Channels\\Alipay\\AlipaySDK.framework\\AlipaySDK",
     "www\\image\\customerHome1.jpg",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Channels\\Alipay\\libpingpp+alipay.a",
     "plugins\\org.apache.cordova.splashscreen\\doc\\ja\\index.md",
@@ -557,6 +556,7 @@
     "plugins\\co.airsia.cordova.pingpp\\libs\\ios\\Pingpp.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\jpush-sdk-release1.7.5.jar",
     "res\\icons\\wp8\\ApplicationIcon.png",
+    "www\\app\\customer\\washType\\washTypeNote.html",
     "plugins\\cordova-plugin-file\\doc\\es\\index.md",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\README.md",
     "plugins\\cordova-plugin-file\\src\\android\\TypeMismatchException.java",
@@ -658,7 +658,19 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
+    "www\\app\\customer\\washtype\\washtypeintroduce.html",
+    "www\\app\\customer\\auto\\autolist.html",
+    "www\\app\\customer\\auto\\autoadd.html",
+    "www\\app\\customer\\order\\ordermake.html",
+    "www\\app\\customer\\member\\memberinfoedit.html",
+    "www\\app\\customer\\member\\membercenter.html",
+    "www\\app\\customer\\auto\\automgr.html",
+    "www\\app\\customer\\order\\orderlist.html",
+    "www\\app\\customer\\order\\ordermakectrl.js",
+    "res\\screens\\android\\screen-xhdpi-portrait.png",
+    "www\\app\\customer\\order\\orderpay.html",
+    "www\\app\\customer\\order\\ordermgr.html"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -668,14 +680,17 @@
     "org.apache.cordova.contacts",
     "com.msopentech.websql@0.0.9",
     "cordova-plugin-whitelist@1.0.0",
-    "cn.jpush.phonegap.JPushPlugin@2.0.2",
-    "co.airsia.cordova.pingpp@0.0.1"
+    "cn.jpush.phonegap.JPushPlugin@2.0.2"
   ],
-  "deletedPluginsIos": [],
+  "deletedPluginsIos": [
+    "co.airsia.cordova.pingpp"
+  ],
   "changedFiles": [
-    "plugins\\android.json"
+    "plugins\\android.json",
+    "www\\app\\customer\\order\\ordermgr.html",
+    "www\\app\\login\\login.html"
   ],
-  "deletedFiles": [],
-  "addedPlugins": [],
-  "deletedPlugins": []
+  "deletedPlugins": [
+    "co.airsia.cordova.pingpp"
+  ]
 }
