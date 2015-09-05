@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerWashtypeCtrl', ['$scope', '$ionicHistory', 'customerWashtypeSvr', function ($scope, $ionicHistory, customerWashtypeSvr) {
+	.controller('customerWashtypeCtrl', ['$scope', '$state', '$ionicHistory', 'customerWashtypeSvr', function ($scope, $state,$ionicHistory, customerWashtypeSvr) {
 	    $scope.types = [];
 	    var promise = customerWashtypeSvr.callWashType();
 	    promise.then(
@@ -17,7 +17,7 @@ angular.module('udqApp')
 	    /*回跳到主页*/
 	    $scope.goBackOfMain = function () {
 	        $ionicHistory.clearHistory();
-	        $state.go('customerMyDQ');
+	        $state.go('customerHome');
 	    }
         /*washTypeNote页面显示信息*/
 	    $scope.type = customerWashtypeSvr.getWashType();

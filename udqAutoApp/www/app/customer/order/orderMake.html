@@ -3,17 +3,20 @@
         <ion-nav-buttons side="left">
             <button class="button-clear icon ion-chevron-left" ng-click="goBackMain()"></button>
         </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button-clear" ng-click="commitOrder()" style="color:#ffbc01;font-weight:600;">提交</button>
+        </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content has-subheader="false">
+    <ion-content padding="true" class="has-header">
 
         <!-- 选择洗车类型 -->
-        <div class="list ">
+        <ion-list>
             <a class="item item-icon-right input-costume" ng-click="goToWashType()">
-                <h2>选择洗车类型</h2>
+                <p class="makeorder-p">选择洗车类型</p>
                 <div class="item-content">
                     <ul ng-repeat="type in types" ng-show="type.check ==1">
                         <li>
-                            <h3>已选服务项：{{type.name}}&nbsp;&nbsp;价格：{{type.amount}}元</h3>
+                            <p>选择服务项：{{type.name}}&nbsp;&nbsp;价格：{{type.amount|currency:'￥'}}</p>
                         </li>
                     </ul>
                 </div>
@@ -23,41 +26,72 @@
             <!-- 车辆信息、预约时间、详细地址（可选） -->
 
             <a class="item item-icon-right input-costume" ng-click="goToAutoList()">
-                <h2>选择车辆</h2>
+                <p class="makeorder-p">选择车辆</p>
                 <i class="icon ion-chevron-right"></i>
                 <div class="item-content">
                     <p ng-show="hasNoAuto">暂未添加车辆</p>
                     <ul ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
                         <li>
-                            <h3>选择车辆:{{auto.pn}}</h3>
+                            <p>选择车辆:{{auto.pn}}</p>
                         </li>
                     </ul>
                 </div>
             </a>
             <a class="item item-icon-right input-costume" ng-click="goToRegionSelect()">
-                <h2>选择小区</h2>
+                <p class="makeorder-p">选择小区</p>
                 <i class="icon ion-chevron-right"></i>
 
                 <div class="item-content">
                     <ul ng-repeat="dis in districts" ng-show="dis.id ==selectedAuto.selectedRegionId">
                         <li>
-                            <h3>选择小区:{{dis.name}}</h3>
+                            <p>选择小区:{{dis.name}}</p>
                         </li>
                     </ul>
                 </div>
             </a>
-            
-            <a class="item item-icon-right input-costume">
-                <h2>需要支付</h2>
-                <span class="badge input-costume">{{totalAmount}}&nbsp 元</span>
-                
-            </a>
-            <label class="item item-input input-costume">
-                <textarea placeholder="您还有什么要求呢？" ng-model="order.userNote" class="input-costume"></textarea>
-            </label>
+            <!--<div class="row">
+                <div class="col col-20">
+                    <img src="../../../image/udianquImg/我要洗车.png" style="height:100%;width:100%;" />
+                </div>
+                <div class="col col-70 col-center" style="background-color:white;">
+                    <input type="text" style="color:black;font-weight:600;text-align:center;" ng-show="selectedAuto.selectedAutoId ==auto.id" ng-repeat="auto in autoInfo" ng-model="auto.pn" placeholder="暂无车辆（必选）" />                
+                </div>
+                <div class="col col-10 col-center ">
+                    <i class="icon ion-chevron-right" style="background-color:#17becf;color:white;" ng-click="goToAutoList()"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-20">
+                    <img src="../../../image/udianquImg/所在小区.png" style="height:100%;width:100%;" />
+                </div>
+                <div class="col col-60 col-center input-costume" >
+                    <div style="border:solid 1px white;">
+                        <input type="text" class="input-costume" style="color:white;" ng-show="dis.id ==selectedAuto.selectedRegionId" ng-repeat="dis in districts" ng-model="dis.name" placeholder="选择小区（必选）" />
+                    </div>
+                </div>
+                <div class="col-20 col-center"  ng-click="goToRegionSelect()">
+                    <img src="../../../image/circleImg/二维码.png" style="height:100%;width:100%;" />
+                </div>
+            </div>-->
+            <div class="spacer" style="height:20px;"></div>
+            <div class="row">
+                <div class="col col-20"><p class="makeorder-note-p" >备注</p></div>
+                <div class="col col-80 item item-input input-costume">
+                    <textarea placeholder="您还有什么需求呢，请写在这里。" ng-model="order.userNote" rows="5" class="input-costume" style="color:#808a8f;"></textarea>
+                </div>
+            </div>
 
-            <button class="allbutton button-block " ng-click="commitOrder()">支付</button>
+            <div class="spacer" style="height:20px;"></div>
+            <div class="row row-bottom">
+                <div class="col-50">
+                    <p class="makeorder-currency-p">￥</p>
+                </div>
+                <div class="col-50">
+                    <p class="makeorder-money-p">总价{{totalAmount}}元</p>
+                </div>
+            </div>
+            <!--<button class="allbutton button-block " ng-click="commitOrder()">支付</button>-->
 
-        </div>
+        </ion-list>
     </ion-content>
 </ion-view>

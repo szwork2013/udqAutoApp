@@ -12,14 +12,14 @@
     </ion-nav-bar>
     <ion-content>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div style="text-align:center;" ng-show="hasNoAuto">
-            <h4>暂无车辆,赶紧来添加吧</h4>
+        <div style="text-align:center;margin-top:5px;" ng-show="hasNoAuto">
+            <p>暂无车辆,赶紧来添加吧</p>
         </div>
         <ion-list>
-            <ion-item ng-repeat="auto in autoInfo" ng-class="'input-costume'">
-                <h2>车牌号：{{auto.pn}}</h2>
-                <h3>品牌:{{auto.brand}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 型号：{{auto.model}}</h3>
-                <ion-option-button class="button-assertive" ng-click="deleteAuto(auto)" ><span class="input-label"><h2>删除</h2></span></ion-option-button>
+            <ion-item ng-repeat="auto in autoInfo" class="input-costume">
+                <p>车牌号：{{auto.pn}}</p>
+                <p>品牌:{{auto.brand}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 型号：{{auto.model}}</p>
+                <ion-option-button class="button-assertive" ng-click="deleteAuto(auto)" ><span class="input-label"><p>删除</p></span></ion-option-button>
             </ion-item>
         </ion-list>
 

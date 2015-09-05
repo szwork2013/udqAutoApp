@@ -272,6 +272,7 @@
                 template: msg
             });
             alertPopup.then(function (res) {
+                $ionicHistory.clearHistory();
                 $state.go('login');
                 console.log(msg);
             });

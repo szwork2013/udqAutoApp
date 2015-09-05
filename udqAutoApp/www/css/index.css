@@ -3,17 +3,53 @@
 }
 
 .ion-nav-bar-costume {
-    background-color:#425a66;
-    font-size:x-large;
-    font-weight:900;
+    background-color:#374d58;
     color:white;
+    border-bottom:1px solid white;
+    
+}
+/*页面标题字体修改*/
+div.title.title-center.header-item{
+    font-size:large;
+    font-weight:700;
 }
 .input-costume{
     color:white;
     background-color:#374d58;
 }
-h2,h3,h4,p{
+.input-costume:active{
+    background-color:#374d54;
+}
+.input-costume:checked{
+    background-color:#374d54;
+}
+ion-radio:checked{
+    background-color:#374d54;
+}
+h1,h2,h3,h4,p{
     color:white;
+}
+p{
+    font-size:14px;
+    font-weight:600;
+}
+.makeorder-p{
+    font-weight:600;
+}
+.home-p{
+    font-weight:600;
+    font-size:small;
+}
+.makeorder-note-p{
+    font-weight:600;
+}
+.makeorder-currency-p{
+    font-size:40px;
+    text-align:right;
+}
+.makeorder-money-p{
+    font-weight:600;
+    text-align:left;
 }
 ion-item.item div.item-content{
     background-color:#374d58;
@@ -56,3 +92,16 @@ h2,h3,h4,p,.item p{
     background-color:#cf9610;
     border-color:#cf9610;
 }
+/*输入框内的输入字体*/
+.member-span-text{
+    font-size:14px;
+    color:white;
+}
+.autoadd-p{
+    font-weight:600;
+}
+label div.item-content:checked{
+    background-color:#374d58;
+}
+
+

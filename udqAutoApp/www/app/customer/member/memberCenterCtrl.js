@@ -6,6 +6,18 @@ angular.module('udqApp')
 	        sex: $window.localStorage['sex'],
             mobile:$window.localStorage['mobile']
 	    };
+	    customerMemberInfoSvr.getUserInfo($window.localStorage['userID']).then(
+            function (data) {
+                if (data.isSuccess) {
+                    $scope.user = data.data;
+                } else {
+                    $scope.showAlert(data.msg);
+                }
+                
+            },
+            function (data) {
+                $scope.showAlert(data);
+            });
 	    $scope.man = '男';
 	    $scope.woman = '女';
 	    $scope.goToCenter = function () {
@@ -19,15 +31,19 @@ angular.module('udqApp')
     	};
 	    $scope.goBack = function () {
 	        $ionicHistory.clearHistory();
-	        $state.go('customerMyDQ');
+	        $state.go('customerHome');
     	}
     	$scope.saveMemberInfo = function () {
     	    if ($scope.user.name != $window.localStorage['userName'] || $scope.user.sex != $window.localStorage['sex']) {
     	        customerMemberInfoSvr.editUserInfo($scope.user).then(
                     function (data) {
-                        $window.localStorage['userName'] = $scope.user.name;
-                        $window.localStorage['sex'] = $scope.user.sex;
-                        $scope.goToCenter();
+                        if(data.isSuccess){
+                            $window.localStorage['userName'] = $scope.user.name;
+                            $window.localStorage['sex'] = $scope.user.sex;
+                            $scope.goToCenter();
+                        } else {
+                            $scope.showAlert(data.msg);
+                        }
                     },
                     function (data) {
                         console.log(data);
@@ -52,6 +68,14 @@ angular.module('udqApp')
     	        $state.go('customerHome');
     	        console.log('退出当前用户');
     	    });
-    	    
+    	}
+    	$scope.showAlert = function (msg) {
+    	    var alertPopup = $ionicPopup.alert({
+    	        title: '温馨提示',
+                template:msg
+    	    });
+    	    alertPopup.then(function () {
+    	        console.log(msg);
+    	    });
     	}
 	}])

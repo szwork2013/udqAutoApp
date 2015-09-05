@@ -1,47 +1,52 @@
-﻿.ownbutton {
-  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
-  background-color: #d87e04;/*#eeeeee;*/
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d87e04), color-stop(100%, #d87e04));/*fbfbfb*/
-  background: -webkit-linear-gradient(top, #d87e04, #d87e04);
-  background: -moz-linear-gradient(top, #d87e04, #d87e04);
-  background: -o-linear-gradient(top, #d87e04, #d87e04);
-  background: linear-gradient(top, #d87e04, #d87e04);/*e1e1e1*/
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  border: 1px solid #d4d4d4;
-  height: 32px;
-  line-height: 32px;
-  padding: 0px 25.6px;
-  font-weight: 300;
-  font-size: 14px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #666666;
-  text-shadow: 0 1px 1px white;
-  margin: 0;
-  text-decoration: none;
-  text-align: center;
+﻿/*背景图片*/
+.button-mydq-img{
+    background:url(../image/udianquImg/我的点趣.png) no-repeat left top;
+    width:100%;
+    height:100%;
+}
+.button-myorder-img{
+    background:url(../image/udianquImg/我的订单.png) no-repeat left top;
+}
+.button-washauto-img{
+    background:url(../image/udianquImg/我要洗车.png) no-repeat left top;
+}
+.button-washtype-img{
+    background:url(../image/udianquImg/关于点趣.png) no-repeat left top;
+}
+.button-share-img{
+    background:url(../image/udianquImg/分享好友.png) no-repeat left top;
 }
 
-
 .ownbutton-circle {
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
-  -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.2);
-  width: 80px;
-  line-height: 80px;
-  height: 80px;
-  padding: 0px;
-  border-width: 4px;
-  font-size: 18px;
+    background-color:#374d58;
+    border:none;
+    -webkit-border-radius: 50px;/*72px;*/
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    width: 50px;
+    line-height: 50px;
+    height: 50px;
+    padding: 0px;
+}
+.ownbutton-circle:active{
+    background-color:#425a66;
+}
+.button-washauto-circle {
+    background-color:#374d58;
+    border:none;
+    -webkit-border-radius: 266px;
+    -moz-border-radius: 266px;
+    border-radius: 266px;
+    width: 266px;
+    line-height: 266px;
+    height: 266px;
+    padding: 0px;
+}
+.button-washauto-circle:active{
+    background-color:#425a66;
+}
+.row-text-align{
+     text-align:center;
 }
 
 

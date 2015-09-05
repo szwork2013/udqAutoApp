@@ -2,7 +2,7 @@
 <ion-view title="编辑个人信息" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBack()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goToCenter()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
@@ -12,7 +12,7 @@
                 <!--输入称呼和性别-->
                 <label class="item item-input input-costume">
                     <span class="input-label"><h2>称呼</h2></span>
-                    <input type="text" name="name" ng-model='user.name' placeholder="请输入您的称呼" required>
+                    <input type="text" name="name" ng-model='user.name' placeholder="请输入您的称呼" style="color:white;" required>
                 </label>
                 <ion-item class="input-costume" style="color:white;">
                     <input  type="radio" name="sex" checked ng-model="user.sex" value='1' />男士&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

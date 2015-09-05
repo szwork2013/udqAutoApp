@@ -8,9 +8,9 @@
 
         <ion-list>
             <ion-item ng-repeat="type in types" class="input-costume">
-                    <h2>{{type.name}}</h2>
+                    <p>{{type.name}}</p>
                     <p>服务内容：{{type.note}}</p>
-                    <span class="badge input-costume">{{type.amount}}元</span>
+                    <span class="badge input-costume">{{type.amount|currency:'￥'}}</span>
 
             </ion-item>
         </ion-list>

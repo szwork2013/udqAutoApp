@@ -9,56 +9,55 @@
             <ion-list>
                 <label class="item item-input input-costume">
                     <i class="icon ion-model-s placeholder-icon"></i>
-                    <input type="text" name="pn" ng-model="autoInfo.pn" placeholder="请输入车牌号" ng-trim="true" ngMaxlength="11" class="input-costume" required>
+                    <input type="text" name="pn" ng-model="autoInfo.pn" placeholder="请输入车牌号" ng-trim="true" ngMaxlength="11" class="input-costume" style="color:white;font-weight:600;" required>
                 </label>
                 <div class="spacer" style="height:10px;"></div>
                 <label class="item item-input input-costume">
                     <i class="icon ion-ios-color-filter-outline placeholder-icon"></i>
-                    <input type="text" name="brand" ng-model="autoInfo.brand" placeholder="请输入品牌" class="input-costume" required>
+                    <input type="text" name="brand" ng-model="autoInfo.brand" placeholder="请输入品牌" class="input-costume" style="color:white;font-weight:600;" required>
                 </label>
                 <label class="item item-input input-costume">
                     <i class="icon ion-android-color-palette placeholder-icon"></i>
-                    <input type="text" name="color" ng-model="autoInfo.color" class="input-costume" placeholder="请输入颜色"  >
+                    <input type="text" name="color" ng-model="autoInfo.color" class="input-costume" placeholder="请输入颜色"  style="color:white;font-weight:600;" >
                 </label>
                 <label class="item item-input input-costume">
                     <i class="icon ion-android-options placeholder-icon"></i>
-                    <input type="text" name="model" ng-model="autoInfo.model" placeholder="请输入型号" class="input-costume" >
+                    <input type="text" name="model" ng-model="autoInfo.model" placeholder="请输入型号" class="input-costume"  style="color:white;font-weight:600;">
                 </label>
                 <div class="spacer" style="height:10px;"></div>
                 <!-- 选择小区 -->
                 <a class="item item-icon-right input-costume" ng-click="goToCitySelect()">
-                    <h2>选择城市</h2>
-                    <div class="item-content input-costume" style="float:right;">
+                    <p class="autoadd-p" ng-show="autoInfo.selectedCityId ==undefined">选择城市</p>
+                    <div class="item-content input-costume" >
                         <ul ng-repeat="city in cities" ng-show="city.id ==autoInfo.selectedCityId">
                             <li>
-                                <h3>{{city.name}}</h3>
+                                <p class="autoadd-p">已选城市：{{city.name}}</p>
                             </li>
                         </ul>
                     </div>
-                    <i class="icon ion-chevron-right"></i>
-
-                    
+                    <i class="icon ion-chevron-right"></i>                    
                 </a>
+
                 <a class="item item-icon-right input-costume" ng-click="goToRegionSelect()">
-                    <h2>选择区域</h2>
+                    <p class="autoadd-p" ng-show="autoInfo.selectedRegionId ==undefined">选择区域</p>
                     <i class="icon ion-chevron-right"></i>
 
-                    <div class="item-content" style="float:right;">
+                    <div class="item-content">
                         <ul ng-repeat="region in regions" ng-show="region.id ==autoInfo.selectedRegionId">
                             <li>
-                                <h3>{{region.name}}</h3>
+                                <p class="autoadd-p">已选区域：{{region.name}}</p>
                             </li>
                         </ul>
                     </div>
                 </a>
                 <a class="item item-icon-right input-costume" ng-click="goToDistrictSelect()">
-                    <h2>选择小区</h2>
+                    <p class="autoadd-p" ng-show="autoInfo.selectedDistrictId ==undefined">选择小区</p>
                     <i class="icon ion-chevron-right"></i>
 
-                    <div class="item-content input-costume" style="float:right;">
+                    <div class="item-content input-costume">
                         <ul ng-repeat="dis in districts" ng-show="dis.id ==autoInfo.selectedDistrictId">
                             <li>
-                                <h3>{{dis.name}}</h3>
+                                <p class="autoadd-p">已选小区：{{dis.name}}</p>
                             </li>
                         </ul>
                     </div>
