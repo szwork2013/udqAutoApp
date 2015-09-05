@@ -67,12 +67,10 @@
     },
     "com.wordsbaking.cordova.wechat": {
         "source": {
-            "type": "registry",
-            "id": "com.wordsbaking.cordova.wechat"
+            "type": "local",
+            "path": "F:\\gongsi\\src\\cordova-plugin-wechat-master"
         },
         "is_top_level": true,
-        "variables": {
-            "APP_ID": "[wxfab7f26e34c3c5c3]"
-        }
+        "variables": {}
     }
 }

@@ -8,15 +8,18 @@ angular.module('udqApp')
 	    };
 	    $scope.man = '男';
 	    $scope.woman = '女';
-    	$scope.goToCenter = function () {
+	    $scope.goToCenter = function () {
+	        $ionicHistory.clearHistory();
     	    $state.go('customerMyDQ');
     	}
 
-    	$scope.goToEditOwnerInfo = function () {
+	    $scope.goToEditOwnerInfo = function () {
+	        $ionicHistory.clearHistory();
     	    $state.go('customerMemberInfoEdit');
     	};
-    	$scope.goBack = function () {
-    	    $ionicHistory.goBack();
+	    $scope.goBack = function () {
+	        $ionicHistory.clearHistory();
+	        $state.go('customerMyDQ');
     	}
     	$scope.saveMemberInfo = function () {
     	    if ($scope.user.name != $window.localStorage['userName'] || $scope.user.sex != $window.localStorage['sex']) {
@@ -31,28 +34,24 @@ angular.module('udqApp')
                     });
     	    }
     	}
-	    /*退出当前账户*/
+        /*退出当前账户*/
     	$scope.exitCurrentUser = function () {
-    	    var confirmPopup = $ionicPopup.confirm({
+    	    var alertPopup = $ionicPopup.alert({
     	        title: '温馨提示',
     	        template: '确认退出当前账户？'
     	    });
-    	    confirmPopup.then(function (res) {
-    	        if (res) {
-    	            $window.localStorage['loginState'] = 0;
-    	            $window.localStorage['userID'] = 0;
-    	            $window.localStorage['mobile'] = '';
-    	            $window.localStorage['userName'] = '';
-    	            $window.localStorage['userType'] = 0;
-    	            $window.localStorage['sex'] = 0;
-    	            /*关闭推送*/
-    	            //jpushSvr.stopPush();
+    	    alertPopup.then(function (res) {
+    	        $window.localStorage['loginState'] = 0;
+                $window.localStorage['userID'] = 0;
+                $window.localStorage['mobile'] = '';
+                $window.localStorage['userName'] = '';
+                $window.localStorage['userType'] = 0;
+                $window.localStorage['sex'] = 0;
+    	        
 
-    	            $state.go('customerHome');
-    	            console.log('退出当前用户');
-    	        } else {
-    	            console.log('You are not sure');
-    	        }
+    	        $state.go('customerHome');
+    	        console.log('退出当前用户');
     	    });
+    	    
     	}
 	}])

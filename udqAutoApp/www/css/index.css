@@ -1,6 +1,7 @@
 ﻿.ion-view-costum{
     background-color:#374d58;
 }
+
 .ion-nav-bar-costume {
     background-color:#425a66;
     font-size:x-large;
@@ -22,4 +23,36 @@ ion-list div label.item div.item-content{
 }
 h2,h3,h4,p,.item p{
     color:white;
+}
+/*button*/
+.allbutton{
+    background-color:#ffbc01;
+    border-color:#ffbc01;
+    font-size:12px;
+    color:white;
+    text-align:center;
+    border:#ffbc01 solid ;
+    border-radius:3px;
+    margin-top:6px;
+    margin-top:6px;
+    line-height:none;
+}
+.allbutton:active{
+    background-color:#cf9610;
+    border-color:#cf9610;
+}
+/*注册按钮*/
+.registerInloginPage{
+    background-color:#e1a516;
+    font-size:12px;
+    color:white;
+    text-align:center;
+    border:#e1a516 solid ;
+    border-radius:3px;
+    margin-top:6px;
+    margin-top:6px;
+}
+.registerInloginPage:active{
+    background-color:#cf9610;
+    border-color:#cf9610;
 }

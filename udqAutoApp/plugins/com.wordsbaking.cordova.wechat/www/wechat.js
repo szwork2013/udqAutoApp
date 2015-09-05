@@ -8,11 +8,11 @@
     MIT License
 */
 
-exports.share = function (message, scene, onfulfill, onreject) {
+exports.share = function (message, scene, onfulfilled, onrejected) {
     var ThenFail = window.ThenFail;
     var promise;
 
-    if (ThenFail && !onfulfill && !onreject) {
+    if (ThenFail && !onfulfilled && !onrejected) {
         promise = new ThenFail();
     }
 
@@ -27,14 +27,14 @@ exports.share = function (message, scene, onfulfill, onreject) {
         .exec(function () {
             if (promise) {
                 promise.resolve();
-            } else if (onfulfill) {
-                onfulfill();
+            } else if (onfulfilled) {
+                onfulfilled();
             }
         }, function (err) {
             if (promise) {
                 promise.reject(err);
-            } else if (onreject) {
-                onreject(err);
+            } else if (onrejected) {
+                onrejected(err);
             }
         }, 'WeChat', 'share', [
             {
@@ -61,4 +61,24 @@ exports.ShareType = {
     music: 5,
     video: 6,
     webpage: 7
+};
+
+exports.isInstalled = function (onfulfill, onreject) {
+    var ThenFail = window.ThenFail;
+    var promise;
+
+    if (ThenFail && !onfulfill && !onreject) {
+        promise = new ThenFail();
+    }
+
+    cordova
+        .exec(function (isInstalled) {
+            if (promise) {promise.resolve(isInstalled);}
+            if (onfulfill) {onfulfill(isInstalled);}
+        }, function (err) {
+            if (promise) {promise.reject(err);}
+            if (onreject) {onreject(err);}
+        }, 'WeChat', 'isInstalled', []);
+
+    return promise;
 };
