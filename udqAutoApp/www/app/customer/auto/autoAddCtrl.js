@@ -72,6 +72,7 @@ angular.module('udqApp')
                 function (data) {
                     if (data.isSuccess) {
                         console.log('添加车辆成功');
+                        $ionicHistory.clearHistory();
                         $scope.goBack();
                     } else {
                         console.log(data.msg);
@@ -87,16 +88,19 @@ angular.module('udqApp')
 	    /*跳转到城市选择*/
 		$scope.goToCitySelect = function () {
 		    saveAutoInfoToSvr($scope.autoInfo);
+		    $ionicHistory.clearHistory();
 	        $state.go('customerCitySelect');
 		}
 	    /*跳转到区域选择*/
 	    $scope.goToRegionSelect = function () {
 	        saveAutoInfoToSvr($scope.autoInfo);
+	        $ionicHistory.clearHistory();
 	        $state.go('customerRegion');
 		}
 	    /*跳转到小区选择*/
 	    $scope.goToDistrictSelect = function () {
 	        saveAutoInfoToSvr($scope.autoInfo);
+	        $ionicHistory.clearHistory();
 	        $state.go('customerDistrictSelect');
 	    }
 
@@ -121,24 +125,29 @@ angular.module('udqApp')
 	    $scope.goBackOfCitySelect = function () {
 	        /*保存到service*/
 	        saveAutoInfoToSvr($scope.autoInfo);
+	        $ionicHistory.clearHistory();
 	        $state.go('customerAutoAdd', { 'typeSelect': 'city' });
 	    }
 	    $scope.goBackOfRegionSelect = function () {
 	        /*保存到service*/
 	        saveAutoInfoToSvr($scope.autoInfo);
+	        $ionicHistory.clearHistory();
 	        $state.go('customerAutoAdd', { 'typeSelect': 'region' });
 	    }
 	    $scope.goBackOfDistrictSelect = function () {
 	        /*保存到service*/
 	        saveAutoInfoToSvr($scope.autoInfo);
+	        $ionicHistory.clearHistory();
 	        $state.go('customerAutoAdd', { 'typeSelect': 'district' });
 	    }
 		
         /*根据backName回跳之前的界面*/
 	    $scope.goBack = function () {
 	        if (backName == 'customerAutoList') {
+	            $ionicHistory.clearHistory();
 	            $state.go(backName, {'typeSelect':'goToAuto'});
 	        } else {
+	            $ionicHistory.clearHistory();
 	            $state.go(backName);
 	        }
 		}

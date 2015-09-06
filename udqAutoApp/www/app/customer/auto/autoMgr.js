@@ -57,10 +57,12 @@ angular.module('udqApp')
 	    }
 	    /*添加车辆*/
 	    $scope.goToAddauto = function () {
+	        $ionicHistory.clearHistory();
 	        $state.go('customerAutoAdd', { 'backName': 'customerAutoMgr' });
 	    }
 	    /*回跳*/
 	    $scope.goBack = function () {
+	        $ionicHistory.clearHistory();
 	        $state.go('customerHome');
 	    }
 	    /*(自定义)数组移除指定元素*/

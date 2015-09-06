@@ -7,18 +7,14 @@ angular.module('udqApp')
 	    /*保存用户信息*/
 	    this.editUserInfo = function (user) {
 	        var url = baseUrl + 'fzmgr/user/editUser4App.do';
-	        var userInfo = {
-	            userName: user.name,
-                sex:user.sex
-	        };
 	        var deferred = $q.defer();
 	        $http({
 	            method: 'post',
 	            url: url,
-	            data: {userInfo:JSON.stringify(userInfo)}
+	            data: { userInfo: JSON.stringify(user) }
 	        }).then(
             function (data, status, headers, config) {
-                deferred.resolve(data);
+                deferred.resolve(data.data);
             },
             function (data, status, headers, config) {
                 deferred.reject('修改信息失败');
@@ -27,20 +23,16 @@ angular.module('udqApp')
 	        return deferred.promise;
 	    }
 	    /*获取用户信息*/
-	    this.getUserInfo = function(){
+	    this.getUserInfo = function(id){
 	        var url = baseUrl + 'fzmgr/user/getUser4App.do';
-	        var userInfo = {
-	            userName: user.name,
-	            sex: user.sex
-	        };
 	        var deferred = $q.defer();
 	        $http({
 	            method: 'post',
 	            url: url,
-	            data: { userInfo: JSON.stringify(userInfo) }
+	            data: { id: id }
 	        }).then(
             function (data, status, headers, config) {
-                deferred.resolve(data);
+                deferred.resolve(data.data);
             },
             function (data, status, headers, config) {
                 deferred.reject('获取用户信息失败');

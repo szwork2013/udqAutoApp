@@ -4,28 +4,49 @@
             <button class="button-clear icon ion-chevron-left" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content>
-        <!--列表-->
-        <div class="list">
-            <label class="item item-input input-costume">
-                <span class="input-label"><h2>称呼</h2></span>
-                <input type="text" name="name" ng-model='user.name' placeholder="请输入您的称呼" required>
-            </label>
-            <label class="item item-input input-costume">
-                <span class="input-label"><h2>电话号码</h2></span>
-                <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您的称呼"  required>
-            </label>
-            <label class="item item-input input-costume">
-                <span class="input-label"><h2>性别</h2></span>
-                <input type="text" name="sex" ng-model="man" placeholder="请输入您的称呼"  ng-show="user.sex ==1">
-                <input type="text" name="sex" ng-model="woman" placeholder="请输入您的称呼"  ng-show="user.sex ==2">
-            </label>
-            <a class="item item-icon-right input-costume" ng-click="goToEditOwnerInfo()">
-                <h2>修改信息</h2>
-                <i class="icon ion-chevron-right"></i>
-            </a>
-            <button class="button button-balanced button-block" ng-click="exitCurrentUser()">退出账号</button>
-        </div>
+    <ion-content padding="true" class="has-header">
+        <form>
+            <!--列表-->
+            <!--<ion-list>
+                <label class="item item-input input-costume">
+                    <span class="input-label member-span-text">称呼</span>
+                    <input type="text" name="name" ng-model='user.name' placeholder="请输入您的称呼"  readonly required>
+                </label>
+                <label class="item item-input input-costume">
+                    <span class="input-label member-span-text">电话号码</span>
+                    <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您的电话号码" style="color:white;" required>
+                </label>
+                <label class="item item-input input-costume">
+                    <span class="input-label member-span-text">性别</span>
+                    <input type="text" name="sex" ng-model="man" placeholder="请输入您的称呼" ng-show="user.sex ==1" style="color:white;">
+                    <input type="text" name="sex" ng-model="woman" placeholder="请输入您的称呼" ng-show="user.sex ==2" style="color:white;">
+                </label>
+                <a class="item item-icon-right input-costume" ng-click="goToEditOwnerInfo()">
+                    <h2>修改信息</h2>
+                    <i class="icon ion-chevron-right"></i>
+                </a>
+                <button class="allbutton button-block" ng-click="exitCurrentUser()">退出账号</button>
+            </ion-list>-->
+            <div class="row">
+                <div class="col col-30">
+                    <img src="../../../image/udianquImg/我的点趣.png" style="height:100%;width:100%;"/>
+                </div>
+                <div class="col col-50">
+                    <p ng-show="user.name!=undefined">称呼：{{user.name}}</p>
+                    <p ng-show="user.sex!=undefined&&user.sex ==1">性别：男</p>
+                    <p ng-show="user.sex!=undefined&&user.sex ==2">性别：女</p>
+                    <p ng-show="user.mobile!=undefined">手机：{{user.mobile}}</p>
+                    
+                    
+                </div>
+                <div class="col col-20 col-center">
+                    <button class="item item-icon-right input-costume" ng-click="goToEditOwnerInfo()" style="border-color:#374d58;">
+                        <i class="icon ion-ios-arrow-forward"></i>
+                    </button>
+                    
+                </div>
+            </div>
+        </form>
     </ion-content>
 
 
