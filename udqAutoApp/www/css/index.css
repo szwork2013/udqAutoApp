@@ -23,3 +23,9 @@ ion-list div label.item div.item-content{
 h2,h3,h4,p,.item p{
     color:white;
 }
+.platform-android .actionsheet{
+    margin-top:-32px;
+}
+ion-radio.selected{
+    background-color:#00ff21;
+}

@@ -28,13 +28,13 @@
    top: 0; left: 0; right: 0; bottom: 0;
    text-indent: 0;
    line-height: 1em;
-   color: #aaa;
+   color: #ff6a00;
 }
 .score label:hover:before,
 .score label:hover ~ label:before,
 .score input:checked ~ label:before {
    content: "★";
-   color: #ffbb04;
+   color: #ed8131;
 }
 .score label:active {
   position: relative;

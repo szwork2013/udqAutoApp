@@ -218,7 +218,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.shareViaWechat = function (scene, title, desc, url, thumb) {
             // 创建消息体
             var msg = {
-                title: title ? title : "行者无疆",
+                title: title ? title : "点趣洗车",
                 description: desc ? desc : "A real traveller's province is boundless.",
                 url: url ? url : "http://www.xingzhewujiang.xinligen.osnuts.com",
                 thumb: thumb ? thumb : null

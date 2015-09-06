@@ -347,4 +347,9 @@
             }
             $state.go('customerOrderMake', { 'typeSelect': 'regionReturn' });
         }
+        $scope.on_select = function () {
+            //$("#selected").attr("class", "ion-selected");
+            var radio = document.getElementById("selected");
+            radio.style.backgroundColor = "#ccc"
+        }
     }])

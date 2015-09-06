@@ -118,7 +118,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                         $window.localStorage['userID'] = data.data.id;
                         $window.localStorage['sex'] = data.data.sex;
                         $window.localStorage['userType'] = 2;
-                        jpushSvr.setTagsWithAlias(['customer'], data.data.id);
+                        jpushSvr.setTagsWithAlias(['customer'], "customer"+data.data.id);
 
         	            showAlertOfSuccess();
         	        } else {

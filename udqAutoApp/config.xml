@@ -100,11 +100,15 @@
      over HTTP and HTTPS.
      *NOT RECOMMENDED* -->
   <allow-navigation href="*" />
-  <preference name="KeepRunning" value="True" />
-  <preference name="ShowTitle" value="False" />
-  <preference name="InAppBrowserStorageEnabled" value="True" />
-  <preference name="SuppressesIncrementalRendering" value="False" />
+  <preference name="KeepRunning" value="False" />
+  <preference name="ShowTitle" value="True" />
+  <preference name="InAppBrowserStorageEnabled" value="False" />
+  <preference name="SuppressesIncrementalRendering" value="True" />
   <vs:plugin name="cordova-plugin-whitelist" version="1.0.0" />
   <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
   <vs:plugin name="co.airsia.cordova.pingpp" version="0.0.1" />
+  <vs:plugin name="com.wordsbaking.cordova.wechat" version="0.3.0">
+    <param name="APP_ID" value="wxfab7f26e34c3c5c3" />
+  </vs:plugin>
+
 </widget>

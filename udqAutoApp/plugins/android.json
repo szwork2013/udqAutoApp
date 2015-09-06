@@ -43,6 +43,14 @@
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"WeChat\"><param name=\"android-package\" value=\"com.wordsbaking.cordova.wechat.WeChat\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"wechatappid\" value=\"wxfab7f26e34c3c5c3\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -150,6 +158,10 @@
                         },
                         {
                             "xml": "<meta-data android:name=\"JPUSH_APPKEY\" android:value=\"f7ac64807880e77cdbc6612e\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:exported=\"true\" android:label=\"@string/launcher_name\" android:name=\".wxapi.WXEntryActivity\"><intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /><data android:scheme=\"wxfab7f26e34c3c5c3\" /></intent-filter></activity>",
                             "count": 1
                         }
                     ],
@@ -259,6 +271,10 @@
             "PACKAGE_NAME": "com.udianqu.auto"
         },
         "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.udianqu.auto"
+        },
+        "com.wordsbaking.cordova.wechat": {
+            "APP_ID": "wxfab7f26e34c3c5c3",
             "PACKAGE_NAME": "com.udianqu.auto"
         }
     },
