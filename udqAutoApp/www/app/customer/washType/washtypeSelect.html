@@ -8,7 +8,7 @@
         </ion-nav-buttons>
 </ion-nav-bar>
     <ion-content has-subheader="false">
-        <ion-list class="input-costume">
+        <ion-list ng-repeat="type in types" class="input-costume">
             <ion-checkbox ng-model="types[0].check" ng-true-value="1" ng-false-value="1" class="input-costume" disabled>
                 <p>{{types[0].name}}</p><br />
                 <p>价格：{{types[0].amount|currency:'￥'}}</p><br />
