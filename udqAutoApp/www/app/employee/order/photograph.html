@@ -1,25 +1,31 @@
-﻿<ion-view view-title="完成订单">
+﻿<ion-view view-title="完成订单" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
             <button class="button-clear icon ion-arrow-left-c" ng-click="goBackToOrder()"></button>
         </ion-nav-buttons>
 
     </ion-nav-bar>
-    <ion-content class="scroll-content has-header">
+    <ion-content>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div class="item item-input">
-            客户姓名：{{order.customerName}}
-        </div>
-        <div class="item item-input">
-            联系电话：{{order.customerMobile}}
-        </div>
-        <div class="item item-input">
-            车牌号码：{{order.autoPN}}
-        </div>
-        <div class="row" style="margin:0px;padding:0px;">
-            <div class="col"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto"></div>
-            <div class="col"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:100%;height:auto"></div>
-            <div class="col"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:100%;height:auto"></div>
+        <ion-list>
+            <label class="item item-input input-costume">
+                <span class="input-label"><p>客户姓名</p></span>
+                <p>{{order.customerName}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><p>联系电话</p></span>
+                <p>{{order.customerMobile}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><p>车牌号码</p></span>
+                <p>{{order.autoPN}}</p>
+            </label>
+        </ion-list>
+        <div class="spacer" style="height:10px;"></div>
+        <div class="row" style="margin:2px;padding:0px;">
+            <div class="col col-33" style="border:2px solid white;"><img src={{order.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto"></div>
+            <div class="col col-33" style="border:2px solid white;"><img src={{order.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:100%;height:auto"></div>
+            <div class="col col-33" style="border:2px solid white;"><img src={{order.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:100%;height:auto"></div>
         </div>
         <div class="row">
             <div class="col">
@@ -41,11 +47,16 @@
                 <button ng-click="delete(3)" class="button-clear ion-minus-round"></button>
             </div>
         </div>
+        <div class="spacer" style="height:20px;"></div>
         <div class="row">
-            <textarea name="note" placeholder="描述：" ng-model="order.washerNote"></textarea>
+            <div class="col col-20"><p class="makeorder-note-p">描述</p></div>
+            <div class="col col-80 item item-input input-costume">
+                <textarea placeholder="您有什么要告诉车主的，请写在这里。" ng-model="order.washerNote" rows="5" class="input-costume" style="color:#808a8f;"></textarea>
+            </div>
         </div>
+        <div class="spacer" style="height:5px;"></div>
         <div class="row">
-            <button class="button button-block" ng-click="finish()">完成</button>
+            <button class="allbutton button-block" ng-click="finish()">完成</button>
         </div>
         
 </ion-content>

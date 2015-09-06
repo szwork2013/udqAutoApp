@@ -1,12 +1,12 @@
-﻿<ion-view>
+﻿<ion-view title="洗车店" class="ion-view-costum">
     <ion-content padding="true" class="has-header">
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <ion-list>
-            <ion-item ng-repeat="order in orderInfo" ng-click="goToOrderInfo(order)">
+            <ion-item ng-repeat="order in orderInfo" ng-click="goToOrderInfo(order)" class="input-costume">
                 <p>车牌: {{order.autoPN}}</p>
                 <p>时间：{{order.orderTime}}，金额：{{order.finalAmount}}</p>
 
-                <ion-option-button class="button-udq-show" ng-click="goToOrderInfo(order)">
+                <ion-option-button class="button-washstore-scan" ng-click="goToOrderInfo(order)">
                     查看
                 </ion-option-button>
             </ion-item>

@@ -57,7 +57,7 @@ angular.module('udqApp')
                     }
                 },
                 function (data) {
-                    showAlert('data');
+                    showAlert(data);
                 });
 
         }

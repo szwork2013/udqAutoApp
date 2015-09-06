@@ -48,5 +48,14 @@
 .row-text-align{
      text-align:center;
 }
-
+/*洗车店*/
+.button-washstore-accept{
+    background-color:#ffbc01;
+}
+.button-washstore-complete{
+    background-color:#ffbc01;
+}
+.button-washstore-scan{
+    background-color:#ffbc01;
+}
 

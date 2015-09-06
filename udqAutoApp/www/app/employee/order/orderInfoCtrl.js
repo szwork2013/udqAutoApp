@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-   .controller('employeeOrderInfoCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'APP_CONFIG', 'networkInfoSvr', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr, APP_CONFIG, networkInfoSvr) {
+   .controller('employeeOrderInfoCtrl', ['$scope', '$ionicPopup', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'APP_CONFIG', 'networkInfoSvr', function ($scope,$ionicPopup, $window, $state, $ionicHistory, employeeOrderSvr, APP_CONFIG, networkInfoSvr) {
 
        var showAlert = function (msg) {
            var alertPopup = $ionicPopup.alert({
@@ -10,7 +10,7 @@
                console.log(msg);
            });
        }
-       var networkInfo = networkInfoSvr.checkConnection;
+       var networkInfo = networkInfoSvr.checkConnection();
        if (networkInfo != undefined) {
            showAlert(networkInfo);
        }
