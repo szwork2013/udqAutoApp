@@ -1,6 +1,18 @@
 angular.module('udqApp')
-	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr) {
-
+	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', 'networkInfoSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr, networkInfoSvr) {
+	    var showAlert = function (msg) {
+	        var alertPopup = $ionicPopup.alert({
+	            title: '温馨提示',
+	            template: msg
+	        });
+	        alertPopup.then(function (res) {
+	            console.log(msg);
+	        });
+	    }
+	    var networkInfo = networkInfoSvr.checkConnection();
+	    if (networkInfo != undefined) {
+	        showAlert(networkInfo);
+	    }
 	    var backName = $stateParams.backName;
 	    autoSvr.setBackName(backName);
 	    backName = autoSvr.getBackName();
@@ -152,15 +164,7 @@ angular.module('udqApp')
 	        }
 		}
 
-		var showAlert = function (msg) {
-		    var alertPopup = $ionicPopup.alert({
-		        title: '温馨提示',
-		        template: msg
-		    });
-		    alertPopup.then(function (res) {
-		        console.log(msg);
-		    });
-		}
+		
 
         /*保存添加车辆信息到服务中*/
 		var saveAutoInfoToSvr = function (autoInfo) {

@@ -41,7 +41,6 @@ angular.module('udqApp', ['ionic'])
             }
             document.addEventListener("deviceready", onDeviceReady, false);
             document.addEventListener("jpush.openNotification", onOpenNotification, false);
-
         });
 
 

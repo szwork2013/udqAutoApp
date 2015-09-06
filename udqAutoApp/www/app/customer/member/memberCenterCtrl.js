@@ -1,6 +1,18 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', 'jpushSvr', function ($scope, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr, jpushSvr) {
-	    
+	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', 'jpushSvr', 'networkInfoSvr', function ($scope,$timeout, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr, jpushSvr, networkInfoSvr) {
+	    var showAlert = function (msg) {
+	        var alertPopup = $ionicPopup.alert({
+	            title: '温馨提示',
+	            template: msg
+	        });
+	        alertPopup.then(function (res) {
+	            console.log(msg);
+	        });
+	    }
+	    var networkInfo = networkInfoSvr.checkConnection();
+	    if (networkInfo != undefined) {
+	        showAlert(networkInfo);
+	    }
 	    $scope.user = {
 	        name: $window.localStorage['userName'],
 	        sex: $window.localStorage['sex'],
@@ -52,30 +64,42 @@ angular.module('udqApp')
     	}
         /*退出当前账户*/
     	$scope.exitCurrentUser = function () {
-    	    var alertPopup = $ionicPopup.alert({
-    	        title: '温馨提示',
-    	        template: '确认退出当前账户？'
+    	    $scope.showAlert_exit('注销当前用户？');
+    	}
+    	$scope.showAlert_exit = function (msg) {
+
+    	    var alertPopup = $ionicPopup.show({
+    	        template: msg,
+    	        scope: $scope,
+    	        buttons: [
+                    {
+                        text: '取消',
+                        type:'button-dark'
+                    },
+                    {
+                        text: '注销',
+                        type:'buttton-stable',
+                        onTap:function(e){
+
+                        }
+                    }
+    	        ]
     	    });
+
     	    alertPopup.then(function (res) {
     	        $window.localStorage['loginState'] = 0;
-                $window.localStorage['userID'] = 0;
-                $window.localStorage['mobile'] = '';
-                $window.localStorage['userName'] = '';
-                $window.localStorage['userType'] = 0;
-                $window.localStorage['sex'] = 0;
-    	        
+    	        $window.localStorage['userID'] = 0;
+    	        $window.localStorage['mobile'] = '';
+    	        $window.localStorage['userName'] = '';
+    	        $window.localStorage['userType'] = 0;
+    	        $window.localStorage['sex'] = 0;
 
     	        $state.go('customerHome');
     	        console.log('退出当前用户');
+    	        console.log(msg,res);
     	    });
-    	}
-    	$scope.showAlert = function (msg) {
-    	    var alertPopup = $ionicPopup.alert({
-    	        title: '温馨提示',
-                template:msg
-    	    });
-    	    alertPopup.then(function () {
-    	        console.log(msg);
-    	    });
+    	    $timeout(function () {
+    	        alertPopup.close(); //close the popup after 3 seconds for some reason
+    	    }, 3000);
     	}
 	}])

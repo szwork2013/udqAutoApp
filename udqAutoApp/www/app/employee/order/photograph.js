@@ -1,6 +1,20 @@
 ﻿angular.module('udqApp')
-   .controller('employeePhotographCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr, cameraSvr, $ionicPopup, fileTransferSvr) {
-      
+   .controller('employeePhotographCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', 'networkInfoSvr', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr, cameraSvr, $ionicPopup, fileTransferSvr, networkInfoSvr) {
+       var showAlert = function (msg) {
+           var alertPopup = $ionicPopup.alert({
+               title: '温馨提示',
+               template: msg
+           });
+           alertPopup.then(function (res) {
+               console.log(msg);
+           });
+       }
+       var networkInfo = networkInfoSvr.checkConnection();
+       if (networkInfo != undefined) {
+           showAlert(networkInfo);
+       }
+
+
        $scope.order = employeeOrderSvr.getSelectedOrder();
        //$scope.imgUrlInfo = employeeOrderSvr.getImgUrlInfo();
        /*完成按钮*/

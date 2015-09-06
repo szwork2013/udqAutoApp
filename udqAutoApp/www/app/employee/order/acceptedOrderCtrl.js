@@ -1,5 +1,20 @@
 ﻿angular.module('udqApp')
-   .controller('employeeAcceptedOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory','$ionicPopup', 'employeeOrderSvr', function ($scope, $window, $state, $ionicHistory,$ionicPopup, employeeOrderSvr) {
+   .controller('employeeAcceptedOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'employeeOrderSvr', 'networkInfoSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, employeeOrderSvr,networkInfoSvr) {
+       var showAlert = function (msg) {
+           var alertPopup = $ionicPopup.alert({
+               title: '温馨提示',
+               template: msg
+           });
+           alertPopup.then(function (res) {
+               console.log(msg);
+           });
+       }
+       var networkInfo = networkInfoSvr.checkConnection();
+       if (networkInfo != undefined) {
+           showAlert(networkInfo);
+       }
+
+
        $scope.order = {
            states: [2,3],
            washerId: $window.localStorage['userID']

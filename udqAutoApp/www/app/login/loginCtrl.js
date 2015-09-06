@@ -4,8 +4,21 @@
 根据不同的用户类型，跳转到不同的main页面
 */
 angular.module('udqApp')
-    .controller('loginCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', 'registerSvr', 'jpushSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, loginSvr, registerSvr, jpushSvr) {
+    .controller('loginCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', 'registerSvr', 'jpushSvr', 'networkInfoSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, loginSvr, registerSvr, jpushSvr, networkInfoSvr) {
 
+        var showAlert = function (msg) {
+            var alertPopup = $ionicPopup.alert({
+                title: '温馨提示',
+                template: msg
+            });
+            alertPopup.then(function (res) {
+                console.log(msg);
+            });
+        }
+        var networkInfo = networkInfoSvr.checkConnection();
+        if (networkInfo != undefined) {
+            showAlert(networkInfo);
+        }
         $scope.user = {
             mobile : '',
             psd: ''

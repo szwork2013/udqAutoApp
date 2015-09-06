@@ -1,5 +1,20 @@
 ﻿angular.module('udqApp')
-   .controller('employeeOrderInfoCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'APP_CONFIG', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr,APP_CONFIG) {
+   .controller('employeeOrderInfoCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'APP_CONFIG', 'networkInfoSvr', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr, APP_CONFIG, networkInfoSvr) {
+
+       var showAlert = function (msg) {
+           var alertPopup = $ionicPopup.alert({
+               title: '温馨提示',
+               template: msg
+           });
+           alertPopup.then(function (res) {
+               console.log(msg);
+           });
+       }
+       var networkInfo = networkInfoSvr.checkConnection;
+       if (networkInfo != undefined) {
+           showAlert(networkInfo);
+       }
+
        var baseUrl = APP_CONFIG.server.getUrl();
        $scope.order = employeeOrderSvr.getSelectedOrder();
        if ($scope.order.couponName == "") {

@@ -10,13 +10,13 @@
         <ion-list>
             <label class="item item-input input-costume">
                 <i class="icon ion-ios-telephone placeholder-icon"></i>
-                <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" class="input-costume" required>
+                <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" class="input-costume" style="color:white;font-weight:600;" required>
             </label>
             
             <div class="item item-input-inset input-costume">
                 <label class="item-input-wrapper input-costume">
                     <i class="icon ion-key placeholder-icon"></i>
-                    <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd" class="input-costume">
+                    <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd" style="color:white;font-weight:600;" class="input-costume">
                     
                 </label>
                 <button class="allbutton button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
@@ -27,14 +27,13 @@
             <div class="spacer" style="height:30px;"></div>
             <label class="item item-input input-costume">
                 <i class="icon ion-ios-person placeholder-icon"></i>
-                <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" class="input-costume">
+                <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" style="color:white;font-weight:600;" class="input-costume">
             </label>
 
-            <ion-item class="input-costume" style="color:white;font-weight:lighter;">
-                <input type="radio" name="sex" checked ng-model="userInfo.sex" value='1'class="input-costume"/>男士&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="sex" ng-model="userInfo.sex" value='2' class="input-costume" />女士
+            <ion-item class="input-costume" style="color:white;font-weight:600;">
+                <input type="radio" name="sex" checked ng-model="userInfo.sex" value='1'class="input-costume" style="color:white;font-weight:600;"/>男士&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="sex" ng-model="userInfo.sex" value='2' class="input-costume" style="color:white;font-weight:600;"/>女士
             </ion-item>
-
 
         </ion-list>
         <button class="allbutton button-block button-small" ng-click="register()">注册</button>

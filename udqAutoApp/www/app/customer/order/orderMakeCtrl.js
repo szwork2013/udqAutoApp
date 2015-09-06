@@ -1,5 +1,19 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'networkInfoSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, networkInfoSvr) {
+        var showAlert = function (msg) {
+            var alertPopup = $ionicPopup.alert({
+                title: '温馨提示',
+                template: msg
+            });
+            alertPopup.then(function (res) {
+                console.log(msg);
+            });
+        }
+        var networkInfo = networkInfoSvr.checkConnection();
+        if (networkInfo != undefined) {
+            showAlert(networkInfo);
+        }
+
 
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
