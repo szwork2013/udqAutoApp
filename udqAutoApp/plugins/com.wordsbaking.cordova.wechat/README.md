@@ -49,13 +49,16 @@ cordova plugin add com.wordsbaking.cordova.wechat --variable APP_ID=[你的APPID
 ### iOS 相关: libWeChatSDK.a
 
 src/ios/libWeChatSDK.a 这个文件有两个版本, 一个是 iPhone Only 的, 要小一些, 应该是最后生产环境用的.
-我放进去的是完整版本, 要大一倍 (应该是包含了 x86 架构方便模拟器 debug), 可以自己去下载官方 SDK
+我放进去的是完整版本, 要大一倍 (应该是包含了 x86 架构方便模拟器 debug), 可以自己去下载
+[官方 SDK](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list)
 然后替换掉 platforms/ios/应用名称/Plugins 目录下的 libWeChatSDK.a.
 
 ## 使用
 
 ```javascript
 // 在 device ready 后.
+
+// 分享API
 WeChat
     .share('文本', WeChat.Scene.session, function () {
         console.log('分享成功~');
@@ -73,6 +76,14 @@ WeChat
         console.log('分享成功~');
     }, function (reason) {
         // 分享失败
+        console.log(reason);
+    });
+
+// 检查微信安装情况
+WeChat
+    .isInstalled(function(isInstalled) {
+        console.log('WeChat installed='+isInstalled);
+    }, function(reason) {
         console.log(reason);
     });
 ```
@@ -119,8 +130,8 @@ declare module WeChat {
     }
 
     // 分享.
-    function share(text: string, scene: Scene, onfulfill: () => void, onreject: (reason) => void): void;
-    function share(options: IMessageOptions, scene: Scene, onfulfill: () => void, onreject: (reason) => void): void;
+    function share(text: string, scene: Scene, onfulfilled: () => void, onrejected: (reason) => void): void;
+    function share(options: IMessageOptions, scene: Scene, onfulfilled: () => void, onrejected: (reason) => void): void;
     
     // 下面两个是我自己用的哈哈哈, 因为需要用到我的 ThenFail (https://github.com/vilic/thenfail).
     function share(text: string, scene: Scene): ThenFail<void>;

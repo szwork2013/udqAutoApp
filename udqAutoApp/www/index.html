@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <!-- Enable all requests, inline styles, and eval() -->
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
     <title>点趣车生活</title>
 
     <!-- udqAutoApp 引用 ionic -->
@@ -37,6 +37,7 @@
     <script src="app/customer/register/registerCtrl.js"></script>
     <script src="app/customer/register/registerSvr.js"></script>
     <script src="app/customer/washType/washtypeCtrl.js"></script>
+    <script src="app/util/networkInfoSvr.js"></script>
 
     <script src="app/login/loginCtrl.js"></script>
     <script src="app/login/loginSvr.js"></script>

@@ -1,5 +1,18 @@
 angular.module('udqApp')
-	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', function ($scope, $state, $ionicHistory, $window, autoSvr) {
+	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', 'networkInfoSvr', function ($scope, $state, $ionicHistory, $window, autoSvr, networkInfoSvr) {
+	    var showAlert = function (msg) {
+	        var alertPopup = $ionicPopup.alert({
+	            title: '温馨提示',
+	            template: msg
+	        });
+	        alertPopup.then(function (res) {
+	            console.log(msg);
+	        });
+	    }
+	    var networkInfo = networkInfoSvr.checkConnection();
+	    if (networkInfo != undefined) {
+	        showAlert(networkInfo);
+	    }
 
 	    autoSvr.getAuto().then(
             function (data) {
@@ -57,10 +70,12 @@ angular.module('udqApp')
 	    }
 	    /*添加车辆*/
 	    $scope.goToAddauto = function () {
+	        $ionicHistory.clearHistory();
 	        $state.go('customerAutoAdd', { 'backName': 'customerAutoMgr' });
 	    }
 	    /*回跳*/
 	    $scope.goBack = function () {
+	        $ionicHistory.clearHistory();
 	        $state.go('customerHome');
 	    }
 	    /*(自定义)数组移除指定元素*/

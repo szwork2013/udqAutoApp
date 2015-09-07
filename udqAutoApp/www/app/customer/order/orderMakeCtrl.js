@@ -1,5 +1,19 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'networkInfoSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, networkInfoSvr) {
+        var showAlert = function (msg) {
+            var alertPopup = $ionicPopup.alert({
+                title: '温馨提示',
+                template: msg
+            });
+            alertPopup.then(function (res) {
+                console.log(msg);
+            });
+        }
+        var networkInfo = networkInfoSvr.checkConnection();
+        if (networkInfo != undefined) {
+            showAlert(networkInfo);
+        }
+
 
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
@@ -81,7 +95,8 @@
                 );
 
                 break;
-            case 'washTypeReturn':
+            case 'washTypeNote':
+            //case 'washTypeReturn':
             case 'autoReturn':
             case 'regionReturn':
             case 'payOrderReturn':
@@ -131,6 +146,7 @@
                 /*从服务获取洗车类型*/
                 $scope.types = customerOrderSvr.getTypes();
                 break;
+
             case 'goToAuto':
                 /*从后台获取车辆信息*/
                 autoSvr.getAuto().then(
@@ -173,6 +189,7 @@
         /*保存选择，跳转到洗车类型选择*/
         $scope.goToWashType = function () {
             saveWashTypeAndSelectAutoInfo();
+            $ionicHistory.clearHistory();
             $state.go('customerWashtype', { 'typeSelect': 'goToWashType' });
         }
         /*保存选择，跳转到车辆选择*/
@@ -180,19 +197,19 @@
             /*判断是否登录*/
             if (window.localStorage['loginState'] == 1) {
                 saveWashTypeAndSelectAutoInfo();
+                $ionicHistory.clearHistory();
                 $state.go('customerAutoList', { 'typeSelect': 'goToAuto' });
             } else {
                 /*提醒用户尚未登录或者注册*/
                 showAlertOfLogin('用户尚未登录或者注册');
             }
-
-
         }
         /*保存选择，跳转到小区选择*/
         $scope.goToRegionSelect = function () {
             /*判断是否登录*/
             if (window.localStorage['loginState'] == 1) {
                 saveWashTypeAndSelectAutoInfo();
+                $ionicHistory.clearHistory();
                 $state.go('customerRegionSelect', { 'typeSelect': 'goToRegion' });
             } else {
                 /*提醒用户尚未登录或者注册*/
@@ -202,11 +219,13 @@
         }
         /*预约洗车回转*/
         $scope.goBackMain = function () {
+            $ionicHistory.clearHistory();
             $state.go('customerHome');
         }
         /*(洗车类型、车辆选择、小区选择、时间预约)*/
         $scope.goBack = function () {
-            $ionicHistory.goBack();
+            $ionicHistory.clearHistory();
+            alert("sb");
         }
         /*前去订单*/
         $scope.commitOrder = function () {
@@ -215,6 +234,8 @@
                 return;
             }
             if (!checkOrder()) {
+                saveWashTypeAndSelectAutoInfo();
+                $ionicHistory.clearHistory();
                 $state.go('customerOrderpay', { 'order': angular.toJson($scope.order), 'state': 'customerOrderMake' });
             }
 
@@ -263,6 +284,7 @@
                 template: msg
             });
             alertPopup.then(function (res) {
+                $ionicHistory.clearHistory();
                 $state.go('login');
                 console.log(msg);
             });
@@ -273,11 +295,13 @@
             if ($scope.types != undefined && $scope.types.length > 0) {
                 customerOrderSvr.setType($scope.types);
             }
+            $ionicHistory.clearHistory();
             $state.go("customerOrderMake", { 'typeSelect': 'washTypeReturn' });
         }
         /*查看洗车类型服务详情*/
         $scope.goToTypeNote = function (type) {
-            customerWashtypeSvr.setWashType(type);
+            saveWashTypeAndSelectAutoInfo();
+            $ionicHistory.clearHistory();
             $state.go("customerWashtypeNote");
         }
         /***************************************************************/
@@ -314,6 +338,7 @@
                 $scope.selectedAuto.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
 
             }
+            $ionicHistory.clearHistory();
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function () {
@@ -332,6 +357,7 @@
             }
 
             /*跳转*/
+            $ionicHistory.clearHistory();
             $state.go("customerOrderMake", { 'typeSelect': 'autoReturn' });
         }
         /***************************************************************/
@@ -345,6 +371,21 @@
             if ($scope.districts != undefined && $scope.districts.length > 0) {
                 customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
             }
+            $ionicHistory.clearHistory();
             $state.go('customerOrderMake', { 'typeSelect': 'regionReturn' });
+        }
+        $scope.on_select = function () {
+            //$("#selected").attr("class", "ion-selected");
+            var radio = document.getElementById("selected");
+            radio.style.backgroundColor = "#ccc"
+        }
+        $scope.changeTotalAmount = function () {
+            $scope.totalAmount = 0;
+            for (var i = 0; i < $scope.types.length; i++) {
+                if ($scope.types[i].check == 1) {
+                    $scope.totalAmount += $scope.types[i].amount;
+                }
+            }
+            $scope.totalAmount = $scope.totalAmount.toFixed(2);
         }
     }])

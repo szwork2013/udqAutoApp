@@ -6,7 +6,21 @@ cutomer 的注册页面
 3.继续添加，保存
 */
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerRegisterCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'registerSvr', 'regionSvr', 'loginSvr', 'jpushSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, registerSvr, regionSvr,loginSvr,jpushSvr) {
+    .controller('customerRegisterCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'registerSvr', 'regionSvr', 'loginSvr', 'jpushSvr', 'networkInfoSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, registerSvr, regionSvr, loginSvr, jpushSvr, networkInfoSvr) {
+        var showAlert = function (msg) {
+            var alertPopup = $ionicPopup.alert({
+                title: '温馨提示',
+                template: msg
+            });
+            alertPopup.then(function (res) {
+                console.log(msg);
+            });
+        }
+        var networkInfo = networkInfoSvr.checkConnection();
+        if (networkInfo != undefined) {
+            showAlert(networkInfo);
+        }
+
 
         $scope.userInfo = {
             sex:1
@@ -118,7 +132,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                         $window.localStorage['userID'] = data.data.id;
                         $window.localStorage['sex'] = data.data.sex;
                         $window.localStorage['userType'] = 2;
-                        jpushSvr.setTagsWithAlias(['customer'], data.data.id);
+                        jpushSvr.setTagsWithAlias(['customer'], "customer"+data.data.id);
 
         	            showAlertOfSuccess();
         	        } else {

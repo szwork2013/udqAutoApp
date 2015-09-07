@@ -23315,7 +23315,8 @@ function $RootScopeProvider() {
        *
        *
        * @param {(string|function())=} exp An angular expression to be executed.
-       *
+       charon777@icloud.com
+
        *    - `string`: execute using the rules as defined in {@link guide/expression expression}.
        *    - `function(scope)`: execute the function with current `scope` parameter.
        *
