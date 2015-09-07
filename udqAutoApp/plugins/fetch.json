@@ -65,14 +65,6 @@
             "URL_SCHEME": "udianqu://"
         }
     },
-    "com.wordsbaking.cordova.wechat": {
-        "source": {
-            "type": "local",
-            "path": "F:\\gongsi\\src\\cordova-plugin-wechat-master"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "org.apache.cordova.network-information": {
         "source": {
             "type": "registry",

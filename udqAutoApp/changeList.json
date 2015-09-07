@@ -1,5 +1,19 @@
 {
   "changedFilesIos": [
+    "config.xml"
+  ],
+  "deletedFilesIos": [],
+  "addedPluginsIos": [
+    "org.apache.cordova.camera@0.3.6",
+    "org.apache.cordova.device@0.3.0",
+    "org.apache.cordova.splashscreen@1.0.0",
+    "org.apache.cordova.contacts",
+    "com.msopentech.websql@0.0.9",
+    "cordova-plugin-whitelist@1.0.0",
+    "cn.jpush.phonegap.JPushPlugin@2.0.2"
+  ],
+  "deletedPluginsIos": [],
+  "changedFiles": [
     "plugins\\cordova-plugin-file\\www\\FileReader.js",
     "plugins\\org.apache.cordova.contacts\\NOTICE",
     "plugins\\org.apache.cordova.contacts\\src\\wp\\Contacts.cs",
@@ -171,7 +185,6 @@
     "plugins\\cordova-plugin-file\\doc\\de\\README.md",
     "www\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js",
     "plugins\\android.json",
-    "plugins\\com.wordsbaking.cordova.wechat\\src\\wp\\MicroMsgSDK.dll",
     "plugins\\cordova-plugin-file\\doc\\ko\\plugins.md",
     "plugins\\com.wordsbaking.cordova.wechat\\src\\android\\WXEntryActivity.java",
     "plugins\\com.msopentech.websql\\www\\windows\\Database.js",
@@ -188,6 +201,7 @@
     "plugins\\org.apache.cordova.contacts\\src\\android\\ContactAccessorSdk5.java",
     "plugins\\org.apache.cordova.device\\src\\ubuntu\\device.js",
     "plugins\\org.apache.cordova.device\\src\\ubuntu\\device.h",
+    "res\\native\\android\\udqApp.keystore",
     "plugins\\cordova-plugin-file\\src\\ios\\CDVAssetLibraryFilesystem.m",
     "plugins\\co.airsia.cordova.pingpp\\www\\src\\ios\\PingppPlugin.m",
     "plugins\\org.apache.cordova.camera\\src\\ios\\CDVJpegHeaderWriter.h",
@@ -210,6 +224,7 @@
     "plugins\\cordova-plugin-file\\doc\\de\\plugins.md",
     "www\\image\\udianquImg\\所在小区.png",
     "plugins\\org.apache.cordova.device\\doc\\ru\\index.md",
+    "plugins\\com.wordsbaking.cordova.wechat\\src\\ios\\libWeChatSDK.a",
     "plugins\\org.apache.cordova.camera\\NOTICE",
     "plugins\\com.msopentech.websql\\src\\wp\\Community.CsharpSqlite.WinPhone.dll",
     "resources\\android\\icon\\drawable-xhdpi-icon.png",
@@ -696,6 +711,8 @@
     "plugins\\cordova-plugin-file-transfer\\doc\\zh\\index.md",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\ContactNews.js",
     "www\\lib\\ionic\\js\\ionic.js",
+    "plugins\\com.wordsbaking.cordova.wechat\\src\\ios\\CDVWeChat.h",
+    "plugins\\com.wordsbaking.cordova.wechat\\src\\ios\\CDVWeChat.m",
     "plugins\\org.apache.cordova.device\\src\\android\\Device.java",
     "plugins\\org.apache.cordova.splashscreen\\src\\android\\SplashScreen.java",
     "plugins\\cordova-plugin-file\\www\\blackberry10\\getFile.js",
@@ -704,6 +721,7 @@
     "plugins\\cordova-plugin-file\\doc\\es\\README.md",
     "plugins\\cordova-plugin-file\\doc\\ru\\index.md",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Pingpp.bundle\\PingppTestPaymentSummaryViewController.nib",
+    "plugins\\com.wordsbaking.cordova.wechat\\src\\ios\\WXApi.h",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\toolbar-middle.png",
     "plugins\\org.apache.cordova.camera\\tests\\ios\\CDVCameraTest.xcworkspace\\xcshareddata\\CDVCameraTest.xccheckout",
     "plugins\\cordova-plugin-whitelist\\RELEASENOTES.md",
@@ -748,24 +766,14 @@
     "plugins\\org.apache.cordova.camera\\tests\\ios\\README.md",
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
-    "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\washtype\\washtypeintroduce.html",
-    "www\\app\\customer\\auto\\autolist.html",
-    "www\\app\\customer\\auto\\autoadd.html",
-    "www\\app\\customer\\order\\ordermake.html",
-    "www\\app\\customer\\member\\memberinfoedit.html",
-    "www\\app\\customer\\member\\membercenter.html",
-    "www\\app\\customer\\auto\\automgr.html",
-    "www\\app\\customer\\order\\orderlist.html",
-    "www\\app\\customer\\order\\ordermakectrl.js",
-    "res\\screens\\android\\screen-xhdpi-portrait.png",
-    "www\\app\\customer\\order\\orderpay.html",
-    "www\\app\\customer\\order\\ordermgr.html"
+    "config.xml"
   ],
-  "deletedFilesIos": [],
+  "deletedFiles": [
+    "npm-debug.log"
+  ],
   "addedPluginsIos": [
     "org.apache.cordova.camera@0.3.6",
     "org.apache.cordova.device@0.3.0",
@@ -773,7 +781,8 @@
     "org.apache.cordova.contacts",
     "com.msopentech.websql@0.0.9",
     "cordova-plugin-whitelist@1.0.0",
-    "cn.jpush.phonegap.JPushPlugin@2.0.2"
+    "cn.jpush.phonegap.JPushPlugin@2.0.2",
+    "co.airsia.cordova.pingpp@0.0.1"
   ],
   "deletedPluginsIos": [
     "co.airsia.cordova.pingpp"
