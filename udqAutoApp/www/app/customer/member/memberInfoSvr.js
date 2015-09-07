@@ -1,10 +1,10 @@
-angular.module('udqApp')
+锘縜ngular.module('udqApp')
 	.service('customerMemberInfoSvr', ['$http', '$q', 'APP_CONFIG', function ($http, $q,APP_CONFIG) {
 
 	    var baseUrl = APP_CONFIG.server.getUrl();
 	    var _userInfo = {};
         
-	    /*保存用户信息*/
+	    /*淇濆瓨鐢ㄦ埛淇℃伅*/
 	    this.editUserInfo = function (user) {
 	        var url = baseUrl + 'fzmgr/user/editUser4App.do';
 	        var deferred = $q.defer();
@@ -17,12 +17,12 @@ angular.module('udqApp')
                 deferred.resolve(data.data);
             },
             function (data, status, headers, config) {
-                deferred.reject('修改信息失败');
+                deferred.reject('淇敼淇℃伅澶辫触');
             }
             );
 	        return deferred.promise;
 	    }
-	    /*获取用户信息*/
+	    /*鑾峰彇鐢ㄦ埛淇℃伅*/
 	    this.getUserInfo = function(id){
 	        var url = baseUrl + 'fzmgr/user/getUser4App.do';
 	        var deferred = $q.defer();
@@ -35,12 +35,12 @@ angular.module('udqApp')
                 deferred.resolve(data.data);
             },
             function (data, status, headers, config) {
-                deferred.reject('获取用户信息失败');
+                deferred.reject('鑾峰彇鐢ㄦ埛淇℃伅澶辫触');
             }
             );
 	        return deferred.promise;
 	    }
-	    /*设置userInfo*/
+	    /*璁剧疆userInfo*/
 	    this.setUserInfo = function (userInfo) {
 	        _userInfo = userInfo;
 	    }
