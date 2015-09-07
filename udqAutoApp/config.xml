@@ -4,7 +4,7 @@
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
   <content src="index.html" />
-  <access origin="*" />
+  
   <vs:features />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="8.1" />
@@ -100,6 +100,8 @@
      over HTTP and HTTPS.
      *NOT RECOMMENDED* -->
   <allow-navigation href="*" />
+  <allow-intent href="*" />
+  <access origin="*" />
   <preference name="KeepRunning" value="False" />
   <preference name="ShowTitle" value="True" />
   <preference name="InAppBrowserStorageEnabled" value="False" />

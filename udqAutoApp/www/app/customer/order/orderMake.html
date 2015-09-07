@@ -8,74 +8,37 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
-
-        <!-- 选择洗车类型 -->
         <ion-list>
-            <a class="item item-icon-right input-costume" ng-click="goToWashType()">
-                <p class="makeorder-p">选择洗车类型</p>
-                <div class="item-content">
-                    <ul ng-repeat="type in types" ng-show="type.check ==1">
-                        <li>
-                            <p>选择服务项：{{type.name}}&nbsp;&nbsp;价格：{{type.amount|currency:'￥'}}</p>
-                        </li>
-                    </ul>
-                </div>
-                <i class="icon ion-chevron-right"></i>
-            </a>
+            <!-- 选择洗车类型 -->
+            <div class="item item-input makeorder-label">
+                <p>请选择洗车服务类型</p>
+            </div>
 
-            <!-- 车辆信息、预约时间、详细地址（可选） -->
-
-            <a class="item item-icon-right input-costume" ng-click="goToAutoList()">
-                <p class="makeorder-p">选择车辆</p>
-                <i class="icon ion-chevron-right"></i>
-                <div class="item-content">
-                    <p ng-show="hasNoAuto">暂未添加车辆</p>
-                    <ul ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
-                        <li>
-                            <p>选择车辆:{{auto.pn}}</p>
-                        </li>
-                    </ul>
-                </div>
-            </a>
-            <a class="item item-icon-right input-costume" ng-click="goToRegionSelect()">
-                <p class="makeorder-p">选择小区</p>
-                <i class="icon ion-chevron-right"></i>
-
-                <div class="item-content">
-                    <ul ng-repeat="dis in districts" ng-show="dis.id ==selectedAuto.selectedRegionId">
-                        <li>
-                            <p>选择小区:{{dis.name}}</p>
-                        </li>
-                    </ul>
-                </div>
-            </a>
-            <!--<div class="row">
-                <div class="col col-20">
-                    <img src="../../../image/udianquImg/我要洗车.png" style="height:100%;width:100%;" />
-                </div>
-                <div class="col col-70 col-center" style="background-color:white;">
-                    <input type="text" style="color:black;font-weight:600;text-align:center;" ng-show="selectedAuto.selectedAutoId ==auto.id" ng-repeat="auto in autoInfo" ng-model="auto.pn" placeholder="暂无车辆（必选）" />                
-                </div>
-                <div class="col col-10 col-center ">
-                    <i class="icon ion-chevron-right" style="background-color:#17becf;color:white;" ng-click="goToAutoList()"></i>
+            <div class="input-costume" ng-repeat="type in types">
+                <div class="item item-input makeorder-label">
+                    <ion-checkbox ng-model="type.check" ng-true-value="1" ng-false-value="2" class="input-costume washtype-ion-checkbox" ng-click="changeTotalAmount()">
+                        <p style="display:block;">{{type.name}}&nbsp;&nbsp;{{type.amount|currency:'￥'}}</p>
+                    </ion-checkbox>
+                    <span class="input-label makeorder-washtype-span"><i class="icon ion-chevron-right" ng-click="goToTypeNote(type)"></i></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col col-20">
-                    <img src="../../../image/udianquImg/所在小区.png" style="height:100%;width:100%;" />
-                </div>
-                <div class="col col-60 col-center input-costume" >
-                    <div style="border:solid 1px white;">
-                        <input type="text" class="input-costume" style="color:white;" ng-show="dis.id ==selectedAuto.selectedRegionId" ng-repeat="dis in districts" ng-model="dis.name" placeholder="选择小区（必选）" />
-                    </div>
-                </div>
-                <div class="col-20 col-center"  ng-click="goToRegionSelect()">
-                    <img src="../../../image/circleImg/二维码.png" style="height:100%;width:100%;" />
-                </div>
-            </div>-->
+
+            <!-- 车辆信息、预约时间、详细地址（可选） -->
+            <div class="item item-input makeorder-label" ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
+                <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
+                <input type="text" class="makeorder-input" style="background-color:white;" ng-model="auto.pn" placeholder="暂无车辆（必选）">
+                <span class="input-label makeorder-auto-span"><i class="icon ion-chevron-right" ng-click="goToAutoList()"></i></span>
+            </div>
+            <div class="item item-input makeorder-label" ng-repeat="dis in districts" ng-show="dis.id ==selectedAuto.selectedRegionId">
+                <span class="input-label makeorder-district-span"><i class="icon ion-ios-location-outline"></i></span>
+                <input type="text" class="makeorder-input" style="background-color:white;" ng-model="dis.name" placeholder="选择小区（必选）">
+                <span class="input-label makeorder-district-span"><i class="icon ion-chevron-right" ng-click="goToRegionSelect()"></i></span>
+            </div>
+
             <div class="spacer" style="height:20px;"></div>
-            <div class="row">
-                <div class="col col-20"><p class="makeorder-note-p" >备注</p></div>
+
+            <div class="item makeorder-label item-input">
+                <div class="col col-20 col-top"><p class="makeorder-note-p">备注</p></div>
                 <div class="col col-80 item item-input input-costume">
                     <textarea placeholder="您还有什么需求呢，请写在这里。" ng-model="order.userNote" rows="5" class="input-costume" style="color:#808a8f;"></textarea>
                 </div>
@@ -90,8 +53,8 @@
                     <p class="makeorder-money-p">总价{{totalAmount}}元</p>
                 </div>
             </div>
-            <!--<button class="allbutton button-block " ng-click="commitOrder()">支付</button>-->
 
         </ion-list>
+
     </ion-content>
 </ion-view>

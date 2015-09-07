@@ -103,4 +103,52 @@ h2,h3,h4,p,.item p{
 label div.item-content:checked{
     background-color:#374d58;
 }
+.makeorder-washtype-span{
+    padding-bottom:7px;
+    padding-top:7px;
+    padding-left:4px;
+    padding-right:4px;
+    text-align:center;
+    width:inherit;
+    background-color:#ff6e0b;
+
+}
+.makeorder-auto-span{
+    padding-bottom:7px;
+    padding-top:7px;
+    padding-left:4px;
+    padding-right:4px;
+    text-align:center;
+    width:40px;
+    background-color:#17bed0;
+}
+.makeorder-district-span{
+    padding-bottom:7px;
+    padding-top:7px;
+    padding-left:4px;
+    padding-right:4px;
+    text-align:center;
+    width:40px;
+    background-color:#0082d4;
+}
+.makeorder-input{
+    background-color:white;
+    padding:0px 0px 0px 0px;
+    color:black;
+    font-weight:600;
+    text-align:center;
+}
+.makeorder-label{
+    border-color:#374d58;
+    background-color:#374d58;
+}
+.washtype-ion-checkbox{
+    padding-bottom:6.5px;
+    padding-top:6.5px;
+    border:1px solid #ff6e0b;
+    width:auto;
+}
+.makeorder-textarea{
+    border:0.5px thick #dcdcdc;
+}
 

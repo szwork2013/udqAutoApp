@@ -95,7 +95,8 @@
                 );
 
                 break;
-            case 'washTypeReturn':
+            case 'washTypeNote':
+            //case 'washTypeReturn':
             case 'autoReturn':
             case 'regionReturn':
             case 'payOrderReturn':
@@ -145,7 +146,6 @@
                 /*从服务获取洗车类型*/
                 $scope.types = customerOrderSvr.getTypes();
                 break;
-            case 'washTypeNote':
 
             case 'goToAuto':
                 /*从后台获取车辆信息*/
@@ -203,8 +203,6 @@
                 /*提醒用户尚未登录或者注册*/
                 showAlertOfLogin('用户尚未登录或者注册');
             }
-
-
         }
         /*保存选择，跳转到小区选择*/
         $scope.goToRegionSelect = function () {
@@ -302,7 +300,7 @@
         }
         /*查看洗车类型服务详情*/
         $scope.goToTypeNote = function (type) {
-            customerOrderSvr.setType($scope.types);
+            saveWashTypeAndSelectAutoInfo();
             $ionicHistory.clearHistory();
             $state.go("customerWashtypeNote");
         }
@@ -380,5 +378,14 @@
             //$("#selected").attr("class", "ion-selected");
             var radio = document.getElementById("selected");
             radio.style.backgroundColor = "#ccc"
+        }
+        $scope.changeTotalAmount = function () {
+            $scope.totalAmount = 0;
+            for (var i = 0; i < $scope.types.length; i++) {
+                if ($scope.types[i].check == 1) {
+                    $scope.totalAmount += $scope.types[i].amount;
+                }
+            }
+            $scope.totalAmount = $scope.totalAmount.toFixed(2);
         }
     }])

@@ -27,7 +27,7 @@ angular.module('udqApp')
         /*回跳到洗车服务*/
 	    $scope.goBackOfWashType = function () {
 	        $ionicHistory.clearHistory();
-	        $state.go('customerWashtype', {'typeSelect':'washTypeNote'});
+	        $state.go('customerOrderMake', { 'typeSelect': 'washTypeNote' });
 	    }
 	    /*回跳到主页*/
 	    $scope.goBackOfMain = function () {
