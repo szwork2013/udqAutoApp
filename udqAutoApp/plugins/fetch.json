@@ -39,14 +39,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1.0.0"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cn.jpush.phonegap.JPushPlugin": {
         "source": {
             "type": "local",
@@ -65,18 +57,34 @@
             "URL_SCHEME": "udianqu://"
         }
     },
-    "com.wordsbaking.cordova.wechat": {
-        "source": {
-            "type": "local",
-            "path": "F:\\gongsi\\src\\cordova-plugin-wechat-master"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "org.apache.cordova.network-information": {
         "source": {
             "type": "registry",
             "id": "org.apache.cordova.network-information"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-file": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-file"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-file-transfer": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-file-transfer"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist"
         },
         "is_top_level": true,
         "variables": {}

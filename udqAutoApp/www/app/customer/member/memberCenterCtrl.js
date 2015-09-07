@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', 'jpushSvr', 'networkInfoSvr', function ($scope,$timeout, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr, jpushSvr, networkInfoSvr) {
+	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', 'jpushSvr', 'networkInfoSvr', function ($scope, $timeout, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr, jpushSvr, networkInfoSvr) {
 	    var showAlert = function (msg) {
 	        var alertPopup = $ionicPopup.alert({
 	            title: '温馨提示',
@@ -13,22 +13,17 @@ angular.module('udqApp')
 	    if (networkInfo != undefined) {
 	        showAlert(networkInfo);
 	    }
-	    $scope.user = {
-	        name: $window.localStorage['userName'],
-	        sex: $window.localStorage['sex'],
-            mobile:$window.localStorage['mobile']
-	    };
 	    customerMemberInfoSvr.getUserInfo($window.localStorage['userID']).then(
             function (data) {
                 if (data.isSuccess) {
                     $scope.user = data.data;
                 } else {
-                    $scope.showAlert(data.msg);
+                    showAlert(data.msg);
                 }
                 
             },
             function (data) {
-                $scope.showAlert(data);
+                showAlert(data);
             });
 	    $scope.man = '男';
 	    $scope.woman = '女';

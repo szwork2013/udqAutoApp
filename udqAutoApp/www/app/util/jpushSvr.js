@@ -5,13 +5,6 @@
             try {
                 //由于phonegap插件采用了Lazy load的特性，   所以这里建议在js文件能执行的最开始就加
                 window.plugins.jPushPlugin.init();
-                ///*设置调试模式*/
-                //if (device.platform != "Android") {
-                //    window.plugins.jPushPlugin.setDebugModeFromIos();
-                //    window.plugins.jPushPlugin.setApplicationIconBadgeNumber(0);
-                //} else {
-                //    window.plugins.jPushPlugin.setDebugMode(true);
-                //}
             } catch (exception) {
                 console.log(exception);
             }
