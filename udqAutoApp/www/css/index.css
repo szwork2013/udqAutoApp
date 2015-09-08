@@ -151,4 +151,10 @@ label div.item-content:checked{
 .makeorder-textarea{
     border:0.5px thick #dcdcdc;
 }
+.div-col-center{
+    text-align:center;
+}
+.div-col-innerdiv{
+    margin-left:auto;margin-right:auto;
+}
 

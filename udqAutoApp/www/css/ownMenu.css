@@ -1,22 +1,4 @@
-﻿/*背景图片*/
-.button-mydq-img{
-    background:url(../image/udianquImg/我的点趣.png) no-repeat left top;
-    width:100%;
-    height:100%;
-}
-.button-myorder-img{
-    background:url(../image/udianquImg/我的订单.png) no-repeat left top;
-}
-.button-washauto-img{
-    background:url(../image/udianquImg/我要洗车.png) no-repeat left top;
-}
-.button-washtype-img{
-    background:url(../image/udianquImg/关于点趣.png) no-repeat left top;
-}
-.button-share-img{
-    background:url(../image/udianquImg/分享好友.png) no-repeat left top;
-}
-
+﻿
 .ownbutton-circle {
     background-color:#374d58;
     border:none;
@@ -29,6 +11,9 @@
     padding: 0px;
 }
 .ownbutton-circle:active{
+    background-color:#425a66;
+}
+.ownbutton-circle:focus{
     background-color:#425a66;
 }
 .button-washauto-circle {
