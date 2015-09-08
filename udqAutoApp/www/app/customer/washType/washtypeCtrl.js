@@ -1,20 +1,5 @@
 angular.module('udqApp')
-	.controller('customerWashtypeCtrl', ['$scope', '$state', '$ionicHistory', 'customerWashtypeSvr', 'networkInfoSvr', function ($scope, $state, $ionicHistory, customerWashtypeSvr, networkInfoSvr) {
-	    var showAlert = function (msg) {
-	        var alertPopup = $ionicPopup.alert({
-	            title: 'Œ¬‹∞Ã· æ',
-	            template: msg
-	        });
-	        alertPopup.then(function (res) {
-	            console.log(msg);
-	        });
-	    }
-	    var networkInfo = networkInfoSvr.checkConnection();
-	    if (networkInfo != undefined) {
-	        showAlert(networkInfo);
-	    }
-
-
+	.controller('customerWashtypeCtrl', ['$scope', '$state', '$ionicHistory', 'customerWashtypeSvr', function ($scope, $state, $ionicHistory, customerWashtypeSvr) {
 	    $scope.types = [];
 	    var promise = customerWashtypeSvr.callWashType();
 	    promise.then(

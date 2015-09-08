@@ -1,18 +1,5 @@
 angular.module('udqApp')
-	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', 'networkInfoSvr', function ($scope, $state, $ionicHistory, $window, autoSvr, networkInfoSvr) {
-	    var showAlert = function (msg) {
-	        var alertPopup = $ionicPopup.alert({
-	            title: 'Œ¬‹∞Ã· æ',
-	            template: msg
-	        });
-	        alertPopup.then(function (res) {
-	            console.log(msg);
-	        });
-	    }
-	    var networkInfo = networkInfoSvr.checkConnection();
-	    if (networkInfo != undefined) {
-	        showAlert(networkInfo);
-	    }
+	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', function ($scope, $state, $ionicHistory, $window, autoSvr) {
 
 	    autoSvr.getAuto().then(
             function (data) {

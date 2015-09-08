@@ -6,21 +6,7 @@ cutomer订单页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$window', '$ionicActionSheet', 'customerOrderSvr', 'networkInfoSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $window, $ionicActionSheet, customerOrderSvr, networkInfoSvr) {
-
-        var showAlert = function (msg) {
-            var alertPopup = $ionicPopup.alert({
-                title: '温馨提示',
-                template: msg
-            });
-            alertPopup.then(function (res) {
-                console.log(msg);
-            });
-        }
-        var networkInfo = networkInfoSvr.checkConnection();
-        if (networkInfo != undefined) {
-            showAlert(networkInfo);
-        }
+    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$window', '$ionicActionSheet', 'customerOrderSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $window, $ionicActionSheet, customerOrderSvr) {
 
         $scope.selectOrder = customerOrderSvr.getSelectedOrder();
         $scope.noMoreOrderAvailable = true;

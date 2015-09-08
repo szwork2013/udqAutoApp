@@ -108,4 +108,5 @@
   <preference name="SuppressesIncrementalRendering" value="False" />
   <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
   <vs:plugin name="co.airsia.cordova.pingpp" version="0.0.1" />
+  <vs:plugin name="org.apache.cordova.network-information" version="0.2.15" />
 </widget>

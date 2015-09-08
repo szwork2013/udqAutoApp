@@ -20,7 +20,7 @@
  */
 
 angular.module('udqApp', ['ionic'])
-    .run(['$ionicPlatform', '$rootScope', 'jpushSvr', function ($ionicPlatform, $rootScope, jpushSvr) {
+    .run(['$ionicPlatform', '$rootScope', 'jpushSvr', 'popUpSvr', function ($ionicPlatform, $rootScope, jpushSvr, popUpSvr) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -32,15 +32,42 @@ angular.module('udqApp', ['ionic'])
                 StatusBar.styleDefault();
             }
 
+            function checkConnection() {
+                var networkState = navigator.connection.type;
+
+                var states = {};
+                states[Connection.UNKNOWN] = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI] = 'WiFi connection';
+                states[Connection.CELL_2G] = 'Cell 2G connection';
+                states[Connection.CELL_3G] = 'Cell 3G connection';
+                states[Connection.CELL_4G] = 'Cell 4G connection';
+                states[Connection.CELL] = 'Cell generic connection';
+                states[Connection.NONE] = 'No network connection';
+                if (networkState == Connection.NONE) {
+                    popUpSvr.confirm("您当前处于离线状态,请检查网络。");
+                }
+            }
             var onDeviceReady = function () {
                 /*启动极光推送服务，并设置调试模式*/
                 jpushSvr.init();
+
+                checkConnection();
             }
             var onOpenNotification = function (event) {
                 jpushSvr.openNotification();
             }
+            function onOffline() {
+                popUpSvr.confirm("您当前处于离线状态,请检查网络。");
+                
+            }
             document.addEventListener("deviceready", onDeviceReady, false);
+            /*打开推送事件*/
             document.addEventListener("jpush.openNotification", onOpenNotification, false);
+            /*网络离线事件*/
+            document.addEventListener("offline", onOffline, false);
+
+            
         });
 
 

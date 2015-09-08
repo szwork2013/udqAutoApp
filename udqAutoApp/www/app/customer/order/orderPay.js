@@ -1,20 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderPayCtrl', ['$scope', '$ionicHistory', '$ionicPopup', '$stateParams', '$state', 'customerOrderMakeSvr', 'customerOrderSvr', 'networkInfoSvr', function ($scope, $ionicHistory, $ionicPopup, $stateParams, $state, customerOrderMakeSvr, customerOrderSvr, networkInfoSvr) {
-        var showAlert = function (msg) {
-            var alertPopup = $ionicPopup.alert({
-                title: '温馨提示',
-                template: msg
-            });
-            alertPopup.then(function (res) {
-                console.log(msg);
-            });
-        }
-        var networkInfo = networkInfoSvr.checkConnection();
-        if (networkInfo != undefined) {
-            showAlert(networkInfo);
-        }
-
-
+    .controller('customerOrderPayCtrl', ['$scope', '$ionicHistory', '$ionicPopup', '$stateParams', '$state', 'customerOrderMakeSvr', 'customerOrderSvr', function ($scope, $ionicHistory, $ionicPopup, $stateParams, $state, customerOrderMakeSvr, customerOrderSvr) {
         var orderParam = angular.fromJson($stateParams.order);/*传递过来的订单信息*/
         var state = $stateParams.state;/*前一个页面的state*/
         $scope.order = orderParam;

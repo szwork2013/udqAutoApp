@@ -6,22 +6,6 @@ angular.module('udqApp')
  	    var _regions;
  	    var _districts;
 
- 	    ///*注册服务*/
- 	    //this.initRegionSvr = function () {
- 	    //    _cities = [];
- 	    //    _districts = [];
-
- 	    //    var promise = doRequest();
- 	    //    promise.then(
-        //        function (data) {
-        //            console.log(data);
-        //            _cities = getCitiesFromData(data);
-        //        },
-        //        function (data) {
-        //            console.log(data);
-        //        });
-            
- 	    //}
  	    this.getCities = function () {
  	        return _cities;
  	    }
