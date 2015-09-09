@@ -213,7 +213,7 @@
             $ionicHistory.clearHistory();
             alert("sb");
         }
-        /*前去订单*/
+        /*提交订单*/
         $scope.commitOrder = function () {
             if ($window.localStorage["loginState"] != 1) {
                 showAlertOfLogin('用户尚未登录或者注册');
@@ -233,12 +233,12 @@
                 showAlertOfFail('未连接上服务器');
                 return true;
             }
-            $scope.order.washTypeId = [];
-            $scope.order.fixedAmount = [];
+            $scope.order.washTypeIds = [];
+            $scope.order.fixedAmounts = [];
             for (var i = 0; i < $scope.types.length; i++) {
                 if ($scope.types[i].check == 1) {
-                    $scope.order.washTypeId.push($scope.types[i].id);
-                    $scope.order.fixedAmount.push($scope.types[i].amount);
+                    $scope.order.washTypeIds.push($scope.types[i].id);
+                    $scope.order.fixedAmounts.push($scope.types[i].amount);
                 }
             }
             if ($scope.selectedAuto.selectedAutoId == undefined) {

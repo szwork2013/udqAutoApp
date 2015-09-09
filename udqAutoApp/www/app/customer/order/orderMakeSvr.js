@@ -5,15 +5,18 @@
         /*提交订单*/
         this.commitOrder = function (order) {
             var orderInfo = {
-                washTypeIds: order.washTypeId,
+                washTypeIds: order.washTypeIds,
                 couponIds: [],
-                fixedAmounts: order.fixedAmount,
+                fixedAmounts: order.fixedAmounts,
                 userId: order.userId,
                 autoId: order.autoId,
                 regionId: order.regionId,
                 orgId: order.regionId,
                 userNote: order.userNote,
-                channel:order.channel
+                channel: order.channel,
+                /*未支付的订单选择支付需要下面的参数*/
+                orderNo: order.orderNo,
+                finalAmount:order.finalAmount
             };
 
             url = baseUrl + 'fzmgr/order/submitOrder4App.do';

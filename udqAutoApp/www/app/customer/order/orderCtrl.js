@@ -127,7 +127,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                     order.channel = 'upacp';
                     break;
                 default:
-                    order.channel = 'wx';
+                    order.channel = 'alipay';
                     break;
             }
             $ionicHistory.clearHistory();
