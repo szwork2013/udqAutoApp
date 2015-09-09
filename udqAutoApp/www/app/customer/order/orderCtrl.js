@@ -194,7 +194,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 });
         }
         /*分享订单*/
-        $scope.shareOrder = function (title, desc, url, thumb) {
+        $scope.shareOrder = function () {
             $ionicActionSheet.show({
                 buttons: [
                     { text: '分享至微信朋友圈' },
@@ -208,37 +208,37 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 buttonClicked: function (index) {
                     if (index == 0) {
                         //title, desc, url, thumb
-                       //     $scope.shareViaWechat(WeChat.Scene.timeline, title, desc, url, thumb);
+                            $scope.shareViaWechat();
                     }
                     if (index == 1) {
-                       //     $scope.shareViaWechat(WeChat.Scene.session, title, desc, url, thumb);
+                            $scope.shareViaWechat();
                     }
                 }
 
             })
         }
-        $scope.shareViaWechat = function (scene, title, desc, url, thumb) {
-            // 创建消息体
-            var msg = {
-                title: title ? title : "点趣洗车",
-                description: desc ? desc : "A real traveller's province is boundless.",
-                url: url ? url : "http://www.xingzhewujiang.xinligen.osnuts.com",
-                thumb: thumb ? thumb : null
-            };
-            WeChat.share(msg, scene, function () {
-                $ionicPopup.alert({
-                    title: '分享成功',
-                    template: '感谢您的支持！',
-                    okText: '关闭'
-                });
-            }, function (res) {
-                $ionicPopup.alert({
-                    title: '分享失败',
-                    template: '错误原因：' + res + '。',
-                    okText: '我知道了'
-                });
+        $scope.shareViaWechat = function () {
+            Wechat.isInstalled(function (installed) {
+                alert("Wechat installed: " + (installed ? "Yes" : "No"));
+            }, function (reason) {
+                alert("Failed: " + reason);
             });
-        };
+            var scope = "snsapi_userinfo";
+            Wechat.auth(scope, function (response) {
+                // you may use response.code to get the access token.
+                alert(JSON.stringify(response));
+            }, function (reason) {
+                alert("Failed: " + reason);
+            });
+            Wechat.share({
+                text: "This is just a test",
+                scene: Wechat.Scene.TIMELINE   // share to Timeline
+            }, function () {
+                alert("Success");
+            }, function (reason) {
+                alert("Failed: " + reason);
+            });
+        }
         /*跳转到单个订单查看视图*/
         $scope.goToSeeOrder = function (order) {
             customerOrderSvr.setSelectedOrder(order);
