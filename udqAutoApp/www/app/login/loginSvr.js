@@ -1,6 +1,6 @@
 ﻿angular.module('udqApp')
 
-	.service('loginSvr', ['$http', '$timeout', '$q', 'APP_CONFIG', function ($http, $timeout, $q, APP_CONFIG) {
+	.service('loginSvr', ['$http','$q', 'APP_CONFIG', function ($http, $q, APP_CONFIG) {
 	    var baseUrl = APP_CONFIG.server.getUrl();
 	    
 	    this.loginCheck = function (user) {

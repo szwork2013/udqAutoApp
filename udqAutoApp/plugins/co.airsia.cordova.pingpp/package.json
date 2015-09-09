@@ -1,25 +1,36 @@
 {
-    "version": "0.0.1",
-    "name": "co.airsia.cordova.pingpp",
-    "cordova_name": "Pingpp",
-    "description": "cordova plugin for pingxx",
-    "license": "Apache 2.0",
-    "keywords": [
-        "pingpp",
-        "pingxx",
-        "ping++",
-        "alipay",
-        "weixin",
-        "pay"
-    ],
+  "name": "cordova-plugin-pingpp",
+  "version": "0.0.1",
+  "description": "pingpp cordova/phonegap plugin",
+  "cordova": {
+    "id": "co.airsia.cordova.pingpp",
     "platforms": [
-        "android",
-        "ios"
-    ],
-    "engines": [
-        {
-            "name": "cordova",
-            "version": ">=3.4.0"
-        }
+      "android",
+      "ios"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TongChia/cordova-plugin-pingpp.git"
+  },
+  "keywords": [
+    "pingpp",
+    "pingxx",
+    "ping++",
+    "cordova",
+    "phonegap",
+    "cordova-android",
+    "cordova-ios",
+    "alipay",
+    "weixin",
+    "微信支付",
+    "支付宝",
+    "银联"
+  ],
+  "author": "TongChia",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/TongChia/cordova-plugin-pingpp/issues"
+  },
+  "homepage": "https://github.com/TongChia/cordova-plugin-pingpp#readme"
 }

@@ -47,15 +47,13 @@
         "is_top_level": true,
         "variables": {}
     },
-    "co.airsia.cordova.pingpp": {
+    "org.apache.cordova.network-information": {
         "source": {
             "type": "registry",
-            "id": "co.airsia.cordova.pingpp"
+            "id": "org.apache.cordova.network-information"
         },
         "is_top_level": true,
-        "variables": {
-            "URL_SCHEME": "udianqu://"
-        }
+        "variables": {}
     },
     "cordova-plugin-file": {
         "source": {
@@ -81,23 +79,15 @@
         "is_top_level": true,
         "variables": {}
     },
-    "org.apache.cordova.network-information": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.network-information"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "xu.li.cordova.wechat": {
+    "co.airsia.cordova.pingpp": {
         "source": {
             "type": "git",
-            "url": "https://github.com/xu-li/cordova-plugin-wechat",
+            "url": "https://github.com/TongChia/cordova-plugin-pingpp.git",
             "subdir": "."
         },
         "is_top_level": true,
         "variables": {
-            "WECHATAPPID": "wxfab7f26e34c3c5c3"
+            "URL_SCHEME": "wxfab7f26e34c3c5c3"
         }
     }
 }
