@@ -16,10 +16,12 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 console.log(msg);
             });
         }
+
         var networkInfo = networkInfoSvr.checkConnection();
         if (networkInfo != undefined) {
             showAlert(networkInfo);
         }
+
     	/*轮播图片*/
         $scope.images = [];
         /*跳转到我要洗车*/
