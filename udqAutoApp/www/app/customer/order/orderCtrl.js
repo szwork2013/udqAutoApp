@@ -172,19 +172,21 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             }
 
         }
-        /*评价订单*/
+        /*订单列表-滑动-评价-跳转到订单信息*/
         $scope.judgeOrder = function (order) {
             $ionicHistory.clearHistory();
             $scope.goToSeeOrder(order);
         }
+        /*订单信息-确定-评价订单*/
         $scope.judge = function (order) {
             customerOrderSvr.judgeOrder(order).then(
                 function (data) {
                     if (data.isSuccess) {
                         console.log('评价成功');
-                        customerOrderSvr.setSelectedOrder(order);
-                        $ionicHistory.clearHistory();
-                        $state.go('customerOrderMgr');
+                        $scope.selectOrder.state = 5;
+                        //customerOrderSvr.setSelectedOrder(order);
+                        //$ionicHistory.clearHistory();
+                        //$state.go('customerOrderMgr');
                     } else {
                         console.log(data.msg);
                     }
