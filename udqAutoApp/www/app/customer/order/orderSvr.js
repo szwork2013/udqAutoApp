@@ -9,6 +9,7 @@
          var _selectedCityId;
          var _selectOrgId;
          var _userNote;
+         var _selectedType;
          var _selectedOrder = {};/*我的订单中当前选中的订单*/
 
          this.getUserNote = function () {
@@ -64,16 +65,22 @@
              _selectedAutoId = autoId;
          }
 
+         this.getSelectedType = function () {
+             return _selectedType;
+         }
+         this.setSelectedType = function (type) {
+             _selectedType = type;
+         }
          /*获取所有订单*/
          this.getOrdersList = function () {
              var userId = $window.localStorage['userID'];
-             var url = bathUrl + 'fzmgr/order/getOrderByUserId4App.do?userId='+userId;
+             var url = bathUrl + 'fzmgr/order/getOrderByUserId4App.do?userId=' + userId;
 
              var deferred = $q.defer();
              $http.get(url).success(
                  function (data, status, headers, config) {
                      deferred.resolve(data);
-                 }).error( 
+                 }).error(
                  function (data, status, headers, config) {
                      deferred.reject("get order List failed");
                  });
@@ -114,7 +121,7 @@
                  orderNo: order.orderNo,
                  state: 10
              };
-             
+
              var deferred = $q.defer();
              $http({
                  method: 'post',
@@ -130,13 +137,13 @@
                      deferred.reject("取消订单失败");
                  });
              return deferred.promise;
-         } 
+         }
          /*订单评价*/
          this.judgeOrder = function (order) {
              var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
              var orderInfo = {
                  orderNo: order.orderNo,
-                 gradeUser:order.gradeUser,
+                 gradeUser: order.gradeUser,
                  state: 5
              };
              var deferred = $q.defer();

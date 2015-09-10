@@ -47,16 +47,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "co.airsia.cordova.pingpp": {
-        "source": {
-            "type": "registry",
-            "id": "co.airsia.cordova.pingpp"
-        },
-        "is_top_level": true,
-        "variables": {
-            "URL_SCHEME": "udianqu://"
-        }
-    },
     "org.apache.cordova.network-information": {
         "source": {
             "type": "registry",
@@ -88,5 +78,16 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "co.airsia.cordova.pingpp": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/TongChia/cordova-plugin-pingpp.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "URL_SCHEME": "wxfab7f26e34c3c5c3"
+        }
     }
 }

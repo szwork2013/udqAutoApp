@@ -9,7 +9,7 @@
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
         <form>
-            <div class="row">
+            <div class="row" style="border-bottom:1px solid white;">
                 <div class="col col-30">
                     <img src="../../../image/mydianqu.png" style="height:100%;width:100%;"/>
                 </div>
@@ -17,15 +17,30 @@
                     <p ng-show="user.name!=undefined">称呼：{{user.name}}</p>
                     <p ng-show="user.sex!=undefined&&user.sex ==1">性别：男</p>
                     <p ng-show="user.sex!=undefined&&user.sex ==2">性别：女</p>
-                    <p ng-show="user.mobile!=undefined">手机：{{user.mobile}}</p>
-                    
-                    
+                    <p ng-show="user.mobile!=undefined">手机：{{user.mobile}}</p>                    
                 </div>
                 <div class="col col-20 col-center">
                     <button class="item item-icon-right input-costume" ng-click="goToEditOwnerInfo()" style="border-color:#374d58;">
                         <i class="icon ion-ios-arrow-forward"></i>
                     </button>
                     
+                </div>
+            </div>
+            <div class="spacer" style="height:80px;"></div>
+            <div class="row">
+                <div class="col col-50" style="text-align:center;">
+                    <div style="margin-left:auto;margin-right:auto;">
+                        <img src="image/iwantwash.png" style="height:100%;width:100px;align-items:center;" />
+                        <p style="text-align:center;">我的车辆</p>
+                    </div>
+                    
+                </div>
+                <div class="col col-50" style="text-align:center;">
+                    <div style="margin-left:auto;margin-right:auto;">
+                        <img src="image/iwantwash.png" style="height:100%;width:100px;align-items:center;" />
+                        <p style="text-align:center;">洗车店</p>
+                    </div>
+
                 </div>
             </div>
         </form>

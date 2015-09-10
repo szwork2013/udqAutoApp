@@ -1,19 +1,5 @@
 ﻿angular.module('udqApp')
-	.controller('employeeOrderListCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'networkInfoSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, networkInfoSvr) {
-	    var showAlert = function (msg) {
-	        var alertPopup = $ionicPopup.alert({
-	            title: '温馨提示',
-	            template: msg
-	        });
-	        alertPopup.then(function (res) {
-	            console.log(msg);
-	        });
-	    }
-	    var networkInfo = networkInfoSvr.checkConnection();
-	    if (networkInfo != undefined) {
-	        showAlert(networkInfo);
-	    }
-
+	.controller('employeeOrderListCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', function ($scope, $window, $state, $ionicHistory, $ionicPopup) {
 
 	    $scope.orderInfo = {
 	    };

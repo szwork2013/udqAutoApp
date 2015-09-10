@@ -1,18 +1,5 @@
 angular.module('udqApp')
-	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', 'networkInfoSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr, networkInfoSvr) {
-	    var showAlert = function (msg) {
-	        var alertPopup = $ionicPopup.alert({
-	            title: '温馨提示',
-	            template: msg
-	        });
-	        alertPopup.then(function (res) {
-	            console.log(msg);
-	        });
-	    }
-	    var networkInfo = networkInfoSvr.checkConnection();
-	    if (networkInfo != undefined) {
-	        showAlert(networkInfo);
-	    }
+	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr) {
 	    var backName = $stateParams.backName;
 	    autoSvr.setBackName(backName);
 	    backName = autoSvr.getBackName();

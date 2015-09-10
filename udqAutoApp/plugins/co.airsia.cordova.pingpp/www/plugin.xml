@@ -105,7 +105,7 @@
                 <dict>
                     <key>CFBundleURLSchemes</key>
                     <array>
-                        <string>wxfab7f26e34c3c5c3</string>
+                        <string>$URL_SCHEME</string>
                     </array>
                 </dict>
             </array>

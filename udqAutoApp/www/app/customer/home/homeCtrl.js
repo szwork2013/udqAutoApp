@@ -4,24 +4,7 @@ cutomer 的主页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerHomeCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicTabsDelegate', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', 'networkInfoSvr', function ($scope, $state, $ionicHistory, $window, $ionicTabsDelegate, cameraSvr, $ionicPopup, fileTransferSvr, networkInfoSvr) {
-
-
-        var showAlert = function (msg) {
-            var alertPopup = $ionicPopup.alert({
-                title: '温馨提示',
-                template: msg
-            });
-            alertPopup.then(function (res) {
-                console.log(msg);
-            });
-        }
-
-        var networkInfo = networkInfoSvr.checkConnection();
-        if (networkInfo != undefined) {
-            showAlert(networkInfo);
-        }
-
+    .controller('customerHomeCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicTabsDelegate', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', function ($scope, $state, $ionicHistory, $window, $ionicTabsDelegate, cameraSvr, $ionicPopup, fileTransferSvr) {
     	/*轮播图片*/
         $scope.images = [];
         /*跳转到我要洗车*/

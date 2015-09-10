@@ -1,18 +1,5 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', 'jpushSvr', 'networkInfoSvr', function ($scope, $timeout, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr, jpushSvr, networkInfoSvr) {
-	    var showAlert = function (msg) {
-	        var alertPopup = $ionicPopup.alert({
-	            title: '温馨提示',
-	            template: msg
-	        });
-	        alertPopup.then(function (res) {
-	            console.log(msg);
-	        });
-	    }
-	    var networkInfo = networkInfoSvr.checkConnection();
-	    if (networkInfo != undefined) {
-	        showAlert(networkInfo);
-	    }
+	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr', 'jpushSvr', function ($scope, $timeout, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr, jpushSvr) {
 	    customerMemberInfoSvr.getUserInfo($window.localStorage['userID']).then(
             function (data) {
                 if (data.isSuccess) {
@@ -75,23 +62,23 @@ angular.module('udqApp')
                         text: '注销',
                         type:'buttton-stable',
                         onTap:function(e){
+                            $window.localStorage['loginState'] = 0;
+                            $window.localStorage['userID'] = 0;
+                            $window.localStorage['mobile'] = '';
+                            $window.localStorage['userName'] = '';
+                            $window.localStorage['userType'] = 0;
+                            $window.localStorage['sex'] = 0;
 
+                            $state.go('customerHome');
+                            console.log('退出当前用户');
+                            console.log(msg);
                         }
                     }
     	        ]
     	    });
 
     	    alertPopup.then(function (res) {
-    	        $window.localStorage['loginState'] = 0;
-    	        $window.localStorage['userID'] = 0;
-    	        $window.localStorage['mobile'] = '';
-    	        $window.localStorage['userName'] = '';
-    	        $window.localStorage['userType'] = 0;
-    	        $window.localStorage['sex'] = 0;
-
-    	        $state.go('customerHome');
-    	        console.log('退出当前用户');
-    	        console.log(msg,res);
+    	        
     	    });
     	    $timeout(function () {
     	        alertPopup.close(); //close the popup after 3 seconds for some reason

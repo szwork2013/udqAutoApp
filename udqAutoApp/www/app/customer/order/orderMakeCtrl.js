@@ -1,19 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'networkInfoSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, networkInfoSvr) {
-        var showAlert = function (msg) {
-            var alertPopup = $ionicPopup.alert({
-                title: '温馨提示',
-                template: msg
-            });
-            alertPopup.then(function (res) {
-                console.log(msg);
-            });
-        }
-        var networkInfo = networkInfoSvr.checkConnection();
-        if (networkInfo != undefined) {
-            showAlert(networkInfo);
-        }
-
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
 
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
@@ -96,7 +82,7 @@
 
                 break;
             case 'washTypeNote':
-            //case 'washTypeReturn':
+                //case 'washTypeReturn':
             case 'autoReturn':
             case 'regionReturn':
             case 'payOrderReturn':
@@ -142,11 +128,10 @@
                     }
                 );
                 break;
-            case 'goToWashType':
-                /*从服务获取洗车类型*/
-                $scope.types = customerOrderSvr.getTypes();
+            case 'goToWashTypeNote':
+                /*从服务获取洗车类型描述*/
+                $scope.type = customerOrderSvr.getSelectedType();
                 break;
-
             case 'goToAuto':
                 /*从后台获取车辆信息*/
                 autoSvr.getAuto().then(
@@ -186,11 +171,12 @@
                 break;
         }
 
-        /*保存选择，跳转到洗车类型选择*/
-        $scope.goToWashType = function () {
+        /*跳转到洗车类型服务详情*/
+        $scope.goToTypeNote = function (type) {
             saveWashTypeAndSelectAutoInfo();
+            customerOrderSvr.setSelectedType(type);
             $ionicHistory.clearHistory();
-            $state.go('customerWashtype', { 'typeSelect': 'goToWashType' });
+            $state.go("customerWashtypeNote", { 'typeSelect': 'goToWashTypeNote' });
         }
         /*保存选择，跳转到车辆选择*/
         $scope.goToAutoList = function () {
@@ -289,21 +275,16 @@
                 console.log(msg);
             });
         }
-        /*************************洗车类型******************************/
+        /*************************洗车类型服务详情******************************/
         /*返回预定洗车界面*/
-        $scope.goBackOfWashType = function () {
-            if ($scope.types != undefined && $scope.types.length > 0) {
-                customerOrderSvr.setType($scope.types);
-            }
+        $scope.goBackOfWashTypeNote = function () {
+            //if ($scope.type != undefined && $scope.type.length > 0) {
+            //    customerOrderSvr.setType($scope.type);
+            //}
             $ionicHistory.clearHistory();
-            $state.go("customerOrderMake", { 'typeSelect': 'washTypeReturn' });
+            $state.go("customerOrderMake", { 'typeSelect': 'washTypeNote' });
         }
-        /*查看洗车类型服务详情*/
-        $scope.goToTypeNote = function (type) {
-            saveWashTypeAndSelectAutoInfo();
-            $ionicHistory.clearHistory();
-            $state.go("customerWashtypeNote");
-        }
+
         /***************************************************************/
         /*************************车辆选择******************************/
         /*下拉刷新*/
