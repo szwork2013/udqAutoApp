@@ -74,7 +74,7 @@
          /*获取所有订单*/
          this.getOrdersList = function () {
              var userId = $window.localStorage['userID'];
-             var url = bathUrl + 'fzmgr/order/getOrderByUserId4App.do?userId=' + userId;
+             var url = bathUrl + 'order/getOrderByUserId4App.do?userId=' + userId;
 
              var deferred = $q.defer();
              $http.get(url).success(
@@ -116,8 +116,10 @@
          }
          /*取消订单*/
          this.cancelOrder = function (order) {
-             var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
+             var url = bathUrl + 'order/handleOrder4App.do';
              var orderInfo = {
+                 userId: order.userId,
+                 autoPN: order.autoPN,
                  orderNo: order.orderNo,
                  state: 10
              };
@@ -140,7 +142,7 @@
          }
          /*订单评价*/
          this.judgeOrder = function (order) {
-             var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
+             var url = bathUrl + 'order/handleOrder4App.do';
              var orderInfo = {
                  orderNo: order.orderNo,
                  gradeUser: order.gradeUser,

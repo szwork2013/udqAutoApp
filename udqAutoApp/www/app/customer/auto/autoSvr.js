@@ -33,7 +33,7 @@
              };
              /*转换成json格式*/
              var autoInfoJS = JSON.stringify(auto);
-             var url = baseUrl + 'fzmgr/auto/saveAuto4App.do';
+             var url = baseUrl + 'auto/saveAuto4App.do';
 
              var deferred = $q.defer();
              $http({
@@ -53,7 +53,7 @@
          /*获取用户下的所有汽车信息*/
          this.getAuto = function () {
              var userId = $window.localStorage['userID'];
-             var url = baseUrl + 'fzmgr/auto/getAutoByUserId4App.do?userId=' + userId;
+             var url = baseUrl + 'auto/getAutoByUserId4App.do?userId=' + userId;
 
 
              var deferred = $q.defer();
@@ -67,7 +67,7 @@
          }
          /*删除一条车辆信息*/
          this.deleteAutoItem = function (id) {
-             var url = baseUrl + 'fzmgr/auto/deleteAuto4App.do?id=' + id;
+             var url = baseUrl + 'auto/deleteAuto4App.do?id=' + id;
 
              var deferred = $q.defer();
              $http.post(url).success(

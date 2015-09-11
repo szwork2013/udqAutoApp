@@ -4,7 +4,7 @@
 	    var baseUrl = APP_CONFIG.server.getUrl();
 	    
 	    this.loginCheck = function (user) {
-	        var url = baseUrl + 'fzmgr/login/login4App.do';
+	        var url = baseUrl + 'login/login4App.do';
 	        var userInfo = {
 	            mobile: user.mobile,
 	        };

@@ -35,6 +35,18 @@
                 <span class="input-label makeorder-district-span"><i class="icon ion-chevron-right" ng-click="goToRegionSelect()"></i></span>
             </div>
 
+            <div class="item item-input makeorder-label" ng-show="selectedAuto.selectedAutoId ==undefined">
+                <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
+                <input type="text" class="makeorder-input" style="background-color:white;" ng-model="auto.pn" placeholder="暂无车辆（必选）">
+                <span class="input-label makeorder-auto-span"><i class="icon ion-chevron-right" ng-click="goToAutoList()"></i></span>
+            </div>
+            <div class="item item-input makeorder-label" ng-show="undefined ==selectedAuto.selectedRegionId">
+                <span class="input-label makeorder-district-span"><i class="icon ion-ios-location-outline"></i></span>
+                <input type="text" class="makeorder-input" style="background-color:white;" ng-model="dis.name" placeholder="选择小区（必选）">
+                <span class="input-label makeorder-district-span"><i class="icon ion-chevron-right" ng-click="goToRegionSelect()"></i></span>
+            </div>
+
+
             <div class="spacer" style="height:20px;"></div>
 
             <div class="item makeorder-label item-input">

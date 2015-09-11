@@ -10,7 +10,7 @@ angular.module('udqApp')
         */
         this.uploadWashPhoto = function (imgURI,params,No, successCallBack, failCallBack, progressCallBack) {
 
-            var svrURI = encodeURI(APP_CONFIG.server.getUrl() + "fzmgr/upload/addWashPhoto4App.do");
+            var svrURI = encodeURI(APP_CONFIG.server.getUrl() + "upload/addWashPhoto4App.do");
 
             var opts = new FileUploadOptions();
 

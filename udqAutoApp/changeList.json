@@ -52,7 +52,6 @@
     "www\\app\\employee\\order\\orderInfo.html",
     "resources\\ios\\icon\\icon-76@2x.png",
     "res\\icons\\ios\\icon-60.png",
-    "www\\app\\employee\\order\\orderToBeConfirmedCtrl.js",
     "www\\image\\logo\\icon64_appwx_logo.png",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\toolbar-right.png",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Channels\\Alipay\\AlipaySDK.framework\\Headers\\APayAuthInfo.h",
@@ -120,7 +119,6 @@
     "www\\app\\employee\\order\\orderList.html",
     "plugins\\org.apache.cordova.camera\\CONTRIBUTING.md",
     "www\\image\\aboutudianqu.png",
-    "www\\app\\employee\\order\\orderToBeConfirmed.html",
     "plugins\\org.apache.cordova.device\\LICENSE",
     "plugins\\cordova-plugin-file-transfer\\www\\FileTransferError.js",
     "plugins\\org.apache.cordova.network-information\\doc\\ru\\index.md",
@@ -752,8 +750,7 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\order\\orderctrl.js"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -767,7 +764,9 @@
   ],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "plugins\\android.json"
+    "plugins\\android.json",
+    "www\\app\\customer\\washType\\washtypeSvr.js",
+    "www\\app\\util\\appConfig.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

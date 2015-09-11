@@ -17,7 +17,7 @@ angular.module('udqApp')
  	    }
 
  	    this.doRequest = function () {
- 	        var url = baseUrl + 'fzmgr/region/getRegion4App.do';
+ 	        var url = baseUrl + 'region/getRegion4App.do';
 
  	        var deferred = $q.defer();
  	        $http({

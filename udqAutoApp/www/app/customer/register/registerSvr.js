@@ -3,7 +3,7 @@ angular.module('udqApp')
 	    var baseUrl = APP_CONFIG.server.getUrl();
 	    /*注册服务*/
 	    this.register = function (user) {
-	        var url = baseUrl + 'fzmgr/login/registUser4App.do';
+	        var url = baseUrl + 'login/registUser4App.do';
 	        var deferred = $q.defer();/*声明延后执行，表示要去监控后面的执行*/
 
 	        var userInfo = {
@@ -29,7 +29,7 @@ angular.module('udqApp')
 	    }
 	    /*调用短信服务*/
 	    this.sendMSG = function (mobile) {
-	        var url = baseUrl + 'fzmgr/login/sendVerifCode4App.do?mobile=' + mobile;
+	        var url = baseUrl + 'login/sendVerifCode4App.do?mobile=' + mobile;
 	        var deferred = $q.defer();
 	        $http.post(url)
                 .success(function (data, status, headers, config) {

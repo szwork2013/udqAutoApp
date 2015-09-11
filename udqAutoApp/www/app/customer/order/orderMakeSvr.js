@@ -19,7 +19,7 @@
                 finalAmount:order.finalAmount
             };
 
-            url = baseUrl + 'fzmgr/order/submitOrder4App.do';
+            url = baseUrl + 'order/submitOrder4App.do';
 
             var deferred = $q.defer();
             $http({

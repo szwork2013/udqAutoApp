@@ -6,7 +6,7 @@
         
 	    /*保存用户信息*/
 	    this.editUserInfo = function (user) {
-	        var url = baseUrl + 'fzmgr/user/editUser4App.do';
+	        var url = baseUrl + 'user/editUser4App.do';
 	        var deferred = $q.defer();
 	        $http({
 	            method: 'post',
@@ -24,7 +24,7 @@
 	    }
 	    /*获取用户信息*/
 	    this.getUserInfo = function(id){
-	        var url = baseUrl + 'fzmgr/user/getUser4App.do';
+	        var url = baseUrl + 'user/getUser4App.do';
 	        var deferred = $q.defer();
 	        $http({
 	            method: 'post',
