@@ -750,7 +750,14 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
+    "www\\app\\customer\\order\\ordermgr.html",
+    "www\\app\\customer\\order\\orderctrl.js",
+    "www\\app\\customer\\member\\membercenter.html",
+    "www\\app\\customer\\member\\membercenterctrl.js",
+    "www\\app\\customer\\order\\ordermake.html",
+    "www\\app\\login\\loginctrl.js",
+    "www\\app\\customer\\member\\memberinfoedit.html"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -765,8 +772,18 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\washType\\washtypeSvr.js",
-    "www\\app\\util\\appConfig.js"
+    "www\\app\\customer\\order\\orderctrl.js",
+    "www\\css\\ownMenu.css",
+    "www\\app\\customer\\member\\membercenter.html",
+    "www\\app\\customer\\member\\membercenterctrl.js",
+    "www\\app\\customer\\home\\home.html",
+    "www\\app\\customer\\order\\ordermake.html",
+    "www\\css\\index.css",
+    "www\\css\\ionic.css",
+    "www\\app\\login\\login.html",
+    "www\\app\\employee\\order\\photograph.html",
+    "www\\app\\login\\loginctrl.js",
+    "www\\app\\customer\\member\\memberinfoedit.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

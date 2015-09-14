@@ -17,7 +17,12 @@ angular.module('udqApp')
 	    $scope.goToCenter = function () {
 	        $ionicHistory.clearHistory();
     	    $state.go('customerMyDQ');
-    	}
+	    }
+
+	    /*跳转到车辆列表*/
+	    $scope.goToAutoList = function () {
+	        $state.go('customerAutoMgr');
+	    }
 
 	    $scope.goToEditOwnerInfo = function () {
 	        $ionicHistory.clearHistory();

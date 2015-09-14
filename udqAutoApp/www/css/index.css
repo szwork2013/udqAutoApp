@@ -1,9 +1,9 @@
 ﻿.ion-view-costum{
-    background-color:#374d58;
+    background-color:#17bed0;
 }
 
 .ion-nav-bar-costume {
-    background-color:#374d58;
+    background-color:#17bed0;
     color:white;
     border-bottom:1px solid white;
     
@@ -15,16 +15,16 @@ div.title.title-center.header-item{
 }
 .input-costume{
     color:white;
-    background-color:#374d58;
+    background-color:#17bed0;
 }
 .input-costume:active{
-    background-color:#374d54;
+    background-color:#17bed0;
 }
 .input-costume:checked{
-    background-color:#374d54;
+    background-color:#17bed0;
 }
 ion-radio:checked{
-    background-color:#374d54;
+    background-color:#17bed0;
 }
 h1,h2,h3,h4,p{
     color:white;
@@ -52,65 +52,77 @@ p{
     text-align:left;
 }
 ion-item.item div.item-content{
-    background-color:#374d58;
+    background-color:#17bed0;
 }
 ion-list div label.item div.item-content{
-    background-color:#374d58;
+    background-color:#17bed0;
 }
 h2,h3,h4,p,.item p{
     color:white;
 }
 /*button*/
 .allbutton{
-    background-color:#ffbc01;
-    border-color:#ffbc01;
+    background-color:#fafb75;
+    border-color:#fafb75;
     font-size:12px;
-    color:white;
+    color:black;
     text-align:center;
-    border:#ffbc01 solid ;
+    border:#fafb75 solid ;
     border-radius:3px;
     margin-top:6px;
     margin-top:6px;
     line-height:none;
 }
 .allbutton:active{
-    background-color:#cf9610;
-    border-color:#cf9610;
+    background-color:#f2f376;
+    border-color:#f2f376;
 }
 /*注册按钮*/
 .registerInloginPage{
-    background-color:#e1a516;
+    background-color:#cb6363;
     font-size:12px;
-    color:white;
+    color:black;
     text-align:center;
-    border:#e1a516 solid ;
+    border:#cb6363 solid ;
     border-radius:3px;
     margin-top:6px;
     margin-top:6px;
 }
 .registerInloginPage:active{
-    background-color:#cf9610;
-    border-color:#cf9610;
+    background-color:#b76969;
+    border-color:#b76969;
 }
 /*输入框内的输入字体*/
 .member-span-text{
     font-size:14px;
     color:white;
 }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: #666; 
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+color: #666; 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+color: #666; 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+color: #666; 
+}
 .autoadd-p{
     font-weight:600;
 }
 label div.item-content:checked{
-    background-color:#374d58;
+    background-color:#17bed0;
 }
 .makeorder-washtype-span{
-    padding-bottom:7px;
-    padding-top:7px;
+    padding-bottom:4px;
+    padding-top:4px;
     padding-left:4px;
     padding-right:4px;
-    text-align:center;
     width:inherit;
-    background-color:#ff6e0b;
+    border-color:#0082d4;
+    background-color:#0082d4;
 
 }
 .makeorder-auto-span{
@@ -120,7 +132,7 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
-    background-color:#17bed0;
+    background-color:#ff6e0b;
 }
 .makeorder-district-span{
     padding-bottom:7px;
@@ -129,7 +141,16 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
-    background-color:#0082d4;
+    background-color:#808080;
+}
+.makeorder-note-span{
+    padding-bottom:7px;
+    padding-top:7px;
+    padding-left:4px;
+    padding-right:4px;
+    text-align:center;
+    width:40px;
+    background-color:#17bed0;
 }
 .makeorder-input{
     background-color:white;
@@ -139,13 +160,13 @@ label div.item-content:checked{
     text-align:center;
 }
 .makeorder-label{
-    border-color:#374d58;
-    background-color:#374d58;
+    border-color:#17bed0;
+    background-color:#17bed0;
 }
 .washtype-ion-checkbox{
     padding-bottom:6.5px;
     padding-top:6.5px;
-    border:1px solid #ff6e0b;
+    border:1px solid #374d58;
     width:auto;
 }
 .makeorder-textarea{

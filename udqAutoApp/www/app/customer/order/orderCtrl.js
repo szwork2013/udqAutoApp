@@ -184,6 +184,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                     if (data.isSuccess) {
                         console.log('评价成功');
                         $scope.selectOrder.state = 5;
+                        $scope.selectOrder.customerGrade = order.gradeUser;
                         //customerOrderSvr.setSelectedOrder(order);
                         //$ionicHistory.clearHistory();
                         //$state.go('customerOrderMgr');

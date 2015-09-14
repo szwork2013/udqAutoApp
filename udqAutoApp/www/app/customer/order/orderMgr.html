@@ -19,13 +19,13 @@
                 <span class="input-label"><h2>车牌号</h2></span>
                 <p>{{selectOrder.autoPN}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume"ng-show="selectOrder.washerName != null">
                 <span class="input-label"><h2>洗车工姓名</h2></span>
                 <p>{{selectOrder.washerName}}</p>
             </label>
 
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>预约时间</h2></span>
+                <span class="input-label"><h2>下单时间</h2></span>
                 <p>{{selectOrder.orderTime}}</p>
             </label>
             <label class="item item-input input-costume">

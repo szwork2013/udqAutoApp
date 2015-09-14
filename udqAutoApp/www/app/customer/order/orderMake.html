@@ -4,7 +4,7 @@
             <button class="button-clear icon ion-chevron-left" ng-click="goBackMain()"></button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
-            <button class="button-clear" ng-click="commitOrder()" style="color:#ffbc01;font-weight:600;">提交</button>
+            <button class="button-clear" ng-click="commitOrder()" style="color:#fafb75;font-weight:600;">提交</button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
@@ -19,7 +19,7 @@
                     <ion-checkbox ng-model="type.check" ng-true-value="1" ng-false-value="2" class="input-costume washtype-ion-checkbox" ng-click="changeTotalAmount()">
                         <p style="display:block;">{{type.name}}&nbsp;&nbsp;{{type.amount|currency:'￥'}}</p>
                     </ion-checkbox>
-                    <span class="input-label makeorder-washtype-span"><i class="icon ion-chevron-right" ng-click="goToTypeNote(type)"></i></span>
+                    <button class="input-label makeorder-washtype-span" ng-click="goToTypeNote(type)">详情</button>
                 </div>
             </div>
 
@@ -50,9 +50,9 @@
             <div class="spacer" style="height:20px;"></div>
 
             <div class="item makeorder-label item-input">
-                <div class="col col-20 col-top"><p class="makeorder-note-p">备注</p></div>
+                <span class="input-label makeorder-note-span"><p class="makeorder-note-p">备注</p></span>
                 <div class="col col-80 item item-input input-costume">
-                    <textarea placeholder="您还有什么需求呢，请写在这里。" ng-model="order.userNote" rows="5" class="input-costume" style="color:#808a8f;"></textarea>
+                    <textarea placeholder="您还有什么需求呢，请写在这里。" ng-model="order.userNote" rows="1" class="input-costume" style="color:#ffffff;"></textarea>
                 </div>
             </div>
 

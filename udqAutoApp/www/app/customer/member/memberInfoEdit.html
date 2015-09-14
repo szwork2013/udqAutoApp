@@ -4,6 +4,9 @@
         <ion-nav-buttons side="left">
             <button class="button-clear icon ion-chevron-left" ng-click="goToCenter()"></button>
         </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button-clear" ng-click="saveMemberInfo()" style="color:#fafb75;font-weight:600;">保存</button>
+        </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-content padding="true" class="has-header">
@@ -20,7 +23,6 @@
                 </ion-item>
 
             </ion-list>
-            <button class="allbutton button-block" ng-click="saveMemberInfo()">保存信息</button>
         </form>
     </ion-content>
 </ion-view>
