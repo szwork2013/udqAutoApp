@@ -94,10 +94,40 @@ angular.module('udqApp', ['ionic'])
             templateUrl: 'app/customer/order/orderList.html',
             controller: 'customerOrderCtrl'
         })
+        /*车主-最近订单信息*/
+        .state('customerMyOrder.recentlyOrder', {
+            cache: false,
+            url: "/recentlyOrder?orderDate",
+            views: {
+                'recentlyOrder-tab': {
+                    templateUrl: "app/customer/order/recentlyOrder.html",
+                    controller: 'customerOrderCtrl'
+                }
+            }
+        })
+        /*车主-历史订单信息*/
+        .state('customerMyOrder.historyOrder', {
+            cache: false,
+            url: "/historyOrder?orderDate",
+            views: {
+                'historyOrder-tab': {
+                    templateUrl: "app/customer/order/historyOrder.html",
+                    controller: 'customerOrderCtrl'
+                }
+            }
+        })
         /*车主我的点趣*/
         .state('customerMyDQ', {
+            cache: false,
             url: '/customerMyDQ',
             templateUrl: 'app/customer/member/memberCenter.html',
+            controller: 'customerMemberCenterCtrl'
+        })
+        /*车主-我的点趣-洗车店信息*/
+        .state('customerWashShopInfo', {
+            cache: false,
+            url: '/customerWashShopInfo',
+            templateUrl: 'app/customer/member/washShopInfo.html',
             controller: 'customerMemberCenterCtrl'
         })
         /*车主-添加车辆*/
@@ -165,7 +195,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车-洗车类型描述*/
         .state('customerWashtypeNote', {
             cache: false,
-            url: '/customerWashtypeNote?typeSelect',
+            url: '/customerWashtypeNote?typeSelect&backParam',
             templateUrl: 'app/customer/washType/washTypeNote.html',
             controller: 'customerOrderMakeCtrl'
         })

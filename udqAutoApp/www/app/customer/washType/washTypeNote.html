@@ -1,12 +1,14 @@
 ﻿<ion-view view-title="{{type.name}}" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfWashTypeNote()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfWashTypeNote()" style="color:white;"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
         <ion-list>
             <span class="input-label"><p>内容</p></span>
-            <textarea class="input-costume" readonly="readonly" style="color:#808a8f;width:100%">{{type.note}}</textarea>
+            <div class="col col-100 item item-input input-costume">
+                <textarea rows="5" class="input-costume">{{type.note}}</textarea>
+            </div>
     </ion-content>
 </ion-view>

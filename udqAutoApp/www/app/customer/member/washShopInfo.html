@@ -1,0 +1,25 @@
+﻿<ion-view title="洗车店信息" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-chevron-left" ng-click="goToCenter()" style="color:white;"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content padding="true" class="has-header">
+        <ion-list>
+            <ion-item ng-repeat="shop in washShopInfo" class="input-costume">
+                <div class="row">
+                    <div class="col col-20">
+                        <img src="image/mydianqu.png" style="height:100%;width:100%;" />
+                    </div>
+                    <div class="col col-80">
+                        <p>门店：{{shop.shopName}}</p>
+                        <p>区域：{{shop.regionName}}</p>
+                        <p>店主：{{shop.directorName}}</p>
+                        <p>电话：{{shop.mobile}}</p>
+                        <p>绑定车辆：{{shop.autoPN}}</p>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

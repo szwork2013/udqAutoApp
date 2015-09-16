@@ -72,9 +72,9 @@
              _selectedType = type;
          }
          /*获取所有订单*/
-         this.getOrdersList = function () {
+         this.getOrdersList = function (orderDate) {
              var userId = $window.localStorage['userID'];
-             var url = bathUrl + 'order/getOrderByUserId4App.do?userId=' + userId;
+             var url = bathUrl + 'order/getOrderByUserId4App.do?userId=' + userId+'&orderDate='+orderDate;
 
              var deferred = $q.defer();
              $http.get(url).success(
@@ -146,6 +146,7 @@
              var orderInfo = {
                  orderNo: order.orderNo,
                  gradeUser: order.gradeUser,
+                 gradeUserNote:order.gradeUserNote,
                  state: 5
              };
              var deferred = $q.defer();

@@ -1,6 +1,6 @@
 ﻿angular.module('udqApp')
     .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
-
+        
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
             $scope.types = customerOrderSvr.getTypes();
@@ -21,6 +21,7 @@
         $scope.order = {
             userId: $window.localStorage['userID']
         };
+        var backParam = $stateParams.backParam;/*以前一个页面的参数来确定返回时的页面*/
         var typeSelect = $stateParams.typeSelect;
         switch (typeSelect) {
             case 'main':
@@ -278,11 +279,12 @@
         /*************************洗车类型服务详情******************************/
         /*返回预定洗车界面*/
         $scope.goBackOfWashTypeNote = function () {
-            //if ($scope.type != undefined && $scope.type.length > 0) {
-            //    customerOrderSvr.setType($scope.type);
-            //}
             $ionicHistory.clearHistory();
-            $state.go("customerOrderMake", { 'typeSelect': 'washTypeNote' });
+            if (backParam == "washTypeIntroduce") {
+                $state.go("customerWashTypeIntroduce");
+            } else {
+                $state.go("customerOrderMake", { 'typeSelect': 'washTypeNote' });
+            }
         }
 
         /***************************************************************/

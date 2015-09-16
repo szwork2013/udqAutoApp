@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="{{selectOrder.orderNo}}" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfOrderList()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfOrderList()" style="color:white;"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
@@ -19,7 +19,7 @@
                 <span class="input-label"><h2>车牌号</h2></span>
                 <p>{{selectOrder.autoPN}}</p>
             </label>
-            <label class="item item-input input-costume"ng-show="selectOrder.washerName != null">
+            <label class="item item-input input-costume" ng-show="selectOrder.washerName != ''">
                 <span class="input-label"><h2>洗车工姓名</h2></span>
                 <p>{{selectOrder.washerName}}</p>
             </label>
@@ -28,7 +28,7 @@
                 <span class="input-label"><h2>下单时间</h2></span>
                 <p>{{selectOrder.orderTime}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume" ng-show="selectOrder.finishTime!=null">
                 <span class="input-label"><h2>结束时间</h2></span>
                 <p>{{selectOrder.finishTime}}</p>
             </label>
@@ -36,14 +36,28 @@
                 <span class="input-label"><h2>金额</h2></span>
                 <p>{{selectOrder.finalAmount}}元</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume" ng-show="selectOrder.userNote!=''">
                 <span class="input-label"><h2>洗车备注</h2></span>
                 <p>{{selectOrder.userNote}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume" ng-show="selectOrder.customerGrade!=''">
                 <span class="input-label"><h2>评分</h2></span>
                 <p>{{selectOrder.customerGrade}}</p>
             </label>
+            <label class="item item-input input-costume" ng-show="selectOrder.gradeUserNote!=''">
+                <span class="input-label"><h2>意见</h2></span>
+                <p>{{selectOrder.gradeUserNote}}</p>
+            </label>
+            <div ng-show="selectOrder.state==4||selectOrder.state==5">
+                <label class="item item-input input-costume">
+                    <p>照片</p>
+                </label>
+                <div class="row" style="width:100%;margin:0px;padding:0px;">
+                    <div class="col"><img src={{selectOrder.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                    <div class="col"><img src={{selectOrder.photoUrl2}} id="img2" ng-click="gotoPhoto(2)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                    <div class="col"><img src={{selectOrder.photoUrl3}} id="img3" ng-click="gotoPhoto(3)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
+                </div>
+            </div>
         </ion-list>
         
         <div class="spacer" style="height:10px;"></div>
@@ -68,7 +82,9 @@
                 <input type="radio" id="score-1" name="score" value="1" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
                 <label title="1 stars" for="score-1">1 stars</label>
             </fieldset>
-
+            <div class="col col-100 item item-input input-costume">
+                <textarea placeholder="您有什么意见，请写在这里。" ng-model="selectOrder.gradeUserNote" rows="5" class="input-costume" style="color:white;width:100%;height:inherit"></textarea>
+            </div>
             <button class="allbutton button-block" ng-show="selectOrder.state==4" ng-click="judge(selectOrder)">确认</button>
         </div>
                 <button class="allbutton button-block" ng-click="shareOrder()" ng-show="selectOrder.state==5">分享</button>

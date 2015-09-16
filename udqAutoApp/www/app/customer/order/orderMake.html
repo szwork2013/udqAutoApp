@@ -1,7 +1,7 @@
 <ion-view view-title="洗车预约" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackMain()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackMain()" style="color:white;"></button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
             <button class="button-clear" ng-click="commitOrder()" style="color:#fafb75;font-weight:600;">提交</button>
@@ -9,20 +9,7 @@
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
         <ion-list>
-            <!-- 选择洗车类型 -->
-            <div class="item item-input makeorder-label">
-                <p>请选择洗车服务类型</p>
-            </div>
-
-            <div class="input-costume" ng-repeat="type in types">
-                <div class="item item-input makeorder-label">
-                    <ion-checkbox ng-model="type.check" ng-true-value="1" ng-false-value="2" class="input-costume washtype-ion-checkbox" ng-click="changeTotalAmount()">
-                        <p style="display:block;">{{type.name}}&nbsp;&nbsp;{{type.amount|currency:'￥'}}</p>
-                    </ion-checkbox>
-                    <button class="input-label makeorder-washtype-span" ng-click="goToTypeNote(type)">详情</button>
-                </div>
-            </div>
-
+            
             <!-- 车辆信息、预约时间、详细地址（可选） -->
             <div class="item item-input makeorder-label" ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
                 <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
@@ -45,24 +32,36 @@
                 <input type="text" class="makeorder-input" style="background-color:white;" ng-model="dis.name" placeholder="选择小区（必选）">
                 <span class="input-label makeorder-district-span"><i class="icon ion-chevron-right" ng-click="goToRegionSelect()"></i></span>
             </div>
+            <!-- 选择洗车类型 -->
+            <div class="item item-input makeorder-label">
+                <p>请选择洗车服务类型</p>
+            </div>
 
+            <div class="input-costume" ng-repeat="type in types">
+                <div class="item item-input makeorder-label">
+                    <ion-checkbox ng-model="type.check" ng-true-value="1" ng-false-value="2" class="col col-100 input-costume washtype-ion-checkbox" ng-click="changeTotalAmount()">
+                        <p style="display:block;float:right">{{type.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a class="a-custome">{{type.amount|currency:'￥'}}</a></p>
+                    </ion-checkbox>
+                    <button class="input-label makeorder-washtype-span" ng-click="goToTypeNote(type)">详情</button>
+                </div>
+            </div>
 
             <div class="spacer" style="height:20px;"></div>
 
             <div class="item makeorder-label item-input">
                 <span class="input-label makeorder-note-span"><p class="makeorder-note-p">备注</p></span>
                 <div class="col col-80 item item-input input-costume">
-                    <textarea placeholder="您还有什么需求呢，请写在这里。" ng-model="order.userNote" rows="1" class="input-costume" style="color:#ffffff;"></textarea>
+                    <textarea placeholder="您还有什么需求呢，请写在这里。" ng-model="order.userNote" rows="4" class="input-costume" style="color:#ffffff;"></textarea>
                 </div>
             </div>
 
             <div class="spacer" style="height:20px;"></div>
             <div class="row row-bottom">
                 <div class="col-50">
-                    <p class="makeorder-currency-p">￥</p>
+                    <p class="makeorder-currency-p" style="color:red;">￥</p>
                 </div>
                 <div class="col-50">
-                    <p class="makeorder-money-p">总价{{totalAmount}}元</p>
+                    <p class="makeorder-money-p" style="color:red;">总价<a>{{totalAmount}}</a>元</p>
                 </div>
             </div>
 

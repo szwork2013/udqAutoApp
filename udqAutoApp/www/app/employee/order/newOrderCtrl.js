@@ -10,6 +10,7 @@
            function (data) {
                $scope.orderInfo = data.rows;
                console.log("数量：" + data.rows.length);
+
            }, function (data) {
                console.log(data);
            }

@@ -2,12 +2,12 @@
 .ownbutton-circle {
     background-color:#17bed0;
     border:none;
-    -webkit-border-radius: 50px;/*72px;*/
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    width: 50px;
-    line-height: 50px;
-    height: 50px;
+    -webkit-border-radius: 60px;/*72px;*/
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    width: 60px;
+    line-height: 60px;
+    height: 60px;
     padding: 0px;
 }
 .ownbutton-circle:active{
@@ -19,12 +19,12 @@
 .button-washauto-circle {
     background-color:#17bed0;
     border:none;
-    -webkit-border-radius: 266px;
-    -moz-border-radius: 266px;
-    border-radius: 266px;
-    width: 266px;
-    line-height: 266px;
-    height: 266px;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    width: 200px;
+    line-height: 200px;
+    height: 200px;
     padding: 0px;
 }
 .button-washauto-circle:active{

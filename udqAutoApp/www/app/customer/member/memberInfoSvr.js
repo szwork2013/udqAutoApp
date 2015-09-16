@@ -40,6 +40,24 @@
             );
 	        return deferred.promise;
 	    }
+        /*获取洗车店信息*/
+	    this.getWashShopInfo = function (id) {
+	        var url = baseUrl + 'user/getDirectorInfo4App.do';
+	        var deferred = $q.defer();
+	        $http({
+	            method: 'post',
+	            url: url,
+	            data: { id: id }
+	        }).then(
+            function (data, status, headers, config) {
+                deferred.resolve(data.data);
+            },
+            function (data, status, headers, config) {
+                deferred.reject('获取用户信息失败');
+            }
+            );
+	        return deferred.promise;
+	    }
 	    /*设置userInfo*/
 	    this.setUserInfo = function (userInfo) {
 	        _userInfo = userInfo;

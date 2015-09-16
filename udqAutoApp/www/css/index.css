@@ -13,6 +13,17 @@ div.title.title-center.header-item{
     font-size:large;
     font-weight:700;
 }
+.tab-costume{
+    color:black; 
+    background-color:#17bed0;
+    font-weight:bold; 
+}
+.tab-costume:active{
+    background-color:#fff;
+}
+.tab-costume:checked{
+    background-color:#fff; 
+}
 .input-costume{
     color:white;
     background-color:#17bed0;
@@ -32,6 +43,10 @@ h1,h2,h3,h4,p{
 p{
     font-size:14px;
     font-weight:600;
+}
+a{
+    font-size:15px;
+    font-weight:700;
 }
 .makeorder-p{
     font-weight:600;
@@ -177,5 +192,9 @@ label div.item-content:checked{
 }
 .div-col-innerdiv{
     margin-left:auto;margin-right:auto;
+}
+/*金额*/
+.a-custome{
+    color:red;
 }
 
