@@ -1,15 +1,11 @@
 ﻿angular.module('udqApp')
-	.controller('employeeOrderListCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', function ($scope, $window, $state, $ionicHistory, $ionicPopup) {
+	.controller('employeeOrderListCtrl', ['$scope', '$window', '$state', '$ionicHistory','popUpSvr', function ($scope, $window, $state, $ionicHistory, popUpSvr) {
 
 	    $scope.orderInfo = {
 	    };
 	    /*退出当前账户*/
 	    $scope.exitCurrentUser = function () {
-	        var confirmPopup = $ionicPopup.confirm({
-	            title: '温馨提示',
-	            template: '确认退出当前账户？'
-	        });
-	        confirmPopup.then(function (res) {
+	        popUpSvr.confirmExit('注销当前用户?').then(function (res) {
 	            if (res) {
 	                $window.localStorage['loginState'] = 0;
 	                $window.localStorage['userID'] = 0;

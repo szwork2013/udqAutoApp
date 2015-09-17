@@ -1,13 +1,15 @@
 ﻿angular.module('udqApp')
-   .controller('employeeNewOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'employeeOrderSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, employeeOrderSvr) {
+   .controller('employeeNewOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'employeeOrderSvr', 'popUpSvr', 'LoadingSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, employeeOrderSvr, popUpSvr, LoadingSvr) {
 
        $scope.order = {
            state: 1,
            orgId: $window.localStorage['orgId']
        };
+       LoadingSvr.show();
        var promise = employeeOrderSvr.getOrderByState($scope.order);
        promise.then(
            function (data) {
+               LoadingSvr.hide();
                $scope.orderInfo = data.rows;
                console.log("数量：" + data.rows.length);
 
@@ -43,7 +45,7 @@
                              } else {
                                  console.log(data.msg);
                                  if (data.msg == "此订单已被接收") {
-                                     showAlert('此订单已被接收');
+                                     popUpSvr.showAlert('此订单已被接收');
                                  }
                              }
                          },

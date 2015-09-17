@@ -1,13 +1,11 @@
 <ion-view view-title="车辆列表" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfAuto()" style="color:white;"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfAuto()" style="color:white;width:40px"></button>
         </ion-nav-buttons>
 
         <ion-nav-buttons side="right">
-            <button class="button-clear" ng-click="goToAddauto()">
-                <span class="icon ion-plus-round"></span>
-            </button>
+            <button class="button-clear icon ion-plus-round" ng-click="goToAddauto()" style="color:white;"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
@@ -15,7 +13,7 @@
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         
         <ion-list class="input-costume">
-                <ion-radio ng-model="selectedAuto.selectedAutoId" ng-click="goBackOfAuto()" value={{auto.id}} ng-repeat="auto in autoInfo"><p>{{auto.pn}}</p></ion-radio>
+                <ion-radio class="input-costume-radio" ng-model="selectedAuto.selectedAutoId" ng-click="goBackOfAuto()" value={{auto.id}} ng-repeat="auto in autoInfo"><p style="color:black;">{{auto.pn}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

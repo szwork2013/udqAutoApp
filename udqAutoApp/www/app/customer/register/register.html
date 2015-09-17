@@ -1,7 +1,7 @@
 <ion-view title="注册" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBack()" style="color:white;"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBack()" style="color:white;width:40px"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
@@ -9,13 +9,13 @@
 
         <ion-list>
             <label class="item item-input input-costume">
-                <i class="icon ion-ios-telephone placeholder-icon"></i>
+                <i class="icon ion-ios-telephone placeholder-icon" style="color:white"></i>
                 <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" class="input-costume" style="color:white;font-weight:600;" required>
             </label>
             
             <div class="item item-input-inset input-costume">
                 <label class="item-input-wrapper input-costume">
-                    <i class="icon ion-key placeholder-icon"></i>
+                    <i class="icon ion-key placeholder-icon" style="color:white"></i>
                     <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd" style="color:white;font-weight:600;" class="input-costume">
                     
                 </label>
@@ -26,7 +26,7 @@
             </div>
             <div class="spacer" style="height:30px;"></div>
             <label class="item item-input input-costume">
-                <i class="icon ion-ios-person placeholder-icon"></i>
+                <i class="icon ion-ios-person placeholder-icon" style="color:white"></i>
                 <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" style="color:white;font-weight:600;" class="input-costume">
             </label>
 

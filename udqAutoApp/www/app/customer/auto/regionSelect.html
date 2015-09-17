@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="选择区域" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfRegionSelect()" style="color:white;"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfRegionSelect()" style="color:white;width:40px"></button>
         </ion-nav-buttons>
 
     </ion-nav-bar>
@@ -12,7 +12,7 @@
         </div>
 
         <ion-list class="input-costume" ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid" >
-            <ion-radio ng-model="autoInfo.selectedRegionId"  ng-click="goBackOfCitySelect()" value={{region.id}} class="input-costume"><p>{{region.name}}</p></ion-radio>
+            <ion-radio ng-model="autoInfo.selectedRegionId"  ng-click="goBackOfCitySelect()" value={{region.id}} class="input-costume-radio"><p style="color:black;">{{region.name}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

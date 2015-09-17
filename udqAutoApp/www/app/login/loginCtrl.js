@@ -4,7 +4,7 @@
 根据不同的用户类型，跳转到不同的main页面
 */
 angular.module('udqApp')
-    .controller('loginCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'loginSvr', 'registerSvr', 'jpushSvr',function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, loginSvr, registerSvr, jpushSvr) {
+    .controller('loginCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$window', 'loginSvr', 'registerSvr', 'jpushSvr', 'popUpSvr', function ($scope, $interval, $state, $ionicHistory, $window, loginSvr, registerSvr, jpushSvr, popUpSvr) {
 
         $scope.user = {
             mobile : '',
@@ -17,9 +17,17 @@ angular.module('udqApp')
         $scope.tips = '验证码';
         /*获取验证码*/
         $scope.getValidateCode = function () {
+            if ($scope.user.mobile == undefined) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
+            if ($scope.user.mobile.length == 0) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
             /*判断电话号码是否合法*/
             if (!checkMobile($scope.user.mobile)) {
-                showAlert('号码须11位数字，以1开头');
+                popUpSvr.showAlert('号码须11位数字，以1开头');
                 return;
             }
             /*判断该电话号码是否已经注册,调用短信服务*/
@@ -27,7 +35,7 @@ angular.module('udqApp')
                 function (data) {
                     /*判断是否已经注册*/
                     if (data.isSuccess == false) {
-                        showAlert('该号码尚未注册');
+                        popUpSvr.showAlert('该号码尚未注册');
                     } else {
                         /*已注册，则调用短信服务，并且倒计时*/
                         registerSvr.sendMSG($scope.user.mobile).then(
@@ -38,13 +46,13 @@ angular.module('udqApp')
                                 }
                             }, function (data) {
                                 console.log(data);
-                                showAlert(data);
+                                popUpSvr.showAlert(data);
                             });
                         $scope.countDown();
                     }
                 },
                 function (data) {
-                    showAlert(data);
+                    popUpSvr.showAlert(data);
                 });
 
         }
@@ -96,13 +104,21 @@ angular.module('udqApp')
             $scope.stopCountDown();
         })
         $scope.login = function () {
+            if ($scope.user.mobile == undefined) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
+            if ($scope.user.mobile.length == 0) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
             /*检查输入是否合法*/
             if (!checkMobile($scope.user.mobile)) {
-                showAlert('号码须11位数字，以1开头');
+                popUpSvr.showAlert('号码须11位数字，以1开头');
                 return;
             }
             if ($scope.user.psd != $scope.verifyCode) {
-                showAlert('验证码不正确');
+                popUpSvr.showAlert('验证码不正确');
                 return;
             }
             /*1、检查本地是否保存该电话号码
@@ -135,11 +151,11 @@ angular.module('udqApp')
                         goToHomeByUserType(userType);
 
                     } else {
-                        showAlert(data.msg);
+                        popUpSvr.showAlert(data.msg);
                         return;
                     }
                 }, function (data) {
-                    showAlert(data);
+                    popUpSvr.showAlert(data);
                 });
             }
         //}
@@ -168,15 +184,5 @@ angular.module('udqApp')
         /*点击注册*/
         $scope.register = function () {
             $state.go('customerRegister');
-        };
-        /*登录出现问题*/
-        var showAlert = function (msg) {
-            var alertPopup = $ionicPopup.alert({
-                title: '温馨提示',
-                template: msg
-            });
-            alertPopup.then(function (res) {
-                console.log(msg);
-            });
         };
     }])

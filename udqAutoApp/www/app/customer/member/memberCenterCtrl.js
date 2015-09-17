@@ -1,5 +1,6 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window', '$ionicPopup', 'customerMemberInfoSvr','loginSvr', 'jpushSvr', function ($scope, $timeout, $state, $ionicHistory, $window, $ionicPopup, customerMemberInfoSvr,loginSvr, jpushSvr) {
+	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window','customerMemberInfoSvr', 'loginSvr', 'jpushSvr', 'APP_CONFIG', 'popUpSvr', function ($scope, $timeout, $state, $ionicHistory, $window,customerMemberInfoSvr, loginSvr, jpushSvr, APP_CONFIG, popUpSvr) {
+	    var baseUrl = APP_CONFIG.server.getUrl();
 	    customerMemberInfoSvr.getUserInfo($window.localStorage['userID']).then(
             function (data) {
                 if (data.isSuccess) {
@@ -29,6 +30,13 @@ angular.module('udqApp')
             function (data) {
                 if (data.isSuccess) {
                     $scope.washShopInfo = data.rows;
+                    for (var i = 0; i < $scope.washShopInfo.length; i++) {
+                        if ($scope.washShopInfo[i].photoUrl == "" || $scope.washShopInfo[i].photoUrl == undefined || $scope.washShopInfo[i].photoUrl == null) {
+                            $scope.washShopInfo[i].photoUrl = "image/mydianqu.png";
+                        } else {
+                            $scope.washShopInfo[i].photoUrl = baseUrl + $scope.washShopInfo[i].photoUrl; 
+                        }
+                    }
                 } else {
                     console.log(data.msg);
                 }
@@ -54,7 +62,7 @@ angular.module('udqApp')
 	    $scope.saveMemberInfo = function () {
 	        /*判断电话号码是否合法*/
 	        if (!checkMobile($scope.user.mobile)) {
-	            showAlertOfFail('号码须11位数字，以1开头');
+	            popUpSvr.showAlert('号码须11位数字，以1开头');
 	            return;
 	        }
 	        customerMemberInfoSvr.editUserInfo($scope.user).then(
@@ -81,45 +89,24 @@ angular.module('udqApp')
 	        }
 	    }
         /*退出当前账户*/
-    	$scope.exitCurrentUser = function () {
-    	    $scope.showAlert_exit('注销当前用户？');
+	    $scope.exitCurrentUser = function () {
+	        popUpSvr.confirmExit('注销当前用户？').then(function (res) {
+	            if(res){
+	                $window.localStorage['loginState'] = 0;
+	                $window.localStorage['userID'] = 0;
+	                $window.localStorage['mobile'] = '';
+	                $window.localStorage['userName'] = '';
+	                $window.localStorage['userType'] = 0;
+	                $window.localStorage['sex'] = 0;
+
+	                $state.go('customerHome');
+	                console.log('退出当前用户');
+	            } else {
+	                console.log('you are not sure');
+	            }
+	        });
     	}
-    	$scope.showAlert_exit = function (msg) {
-
-    	    var alertPopup = $ionicPopup.show({
-    	        template: msg,
-    	        scope: $scope,
-    	        buttons: [
-                    {
-                        text: '取消',
-                        type:'button-dark'
-                    },
-                    {
-                        text: '注销',
-                        type:'buttton-stable',
-                        onTap:function(e){
-                            $window.localStorage['loginState'] = 0;
-                            $window.localStorage['userID'] = 0;
-                            $window.localStorage['mobile'] = '';
-                            $window.localStorage['userName'] = '';
-                            $window.localStorage['userType'] = 0;
-                            $window.localStorage['sex'] = 0;
-
-                            $state.go('customerHome');
-                            console.log('退出当前用户');
-                            console.log(msg);
-                        }
-                    }
-    	        ]
-    	    });
-
-    	    alertPopup.then(function (res) {
-    	        
-    	    });
-    	    $timeout(function () {
-    	        alertPopup.close(); //close the popup after 3 seconds for some reason
-    	    }, 3000);
-    	}
+    	
 
     	var showAlertOfFail = function (errorMsg) {
     	    var alertPopup = $ionicPopup.alert({

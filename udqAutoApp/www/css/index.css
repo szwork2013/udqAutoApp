@@ -24,6 +24,10 @@ div.title.title-center.header-item{
 .tab-costume:checked{
     background-color:#fff; 
 }
+.input-costume-radio{
+    color:black;
+    background-color:#17bed0;
+}
 .input-costume{
     color:white;
     background-color:#17bed0;
@@ -136,8 +140,9 @@ label div.item-content:checked{
     padding-left:4px;
     padding-right:4px;
     width:inherit;
-    border-color:#0082d4;
+    border-color:rgba(0, 130, 212, 0);
     background-color:#0082d4;
+    height:33px;
 
 }
 .makeorder-auto-span{
@@ -179,8 +184,7 @@ label div.item-content:checked{
     background-color:#17bed0;
 }
 .washtype-ion-checkbox{
-    padding-bottom:6.5px;
-    padding-top:6.5px;
+    background-color:#17bed0;
     border:1px solid #374d58;
     width:auto;
 }
@@ -196,5 +200,8 @@ label div.item-content:checked{
 /*金额*/
 .a-custome{
     color:red;
+}
+.button-sure{
+    background-color:#fafb75;
 }
 

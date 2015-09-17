@@ -1,7 +1,6 @@
 ﻿<ion-view title="我的订单" class="ion-view-costum">
     <ion-content padding="true" class="has-header">
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div style="text-align:center;margin-top:5px;" ng-show="hasNoOrder"><p>暂无订单</p></div>
         <ion-list>
             <ion-item ng-repeat="order in orderList" class="input-costume">
                 <div ng-click="goToSeeOrder(order)">
@@ -18,7 +17,7 @@
                 <ion-option-button class="button-assertive" ng-show="order.state==1" ng-click="cancelOrder(order)"><p>取消</p></ion-option-button>
                 <ion-option-button class="button-positive" ng-show="order.state==2||order.state==3||order.state==10||order.state==11" ng-click="scanOrder(order)"><p>查看</p></ion-option-button>
                 <ion-option-button class="button-royal" ng-show='order.state==4' ng-click="judgeOrder(order)"><p>评价</p></ion-option-button>
-                <ion-option-button class="button-energized" ng-show='order.state==5' ng-click="shareOrder(order)"><p>分享</p></ion-option-button>
+                <!--<ion-option-button class="button-energized" ng-show='order.state==5' ng-click="shareOrder(order)"><p>分享</p></ion-option-button>-->
             </ion-item>
         </ion-list>
     </ion-content>

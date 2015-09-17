@@ -1,13 +1,15 @@
 ﻿angular.module('udqApp')
-   .controller('employeeAcceptedOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'employeeOrderSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, employeeOrderSvr) {
+   .controller('employeeAcceptedOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'employeeOrderSvr', 'LoadingSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, employeeOrderSvr, LoadingSvr) {
 
        $scope.order = {
            states: [2,3],
            washerId: $window.localStorage['userID']
        };
+       LoadingSvr.show();
        var promise = employeeOrderSvr.getOrderByState($scope.order);
        promise.then(
            function (data) {
+               LoadingSvr.hide();
                $scope.orderInfo = data.rows;
                console.log("数量：" + data.rows.length);
            }, function (data) {

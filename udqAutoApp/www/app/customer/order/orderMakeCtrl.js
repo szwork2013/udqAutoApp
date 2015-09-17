@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'popUpSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, popUpSvr) {
         
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
@@ -188,7 +188,13 @@
                 $state.go('customerAutoList', { 'typeSelect': 'goToAuto' });
             } else {
                 /*提醒用户尚未登录或者注册*/
-                showAlertOfLogin('用户尚未登录或者注册');
+                popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
+                    function (res) {
+                        if (res) {
+                            $ionicHistory.clearHistory();
+                            $state.go('login');
+                        }
+                    });;
             }
         }
         /*保存选择，跳转到小区选择*/
@@ -200,7 +206,13 @@
                 $state.go('customerRegionSelect', { 'typeSelect': 'goToRegion' });
             } else {
                 /*提醒用户尚未登录或者注册*/
-                showAlertOfLogin('用户尚未登录或者注册');
+                popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
+                    function (res) {
+                        if (res) {
+                            $ionicHistory.clearHistory();
+                            $state.go('login');
+                        }
+                    });;
             }
 
         }
@@ -217,7 +229,13 @@
         /*提交订单*/
         $scope.commitOrder = function () {
             if ($window.localStorage["loginState"] != 1) {
-                showAlertOfLogin('用户尚未登录或者注册');
+                popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
+                    function (res) {
+                        if (res) {
+                            $ionicHistory.clearHistory();
+                            $state.go('login');
+                        }
+                    });
                 return;
             }
             if (!checkOrder()) {
@@ -231,7 +249,7 @@
         var checkOrder = function () {
             /*获取洗车类型*/
             if ($scope.types == undefined) {
-                showAlertOfFail('未连接上服务器');
+                popUpSvr.showAlert('未连接上服务器');
                 return true;
             }
             $scope.order.washTypeIds = [];
@@ -243,11 +261,11 @@
                 }
             }
             if ($scope.selectedAuto.selectedAutoId == undefined) {
-                showAlertOfFail('请选择车辆');
+                popUpSvr.showAlert('请选择车辆');
                 return true;
             }
             if ($scope.selectedAuto.selectedRegionId == undefined) {
-                showAlertOfFail('请选择小区');
+                popUpSvr.showAlert('请选择小区');
                 return true;
             }
             /*获取车辆Id,小区Id*/

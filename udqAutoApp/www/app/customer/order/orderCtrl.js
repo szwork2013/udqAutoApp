@@ -6,15 +6,17 @@ cutomer订单页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$stateParams', '$window', '$ionicActionSheet', 'customerOrderSvr', 'employeeOrderSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $stateParams, $window, $ionicActionSheet, customerOrderSvr, employeeOrderSvr) {
+    .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$stateParams', '$window', '$ionicActionSheet', 'customerOrderSvr', 'employeeOrderSvr', 'LoadingSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $stateParams, $window, $ionicActionSheet, customerOrderSvr, employeeOrderSvr, LoadingSvr) {
         var orderDate = $stateParams.orderDate;
         $scope.selectOrder = customerOrderSvr.getSelectedOrder();
         $scope.noMoreOrderAvailable = true;
+        LoadingSvr.show();
         /*获取订单*/
         var promise = customerOrderSvr.getOrdersList(orderDate);
         promise.then(
             function (data) {
                 if (data.isSuccess) {
+                    LoadingSvr.hide();
                     if (data.rows.length > 0) {
                         $scope.orderList = data.rows;
                         $scope.hasNoOrder = false;

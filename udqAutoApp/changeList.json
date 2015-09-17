@@ -754,9 +754,7 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\util\\appconfig.js",
-    "www\\app\\customer\\order\\ordermgr.html",
-    "www\\app\\customer\\order\\orderctrl.js"
+    "www\\app\\common\\ionicLoading.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -771,7 +769,13 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\util\\appconfig.js"
+    "www\\app\\common\\ionicLoading.js",
+    "www\\app\\customer\\order\\orderCtrl.js",
+    "www\\app\\employee\\order\\acceptedOrderCtrl.js",
+    "www\\app\\employee\\order\\finishedOrderCtrl.js",
+    "www\\app\\employee\\order\\newOrderCtrl.js",
+    "www\\app\\customer\\order\\historyOrder.html",
+    "www\\app\\customer\\order\\recentlyOrder.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
