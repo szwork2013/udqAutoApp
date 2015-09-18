@@ -384,6 +384,7 @@
     "plugins\\org.apache.cordova.camera\\tests\\ios\\CDVCameraTest\\CDVCameraLibTests\\CameraTest.m",
     "plugins\\cordova-plugin-file-transfer\\doc\\de\\README.md",
     "plugins\\org.apache.cordova.splashscreen\\doc\\ko\\index.md",
+    "www\\app\\common\\ionicLoading.js",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\document\\iOS_handle_install.md",
     "plugins\\cordova-plugin-file\\CONTRIBUTING.md",
     "plugins\\cordova-plugin-file-transfer\\www\\blackberry10\\FileTransferProxy.js",
@@ -754,7 +755,8 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\common\\ionicLoading.js"
+    "www\\app\\util\\appconfig.js",
+    "www\\app\\customer\\auto\\autoadd.html"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -769,13 +771,8 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\common\\ionicLoading.js",
-    "www\\app\\customer\\order\\orderCtrl.js",
-    "www\\app\\employee\\order\\acceptedOrderCtrl.js",
-    "www\\app\\employee\\order\\finishedOrderCtrl.js",
-    "www\\app\\employee\\order\\newOrderCtrl.js",
-    "www\\app\\customer\\order\\historyOrder.html",
-    "www\\app\\customer\\order\\recentlyOrder.html"
+    "www\\app\\customer\\order\\orderList.html",
+    "www\\app\\util\\appconfig.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

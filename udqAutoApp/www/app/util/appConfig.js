@@ -13,7 +13,8 @@ angular.module('udqApp')
         后台服务配置
         */
         server: {
-            address: 'http://www.udianqu.com',
+            address:'http://www.udianqu.com',
+            //address: 'http://192.168.1.106',
             name:'udqweb',
             port: '8080',
             getUrl: function () {

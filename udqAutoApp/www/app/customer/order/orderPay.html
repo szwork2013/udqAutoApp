@@ -1,19 +1,19 @@
 ﻿<ion-view view-title="选择支付方式" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBack()" style="color:white;width:40px"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBack()" style="color:white;width:33px;font-size:25px"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-content>
         <ion-list>
             <ion-radio ng-model="order.channel" value="alipay">
-                <img src="image/logo/64x64.png" />
-                <p>支付宝</p>
+                <img style="width:40px;height:40px" src="image/logo/64x64.png" />
+                <p style="color:black">支付宝</p>
             </ion-radio>
             <ion-radio ng-model="order.channel" value="wx">
-                <img src="image/logo/icon64_appwx_logo.png" />
-                <p>微信支付</p>
+                <img  style="width:40px;height:40px" src="image/logo/icon64_appwx_logo.png" />
+                <p style="color:black">&nbsp;微信</p>
             </ion-radio>
         </ion-list>
         <div class="spacer" style="height:20px;"></div>

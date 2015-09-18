@@ -19,10 +19,10 @@ div.title.title-center.header-item{
     font-weight:bold; 
 }
 .tab-costume:active{
-    background-color:#fff;
+    background-color:#17bed0;
 }
 .tab-costume:checked{
-    background-color:#fff; 
+    background-color:#17bed0; 
 }
 .input-costume-radio{
     color:black;
