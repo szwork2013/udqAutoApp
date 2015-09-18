@@ -1,7 +1,7 @@
 ﻿angular.module('udqApp')
    .controller('employeeOrderInfoCtrl', ['$scope', '$ionicPopup', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'APP_CONFIG', function ($scope,$ionicPopup, $window, $state, $ionicHistory, employeeOrderSvr, APP_CONFIG) {
 
-       var baseUrl = APP_CONFIG.server.getUrl();
+       //var baseUrl = APP_CONFIG.server.getUrl();
        $scope.order = employeeOrderSvr.getSelectedOrder();
        if ($scope.order.couponName == "") {
            $scope.order.couponName = "未使用优惠券";

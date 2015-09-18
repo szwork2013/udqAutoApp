@@ -63,7 +63,7 @@ angular.module('udqApp')
 	    /*回跳*/
 	    $scope.goBack = function () {
 	        $ionicHistory.clearHistory();
-	        $state.go('customerHome');
+	        $state.go('customerMyDQ');
 	    }
 	    /*(自定义)数组移除指定元素*/
 	    var ArrayRemove = function (array, item) {

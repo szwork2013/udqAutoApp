@@ -1,6 +1,6 @@
 ﻿angular.module('udqApp')
      .service('customerOrderSvr', ['$http', '$q', '$window', 'APP_CONFIG', function ($http, $q, $window, APP_CONFIG) {
-         var bathUrl = APP_CONFIG.server.getUrl();
+         var baseUrl = APP_CONFIG.server.getUrl();
 
          var _types;
          var _selectedAutoId;
@@ -49,6 +49,9 @@
          }
          this.setSelectedOrder = function (order) {
              _selectedOrder = order;
+             _selectedOrder.photoUrl1 = baseUrl + order.photoUrl1;
+             _selectedOrder.photoUrl2 = baseUrl + order.photoUrl2;
+             _selectedOrder.photoUrl3 = baseUrl + order.photoUrl3;
          }
 
          this.setType = function (types) {
@@ -72,9 +75,9 @@
              _selectedType = type;
          }
          /*获取所有订单*/
-         this.getOrdersList = function () {
+         this.getOrdersList = function (orderDate) {
              var userId = $window.localStorage['userID'];
-             var url = bathUrl + 'fzmgr/order/getOrderByUserId4App.do?userId=' + userId;
+             var url = baseUrl + 'order/getOrderByUserId4App.do?userId=' + userId+'&orderDate='+orderDate;
 
              var deferred = $q.defer();
              $http.get(url).success(
@@ -88,7 +91,7 @@
          }
          /*获取未确认订单*/
          this.getEvaluateOrders = function () {
-             var url = bathUrl + '';
+             var url = baseUrl + '';
 
              var deferred = $q.defer();
              $http.get(url).success(
@@ -102,7 +105,7 @@
          }
          /*获取已完成订单*/
          this.getFinishedeOrders = function () {
-             var url = bathUrl + '';
+             var url = baseUrl + '';
 
              var deferred = $q.defer();
              $http.get(url).success(
@@ -116,8 +119,10 @@
          }
          /*取消订单*/
          this.cancelOrder = function (order) {
-             var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
+             var url = baseUrl + 'order/handleOrder4App.do';
              var orderInfo = {
+                 userId: order.userId,
+                 autoPN: order.autoPN,
                  orderNo: order.orderNo,
                  state: 10
              };
@@ -140,10 +145,11 @@
          }
          /*订单评价*/
          this.judgeOrder = function (order) {
-             var url = bathUrl + 'fzmgr/order/handleOrder4App.do';
+             var url = baseUrl + 'order/handleOrder4App.do';
              var orderInfo = {
                  orderNo: order.orderNo,
                  gradeUser: order.gradeUser,
+                 gradeUserNote:order.gradeUserNote,
                  state: 5
              };
              var deferred = $q.defer();

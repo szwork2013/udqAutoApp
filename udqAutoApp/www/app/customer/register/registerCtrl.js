@@ -6,17 +6,27 @@ cutomer 的注册页面
 3.继续添加，保存
 */
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerRegisterCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'registerSvr', 'regionSvr', 'loginSvr', 'jpushSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, registerSvr, regionSvr, loginSvr, jpushSvr) {
+    .controller('customerRegisterCtrl', ['$scope', '$interval', '$state', '$ionicHistory', '$ionicPopup', '$window', 'registerSvr', 'regionSvr', 'loginSvr', 'jpushSvr', 'popUpSvr', function ($scope, $interval, $state, $ionicHistory, $ionicPopup, $window, registerSvr, regionSvr, loginSvr, jpushSvr, popUpSvr) {
         $scope.userInfo = {
-            sex:1
+            sex: 1,
+            mobile : '',
+            psd: ''
         };
         $scope.confirmPassword = '';
         $scope.tips = '验证码';
         /*获取验证码*/
         $scope.getValidateCode = function () {
+            if ($scope.userInfo.mobile == undefined) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
+            if ($scope.userInfo.mobile.length == 0) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
             /*判断电话号码是否合法*/
             if (!checkMobile($scope.userInfo.mobile)) {
-                showAlertOfFail('号码须11位数字，以1开头');
+                popUpSvr.showAlert('号码须11位数字，以1开头');
                 return;
             }
             /*判断该电话号码是否已经注册,调用短信服务*/
@@ -24,7 +34,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 function (data) {
                     /*判断是否已经注册*/
                     if (data.isSuccess == true) {
-                        showAlertOfFail('该号码已经注册');
+                        popUpSvr.showAlert('该号码已经注册');
                     } else {
                         /*尚未注册，则调用短信服务，并且倒计时*/
                         registerSvr.sendMSG($scope.userInfo.mobile).then(
@@ -35,14 +45,14 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                                 }
                             }, function (data) {
                                 console.log(data);
-                                showAlertOfFail(data);
+                                popUpSvr.showAlert(data);
                             });
                         $scope.countDown();
                         $scope.registerDisabled = false;
                     }
                 },
                 function (data) {
-                    showAlertOfFail('注册操作失败');
+                    popUpSvr.showAlert('注册失败');
                 });
             
         }
@@ -102,9 +112,22 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.registerDisabled = true;
         /*注册*/
         $scope.register = function () {
+            if ($scope.userInfo.mobile == undefined) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
+            if ($scope.userInfo.mobile.length == 0) {
+                popUpSvr.showAlert('请输入手机号码');
+                return;
+            }
+            /*判断电话号码是否合法*/
+            if (!checkMobile($scope.userInfo.mobile)) {
+                popUpSvr.showAlert('号码须11位数字，以1开头');
+                return;
+            }
             /*校验验证码是否输入*/
             if ($scope.userInfo.psd != $scope.verifyCode) {
-                showAlertOfFail('验证码输入不正确');
+                popUpSvr.showAlert('验证码输入不正确');
                 return;
             }
             var promise = registerSvr.register($scope.userInfo);
@@ -119,12 +142,15 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                         $window.localStorage['userType'] = 2;
                         jpushSvr.setTagsWithAlias(['customer'], "customer"+data.data.id);
 
-        	            showAlertOfSuccess();
-        	        } else {
-        	            showAlertOfFail(data.msg);
+                        popUpSvr.showAlertOfLogin(data.msg).then(
+                            function (res) {
+                                $scope.goToAddAuto();
+                        });
+                    } else {
+                        popUpSvr.showAlert(data.msg); 
         	        }
         	}, function(data){
-        		showAlertOfFail('注册失败');
+        	    popUpSvr.showAlert('注册失败');
         	});
         };
 

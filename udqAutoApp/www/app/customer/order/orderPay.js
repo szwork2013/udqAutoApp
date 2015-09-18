@@ -15,6 +15,8 @@
                          pingpp.createPayment(data.data.charge,
                              function (result) {
                                  /*支付成功*/
+                                 $scope.order = data.data;
+                                 $scope.order.state = 1;
                                  customerOrderSvr.setSelectedOrder($scope.order);
                                  $ionicHistory.clearHistory();
                                  $state.go('customerOrderMgr');

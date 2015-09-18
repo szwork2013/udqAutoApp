@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="选择城市" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfCitySelect()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfCitySelect()" style="color:white;width:40px"></button>
 
         </ion-nav-buttons>
 
@@ -10,7 +10,7 @@
         <ion-refresher on-refresh="doRefreshOfCity()"></ion-refresher>
 
         <ion-list class="input-costume" ng-repeat="city in cities" >
-            <ion-radio ng-model="autoInfo.selectedCityId"  ng-click="goBackOfCitySelect()" value={{city.id}} class="input-costume" ><p>{{city.name}}</p></ion-radio>
+            <ion-radio ng-model="autoInfo.selectedCityId"  ng-click="goBackOfCitySelect()" value={{city.id}} class="input-costume-radio" ><p style="color:black;">{{city.name}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

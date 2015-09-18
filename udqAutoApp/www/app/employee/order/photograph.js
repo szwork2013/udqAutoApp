@@ -2,9 +2,9 @@
    .controller('employeePhotographCtrl', ['$scope', '$window', '$state', '$ionicHistory', 'employeeOrderSvr', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', function ($scope, $window, $state, $ionicHistory, employeeOrderSvr, cameraSvr, $ionicPopup, fileTransferSvr) {
 
        $scope.order = employeeOrderSvr.getSelectedOrder();
-       $scope.order.photoUrl1 = '../../image/break.png';
-       $scope.order.photoUrl2 = '../../image/break.png';
-       $scope.order.photoUrl3 = '../../image/break.png';
+       $scope.order.photoUrl1 = 'image/break.png';
+       $scope.order.photoUrl2 = 'image/break.png';
+       $scope.order.photoUrl3 = 'image/break.png';
        /*完成按钮*/
        $scope.finish = function () {
            employeeOrderSvr.finishOrder($scope.order)
@@ -34,11 +34,11 @@
            //删除Svr中保存的photoUrl
            switch (No) {
                case 1:
-                   $scope.order.photoUrl1 = "../../image/break.png"; break;
+                   $scope.order.photoUrl1 = "image/break.png"; break;
                case 2:
-                   $scope.order.photoUrl2 = "../../image/break.png"; break;
+                   $scope.order.photoUrl2 = "image/break.png"; break;
                case 3:
-                   $scope.order.photoUrl3 = "../../image/break.png"; break;
+                   $scope.order.photoUrl3 = "image/break.png"; break;
            }
            employeeOrderSvr.setSelectedOrder($scope.order);
            //删除后台照片，更新数据库
@@ -47,7 +47,7 @@
        }
        /*点击缩略图-跳转到大图*/
        $scope.gotoPhoto = function (No) {
-           if ($scope.order['photoUrl' + No] == '../../image/break.png') {
+           if ($scope.order['photoUrl' + No] == 'image/break.png') {
                return;
            }
            var image = document.getElementById("img" + No);

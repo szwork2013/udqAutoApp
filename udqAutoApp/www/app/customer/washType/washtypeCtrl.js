@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerWashtypeCtrl', ['$scope', '$state', '$ionicHistory', 'customerWashtypeSvr', function ($scope, $state, $ionicHistory, customerWashtypeSvr) {
+	.controller('customerWashtypeCtrl', ['$scope', '$state', '$ionicHistory', 'customerWashtypeSvr', 'customerOrderSvr', function ($scope, $state, $ionicHistory, customerWashtypeSvr, customerOrderSvr) {
 	    $scope.types = [];
 	    var promise = customerWashtypeSvr.callWashType();
 	    promise.then(
@@ -19,6 +19,10 @@ angular.module('udqApp')
 	        $ionicHistory.clearHistory();
 	        $state.go('customerHome');
 	    }
-        /*washTypeNote页面显示信息*/
-	    $scope.type = customerWashtypeSvr.getWashType();
+	    /*跳转到洗车类型服务详情*/
+	    $scope.goToTypeNote = function (type) {
+	        customerOrderSvr.setSelectedType(type);
+	        $ionicHistory.clearHistory();
+	        $state.go("customerWashtypeNote", { 'typeSelect': 'goToWashTypeNote', 'backParam': 'washTypeIntroduce'});
+	    }
 	}])

@@ -1,13 +1,45 @@
 ﻿angular.module('udqApp')
-    .service('popUpSvr', [ '$ionicPopup', function ($ionicPopup) {
-        this.confirm = function (msg) {
+    .service('popUpSvr', ['$ionicPopup', '$timeout', '$q', function ($ionicPopup, $timeout, $q) {
+        this.confirmExit = function (msg) {
+            var deferred = $q.defer();
+            var tabOn = 0;/*0对应取消，1对应确认*/
             var popUp = $ionicPopup.show(
                 {
                     template: '<p style="color:black;">' + msg + '</p>',
                     buttons: [
                         {
-                            text:'确认',
-                            type: 'allbutton'
+                            text:'取消',
+                            type: 'button-dark',
+                            onTap: function (e) {
+                                tabOn = 0;
+                            }
+                        },
+                        {
+                            text: '确定',
+                            type: 'button-sure',
+                            onTap: function (e) {
+                                tabOn = 1;
+                            }
+                        }
+                    ]
+                });
+            popUp.then(function (res) {
+                deferred.resolve(tabOn);
+            });
+            //$timeout(function () {
+            //    popUp.close(); //close the popup after 3 seconds for some reason
+            //}, 3000);
+            
+            return deferred.promise;
+        }
+        this.showAlert = function (msg) {
+            var popUp = $ionicPopup.show(
+                {
+                    template: '<p style="color:black;">' + msg + '</p>',
+                    buttons: [
+                        {
+                            text: '确定',
+                            type: 'button-sure',
                         }
                     ]
                 });
@@ -17,5 +49,29 @@
             $timeout(function () {
                 popUp.close(); //close the popup after 3 seconds for some reason
             }, 3000);
+        }
+        this.showAlertOfLogin = function (msg) {
+            var deferred = $q.defer();
+            var tabOn = 0;
+            var popUp = $ionicPopup.show(
+                {
+                    template: '<p style="color:black;">' + msg + '</p>',
+                    buttons: [
+                        {
+                            text: '确定',
+                            type: 'buttton-sure',
+                            onTap: function (e) {
+                                tabOn = 1;
+                            }
+                        }
+                    ]
+                });
+            popUp.then(function (res) {
+                deferred.resolve(tabOn);
+            });
+            //$timeout(function () {
+            //    popUp.close(); //close the popup after 3 seconds for some reason
+            //}, 3000);
+            return deferred.promise;
         }
     }])

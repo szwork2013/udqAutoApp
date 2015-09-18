@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr) {
+	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', 'popUpSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr, popUpSvr) {
 	    var backName = $stateParams.backName;
 	    autoSvr.setBackName(backName);
 	    backName = autoSvr.getBackName();
@@ -62,7 +62,7 @@ angular.module('udqApp')
 		      2、调用数据数据服务，添加车辆*/
 		    var temp = checkAutoInfo($scope.autoInfo);
 		    if (temp != undefined) {
-		        showAlert(temp);
+		        popUpSvr.showAlert(temp);
 		        return;
 		    }
 		    
@@ -75,6 +75,7 @@ angular.module('udqApp')
                         $scope.goBack();
                     } else {
                         console.log(data.msg);
+                        popUpSvr.showAlert("请选择小区");
                         return;
                     }
 

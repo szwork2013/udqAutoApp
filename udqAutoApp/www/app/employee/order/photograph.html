@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="完成订单" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackToOrder()"></button>
+            <button class="button-clear icon ion-arrow-left-c" ng-click="goBackToOrder()" style="color:white;width:40px"></button>
         </ion-nav-buttons>
 
     </ion-nav-bar>
@@ -49,14 +49,13 @@
         </div>
         <div class="spacer" style="height:20px;"></div>
         <div class="row">
-            <div class="col col-20"><p class="makeorder-note-p">描述</p></div>
-            <div class="col col-80 item item-input input-costume">
-                <textarea placeholder="您有什么要告诉车主的，请写在这里。" ng-model="order.washerNote" rows="5" class="input-costume" style="color:#808a8f;"></textarea>
+            <div class="col col-100 item item-input input-costume">
+                <textarea placeholder="您有什么要告诉车主的，请写在这里。" ng-model="order.washerNote" rows="5" class="input-costume" style="color:white;width:100%;height:inherit"></textarea>
             </div>
         </div>
         <div class="spacer" style="height:5px;"></div>
         <div class="row">
-            <button class="allbutton button-block" ng-click="finish()">完成</button>
+            <button class="allbutton button-block button-small" ng-click="finish()">完成</button>
         </div>
         
 </ion-content>

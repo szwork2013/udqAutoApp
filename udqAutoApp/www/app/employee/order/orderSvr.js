@@ -12,9 +12,9 @@
         this.setSelectedOrder = function (order) {
             _selectedOrder = order;
             if (order.state == 4 || order.state == 5) {
-                _selectedOrder.photoUrl1 = baseUrl + "fzmgr/" + order.photoUrl1;
-                _selectedOrder.photoUrl2 = baseUrl + "fzmgr/" + order.photoUrl2;
-                _selectedOrder.photoUrl3 = baseUrl + "fzmgr/" + order.photoUrl3;
+                _selectedOrder.photoUrl1 = baseUrl + order.photoUrl1;
+                _selectedOrder.photoUrl2 = baseUrl + order.photoUrl2;
+                _selectedOrder.photoUrl3 = baseUrl + order.photoUrl3;
             }
         }
         this.getImgSrc = function () {
@@ -37,7 +37,7 @@
             //    photoUrl: 'photoUrl'+No
             //};
             //var orderInfoJS = JSON.stringify(data);
-            var url = baseUrl + 'fzmgr/order/deletePhoto4App.do?orderNo='+orderNo+'&No='+No;
+            var url = baseUrl + 'order/deletePhoto4App.do?orderNo='+orderNo+'&No='+No;
 
             var deferred = $q.defer();
             $http.post(url).success(
@@ -52,7 +52,7 @@
         /*根据state获取订单信息*/
         this.getOrderByState = function (order) {
             var orderInfoJS = JSON.stringify(order);
-            var url = baseUrl + 'fzmgr/order/getOrderByState4App.do';
+            var url = baseUrl + 'order/getOrderByState4App.do';
 
             var deferred = $q.defer();
             $http({
@@ -78,7 +78,7 @@
             };
             /*转换成json格式*/
             var orderInfoJS = JSON.stringify(data);
-            var url = baseUrl + 'fzmgr/order/handleOrder4App.do';
+            var url = baseUrl + 'order/handleOrder4App.do';
 
             var deferred = $q.defer();
             $http({
@@ -99,12 +99,13 @@
         /*取消订单*/
         this.cancelOrder = function (order) {
             var data = {
-                userId:order.userId,
+                userId: order.userId,
+                autoPN: order.autoPN,
                 orderNo: order.orderNo,
                 state: 11
             };
             var orderInfoJS = JSON.stringify(data);
-            var url = baseUrl + 'fzmgr/order/handleOrder4App.do';
+            var url = baseUrl + 'order/handleOrder4App.do';
 
             var deferred = $q.defer();
             $http({
@@ -130,7 +131,7 @@
                 state: 4
             };
             var orderInfoJS = JSON.stringify(data);
-            var url = baseUrl + 'fzmgr/order/handleOrder4App.do';
+            var url = baseUrl + 'order/handleOrder4App.do';
 
             var deferred = $q.defer();
             $http({

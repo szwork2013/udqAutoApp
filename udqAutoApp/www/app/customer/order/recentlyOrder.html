@@ -1,0 +1,24 @@
+﻿<ion-view title="我的订单" class="ion-view-costum">
+    <ion-content padding="true" class="has-header">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <ion-item ng-repeat="order in orderList" class="input-costume">
+                <div ng-click="goToSeeOrder(order)">
+                    <p>订单编号：{{order.orderNo}}</p>
+                    <p>车牌号：{{order.autoPN}} &nbsp&nbsp&nbsp金额：<a class="a-custome">{{order.finalAmount}}</a></p>
+                    <span class="badge input-costume" ng-show="order.state==0" style="font-size:14px;font-weight:600;">未支付</span>
+                    <span class="badge input-costume" ng-show="order.state==1" style="font-size:14px;font-weight:600;">已下单</span>
+                    <span class="badge input-costume" ng-show="order.state==10" style="font-size:14px;font-weight:600;">车主取消</span>
+                    <span class="badge input-costume" ng-show="order.state==11" style="font-size:14px;font-weight:600;">门店取消</span>
+                    <span class="badge input-costume" ng-show="order.state==2||order.state==3" style="font-size:14px;font-weight:600;">洗车中</span>
+                    <span class="badge input-costume" ng-show="order.state==4||order.state==5" style="font-size:14px;font-weight:600;">已完成</span>
+                </div>
+                <ion-option-button class="button-balanced" ng-show="order.state==0" ng-click="payOrder(order)"><p>支付</p></ion-option-button>
+                <ion-option-button class="button-assertive" ng-show="order.state==1" ng-click="cancelOrder(order)"><p>取消</p></ion-option-button>
+                <ion-option-button class="button-positive" ng-show="order.state==2||order.state==3||order.state==10||order.state==11" ng-click="scanOrder(order)"><p>查看</p></ion-option-button>
+                <ion-option-button class="button-royal" ng-show='order.state==4' ng-click="judgeOrder(order)"><p>评价</p></ion-option-button>
+                <!--<ion-option-button class="button-energized" ng-show='order.state==5' ng-click="shareOrder(order)"><p>分享</p></ion-option-button>-->
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,16 +1,15 @@
 ﻿<ion-view view-title="服务介绍" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfMain()"></button>
+            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfMain()" style="color:white;width:40px"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content has-subheader="false">
 
         <ion-list>
-            <ion-item ng-repeat="type in types" class="input-costume">
+            <ion-item ng-repeat="type in types" ng-click="goToTypeNote(type)" class="input-costume">
                     <p>{{type.name}}</p>
-                    <p>服务内容：{{type.note}}</p>
-                    <span class="badge input-costume">{{type.amount|currency:'￥'}}</span>
+                    <span class="badge a-custome">{{type.amount|currency:'￥'}}</span>
 
             </ion-item>
         </ion-list>
