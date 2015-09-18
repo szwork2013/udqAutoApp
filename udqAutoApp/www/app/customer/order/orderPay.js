@@ -6,6 +6,20 @@
         if ($scope.order.channel == undefined) {
             $scope.order.channel = 'alipay';/*设置支付方式初始值：支付宝*/
         }
+
+        $scope.payMethod = {
+            alipay: {
+                name: "alipay",
+                text: "支付宝",
+                imgUri: "image/logo/64x64.png"
+            },
+            wx: {
+                name: "wx",
+                text: "微信支付",
+                imgUri: "image/logo/icon64_appwx_logo.png"
+            }
+        };
+
         /*提交订单*/
         $scope.commitOrder = function () {
             customerOrderMakeSvr.commitOrder($scope.order).then(

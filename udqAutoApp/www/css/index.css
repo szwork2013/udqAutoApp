@@ -13,6 +13,14 @@ div.title.title-center.header-item{
     font-size:large;
     font-weight:700;
 }
+#tab_order div[class="tab-nav tabs"]{
+     background-color:#17bed0;
+} 
+#tab_order a{
+    color:white;
+    font-weight:bold;
+     background-color: #17bed0;
+}
 .tab-costume{
     color:black; 
     background-color:#17bed0;

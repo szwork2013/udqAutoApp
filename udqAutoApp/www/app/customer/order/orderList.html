@@ -5,12 +5,12 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <!--订单展示-->
-    <ion-tabs class="tabs-top input-costume">
-        <ion-tab title="最近" class="tab-costume" href="#/customerMyOrder/recentlyOrder?orderDate=recently">
+    <ion-tabs class="tabs-top input-costume" id="tab_order" style="background-color:rgba(23, 190, 208, 0);" >
+        <ion-tab title="最近"  id="div_recently"  style="background-color:rgba(23, 190, 208, 0);"   href="#/customerMyOrder/recentlyOrder?orderDate=recently">
             <ion-nav-view name="recentlyOrder-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="历史" class="tab-costume" href="#/customerMyOrder/historyOrder?orderDate=history">
+        <ion-tab title="历史"  id="div_history"  style="background-color:rgba(23, 190, 208, 0);" href="#/customerMyOrder/historyOrder?orderDate=history">
             <ion-nav-view name="historyOrder-tab"></ion-nav-view>
         </ion-tab>
 

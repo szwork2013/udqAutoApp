@@ -49046,9 +49046,9 @@ function($ionicModal, $ionicPosition, $document, $window) {
 
 var POPUP_TPL =
   '<div class="popup-container" ng-class="cssClass">' +
-    '<div class="popup">' +
+    '<div class="popup" style="background-color: #17bed0;">' +
       '<div class="popup-head">' +
-        '<h3 class="popup-title" ng-bind-html="title"></h3>' +
+        '<h3 class="popup-title" ng-bind-html="title" style="color:black;font-weight:bold;"></h3>' +
         '<h5 class="popup-sub-title" ng-bind-html="subTitle" ng-if="subTitle"></h5>' +
       '</div>' +
       '<div class="popup-body">' +

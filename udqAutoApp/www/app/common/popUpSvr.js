@@ -6,6 +6,7 @@
             var popUp = $ionicPopup.show(
                 {
                     template: '<p style="color:black;">' + msg + '</p>',
+                    title:'提示',
                     buttons: [
                         {
                             text:'取消',
