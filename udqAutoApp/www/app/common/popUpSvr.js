@@ -5,8 +5,8 @@
             var tabOn = 0;/*0对应取消，1对应确认*/
             var popUp = $ionicPopup.show(
                 {
+                    title: '提示',
                     template: '<p style="color:black;">' + msg + '</p>',
-                    title:'提示',
                     buttons: [
                         {
                             text:'取消',
@@ -36,6 +36,7 @@
         this.showAlert = function (msg) {
             var popUp = $ionicPopup.show(
                 {
+                    title: '提示',
                     template: '<p style="color:black;">' + msg + '</p>',
                     buttons: [
                         {
@@ -56,6 +57,7 @@
             var tabOn = 0;
             var popUp = $ionicPopup.show(
                 {
+                    title: '提示',
                     template: '<p style="color:black;">' + msg + '</p>',
                     buttons: [
                         {

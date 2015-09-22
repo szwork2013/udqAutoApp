@@ -4,7 +4,7 @@ cutomer 的主页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerHomeCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicTabsDelegate', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', function ($scope, $state, $ionicHistory, $window, $ionicTabsDelegate, cameraSvr, $ionicPopup, fileTransferSvr) {
+    .controller('customerHomeCtrl', ['$scope', '$state', '$ionicHistory', '$window', '$ionicTabsDelegate','autoSvr', 'cameraSvr', '$ionicPopup', 'fileTransferSvr', function ($scope, $state, $ionicHistory, $window, $ionicTabsDelegate,autoSvr, cameraSvr, $ionicPopup, fileTransferSvr) {
     	/*轮播图片*/
         $scope.images = [];
         /*跳转到我要洗车*/
@@ -40,6 +40,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
     	    /*判断是否已经登录*/
     	    $state.go('customerAutoMgr');
     	    if ($window.localStorage['loginState'] == '1') {
+    	        autoSvr.setBackParam("customerHome");
     	        $state.go('customerAutoMgr');
     	    } else {
     	        $state.go('login');

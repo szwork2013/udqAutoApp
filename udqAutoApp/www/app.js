@@ -116,12 +116,19 @@ angular.module('udqApp', ['ionic'])
                 }
             }
         })
-        /*车主我的点趣*/
+        /*车主-我的点趣*/
         .state('customerMyDQ', {
             cache: false,
             url: '/customerMyDQ',
             templateUrl: 'app/customer/member/memberCenter.html',
             controller: 'customerMemberCenterCtrl'
+        })
+        /*车主-我的点趣-充值*/
+        .state('customerRecharge', {
+            cache: false,
+            url: '/customerRecharge',
+            templateUrl: 'app/customer/member/recharge.html',
+            controller: 'customerRechargeCtrl'
         })
         /*车主-我的点趣-洗车店信息*/
         .state('customerWashShopInfo', {
@@ -163,6 +170,13 @@ angular.module('udqApp', ['ionic'])
             cache: false,
             url: '/customerAutoMgr',
             templateUrl: 'app/customer/auto/autoMgr.html',
+            controller: 'customerAutoMgrCtrl'
+        })
+        /*车主-车辆-详情*/
+        .state('customerAutoInfo', {
+            cache: false,
+            url: '/customerAutoInfo',
+            templateUrl: 'app/customer/auto/autoInfo.html',
             controller: 'customerAutoMgrCtrl'
         })
         /*车主-我要洗车-车辆选择*/

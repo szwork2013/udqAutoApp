@@ -1,11 +1,11 @@
 <ion-view view-title="洗车预约" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackMain()" style="color:white;width:33px;font-size:25px"></button>
+            <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackMain()"></button>
         </ion-nav-buttons>
-        <ion-nav-buttons side="right">
+        <!--<ion-nav-buttons side="right">
             <button class="button-clear" ng-click="commitOrder()" style="color:#fafb75;font-weight:600;">提交</button>
-        </ion-nav-buttons>
+        </ion-nav-buttons>-->
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
         <ion-list>
@@ -13,24 +13,38 @@
             <!-- 车辆信息、预约时间、详细地址（可选） -->
             <div class="item item-input makeorder-label" ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
                 <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
-                <input type="text" class="makeorder-input" style="background-color:white;" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）">
+                <label class="item-input-wrapper">
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）"/>
+                </label>
                 <span class="input-label makeorder-auto-span" ng-click="goToAutoList()"><i class="icon ion-chevron-right"></i></span>
             </div>
             <div class="item item-input makeorder-label" ng-repeat="dis in districts" ng-show="dis.id ==selectedAuto.selectedRegionId">
-                <span class="input-label makeorder-district-span"><i class="icon ion-ios-location-outline"></i></span>
-                <input type="text" class="makeorder-input" style="background-color:white;" readonly="readonly" ng-model="dis.name" placeholder="选择小区（必选）">
+                <span class="input-label makeorder-district-span"><i class="icon ion-home"></i></span>
+                <label class="item-input-wrapper">
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="dis.name" placeholder="选择小区（必选）"/>
+                </label>
                 <span class="input-label makeorder-district-span" ng-click="goToRegionSelect()"><i class="icon ion-chevron-right"></i></span>
             </div>
 
             <div class="item item-input makeorder-label" ng-show="selectedAuto.selectedAutoId ==undefined">
                 <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
-                <input type="text" class="makeorder-input" style="background-color:white;" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）">
+                <label class="item-input-wrapper">
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）"/>
+                </label>
                 <span class="input-label makeorder-auto-span"  ng-click="goToAutoList()"><i class="icon ion-chevron-right"></i></span>
             </div>
             <div class="item item-input makeorder-label" ng-show="undefined ==selectedAuto.selectedRegionId">
-                <span class="input-label makeorder-district-span"><i class="icon ion-ios-location-outline"></i></span>
-                <input type="text" class="makeorder-input" style="background-color:white;" readonly="readonly" ng-model="dis.name" placeholder="选择小区（必选）">
+                <span class="input-label makeorder-district-span"><i class="icon ion-home"></i></span>
+                <label class="item-input-wrapper">
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="dis.name" placeholder="选择小区（必选）"/>
+                </label>
                 <span class="input-label makeorder-district-span" ng-click="goToRegionSelect()"><i class="icon ion-chevron-right"></i></span>
+            </div>
+            <div class="item item-input makeorder-label" ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
+                <span class="input-label makeorder-position-span"><i class="icon ion-ios-location-outline"></i></span>
+                <label class="item-input-wrapper">
+                    <input type="text" ng-model="auto.position" placeholder="请输入车位..."/>
+                </label>
             </div>
             <!-- 选择洗车类型 -->
             <div class="item item-input makeorder-label">
@@ -50,21 +64,16 @@
 
             <div class="item makeorder-label item-input">
                 <div class="item item-input input-costume" style="width:99%">
-                    <textarea placeholder="您还有什么需求呢，请写在这里。" ng-model="order.userNote" rows="2" class="input-costume" style="color:#ffffff;"></textarea>
+                    <textarea placeholder="您的车辆位置及需求，请写在这里。" ng-model="order.userNote" rows="2" class="input-costume" style="color:#ffffff;"></textarea>
                 </div>
             </div>
 
             <div class="spacer" style="height:20px;"></div>
-            <div class="row row-bottom">
-                <div class="col-50">
-                    <p class="makeorder-currency-p" style="color:red;">￥</p>
-                </div>
-                <div class="col-50">
-                    <p class="makeorder-money-p" style="color:red;">总价<a>{{totalAmount}}</a>元</p>
-                </div>
+            <div style="margin-left:25%">
+                <p class="makeorder-money-p" style="color:red;"><a style="font-size:30px">￥</a>总价<a style="font-size:25px">{{totalAmount}}</a>元</p>
             </div>
 
         </ion-list>
-
+        <button class="allbutton button-block button-small" style="width:90%;margin-left:5%;" ng-click="commitOrder()">提交订单</button>
     </ion-content>
 </ion-view>

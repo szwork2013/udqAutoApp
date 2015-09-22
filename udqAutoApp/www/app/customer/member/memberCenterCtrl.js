@@ -1,17 +1,17 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope', '$timeout', '$state', '$ionicHistory', '$window','customerMemberInfoSvr', 'loginSvr', 'jpushSvr', 'APP_CONFIG', 'popUpSvr', function ($scope, $timeout, $state, $ionicHistory, $window,customerMemberInfoSvr, loginSvr, jpushSvr, APP_CONFIG, popUpSvr) {
+	.controller('customerMemberCenterCtrl', ['$scope','$state', '$ionicHistory', '$window', 'customerMemberInfoSvr', 'autoSvr', 'loginSvr', 'jpushSvr', 'APP_CONFIG', 'popUpSvr', function ($scope,$state, $ionicHistory, $window, customerMemberInfoSvr,autoSvr, loginSvr, jpushSvr, APP_CONFIG, popUpSvr) {
 	    var baseUrl = APP_CONFIG.server.getUrl();
 	    customerMemberInfoSvr.getUserInfo($window.localStorage['userID']).then(
             function (data) {
                 if (data.isSuccess) {
                     $scope.user = data.data;
                 } else {
-                    showAlert(data.msg);
+                   console.log(data.msg);
                 }
                 
             },
             function (data) {
-                showAlert(data);
+                console.log(data);
             });
 	    $scope.man = '男';
 	    $scope.woman = '女';
@@ -19,6 +19,11 @@ angular.module('udqApp')
 	    $scope.goToCenter = function () {
 	        $ionicHistory.clearHistory();
 	        $state.go('customerMyDQ');
+	    }
+	    /*跳转到充值界面*/
+	    $scope.goToRecharge = function () {
+	        $ionicHistory.clearHistory();
+	        $state.go('customerRecharge');
 	    }
         /*跳转到洗车店信息*/
 	    $scope.goToWashShopInfo = function () {
@@ -43,10 +48,12 @@ angular.module('udqApp')
 
             },
             function (data) {
-                showAlert(data);
+                console.log(data);
             });
 	    /*跳转到车辆列表*/
 	    $scope.goToAutoList = function () {
+	        $ionicHistory.clearHistory();
+	        autoSvr.setBackParam("customerMyDQ");
 	        $state.go('customerAutoMgr');
 	    }
 
@@ -72,7 +79,7 @@ angular.module('udqApp')
                     $window.localStorage['sex'] = $scope.user.sex;
                     $scope.goToCenter();
                 } else {
-                    $scope.showAlert(data.msg);
+                    popUpSvr.showAlert(data.msg);
                 }
             },
             function (data) {

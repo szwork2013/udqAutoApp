@@ -1,0 +1,36 @@
+﻿<ion-view view-title="车辆信息" class="ion-view-costum">
+    <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackOfAutoInfo()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-list>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>车牌号</h2></span>
+                <p>{{selectedAuto.pn}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>品牌</h2></span>
+                <p>{{selectedAuto.brand}}</p>
+            </label>
+
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>颜色</h2></span>
+                <p>{{selectedAuto.color}}</p>
+            </label>
+            <label class="item item-input input-costume" ng-show="selectedAuto.model!=''">
+                <span class="input-label"><h2>型号</h2></span>
+                <p>{{selectedAuto.model}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>区域</h2></span>
+                <p>{{selectedAuto.regionName}}</p>
+            </label>
+            <label class="item item-input input-costume">
+                <span class="input-label"><h2>车位</h2></span>
+                <p>{{selectedAuto.position}}</p>
+            </label>
+        </ion-list>
+    </ion-content>
+</ion-view>

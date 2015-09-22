@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderPayCtrl', ['$scope', '$ionicHistory', '$ionicPopup', '$stateParams', '$state', 'customerOrderMakeSvr', 'customerOrderSvr', function ($scope, $ionicHistory, $ionicPopup, $stateParams, $state, customerOrderMakeSvr, customerOrderSvr) {
+    .controller('customerOrderPayCtrl', ['$scope', '$ionicHistory', '$ionicPopup', '$stateParams', '$state', 'customerOrderMakeSvr', 'customerOrderSvr', 'popUpSvr', function ($scope, $ionicHistory, $ionicPopup, $stateParams, $state, customerOrderMakeSvr, customerOrderSvr, popUpSvr) {
         var orderParam = angular.fromJson($stateParams.order);/*传递过来的订单信息*/
         var state = $stateParams.state;/*前一个页面的state*/
         $scope.order = orderParam;
@@ -38,7 +38,7 @@
                          function (result) {
                              /*fail和cancel*/
                              if (result == 'fail') {
-                                 $scope.alertPopup();
+                                 popUpSvr.showAlert('支付失败，请重试！');
                              } else if (result == 'cancel') {
                                  console.log('取消支付');
                              }

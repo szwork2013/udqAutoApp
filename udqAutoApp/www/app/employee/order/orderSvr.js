@@ -6,6 +6,15 @@
         var _imgUrlInfo;
         
         this.getSelectedOrder = function () {
+            if (_selectedOrder.photoUrl1 == baseUrl) {
+                _selectedOrder.photoUrl1 = "image/break.png";
+            }
+            if (_selectedOrder.photoUrl2 == baseUrl) {
+                _selectedOrder.photoUrl2 = "image/break.png";
+            }
+            if (_selectedOrder.photoUrl3 == baseUrl) {
+                _selectedOrder.photoUrl3 = "image/break.png";
+            }
             return _selectedOrder;
         }
         /*从数据库中取的photoUrl需要做处理*/

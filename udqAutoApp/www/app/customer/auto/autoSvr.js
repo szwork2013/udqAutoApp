@@ -4,6 +4,13 @@
          var _autoInfo;
          var _defaultRegionId;
          var _backName;
+         var _backParam;
+         this.getBackParam = function () {
+             return _backParam;
+         }
+         this.setBackParam = function (backParam) {
+             _backParam = backParam;
+         }
          this.getBackName = function () {
              return _backName;
          }
@@ -29,7 +36,8 @@
                  brand: autosInfo.brand,
                  model: autosInfo.model,
                  color: autosInfo.color,
-                 defaultRegionId: autosInfo.selectedDistrictId
+                 defaultRegionId: autosInfo.selectedDistrictId,
+                 position: autosInfo.position
              };
              /*转换成json格式*/
              var autoInfoJS = JSON.stringify(auto);

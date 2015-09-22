@@ -2,11 +2,11 @@
 <ion-view align-title="center" title="点趣车生活" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBack()" style="color:white;width:33px;font-size:25px"></button>
+            <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
-    <ion-content padding="true" class="has-header">
+    <ion-content>
         <!-- 图片轮播 -->
         <ion-slide-box >
             <ion-slide>
@@ -59,13 +59,13 @@
                         <i class="icon ion-key placeholder-icon" style="color:white"></i>
                         <input type="tel" placeholder="请输入手机验证码" ng-model="user.psd" class="input-costume" style="color:white;font-weight:600;">
                     </label>
-                    <button class="allbutton button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
+                    <button class="registerInloginPage button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
                         {{tips}}
                     </button>
                 </div>
             </ion-list>
-            <button class="allbutton button-block button-small" ng-click="login()">登录</button>
-            <button class="registerInloginPage  button-block button-small" ng-click="register()">注册</button>
+            <button class="allbutton  button-block button-small" style="width:90%;margin-left:5%;" ng-click="login()">登录</button>
+            <button class="registerInloginPage  button-block button-small" style="width:90%;margin-left:5%;" ng-click="register()">注册</button>
         </form>
     </ion-content>
 

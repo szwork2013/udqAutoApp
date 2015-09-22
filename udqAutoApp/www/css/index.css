@@ -10,8 +10,8 @@
 }
 /*页面标题字体修改*/
 div.title.title-center.header-item{
-    font-size:large;
-    font-weight:700;
+    font-size:20px;
+    font-weight:bold;
 }
 #tab_order div[class="tab-nav tabs"]{
      background-color:#17bed0;
@@ -22,7 +22,7 @@ div.title.title-center.header-item{
      background-color: #17bed0;
 }
 .tab-costume{
-    color:black; 
+    color:#383641; 
     background-color:#17bed0;
     font-weight:bold; 
 }
@@ -33,7 +33,7 @@ div.title.title-center.header-item{
     background-color:#17bed0; 
 }
 .input-costume-radio{
-    color:black;
+    color:#383641;
     background-color:#17bed0;
 }
 .input-costume{
@@ -49,15 +49,12 @@ div.title.title-center.header-item{
 ion-radio:checked{
     background-color:#17bed0;
 }
-h1,h2,h3,h4,p{
-    color:white;
-}
 p{
-    font-size:14px;
+    font-size:16px;
     font-weight:600;
 }
 a{
-    font-size:15px;
+    font-size:17px;
     font-weight:700;
 }
 .makeorder-p{
@@ -71,11 +68,11 @@ a{
     font-weight:600;
 }
 .makeorder-currency-p{
-    font-size:40px;
+    font-size:30px;
     text-align:right;
 }
 .makeorder-money-p{
-    font-weight:600;
+    font-size:25px;
     text-align:left;
 }
 ion-item.item div.item-content{
@@ -85,34 +82,28 @@ ion-list div label.item div.item-content{
     background-color:#17bed0;
 }
 h2,h3,h4,p,.item p{
-    color:white;
+    color:#383641;
 }
 /*button*/
 .allbutton{
-    background-color:#fafb75;
-    border-color:#fafb75;
-    font-size:12px;
-    color:black;
-    text-align:center;
-    border:#fafb75 solid ;
+    background-color:#f83838;
+    color:#383641;
+    font-size:16px;
+    border:#f83838 solid ;
     border-radius:3px;
-    margin-top:6px;
-    margin-top:6px;
-    line-height:none;
+    margin-top:15px;
 }
 .allbutton:active{
-    background-color:#f2f376;
-    border-color:#f2f376;
+    background-color:#b93333;
+    border-color:#b93333;
 }
 /*注册按钮*/
 .registerInloginPage{
-    background-color:#cb6363;
-    font-size:12px;
-    color:black;
-    text-align:center;
-    border:#cb6363 solid ;
+    background-color:#fafb75;
+    color:#383641;
+    font-size:16px;
+    border:#fafb75 solid ;
     border-radius:3px;
-    margin-top:6px;
     margin-top:6px;
 }
 .registerInloginPage:active{
@@ -121,7 +112,7 @@ h2,h3,h4,p,.item p{
 }
 /*输入框内的输入字体*/
 .member-span-text{
-    font-size:14px;
+    font-size:16px;
     color:white;
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
@@ -169,6 +160,15 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
+    background-color:#b93333;
+}
+.makeorder-position-span{
+    padding-bottom:7px;
+    padding-top:7px;
+    padding-left:4px;
+    padding-right:4px;
+    text-align:center;
+    width:40px;
     background-color:#808080;
 }
 .makeorder-note-span{
@@ -183,7 +183,7 @@ label div.item-content:checked{
 .makeorder-input{
     background-color:white;
     padding:0px 0px 0px 0px;
-    color:black;
+    color:#f83838;
     font-weight:600;
     text-align:center;
 }
@@ -207,9 +207,22 @@ label div.item-content:checked{
 }
 /*金额*/
 .a-custome{
+    font-size:15px;
     color:red;
 }
 .button-sure{
     background-color:#fafb75;
+}
+.span-mark{
+    color:black;
+    font-size:14px;
+    font-weight:bold;
+}
+.select-p{
+    color:#fafb75;
+}
+input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly]{
+    background-color:#eee;
+    cursor: not-allowed;
 }
 

@@ -62,4 +62,29 @@
 	    this.setUserInfo = function (userInfo) {
 	        _userInfo = userInfo;
 	    }
+	    /*充值*/
+	    this.recharge = function (balance) {
+	        var data = {
+	            userId: balance.userId,
+	            channel: balance.channel,
+	            amount: balance.amount
+	        };
+
+	        url = baseUrl + 'userBalance/recharge4App.do';
+
+	        var deferred = $q.defer();
+	        $http({
+	            url: url,
+	            method: 'post',
+	            data: {
+	                balanceInfo: JSON.stringify(data)
+	            }
+	        }).success(function (data, status, headers, config) {
+	            deferred.resolve(data);
+	        })
+                .error(function (data, status, headers, config) {
+                    deferred.reject('提交失败');
+                });
+	        return deferred.promise;
+	    }
 	}])

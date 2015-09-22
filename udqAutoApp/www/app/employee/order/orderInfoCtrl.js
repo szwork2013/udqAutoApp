@@ -12,9 +12,15 @@
        if ($scope.order.customerGrade == "") {
            $scope.order.customerGrade = "无";
        }
+       if ($scope.order.gradeUserNote == "" || $scope.order.gradeUserNote == undefined) {
+           $scope.order.gradeUserNote = "无";
+       }
 
        /*点击缩略图-跳转到大图*/
        $scope.gotoPhoto = function (No) {
+           if ($scope.order['photoUrl' + No] == 'image/break.png') {
+               return;
+           }
            var image = document.getElementById("img" + No);
            employeeOrderSvr.setImgSrc(image.src);
            if (image.naturalHeight == 0 && image.naturalWidth  == 0) {

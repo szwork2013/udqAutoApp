@@ -156,6 +156,7 @@
     "plugins\\cordova-plugin-file\\src\\android\\FileUtils.java",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\CaptureWidget.qml",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\example\\css\\.DS_Store",
+    "www\\css\\udqicon.css",
     "plugins\\org.apache.cordova.network-information\\src\\tizen\\NetworkProxy.js",
     "resources\\android\\splash\\drawable-port-mdpi-screen.png",
     "plugins\\org.apache.cordova.camera\\www\\Camera.js",
@@ -272,6 +273,7 @@
     "plugins\\cn.jpush.phonegap.JPushPlugin\\example\\css\\mobiscroll.jqm-2.0.1.css",
     "res\\icons\\windows\\StoreLogo.scale-240.png",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Channels\\Alipay\\AlipaySDK.bundle\\refresh@2x.png",
+    "www\\app\\customer\\member\\recharge.html",
     "plugins\\cordova-plugin-file-transfer\\LICENSE",
     "www\\image\\circleImg\\device.png",
     "plugins\\cordova-plugin-file\\www\\blackberry10\\removeRecursively.js",
@@ -640,6 +642,7 @@
     "res\\icons\\wp8\\ApplicationIcon.png",
     "www\\app\\customer\\washType\\washTypeNote.html",
     "plugins\\cordova-plugin-file\\doc\\es\\index.md",
+    "www\\app\\customer\\member\\rechargeCtrl.js",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\README.md",
     "plugins\\org.apache.cordova.network-information\\doc\\es\\index.md",
     "plugins\\cordova-plugin-file\\src\\android\\TypeMismatchException.java",
@@ -713,6 +716,7 @@
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\toolbar-middle.png",
     "plugins\\org.apache.cordova.camera\\tests\\ios\\CDVCameraTest.xcworkspace\\xcshareddata\\CDVCameraTest.xccheckout",
     "plugins\\cordova-plugin-whitelist\\RELEASENOTES.md",
+    "www\\app\\customer\\auto\\autoInfo.html",
     "resources\\android\\splash\\drawable-port-xxxhdpi-screen.png",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi-v7a\\libjpush175.so",
     "plugins\\cordova-plugin-file\\doc\\it\\index.md",
@@ -755,7 +759,8 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\common\\popupsvr.js",
+    "www\\app\\customer\\order\\ordermake.html",
+    "www\\app\\customer\\order\\ordermakectrl.js",
     "www\\app\\util\\appconfig.js"
   ],
   "deletedFilesIos": [],
@@ -772,8 +777,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\order\\orderList.html",
-    "www\\app\\employee\\order\\orderList.html"
+    "www\\app\\util\\appconfig.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

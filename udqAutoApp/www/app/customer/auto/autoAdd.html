@@ -1,28 +1,28 @@
 <ion-view title="添加车辆信息" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
-        <ion-nav-buttons side="left" >
-            <button class="button-clear icon ion-chevron-left" ng-click="goBack()" style="color:white;width:33px;font-size:25px"></button>
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content padding="true" class="has-header">
+    <ion-content>
         <form>
             <ion-list>
                 <label class="item item-input input-costume">
                     <i class="icon ion-model-s placeholder-icon" style="color:white"></i>
-                    <input type="text" name="pn" ng-model="autoInfo.pn" placeholder="请输入车牌号" ng-trim="true" ngMaxlength="11" class="input-costume" style="color:white;font-weight:600;" required>
+                    <input type="text" name="pn" ng-model="autoInfo.pn" placeholder="请输入车牌号(必填)" ng-trim="true" ngMaxlength="11" class="input-costume" style="color:white;font-weight:600;" required>
                 </label>
                 <div class="spacer" style="height:10px;"></div>
                 <label class="item item-input input-costume">
                     <i class="icon ion-ios-color-filter-outline placeholder-icon" style="color:white"></i>
-                    <input type="text" name="brand" ng-model="autoInfo.brand" placeholder="请输入品牌" class="input-costume" style="color:white;font-weight:600;" required>
+                    <input type="text" name="brand" ng-model="autoInfo.brand" placeholder="请输入品牌(必填)" class="input-costume" style="color:white;font-weight:600;" required>
                 </label>
                 <label class="item item-input input-costume">
                     <i class="icon ion-android-color-palette placeholder-icon" style="color:white"></i>
-                    <input type="text" name="color" ng-model="autoInfo.color" class="input-costume" placeholder="请输入颜色"  style="color:white;font-weight:600;" >
+                    <input type="text" name="color" ng-model="autoInfo.color" class="input-costume" placeholder="请输入颜色(必填)"  style="color:white;font-weight:600;" required>
                 </label>
                 <label class="item item-input input-costume">
                     <i class="icon ion-android-options placeholder-icon" style="color:white"></i>
-                    <input type="text" name="model" ng-model="autoInfo.model" placeholder="请输入型号" class="input-costume"  style="color:white;font-weight:600;">
+                    <input type="text" name="model" ng-model="autoInfo.model" placeholder="请输入型号(非必填)" class="input-costume"  style="color:white;font-weight:600;">
                 </label>
                 <div class="spacer" style="height:10px;"></div>
                 <!-- 选择小区 -->
@@ -62,8 +62,12 @@
                         </ul>
                     </div>
                 </a>
+                <label class="item item-input input-costume">
+                    <i class="icon ion-location placeholder-icon" style="color:white"></i>
+                    <input type="text" name="color" ng-model="autoInfo.position" class="input-costume" placeholder="请输入车位(非必填)" style="color:white;font-weight:600;">
+                </label>
             </ion-list>
-            <button class="allbutton button-block button-small" ng-click="addAuto()">确认</button>
+            <button class="allbutton button-block button-small"  style="width:90%;margin-left:5%;" ng-click="addAuto()">确认</button>
         </form>
     </ion-content>
 </ion-view>

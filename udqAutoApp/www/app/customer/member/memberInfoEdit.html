@@ -2,15 +2,14 @@
 <ion-view title="编辑个人信息" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goToCenter()" style="color:white;width:33px;font-size:25px"></button>
+            <button class="button button-clear icon ion-ios-arrow-back" ng-click="goToCenter()"></button>
         </ion-nav-buttons>
-        <ion-nav-buttons side="right">
+        <!--<ion-nav-buttons side="right">
             <button class="button-clear" ng-click="saveMemberInfo()" style="color:#fafb75;font-weight:600;">保存</button>
-        </ion-nav-buttons>
+        </ion-nav-buttons>-->
     </ion-nav-bar>
 
-    <ion-content padding="true" class="has-header">
-        <form>
+    <ion-content>
             <ion-list>
                 <!--输入称呼和性别-->
                 <label class="item item-input input-costume">
@@ -21,11 +20,11 @@
                     <span class="input-label"><h2>手机</h2></span>
                     <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您要变更的手机号" style="color:white;" required>
                 </label>
-                <ion-item class="input-costume" style="color:white;">
+                <ion-item class="input-costume" style="color:#383641;">
                     <input  type="radio" name="sex" checked ng-model="user.sex" value='1' />男士&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input  type="radio" name="sex" ng-model="user.sex" value='2' />女士
                 </ion-item>
             </ion-list>
-        </form>
+        <button class="allbutton  button-block button-small" style="width:90%;margin-left:5%;" ng-click="saveMemberInfo()">保存</button>
     </ion-content>
 </ion-view>

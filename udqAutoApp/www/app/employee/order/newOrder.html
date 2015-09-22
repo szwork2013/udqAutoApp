@@ -1,10 +1,10 @@
 ﻿<ion-view title="洗车店" class="ion-view-costum">
-    <ion-content padding="true" class="has-header">
+    <ion-content>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <ion-list>
             <ion-item ng-repeat="order in orderInfo" ng-click="goToOrderInfo(order)" class="input-costume">
-                <p>车牌: {{order.autoPN}}</p>
-                <p>时间：{{order.orderTime}}，金额：{{order.finalAmount}}</p>
+                <p>订单编号: {{order.orderNo}}</p>
+                <p>车牌：{{order.autoPN}}，金额：<span class="a-custome">{{order.finalAmount|currency:'￥'}}</span></p>
 
                 <ion-option-button class="button-washstore-accept" ng-click="acceptOrder(order)">
                     接收订单

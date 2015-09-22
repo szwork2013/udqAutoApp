@@ -15,7 +15,6 @@
             customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
             customerOrderSvr.setUserNote($scope.order.userNote);
         }
-
         $scope.selectedAuto = {};
         /*数据区*/
         $scope.order = {
@@ -241,6 +240,7 @@
             if (!checkOrder()) {
                 saveWashTypeAndSelectAutoInfo();
                 $ionicHistory.clearHistory();
+                $scope.order.totalAmount = $scope.totalAmount;
                 $state.go('customerOrderpay', { 'order': angular.toJson($scope.order), 'state': 'customerOrderMake' });
             }
 
@@ -271,6 +271,7 @@
             /*获取车辆Id,小区Id*/
             $scope.order.autoId = $scope.selectedAuto.selectedAutoId;
             $scope.order.regionId = $scope.selectedAuto.selectedRegionId;
+            //$scope.order.autoPosition = $scope.auto.position;
 
         }
         var showAlertOfFail = function (errorMsg) {

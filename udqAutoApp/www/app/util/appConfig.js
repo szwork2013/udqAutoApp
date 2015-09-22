@@ -14,7 +14,7 @@ angular.module('udqApp')
         */
         server: {
             address:'http://www.udianqu.com',
-            //address: 'http://192.168.1.106',
+            //address: 'http://192.168.1.100',
             name:'udqweb',
             port: '8080',
             getUrl: function () {

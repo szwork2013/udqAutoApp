@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="选择小区" class="ion-view-costum">
     <ion-nav-bar class="ion-nav-bar-costume" align-title="center">
         <ion-nav-buttons side="left">
-            <button class="button-clear icon ion-chevron-left" ng-click="goBackOfDistrictSelect()" style="color:white;width:33px;font-size:25px"></button>
+            <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackOfDistrictSelect()"></button>
 
         </ion-nav-buttons>
 
@@ -12,7 +12,7 @@
             <p>请先选择区域</p>
         </div>
         <ion-list class="input-costume" ng-repeat="district in districts" ng-show="district.pid ==autoInfo.selectedDistrictPid" >
-            <ion-radio ng-model="autoInfo.selectedDistrictId"  ng-click="goBackOfCitySelect()" value={{district.id}} class="input-costume-radio"><p style="color:black;">{{district.name}}</p></ion-radio>
+            <ion-radio ng-model="autoInfo.selectedDistrictId"  ng-click="goBackOfDistrictSelect()" value={{district.id}} class="input-costume-radio"><p style="color:#383641;">{{district.name}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

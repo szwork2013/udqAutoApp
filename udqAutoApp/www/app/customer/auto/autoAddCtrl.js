@@ -49,7 +49,10 @@ angular.module('udqApp')
 	        if (auto.brand == undefined) {
 	            return '请输入您的爱车品牌';
 	        }
-	        /*颜色、型号*/
+	        /*颜色*/
+	        if (auto.color == undefined || auto.color == "") {
+	            return '请输入您的爱车颜色';
+	        }
 	        /*小区selectedRegionId*/
 	        if (auto.selectedRegionId == undefined) {
 	            return '请选择小区';
@@ -124,21 +127,24 @@ angular.module('udqApp')
 
 	    $scope.goBackOfCitySelect = function () {
 	        /*保存到service*/
+	        $scope.autoInfo.selectedRegionId = undefined;
+	        $scope.autoInfo.selectedDistrictId = undefined;
 	        saveAutoInfoToSvr($scope.autoInfo);
 	        $ionicHistory.clearHistory();
-	        $state.go('customerAutoAdd', { 'typeSelect': 'city' });
+	        $state.go('customerAutoAdd');
 	    }
 	    $scope.goBackOfRegionSelect = function () {
 	        /*保存到service*/
+	        $scope.autoInfo.selectedDistrictId = undefined;
 	        saveAutoInfoToSvr($scope.autoInfo);
 	        $ionicHistory.clearHistory();
-	        $state.go('customerAutoAdd', { 'typeSelect': 'region' });
+	        $state.go('customerAutoAdd');
 	    }
 	    $scope.goBackOfDistrictSelect = function () {
 	        /*保存到service*/
 	        saveAutoInfoToSvr($scope.autoInfo);
 	        $ionicHistory.clearHistory();
-	        $state.go('customerAutoAdd', { 'typeSelect': 'district' });
+	        $state.go('customerAutoAdd');
 	    }
 		
         /*根据backName回跳之前的界面*/
@@ -151,8 +157,6 @@ angular.module('udqApp')
 	            $state.go(backName);
 	        }
 		}
-
-		
 
         /*保存添加车辆信息到服务中*/
 		var saveAutoInfoToSvr = function (autoInfo) {

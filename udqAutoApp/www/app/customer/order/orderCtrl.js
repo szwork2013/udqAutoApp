@@ -9,6 +9,12 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
     .controller('customerOrderCtrl', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$stateParams', '$window', '$ionicActionSheet', 'customerOrderSvr', 'employeeOrderSvr', 'LoadingSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $stateParams, $window, $ionicActionSheet, customerOrderSvr, employeeOrderSvr, LoadingSvr) {
         var orderDate = $stateParams.orderDate;
         $scope.selectOrder = customerOrderSvr.getSelectedOrder();
+        if ($scope.selectOrder.userNote == "") {
+            $scope.selectOrder.userNote = "无";
+        }
+        if ($scope.selectOrder.washerNote == "") {
+            $scope.selectOrder.washerNote = "无";
+        }
         $scope.noMoreOrderAvailable = true;
         LoadingSvr.show();
         /*获取订单*/
@@ -201,6 +207,9 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         }
         /*订单信息-点击缩略图片-跳转到大图*/
         $scope.gotoPhoto = function (No) {
+            if ($scope.selectOrder['photoUrl' + No] == 'image/break.png') {
+                return;
+            }
             var image = document.getElementById("img" + No);
             employeeOrderSvr.setImgSrc(image.src);
             if (image.naturalHeight == 0 && image.naturalWidth == 0) {
