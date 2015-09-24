@@ -23,7 +23,7 @@ angular.module('udqApp')
 	    /*跳转到充值界面*/
 	    $scope.goToRecharge = function () {
 	        $ionicHistory.clearHistory();
-	        $state.go('customerRecharge');
+	        $state.go('customerRecharge', { 'backParam': 'customerMyDQ' });
 	    }
         /*跳转到洗车店信息*/
 	    $scope.goToWashShopInfo = function () {

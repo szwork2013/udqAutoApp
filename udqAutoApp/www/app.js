@@ -126,7 +126,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我的点趣-充值*/
         .state('customerRecharge', {
             cache: false,
-            url: '/customerRecharge',
+            url: '/customerRecharge?backParam',
             templateUrl: 'app/customer/member/recharge.html',
             controller: 'customerRechargeCtrl'
         })
@@ -311,7 +311,9 @@ angular.module('udqApp', ['ionic'])
            templateUrl: 'app/customer/order/orderMgr.html',
            controller: 'customerOrderCtrl'
        })
+      /*车主-支付*/
        .state('customerOrderpay', {
+           cache: false,
            url: '/customerOrderpay?order&state',
            templateUrl: 'app/customer/order/orderPay.html',
            controller: 'customerOrderPayCtrl'

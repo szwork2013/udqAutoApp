@@ -40,7 +40,7 @@
                 </label>
                 <span class="input-label makeorder-district-span" ng-click="goToRegionSelect()"><i class="icon ion-chevron-right"></i></span>
             </div>
-            <div class="item item-input makeorder-label" ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
+            <div class="item item-input makeorder-label">
                 <span class="input-label makeorder-position-span"><i class="icon ion-ios-location-outline"></i></span>
                 <label class="item-input-wrapper">
                     <input type="text" ng-model="auto.position" placeholder="请输入车位..."/>
@@ -53,7 +53,7 @@
 
             <div class="input-costume" ng-repeat="type in types">
                 <div class="item item-input makeorder-label">
-                    <ion-checkbox ng-model="type.check" ng-true-value="1" ng-false-value="2" class="col col-100 washtype-ion-checkbox" ng-click="changeTotalAmount()">
+                    <ion-checkbox ng-model="type.check" ng-true-value="1" ng-false-value="2" class="col col-100 washtype-ion-checkbox" ng-disabled={{type.state}} ng-click="changeTotalAmount()">
                         <p style="display:block;float:right">{{type.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a class="a-custome">{{type.amount|currency:'￥'}}</a></p>
                     </ion-checkbox>
                     <button class="input-label makeorder-washtype-span" ng-click="goToTypeNote(type)">详情</button>
@@ -64,7 +64,7 @@
 
             <div class="item makeorder-label item-input">
                 <div class="item item-input input-costume" style="width:99%">
-                    <textarea placeholder="您的车辆位置及需求，请写在这里。" ng-model="order.userNote" rows="2" class="input-costume" style="color:#ffffff;"></textarea>
+                    <textarea placeholder="您有什么需求，请写在这里。" ng-model="order.userNote" rows="2" class="input-costume" style="color:#ffffff;"></textarea>
                 </div>
             </div>
 

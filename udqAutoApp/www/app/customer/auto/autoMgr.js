@@ -18,6 +18,7 @@ angular.module('udqApp')
                 console.log(data);
             }
         );
+	    /*获取所选择的车辆详情*/
 	    $scope.selectedAuto = autoSvr.getAutoInfo();
 	    /*车辆详情*/
 	    $scope.goToAutoInfo = function (auto) {
@@ -30,8 +31,9 @@ angular.module('udqApp')
 	    }
 	    /*删除车辆*/
 	    $scope.deleteAuto = function (item) {
-	        popUpSvr.confirmExit('注销当前用户？').then(function (res) {
-	            if (res) {
+	        popUpSvr.confirmExit('删除此车辆？').then(
+                function (res) {
+	              if (res) {
 	                var promise = autoSvr.deleteAutoItem(item.id);
 	                promise.then(
                         function (data) {

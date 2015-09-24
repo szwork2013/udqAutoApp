@@ -6,6 +6,7 @@
                 <div>
                     <p>订单编号: {{order.orderNo}}</p>
                     <p>车牌：{{order.autoPN}}，金额：<span class="a-custome">{{order.finalAmount|currency:'￥'}}</span></p>
+                    <p>洗车类型：{{order.washTypeName}}</p>
                     <span class="badge span-mark" ng-show="order.state==5">已评价</span>
                 </div>
 

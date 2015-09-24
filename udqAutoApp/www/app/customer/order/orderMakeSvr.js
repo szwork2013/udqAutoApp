@@ -10,6 +10,7 @@
                 fixedAmounts: order.fixedAmounts,
                 userId: order.userId,
                 autoId: order.autoId,
+                autoPosition:order.autoPosition,
                 regionId: order.regionId,
                 orgId: order.regionId,
                 userNote: order.userNote,

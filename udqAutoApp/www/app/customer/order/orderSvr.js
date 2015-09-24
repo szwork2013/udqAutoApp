@@ -3,6 +3,7 @@
          var baseUrl = APP_CONFIG.server.getUrl();
 
          var _types;
+         var _selectedAuto;
          var _selectedAutoId;
          var _selectedDistrictId;
          var _selectedRegionId;
@@ -11,6 +12,30 @@
          var _userNote;
          var _selectedType;
          var _selectedOrder = {};/*我的订单中当前选中的订单*/
+         /*支付页面保存的参数*/
+         var _state;
+         var _order;
+
+         this.getState = function () {
+             return _state;
+         }
+         this.setState = function (state) {
+             _state = state;
+         }
+
+         this.getOrder = function () {
+             return _order;
+         }
+         this.setOrder = function (order) {
+             _order = order;
+         }
+
+         this.getSelectedAuto = function () {
+             return _selectedAuto;
+         }
+         this.setSelectedAuto = function (auto) {
+             _selectedAuto = auto;
+         }
 
          this.getUserNote = function () {
              return _userNote;

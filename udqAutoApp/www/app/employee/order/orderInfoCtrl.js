@@ -15,6 +15,12 @@
        if ($scope.order.gradeUserNote == "" || $scope.order.gradeUserNote == undefined) {
            $scope.order.gradeUserNote = "无";
        }
+       if ($scope.order.autoPosition == "") {
+           $scope.order.autoPosition = "未填写";
+       }
+       if ($scope.order.autoModel == "") {
+           $scope.order.autoModel = "未填写";
+       }
 
        /*点击缩略图-跳转到大图*/
        $scope.gotoPhoto = function (No) {

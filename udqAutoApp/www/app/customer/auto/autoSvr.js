@@ -30,7 +30,7 @@
          /*添加车辆*/
          this.addAutoItem = function (autosInfo) {
              var auto = {
-                 id: autosInfo.id,
+                 id: 0,
                  userId: autosInfo.userId,
                  pn: autosInfo.pn,
                  brand: autosInfo.brand,

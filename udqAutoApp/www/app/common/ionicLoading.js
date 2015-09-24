@@ -6,7 +6,7 @@
         });
         $timeout(function () {
             $ionicLoading.hide(); 
-        }, 3000);
+        }, 5000);
     }
     this.hide = function () {
         $ionicLoading.hide();

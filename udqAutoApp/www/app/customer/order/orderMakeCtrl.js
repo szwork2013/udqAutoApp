@@ -4,17 +4,21 @@
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
             $scope.types = customerOrderSvr.getTypes();
+            $scope.auto = customerOrderSvr.getSelectedAuto();
             $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();
             $scope.selectedAuto.selectedRegionId = customerOrderSvr.getSelectedRegionId();
             $scope.order.userNote = customerOrderSvr.getUserNote();
         }
+
         /*保存选择的洗车类型，选择的车辆以及选择的小区*/
         var saveWashTypeAndSelectAutoInfo = function () {
             customerOrderSvr.setType($scope.types);
             customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
             customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
             customerOrderSvr.setUserNote($scope.order.userNote);
+            customerOrderSvr.setSelectedAuto($scope.auto);
         }
+        $scope.auto = {};
         $scope.selectedAuto = {};
         /*数据区*/
         $scope.order = {
@@ -34,8 +38,10 @@
                             for (var i = 0; i < data.rows.length; i++) {
                                 if (i == 0) {
                                     $scope.types[i].check = 1;
+                                    $scope.types[i].state = true;//锁定
                                     $scope.totalAmount = $scope.types[i].amount;
                                 } else {
+                                    $scope.types[i].state = false;
                                     $scope.types[i].check = 2;
                                 }
                             }
@@ -55,6 +61,7 @@
                                 if ($scope.autoInfo != undefined && $scope.autoInfo.length > 0) {
                                     $scope.selectedAuto.selectedAutoId = $scope.autoInfo[0].id;
                                     $scope.selectedAuto.selectedRegionId = $scope.autoInfo[0].defaultRegionId;
+                                    $scope.auto = $scope.autoInfo[0];
                                 }
                             } else {
                                 console.log('用户无车辆信息，未添加车辆');
@@ -170,7 +177,7 @@
                 );
                 break;
         }
-
+        
         /*跳转到洗车类型服务详情*/
         $scope.goToTypeNote = function (type) {
             saveWashTypeAndSelectAutoInfo();
@@ -240,7 +247,6 @@
             if (!checkOrder()) {
                 saveWashTypeAndSelectAutoInfo();
                 $ionicHistory.clearHistory();
-                $scope.order.totalAmount = $scope.totalAmount;
                 $state.go('customerOrderpay', { 'order': angular.toJson($scope.order), 'state': 'customerOrderMake' });
             }
 
@@ -268,10 +274,15 @@
                 popUpSvr.showAlert('请选择小区');
                 return true;
             }
+            if ($scope.auto.position == undefined || $scope.auto.position == "") {
+                popUpSvr.showAlert('请填写车位');
+                return true;
+            }
+            $scope.order.totalAmount = $scope.totalAmount;
             /*获取车辆Id,小区Id*/
             $scope.order.autoId = $scope.selectedAuto.selectedAutoId;
             $scope.order.regionId = $scope.selectedAuto.selectedRegionId;
-            //$scope.order.autoPosition = $scope.auto.position;
+            $scope.order.autoPosition = $scope.auto.position;
 
         }
         var showAlertOfFail = function (errorMsg) {
@@ -343,9 +354,10 @@
             $ionicHistory.clearHistory();
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
-        $scope.goBackOfAuto = function () {
+        $scope.goBackOfAuto = function (auto) {
             /*保存在service*/
             if ($scope.autoInfo != undefined && $scope.autoInfo.length > 0) {
+                customerOrderSvr.setSelectedAuto(auto);
                 customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
                 /*选择车辆改变，则联动小区也改变*/
                 var indexOfAuto = 0;

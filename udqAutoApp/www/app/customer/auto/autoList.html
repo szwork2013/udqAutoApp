@@ -13,7 +13,7 @@
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         
         <ion-list class="input-costume">
-                <ion-radio class="input-costume-radio" ng-model="selectedAuto.selectedAutoId" ng-click="goBackOfAuto()" value={{auto.id}} ng-repeat="auto in autoInfo"><p style="color:#383641;">{{auto.pn}}</p></ion-radio>
+                <ion-radio class="input-costume-radio" ng-model="selectedAuto.selectedAutoId" ng-click="goBackOfAuto(auto)" value={{auto.id}} ng-repeat="auto in autoInfo"><p style="color:#383641;">{{auto.pn}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

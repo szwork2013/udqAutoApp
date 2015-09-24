@@ -15,13 +15,13 @@
                 <div class="col col-50">
                     <p ng-show="user.name!=undefined">称呼：{{user.name}}</p>
                     <p ng-show="user.mobile!=undefined">手机：{{user.mobile}}</p> 
-                    <p ng-show="user.mobile!=undefined">余额：<a class="a-custome">{{user.balance}}</a>&nbsp;&nbsp;&nbsp;<button class="button-clear" ng-click="goToRecharger()" style="color:#fafb75;font-weight:600;border-color:#fafb75">充值</button></p>                    
+                    <p ng-show="user.mobile!=undefined">余额：<a class="a-custome">{{user.balance}}</a>&nbsp;&nbsp;&nbsp;<button class="button-clear" ng-click="goToRecharge()" style="color:#fafb75;font-weight:600;border-color:#fafb75">充值</button></p>                    
                 </div>
                 <div class="col col-20 col-center">
-                    <button class="item item-icon-right" ng-click="goToEditOwnerInfo()" style="border-color:#17bed0;background-color:#17bed0;">
-                        <i class="icon ion-ios-arrow-forward" style="font-size:50px"></i>
+                    <button class="button-clear" ng-click="goToEditOwnerInfo()" style="color:#262B2A;border-color:#262B2A;">
+                        编辑信息
+                       <!-- <i class="icon ion-ios-arrow-forward" style="font-size:50px"></i>-->
                     </button>
-                    
                 </div>
             </div>
             <div class="spacer" style="height:80px;"></div>
@@ -31,7 +31,7 @@
                         <button class="button ownbutton-circle" ng-click="goToWashShopInfo()">
                             <img src="image/aboutudianqu.png" style="vertical-align:central;height:100%; width:100%;" />
                         </button>
-                        <p class="home-p">洗车店</p>
+                        <p class="home-p">门店信息</p>
                     </div>
 
                 </div>

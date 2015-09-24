@@ -12,6 +12,7 @@
     "plugins\\cordova-plugin-file\\doc\\zh\\index.md",
     "www\\lib\\ionic\\js\\angular\\angular.min.js",
     "plugins\\org.apache.cordova.camera\\doc\\pl\\index.md",
+    "www\\image\\logo\\icon-96-xhdpi.png",
     "plugins\\cordova-plugin-file-transfer\\tests\\tests.js",
     "plugins\\cordova-plugin-file\\src\\ubuntu\\file.h",
     "plugins\\cordova-plugin-file-transfer\\NOTICE",
@@ -759,9 +760,10 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\order\\ordermake.html",
+    "www\\app\\customer\\order\\orderpay.js",
     "www\\app\\customer\\order\\ordermakectrl.js",
-    "www\\app\\util\\appconfig.js"
+    "www\\app\\customer\\auto\\autosvr.js",
+    "www\\app\\customer\\auto\\automgr.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -777,7 +779,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\util\\appconfig.js"
+    "www\\app\\employee\\order\\photograph.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
