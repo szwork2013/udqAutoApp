@@ -181,23 +181,20 @@
         /*跳转到洗车类型服务详情*/
         $scope.goToTypeNote = function (type) {
             saveWashTypeAndSelectAutoInfo();
-            customerOrderSvr.setSelectedType(type);
-            $ionicHistory.clearHistory();
+            customerOrderSvr.setSelectedType(type);            
             $state.go("customerWashtypeNote", { 'typeSelect': 'goToWashTypeNote' });
         }
         /*保存选择，跳转到车辆选择*/
         $scope.goToAutoList = function () {
             /*判断是否登录*/
             if (window.localStorage['loginState'] == 1) {
-                saveWashTypeAndSelectAutoInfo();
-                $ionicHistory.clearHistory();
+                saveWashTypeAndSelectAutoInfo();                
                 $state.go('customerAutoList', { 'typeSelect': 'goToAuto' });
             } else {
                 /*提醒用户尚未登录或者注册*/
                 popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
                     function (res) {
                         if (res) {
-                            $ionicHistory.clearHistory();
                             $state.go('login');
                         }
                     });;
@@ -207,15 +204,13 @@
         $scope.goToRegionSelect = function () {
             /*判断是否登录*/
             if (window.localStorage['loginState'] == 1) {
-                saveWashTypeAndSelectAutoInfo();
-                $ionicHistory.clearHistory();
+                saveWashTypeAndSelectAutoInfo();                
                 $state.go('customerRegionSelect', { 'typeSelect': 'goToRegion' });
             } else {
                 /*提醒用户尚未登录或者注册*/
                 popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
                     function (res) {
                         if (res) {
-                            $ionicHistory.clearHistory();
                             $state.go('login');
                         }
                     });;
@@ -224,12 +219,10 @@
         }
         /*预约洗车回转*/
         $scope.goBackMain = function () {
-            $ionicHistory.clearHistory();
             $state.go('customerHome');
         }
         /*(洗车类型、车辆选择、小区选择、时间预约)*/
         $scope.goBack = function () {
-            $ionicHistory.clearHistory();
             alert("sb");
         }
         /*提交订单*/
@@ -237,16 +230,14 @@
             if ($window.localStorage["loginState"] != 1) {
                 popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
                     function (res) {
-                        if (res) {
-                            $ionicHistory.clearHistory();
+                        if (res) {                            
                             $state.go('login');
                         }
                     });
                 return;
             }
             if (!checkOrder()) {
-                saveWashTypeAndSelectAutoInfo();
-                $ionicHistory.clearHistory();
+                saveWashTypeAndSelectAutoInfo();                
                 $state.go('customerOrderpay', { 'order': angular.toJson($scope.order), 'state': 'customerOrderMake' });
             }
 
@@ -300,16 +291,14 @@
                 title: '温馨提示',
                 template: msg
             });
-            alertPopup.then(function (res) {
-                $ionicHistory.clearHistory();
+            alertPopup.then(function (res) {                
                 $state.go('login');
                 console.log(msg);
             });
         }
         /*************************洗车类型服务详情******************************/
         /*返回预定洗车界面*/
-        $scope.goBackOfWashTypeNote = function () {
-            $ionicHistory.clearHistory();
+        $scope.goBackOfWashTypeNote = function () {            
             if (backParam == "washTypeIntroduce") {
                 $state.go("customerWashTypeIntroduce");
             } else {
@@ -350,8 +339,7 @@
                 }
                 $scope.selectedAuto.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
 
-            }
-            $ionicHistory.clearHistory();
+            }            
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function (auto) {
@@ -370,8 +358,7 @@
 
             }
 
-            /*跳转*/
-            $ionicHistory.clearHistory();
+            /*跳转*/            
             $state.go("customerOrderMake", { 'typeSelect': 'autoReturn' });
         }
         /***************************************************************/
@@ -384,8 +371,7 @@
             /*保存到service*/
             if ($scope.districts != undefined && $scope.districts.length > 0) {
                 customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
-            }
-            $ionicHistory.clearHistory();
+            }            
             $state.go('customerOrderMake', { 'typeSelect': 'regionReturn' });
         }
         $scope.on_select = function () {

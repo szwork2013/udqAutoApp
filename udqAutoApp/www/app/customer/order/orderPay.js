@@ -73,8 +73,7 @@
                          /*余额支付payType==100 */
                          if (data.data.payType == 100) {
                              $scope.order = data.data;
-                             customerOrderSvr.setSelectedOrder($scope.order);
-                             $ionicHistory.clearHistory();
+                             customerOrderSvr.setSelectedOrder($scope.order);                             
                              $state.go('customerOrderMgr');
                          } else {
                              pingpp.createPayment(data.data.charge,
@@ -83,7 +82,6 @@
                                  $scope.order = data.data;
                                  $scope.order.state = 1;
                                  customerOrderSvr.setSelectedOrder($scope.order);
-                                 $ionicHistory.clearHistory();
                                  $state.go('customerOrderMgr');
                              },
                          function (result) {

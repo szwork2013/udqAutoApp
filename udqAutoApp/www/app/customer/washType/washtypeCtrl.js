@@ -10,19 +10,16 @@ angular.module('udqApp')
                 console.log(data);
             });
         /*回跳到洗车服务*/
-	    $scope.goBackOfWashType = function () {
-	        $ionicHistory.clearHistory();
+	    $scope.goBackOfWashType = function () {	        
 	        $state.go('customerOrderMake', { 'typeSelect': 'washTypeNote' });
 	    }
 	    /*回跳到主页*/
-	    $scope.goBackOfMain = function () {
-	        $ionicHistory.clearHistory();
+	    $scope.goBackOfMain = function () {	        
 	        $state.go('customerHome');
 	    }
 	    /*跳转到洗车类型服务详情*/
 	    $scope.goToTypeNote = function (type) {
-	        customerOrderSvr.setSelectedType(type);
-	        $ionicHistory.clearHistory();
+	        customerOrderSvr.setSelectedType(type);	        
 	        $state.go("customerWashtypeNote", { 'typeSelect': 'goToWashTypeNote', 'backParam': 'washTypeIntroduce'});
 	    }
 	}])

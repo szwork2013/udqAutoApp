@@ -32,8 +32,7 @@
                          pingpp.createPayment(data.data,
                              function (result) {
                                  /*支付成功*/
-                                // $scope.balance = data.data;
-                                 $ionicHistory.clearHistory();
+                                // $scope.balance = data.data;                                 
                                  $state.go(backParam);
                              },
                          function (result) {
