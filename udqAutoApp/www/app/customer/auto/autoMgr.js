@@ -1,6 +1,7 @@
 angular.module('udqApp')
-	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', 'popUpSvr', function ($scope, $state, $ionicHistory, $window, autoSvr, popUpSvr) {
+	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', 'popUpSvr', 'LoadingSvr', function ($scope, $state, $ionicHistory, $window, autoSvr, popUpSvr, LoadingSvr) {
 	    var backParam = autoSvr.getBackParam();
+	    LoadingSvr.show();
 	    autoSvr.getAuto().then(
             function (data) {
                 if (data.isSuccess) {
@@ -10,6 +11,7 @@ angular.module('udqApp')
                     } else {
                         $scope.hasNoAuto = true;
                     }
+                    LoadingSvr.hide();
                 } else {
                     console.log(data.msg);
                 }
