@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'popUpSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, popUpSvr) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'popUpSvr', 'LoadingSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, popUpSvr,LoadingSvr) {
         
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
@@ -28,6 +28,7 @@
         var typeSelect = $stateParams.typeSelect;
         switch (typeSelect) {
             case 'main':
+                LoadingSvr.show();
                 /*获取洗车类型，车辆信息，小区信息*/
                 $scope.totalAmount = 0;
                 customerWashtypeSvr.callWashType().then(
@@ -46,6 +47,7 @@
                                 }
                             }
                         }
+                        LoadingSvr.hide();
                     },
                     function (data) {
                         console.log(data);
@@ -89,7 +91,6 @@
 
                 break;
             case 'washTypeNote':
-                //case 'washTypeReturn':
             case 'autoReturn':
             case 'regionReturn':
             case 'payOrderReturn':
@@ -371,7 +372,16 @@
             /*保存到service*/
             if ($scope.districts != undefined && $scope.districts.length > 0) {
                 customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
-            }            
+                for (var i = 0; i < $scope.districts.length; i++) {
+                    if ($scope.districts[i].id == $scope.selectedAuto.selectedRegionId) {
+                        $scope.auto = customerOrderSvr.getSelectedAuto();
+                        $scope.auto.defaultRegionId = $scope.selectedAuto.selectedRegionId;
+                        $scope.auto.regionName = $scope.districts[i].name;
+                    }
+                }
+                customerOrderSvr.setSelectedAuto($scope.auto);
+            }
+
             $state.go('customerOrderMake', { 'typeSelect': 'regionReturn' });
         }
         $scope.on_select = function () {

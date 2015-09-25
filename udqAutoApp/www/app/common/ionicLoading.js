@@ -2,7 +2,7 @@
 .service('LoadingSvr', ['$ionicLoading', '$timeout', function ($ionicLoading, $timeout) {
     this.show = function () {
         $ionicLoading.show({
-            template: 'Loading...'
+            template: '努力加载中'
         });
         $timeout(function () {
             $ionicLoading.hide(); 
