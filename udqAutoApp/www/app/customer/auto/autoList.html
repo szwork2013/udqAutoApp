@@ -8,7 +8,7 @@
             <button class="button button-clear icon ion-plus-round" ng-click="goToAddauto()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content>
+    <ion-content padding="true" class="has-header">
         <div style="text-align:center;margin-top:5px;" ng-show="hasNoAuto"><p>暂无车辆,赶紧来添加吧</p></div>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         
