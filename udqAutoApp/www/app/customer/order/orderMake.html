@@ -3,23 +3,40 @@
         <ion-nav-buttons side="left">
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackMain()"></button>
         </ion-nav-buttons>
+        <!--<ion-nav-buttons side="right">
+            <button class="button-clear" ng-click="commitOrder()" style="color:#fafb75;font-weight:600;">提交</button>
+        </ion-nav-buttons>-->
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
         <ion-list>
             
             <!-- 车辆信息、预约时间、详细地址（可选） -->
-
-            <div class="item item-input makeorder-label">
+            <div class="item item-input makeorder-label" ng-repeat="auto in autoInfo" ng-show="selectedAuto.selectedAutoId ==auto.id">
                 <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
                 <label class="item-input-wrapper">
-                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）" />
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）"/>
                 </label>
                 <span class="input-label makeorder-auto-span" ng-click="goToAutoList()"><i class="icon ion-chevron-right"></i></span>
             </div>
-            <div class="item item-input makeorder-label">
+            <div class="item item-input makeorder-label" ng-repeat="dis in districts" ng-show="dis.id ==selectedAuto.selectedRegionId">
                 <span class="input-label makeorder-district-span"><i class="icon ion-home"></i></span>
                 <label class="item-input-wrapper">
-                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.regionName" placeholder="选择小区（必选）" />
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="dis.name" placeholder="选择小区（必选）"/>
+                </label>
+                <span class="input-label makeorder-district-span" ng-click="goToRegionSelect()"><i class="icon ion-chevron-right"></i></span>
+            </div>
+
+            <div class="item item-input makeorder-label" ng-show="selectedAuto.selectedAutoId ==undefined">
+                <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
+                <label class="item-input-wrapper">
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）"/>
+                </label>
+                <span class="input-label makeorder-auto-span"  ng-click="goToAutoList()"><i class="icon ion-chevron-right"></i></span>
+            </div>
+            <div class="item item-input makeorder-label" ng-show="undefined ==selectedAuto.selectedRegionId">
+                <span class="input-label makeorder-district-span"><i class="icon ion-home"></i></span>
+                <label class="item-input-wrapper">
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="dis.name" placeholder="选择小区（必选）"/>
                 </label>
                 <span class="input-label makeorder-district-span" ng-click="goToRegionSelect()"><i class="icon ion-chevron-right"></i></span>
             </div>

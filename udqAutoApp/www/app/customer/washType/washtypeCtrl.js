@@ -1,8 +1,6 @@
 angular.module('udqApp')
-	.controller('customerWashtypeCtrl', ['$scope', '$state', '$ionicHistory', 'customerWashtypeSvr', 'customerOrderSvr', 'LoadingSvr', function ($scope, $state, $ionicHistory, customerWashtypeSvr, customerOrderSvr, LoadingSvr) {
-
+	.controller('customerWashtypeCtrl', ['$scope', '$state', '$ionicHistory', 'customerWashtypeSvr', 'customerOrderSvr', function ($scope, $state, $ionicHistory, customerWashtypeSvr, customerOrderSvr) {
 	    $scope.types = [];
-
 	    var promise = customerWashtypeSvr.callWashType();
 	    promise.then(
             function (data) {

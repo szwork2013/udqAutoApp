@@ -16,12 +16,13 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             $scope.selectOrder.washerNote = "无";
         }
         $scope.noMoreOrderAvailable = true;
-        
+        LoadingSvr.show();
         /*获取订单*/
         var promise = customerOrderSvr.getOrdersList(orderDate);
         promise.then(
             function (data) {
                 if (data.isSuccess) {
+                    LoadingSvr.hide();
                     if (data.rows.length > 0) {
                         $scope.orderList = data.rows;
                         $scope.hasNoOrder = false;
@@ -32,6 +33,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                 } else {
                     console.log(data.msg);
                 }
+
             },
             function (data) {
                 console.log(data);
@@ -260,5 +262,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             customerOrderSvr.setSelectedOrder(order);            
             $state.go('customerOrderMgr');
         }
+
+        //$scope.selectOrder = customerOrderSvr.getSelectedOrder();
 
     }])

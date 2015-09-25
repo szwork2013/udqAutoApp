@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'popUpSvr', 'LoadingSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, popUpSvr, LoadingSvr) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'popUpSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, popUpSvr) {
         
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
@@ -18,7 +18,6 @@
             customerOrderSvr.setUserNote($scope.order.userNote);
             customerOrderSvr.setSelectedAuto($scope.auto);
         }
-                
         $scope.auto = {};
         $scope.selectedAuto = {};
         /*数据区*/
@@ -29,8 +28,6 @@
         var typeSelect = $stateParams.typeSelect;
         switch (typeSelect) {
             case 'main':
-                /*load加载*/
-                LoadingSvr.show();
                 /*获取洗车类型，车辆信息，小区信息*/
                 $scope.totalAmount = 0;
                 customerWashtypeSvr.callWashType().then(
@@ -49,7 +46,6 @@
                                 }
                             }
                         }
-                        LoadingSvr.hide();
                     },
                     function (data) {
                         console.log(data);
@@ -93,6 +89,7 @@
 
                 break;
             case 'washTypeNote':
+                //case 'washTypeReturn':
             case 'autoReturn':
             case 'regionReturn':
             case 'payOrderReturn':
@@ -151,7 +148,6 @@
                                 $scope.autoInfo = data.rows;
                                 $scope.hasNoAuto = false;
                                 $scope.selectedAuto.selectedAutoId = customerOrderSvr.getSelectedAutoId();
-                                $scope.auto = customerOrderSvr.getSelectedAuto();
                             } else {
                                 console.log('用户无车辆信息，未添加车辆');
                                 $scope.hasNoAuto = true;
@@ -375,15 +371,6 @@
             /*保存到service*/
             if ($scope.districts != undefined && $scope.districts.length > 0) {
                 customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
-                
-                for (var i = 0; i < $scope.districts.length; i++) {
-                    if ($scope.districts[i].id == $scope.selectedAuto.selectedRegionId) {
-                        $scope.auto = customerOrderSvr.getSelectedAuto();
-                        $scope.auto.defaultRegionId = $scope.selectedAuto.selectedRegionId;
-                        $scope.auto.regionName = $scope.districts[i].name;
-                    }
-                }
-                customerOrderSvr.setSelectedAuto($scope.auto);
             }            
             $state.go('customerOrderMake', { 'typeSelect': 'regionReturn' });
         }

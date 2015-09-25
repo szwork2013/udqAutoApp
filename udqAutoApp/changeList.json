@@ -760,9 +760,10 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\order\\orderctrl.js",
+    "www\\app\\customer\\order\\orderpay.js",
     "www\\app\\customer\\order\\ordermakectrl.js",
-    "www\\app\\customer\\washtype\\washtypectrl.js"
+    "www\\app\\customer\\auto\\autosvr.js",
+    "www\\app\\customer\\auto\\automgr.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -778,8 +779,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\washtype\\washtypectrl.js",
-    "www\\app\\customer\\order\\orderctrl.js"
+    "www\\app\\employee\\order\\photograph.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

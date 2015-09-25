@@ -13,10 +13,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PingppPlugin\"><param name=\"android-package\" value=\"co.airsia.cordova.PingppPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -45,7 +41,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"PingppPlugin\"><param name=\"android-package\" value=\"co.airsia.cordova.PingppPlugin\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -159,12 +155,24 @@
                     ],
                     "/*": [
                         {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
                             "count": 1
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 2
+                            "count": 1
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
@@ -176,7 +184,7 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 4
+                            "count": 1
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
@@ -196,18 +204,6 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.READ_SMS\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
                             "count": 1
                         }
                     ],
@@ -247,10 +243,6 @@
         "cn.jpush.phonegap.JPushPlugin": {
             "PACKAGE_NAME": "com.udianqu.auto"
         },
-        "co.airsia.cordova.pingpp": {
-            "URL_SCHEME": "wxfab7f26e34c3c5c3",
-            "PACKAGE_NAME": "com.udianqu.auto"
-        },
         "com.msopentech.websql": {
             "PACKAGE_NAME": "com.udianqu.auto"
         },
@@ -272,10 +264,14 @@
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "com.udianqu.auto"
         },
+        "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.udianqu.auto"
+        },
         "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "com.udianqu.auto"
         },
-        "org.apache.cordova.splashscreen": {
+        "co.airsia.cordova.pingpp": {
+            "URL_SCHEME": "wxfab7f26e34c3c5c3",
             "PACKAGE_NAME": "com.udianqu.auto"
         }
     },
