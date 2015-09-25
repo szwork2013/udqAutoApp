@@ -26,7 +26,6 @@ angular.module('udqApp')
 	        $state.go('customerAutoInfo');
 	    }
 	    $scope.goBackOfAutoInfo = function () {
-	        $ionicHistory.clearHistory();
 	        $state.go('customerAutoMgr');
 	    }
 	    /*删除车辆*/
@@ -75,12 +74,10 @@ angular.module('udqApp')
 	    }
 	    /*添加车辆*/
 	    $scope.goToAddauto = function () {
-	        $ionicHistory.clearHistory();
 	        $state.go('customerAutoAdd', { 'backName': 'customerAutoMgr' });
 	    }
 	    /*回跳(根据backParam)*/
 	    $scope.goBack = function () {
-	        $ionicHistory.clearHistory();
 	        if (backParam == "customerMyDQ") {
 	            $state.go('customerMyDQ');
 	        }

@@ -34,7 +34,6 @@
                                  /*支付成功*/
                                  $scope.disabled = false;
                                 // $scope.balance = data.data;
-                                 $ionicHistory.clearHistory();
                                  $state.go(backParam);
                              },
                          function (result) {

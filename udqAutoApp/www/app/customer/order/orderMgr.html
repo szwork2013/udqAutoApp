@@ -7,58 +7,58 @@
     <ion-content>
         <ion-list>
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>状态</h2></span>
-                <p ng-show="selectOrder.state==0">未支付</p>
-                <p ng-show="selectOrder.state==1">已下单</p>
-                <p ng-show="selectOrder.state==10">车主取消</p>
-                <p ng-show="selectOrder.state==11">门店取消</p>
-                <p ng-show="selectOrder.state==2||selectOrder.state==3">洗车中</p>
-                <p ng-show="selectOrder.state==4||selectOrder.state==5">已完成</p>
+                <span class="input-label">状态</span>
+                <i ng-show="selectOrder.state==0">未支付</i>
+                <i ng-show="selectOrder.state==1">已下单</i>
+                <i ng-show="selectOrder.state==10">车主取消</i>
+                <i ng-show="selectOrder.state==11">门店取消</i>
+                <i ng-show="selectOrder.state==2||selectOrder.state==3">洗车中</i>
+                <i ng-show="selectOrder.state==4||selectOrder.state==5">已完成</i>
             </label>
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>车牌号</h2></span>
-                <p>{{selectOrder.autoPN}}</p>
+                <span class="input-label">车牌号</span>
+                <i>{{selectOrder.autoPN}}</i>
             </label>
             <label class="item item-input input-costume" ng-show="selectOrder.washerName != ''">
-                <span class="input-label"><h2>洗车工姓名</h2></span>
+                <span class="input-label">洗车工姓名</span>
                 <p>{{selectOrder.washerName}}</p>
             </label>
 
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>下单时间</h2></span>
+                <span class="input-label">下单时间</span>
                 <p>{{selectOrder.orderTime}}</p>
             </label>
             <label class="item item-input input-costume" ng-show="selectOrder.finishTime!=null">
-                <span class="input-label"><h2>结束时间</h2></span>
-                <p>{{selectOrder.finishTime}}</p>
+                <span class="input-label">结束时间</span>
+                <i>{{selectOrder.finishTime}}</i>
             </label>
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>洗车类型</h2></span>
-                <p>{{selectOrder.washTypeName}}</p>
+                <span class="input-label">洗车类型</span>
+                <i>{{selectOrder.washTypeName}}</i>
             </label>
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>金额</h2></span>
+                <span class="input-label">金额</span>
                 <a class="a-custome">{{selectOrder.finalAmount}}元</a>
             </label>
             <label class="item item-input input-costume">
-                <span class="input-label"><h2>我的需求</h2></span>
-                <p>{{selectOrder.userNote}}</p>
+                <span class="input-label">我的需求</span>
+                <i>{{selectOrder.userNote}}</i>
             </label>
             <label class="item item-input input-costume" ng-show="selectOrder.customerGrade!=''">
-                <span class="input-label"><h2>评分</h2></span>
-                <p>{{selectOrder.customerGrade}}</p>
+                <span class="input-label">评分</span>
+                <i>{{selectOrder.customerGrade}}</i>
             </label>
             <label class="item item-input input-costume" ng-show="selectOrder.state==4||selectOrder.state==5">
-                <span class="input-label"><h2>洗车工反馈</h2></span>
-                <p>{{selectOrder.washerNote}}</p>
+                <span class="input-label">洗车工反馈</span>
+                <i>{{selectOrder.washerNote}}</i>
             </label>
             <label class="item item-input input-costume" ng-show="selectOrder.gradeUserNote!=''">
-                <span class="input-label"><h2>意见</h2></span>
-                <p>{{selectOrder.gradeUserNote}}</p>
+                <span class="input-label">意见</span>
+                <i>{{selectOrder.gradeUserNote}}</i>
             </label>
             <div ng-show="selectOrder.state==4||selectOrder.state==5">
                 <label class="item item-input input-costume">
-                    <p>照片</p>
+                    <i>照片</i>
                 </label>
                 <div class="row" style="width:100%;margin:0px;padding:0px;">
                     <div class="col"><img src={{selectOrder.photoUrl1}} id="img1" ng-click="gotoPhoto(1)" style="width:100%;height:auto;float:left;margin:0px;padding:0px"></div>
@@ -95,7 +95,6 @@
             </div>
             <button class="allbutton  button-block button-small" ng-show="selectOrder.state==4" style="width:90%;margin-left:5%;" ng-click="judge(selectOrder)">确认</button>
         </div>
-               <!-- <button class="allbutton button-block button-small" ng-click="shareOrder()" ng-show="selectOrder.state==5">分享</button>-->
 
 
     </ion-content>

@@ -41,11 +41,9 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
             );
         /*回跳到我的订单*/
         $scope.goBackOfMain = function () {
-            $ionicHistory.clearHistory();
             $state.go('customerHome');
         }
-        $scope.goBackOfOrderList = function () {
-            $ionicHistory.clearHistory();
+        $scope.goBackOfOrderList = function () {            
             $state.go('customerMyOrder');
         }
 
@@ -138,7 +136,6 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                     order.channel = 'alipay';
                     break;
             }
-            $ionicHistory.clearHistory();
             $state.go('customerOrderpay', { 'order': angular.toJson(order), 'state': 'customerMyOrder' });
         }
         /*取消订单*/
@@ -181,8 +178,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
 
         }
         /*订单列表-滑动-评价-跳转到订单信息*/
-        $scope.judgeOrder = function (order) {
-            $ionicHistory.clearHistory();
+        $scope.judgeOrder = function (order) {            
             $scope.goToSeeOrder(order);
         }
         /*订单信息-确定-评价订单*/
@@ -194,9 +190,6 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                         $scope.selectOrder.state = 5;
                         $scope.selectOrder.customerGrade = order.gradeUser;
                         $scope.selectOrder.gradeUserNote = order.gradeUserNote;
-                        //customerOrderSvr.setSelectedOrder(order);
-                        //$ionicHistory.clearHistory();
-                        //$state.go('customerOrderMgr');
                     } else {
                         console.log(data.msg);
                     }
@@ -266,8 +259,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         }
         /*跳转到单个订单查看视图*/
         $scope.goToSeeOrder = function (order) {
-            customerOrderSvr.setSelectedOrder(order);
-            $ionicHistory.clearHistory();
+            customerOrderSvr.setSelectedOrder(order);            
             $state.go('customerOrderMgr');
         }
 

@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'popUpSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, popUpSvr) {
+    .controller('customerOrderMakeCtrl', ['$scope', '$ionicPopup', '$ionicActionSheet', '$stateParams', '$state', '$ionicHistory', '$window', 'customerWashtypeSvr', 'customerOrderMakeSvr', 'customerOrderSvr', 'regionSvr', 'autoSvr', 'APP_CONFIG', 'popUpSvr', 'LoadingSvr', function ($scope, $ionicPopup, $ionicActionSheet, $stateParams, $state, $ionicHistory, $window, customerWashtypeSvr, customerOrderMakeSvr, customerOrderSvr, regionSvr, autoSvr, APP_CONFIG, popUpSvr,LoadingSvr) {
         
         /*从服务中获取选择的洗车类型、车辆以及小区*/
         var getWashTypeAndSelectAutoInfo = function () {
@@ -28,6 +28,7 @@
         var typeSelect = $stateParams.typeSelect;
         switch (typeSelect) {
             case 'main':
+                LoadingSvr.show();
                 /*获取洗车类型，车辆信息，小区信息*/
                 $scope.totalAmount = 0;
                 customerWashtypeSvr.callWashType().then(
@@ -46,6 +47,7 @@
                                 }
                             }
                         }
+                        LoadingSvr.hide();
                     },
                     function (data) {
                         console.log(data);
@@ -89,7 +91,6 @@
 
                 break;
             case 'washTypeNote':
-                //case 'washTypeReturn':
             case 'autoReturn':
             case 'regionReturn':
             case 'payOrderReturn':
@@ -182,7 +183,6 @@
         $scope.goToTypeNote = function (type) {
             saveWashTypeAndSelectAutoInfo();
             customerOrderSvr.setSelectedType(type);
-            $ionicHistory.clearHistory();
             $state.go("customerWashtypeNote", { 'typeSelect': 'goToWashTypeNote' });
         }
         /*保存选择，跳转到车辆选择*/
@@ -190,14 +190,12 @@
             /*判断是否登录*/
             if (window.localStorage['loginState'] == 1) {
                 saveWashTypeAndSelectAutoInfo();
-                $ionicHistory.clearHistory();
                 $state.go('customerAutoList', { 'typeSelect': 'goToAuto' });
             } else {
                 /*提醒用户尚未登录或者注册*/
                 popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
                     function (res) {
                         if (res) {
-                            $ionicHistory.clearHistory();
                             $state.go('login');
                         }
                     });;
@@ -208,14 +206,12 @@
             /*判断是否登录*/
             if (window.localStorage['loginState'] == 1) {
                 saveWashTypeAndSelectAutoInfo();
-                $ionicHistory.clearHistory();
                 $state.go('customerRegionSelect', { 'typeSelect': 'goToRegion' });
             } else {
                 /*提醒用户尚未登录或者注册*/
                 popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
                     function (res) {
                         if (res) {
-                            $ionicHistory.clearHistory();
                             $state.go('login');
                         }
                     });;
@@ -224,13 +220,11 @@
         }
         /*预约洗车回转*/
         $scope.goBackMain = function () {
-            $ionicHistory.clearHistory();
             $state.go('customerHome');
         }
         /*(洗车类型、车辆选择、小区选择、时间预约)*/
         $scope.goBack = function () {
-            $ionicHistory.clearHistory();
-            alert("s");
+            alert("sb");
         }
         /*提交订单*/
         $scope.commitOrder = function () {
@@ -238,7 +232,6 @@
                 popUpSvr.showAlertOfLogin('用户尚未登录或者注册').then(
                     function (res) {
                         if (res) {
-                            $ionicHistory.clearHistory();
                             $state.go('login');
                         }
                     });
@@ -246,7 +239,6 @@
             }
             if (!checkOrder()) {
                 saveWashTypeAndSelectAutoInfo();
-                $ionicHistory.clearHistory();
                 $state.go('customerOrderpay', { 'order': angular.toJson($scope.order), 'state': 'customerOrderMake' });
             }
 
@@ -301,7 +293,6 @@
                 template: msg
             });
             alertPopup.then(function (res) {
-                $ionicHistory.clearHistory();
                 $state.go('login');
                 console.log(msg);
             });
@@ -309,7 +300,6 @@
         /*************************洗车类型服务详情******************************/
         /*返回预定洗车界面*/
         $scope.goBackOfWashTypeNote = function () {
-            $ionicHistory.clearHistory();
             if (backParam == "washTypeIntroduce") {
                 $state.go("customerWashTypeIntroduce");
             } else {
@@ -351,7 +341,6 @@
                 $scope.selectedAuto.selectedRegionId = $scope.autoInfo[indexOfAuto].defaultRegionId;
 
             }
-            $ionicHistory.clearHistory();
             $state.go('customerAutoAdd', { 'backName': 'customerAutoList' });
         }
         $scope.goBackOfAuto = function (auto) {
@@ -371,7 +360,6 @@
             }
 
             /*跳转*/
-            $ionicHistory.clearHistory();
             $state.go("customerOrderMake", { 'typeSelect': 'autoReturn' });
         }
         /***************************************************************/
@@ -384,8 +372,16 @@
             /*保存到service*/
             if ($scope.districts != undefined && $scope.districts.length > 0) {
                 customerOrderSvr.setSelectedRegionId($scope.selectedAuto.selectedRegionId);
+                for (var i = 0; i < $scope.districts.length; i++) {
+                    if ($scope.districts[i].id == $scope.selectedAuto.selectedRegionId) {
+                        $scope.auto = customerOrderSvr.getSelectedAuto();
+                        $scope.auto.defaultRegionId = $scope.selectedAuto.selectedRegionId;
+                        $scope.auto.regionName = $scope.districts[i].name;
+                    }
+                }
+                customerOrderSvr.setSelectedAuto($scope.auto);
             }
-            $ionicHistory.clearHistory();
+
             $state.go('customerOrderMake', { 'typeSelect': 'regionReturn' });
         }
         $scope.on_select = function () {

@@ -83,7 +83,6 @@
                                  $scope.order = data.data;
                                  $scope.order.state = 1;
                                  customerOrderSvr.setSelectedOrder($scope.order);
-                                 $ionicHistory.clearHistory();
                                  $state.go('customerOrderMgr');
                              },
                          function (result) {

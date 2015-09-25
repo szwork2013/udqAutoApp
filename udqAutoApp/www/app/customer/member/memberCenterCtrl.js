@@ -17,17 +17,14 @@ angular.module('udqApp')
 	    $scope.woman = '女';
 	    /*返回我的点趣*/
 	    $scope.goToCenter = function () {
-	        $ionicHistory.clearHistory();
 	        $state.go('customerMyDQ');
 	    }
 	    /*跳转到充值界面*/
 	    $scope.goToRecharge = function () {
-	        $ionicHistory.clearHistory();
 	        $state.go('customerRecharge', { 'backParam': 'customerMyDQ' });
 	    }
         /*跳转到洗车店信息*/
 	    $scope.goToWashShopInfo = function () {
-	        $ionicHistory.clearHistory();
 	        $state.go('customerWashShopInfo');
 	    }
 	    /*洗车店信息-获取信息*/
@@ -52,17 +49,14 @@ angular.module('udqApp')
             });
 	    /*跳转到车辆列表*/
 	    $scope.goToAutoList = function () {
-	        $ionicHistory.clearHistory();
 	        autoSvr.setBackParam("customerMyDQ");
 	        $state.go('customerAutoMgr');
 	    }
 
-	    $scope.goToEditOwnerInfo = function () {
-	        $ionicHistory.clearHistory();
+	    $scope.goToEditOwnerInfo = function () {	        
 	        $state.go('customerMemberInfoEdit');
 	    };
-	    $scope.goBack = function () {
-	        $ionicHistory.clearHistory();
+	    $scope.goBack = function () {	        
 	        $state.go('customerHome');
 	    }
 	    /*编辑-保存*/
