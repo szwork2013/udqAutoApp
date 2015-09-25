@@ -36,18 +36,20 @@ div.title.title-center.header-item{
     color:#383641;
     background-color:#17bed0;
 }
-.input-costume{
+.button-i{
     color:white;
     background-color:#17bed0;
     border:#17bed0;
 }
+.input-costume{
+    color:white;
+    background-color:#17bed0;
+}
 .input-costume:active{
     background-color:#17bed0;
-    border:#17bed0;
 }
 .input-costume:checked{
     background-color:#17bed0;
-    border:#17bed0;
 }
 ion-radio:checked{
     background-color:#17bed0;
