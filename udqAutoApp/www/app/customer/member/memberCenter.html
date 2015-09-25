@@ -8,50 +8,49 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
-            <div class="row" style="border-bottom:1px solid white;">
-                <div class="col col-30">
-                    <img src="image/mydianqu.png" style="height:100%;width:100%;"/>
-                </div>
-                <div class="col col-50">
-                    <p ng-show="user.name!=undefined">称呼：{{user.name}}</p>
-                    <p ng-show="user.mobile!=undefined">手机：{{user.mobile}}</p> 
-                    <p ng-show="user.mobile!=undefined">余额：<a class="a-custome">{{user.balance}}</a>&nbsp;&nbsp;&nbsp;<button class="button-clear" ng-click="goToRecharge()" style="color:#fafb75;font-weight:600;border-color:#fafb75">充值</button></p>                    
-                </div>
-                <div class="col col-20 col-center">
-                    <button class="button-clear" ng-click="goToEditOwnerInfo()" style="color:#262B2A;border-color:#262B2A;">
-                        编辑信息
-                       <!-- <i class="icon ion-ios-arrow-forward" style="font-size:50px"></i>-->
-                    </button>
-                </div>
+        <div class="row" style="border-bottom:1px solid white;">
+            <div class="col col-30">
+                <img src="image/mydianqu.png" style="height:100%;width:100%;" />
             </div>
-            <div class="spacer" style="height:80px;"></div>
-            <div class="row row-top row-text-align">
-                <div class="col col-50 div-col-center" style="padding:0px 0px 0px 0px;">
-                    <div class="div-col-innerdiv">
-                        <button class="button ownbutton-circle" ng-click="goToWashShopInfo()">
-                            <img src="image/aboutudianqu.png" style="vertical-align:central;height:100%; width:100%;" />
-                        </button>
-                        <p class="home-p">门店信息</p>
-                    </div>
+            <div class="col col-50">
+                <p ng-show="user.name!=undefined">称呼：{{user.name}}</p>
+                <p ng-show="user.mobile!=undefined">手机：{{user.mobile}}</p>
+                <p ng-show="user.mobile!=undefined">余额：<a class="a-custome">{{user.balance}}</a>&nbsp;&nbsp;&nbsp;<button class="rechargeInloginPage" ng-click="goToRecharge()">充值</button></p>
+            </div>
+            <div class="col col-20">
+                <button class="input-costume" ng-click="goToEditOwnerInfo()">
+                    <i class="icon ion-ios-arrow-forward" style="font-size:50px"></i>
+                </button>
+            </div>
+        </div>
+        <div class="spacer" style="height:80px;"></div>
+        <div class="row row-top row-text-align">
+            <div class="col col-50 div-col-center" style="padding:0px 0px 0px 0px;">
+                <div class="div-col-innerdiv">
+                    <button class="button ownbutton-circle" ng-click="goToWashShopInfo()">
+                        <img src="image/aboutudianqu.png" style="vertical-align:central;height:100%; width:100%;" />
+                    </button>
+                    <p class="home-p">门店信息</p>
+                </div>
 
-                </div>
-                <div class="col col-60"></div>
-                <div class="col col-50 div-col-center" style="padding:0px 0px 0px 0px;">
-                    <div class="div-col-innerdiv">
-                        <button class="button ownbutton-circle" ng-click="goToAutoList()">
-                            <img src="image/iwantwash.png" style="vertical-align:central;height:100%; width:100%;" />
-                        </button>
-                        <p class="home-p">我的车辆</p>
-                    </div>
+            </div>
+            <div class="col col-60"></div>
+            <div class="col col-50 div-col-center" style="padding:0px 0px 0px 0px;">
+                <div class="div-col-innerdiv">
+                    <button class="button ownbutton-circle" ng-click="goToAutoList()">
+                        <img src="image/iwantwash.png" style="vertical-align:central;height:100%; width:100%;" />
+                    </button>
+                    <p class="home-p">我的车辆</p>
                 </div>
             </div>
-            <!--<div class="col col-50">
-                <div class="col col-50 div-col-innerdiv">
-                    <button class="button ownbutton-circle" ng-click="goToRecharge()">
-                        <img src="image/iwantwash.png" style="vertical-align:central; height:100%; width:100%;" />
-                    </button>
-                    <p class="home-p">充值&nbsp;&nbsp;<a class="a-custome">{{balance.amount|currency:'￥'}}</a></p>
-                </div>
-            </div>-->
+        </div>
+        <!--<div class="col col-50">
+            <div class="col col-50 div-col-innerdiv">
+                <button class="button ownbutton-circle" ng-click="goToRecharge()">
+                    <img src="image/iwantwash.png" style="vertical-align:central; height:100%; width:100%;" />
+                </button>
+                <p class="home-p">充值&nbsp;&nbsp;<a class="a-custome">{{balance.amount|currency:'￥'}}</a></p>
+            </div>
+        </div>-->
     </ion-content>
 </ion-view>

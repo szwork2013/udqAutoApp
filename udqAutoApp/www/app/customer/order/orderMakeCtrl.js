@@ -230,7 +230,7 @@
         /*(洗车类型、车辆选择、小区选择、时间预约)*/
         $scope.goBack = function () {
             $ionicHistory.clearHistory();
-            alert("sb");
+            alert("s");
         }
         /*提交订单*/
         $scope.commitOrder = function () {
@@ -274,10 +274,10 @@
                 popUpSvr.showAlert('请选择小区');
                 return true;
             }
-            if ($scope.auto.position == undefined || $scope.auto.position == "") {
-                popUpSvr.showAlert('请填写车位');
-                return true;
-            }
+            //if ($scope.auto.position == undefined || $scope.auto.position == "") {
+            //    popUpSvr.showAlert('请填写车位');
+            //    return true;
+            //}
             $scope.order.totalAmount = $scope.totalAmount;
             /*获取车辆Id,小区Id*/
             $scope.order.autoId = $scope.selectedAuto.selectedAutoId;

@@ -68,13 +68,13 @@
             }
             customerOrderMakeSvr.commitOrder($scope.order).then(
                  function (data) {
-                     //根据data内的数据判断时候成功
+                     //根据data内的数据判断是否成功
                      if (data.isSuccess) {
-                         /*余额支付payType==100 */
+                         $scope.disabled = false;
+                         /*余额支付则不需要createPayment  payType==100 */
                          if (data.data.payType == 100) {
                              $scope.order = data.data;
                              customerOrderSvr.setSelectedOrder($scope.order);
-                             $ionicHistory.clearHistory();
                              $state.go('customerOrderMgr');
                          } else {
                              pingpp.createPayment(data.data.charge,
@@ -88,6 +88,7 @@
                              },
                          function (result) {
                              /*fail和cancel*/
+                             $scope.disabled = false;
                              if (result == 'fail') {
                                  popUpSvr.showAlert('支付失败，请重试！');
                              } else if (result == 'cancel') {
@@ -101,7 +102,7 @@
                      console.log(data);
                      return true;
                  });
-            //$scope.disabled = true;
+            $scope.disabled = true;
 
         }
         /*回跳到前一个页面*/

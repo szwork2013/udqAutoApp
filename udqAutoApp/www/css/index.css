@@ -39,12 +39,15 @@ div.title.title-center.header-item{
 .input-costume{
     color:white;
     background-color:#17bed0;
+    border:#17bed0;
 }
 .input-costume:active{
     background-color:#17bed0;
+    border:#17bed0;
 }
 .input-costume:checked{
     background-color:#17bed0;
+    border:#17bed0;
 }
 ion-radio:checked{
     background-color:#17bed0;
@@ -86,16 +89,32 @@ h2,h3,h4,p,.item p{
 }
 /*button*/
 .allbutton{
-    background-color:#f83838;
+    background-color:#fafb75;/*#f83838红色*/
     color:#383641;
     font-size:16px;
-    border:#f83838 solid ;
+    border:#fafb75 solid ;
     border-radius:3px;
     margin-top:15px;
 }
 .allbutton:active{
-    background-color:#b93333;
-    border-color:#b93333;
+    background-color:#b76969;
+    border-color:#b76969;
+}
+.allbutton:checked{
+    background-color:#b76969;
+    border-color:#b76969;
+}
+.loginbutton{
+    background-color:#0082d4;/*#f83838红色*/
+    color:#383641;
+    font-size:16px;
+    border:#0082d4 solid ;
+    border-radius:3px;
+    margin-top:15px;
+}
+.loginbutton:active{
+    background-color:#b76969;
+    border-color:#b76969;
 }
 /*注册按钮*/
 .registerInloginPage{
@@ -107,6 +126,18 @@ h2,h3,h4,p,.item p{
     margin-top:6px;
 }
 .registerInloginPage:active{
+    background-color:#b76969;
+    border-color:#b76969;
+}
+/*充值按钮*/
+.rechargeInloginPage{
+   background-color:#fafb75;
+   color:#383641;
+   font-weight:600;
+   border-color:rgba(250, 251, 117, 0.07);
+   border-radius:3px;
+}
+.rechargeInloginPage:active{
     background-color:#b76969;
     border-color:#b76969;
 }
@@ -225,6 +256,11 @@ label div.item-content:checked{
 }
 .select-p{
     color:#fafb75;
+}
+.select-type{
+    border:2px #15a2b1 solid;
+    border-radius:5px;
+    padding:4px;
 }
 
 

@@ -32,12 +32,14 @@
                          pingpp.createPayment(data.data,
                              function (result) {
                                  /*支付成功*/
+                                 $scope.disabled = false;
                                 // $scope.balance = data.data;
                                  $ionicHistory.clearHistory();
                                  $state.go(backParam);
                              },
                          function (result) {
                              /*fail和cancel*/
+                             $scope.disabled = false;
                              if (result == 'fail') {
                                  popUpSvr.showAlert('支付失败，请重试！');
                              } else if (result == 'cancel') {
@@ -50,7 +52,7 @@
                      console.log(data);
                      return true;
                  });
-            //$scope.disabled = true;
+            $scope.disabled = true;
 
         }
         /*回跳到前一个页面*/

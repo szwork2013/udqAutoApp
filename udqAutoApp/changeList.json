@@ -759,11 +759,7 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\order\\orderpay.js",
-    "www\\app\\customer\\order\\ordermakectrl.js",
-    "www\\app\\customer\\auto\\autosvr.js",
-    "www\\app\\customer\\auto\\automgr.js"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -778,8 +774,7 @@
   ],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "plugins\\android.json",
-    "www\\app\\employee\\order\\photograph.js"
+    "plugins\\android.json"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
