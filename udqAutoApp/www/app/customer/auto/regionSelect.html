@@ -5,7 +5,7 @@
         </ion-nav-buttons>
 
     </ion-nav-bar>
-    <ion-content has-subheader="false">
+    <ion-content padding="true" class="has-header">
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
         <div style="text-align:center;margin-top:5px;" ng-show="autoInfo.selectedCityId==undefined">
             <p>请先选择城市</p>
