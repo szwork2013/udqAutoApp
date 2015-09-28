@@ -775,8 +775,11 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\css\\index.css",
-    "www\\app\\customer\\member\\memberCenter.html"
+    "www\\app\\customer\\member\\memberInfoEdit.html",
+    "www\\app\\customer\\member\\rechargeCtrl.js",
+    "www\\app\\customer\\member\\recharge.html",
+    "www\\app\\customer\\register\\register.html",
+    "www\\app\\util\\appConfig.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

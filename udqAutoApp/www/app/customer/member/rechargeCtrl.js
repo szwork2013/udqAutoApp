@@ -4,7 +4,7 @@
         $scope.balance = {
             userId: $window.localStorage['userID'],
             channel: '',
-            amount: 0.01
+            amount: 0.02
         }
         if ($scope.balance.channel == undefined || $scope.balance.channel == "") {
             $scope.balance.channel = 'alipay';/*设置支付方式初始值：支付宝*/
@@ -28,11 +28,11 @@
             customerMemberInfoSvr.recharge($scope.balance).then(
                  function (data) {
                      //根据data内的数据判断时候成功
+                     $scope.disabled = false;
                      if (data.isSuccess) {
                          pingpp.createPayment(data.data,
                              function (result) {
                                  /*支付成功*/
-                                 $scope.disabled = false;
                                 // $scope.balance = data.data;
                                  $state.go(backParam);
                              },

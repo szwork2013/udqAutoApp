@@ -90,8 +90,8 @@ h2,h3,h4,p,.item p{
     color:#383641;
 }
 /*button*/
-.allbutton{
-    background-color:#fafb75;/*#f83838红色*/
+/*.allbutton{
+    background-color:#fafb75;
     color:#383641;
     font-size:16px;
     border:#fafb75 solid ;
@@ -101,12 +101,24 @@ h2,h3,h4,p,.item p{
 .allbutton:active{
     background-color:#b76969;
     border-color:#b76969;
-}
-.allbutton:checked{
-    background-color:#b76969;
-    border-color:#b76969;
-}
-.loginbutton{
+}*/
+.button.allbutton {
+    background-color:#fafb75;/*#f83838红色*/
+    color:black;
+    font-size:16px;
+    border:#fafb75 solid ;
+    border-radius:3px;
+    margin-top:15px; }
+    /*.button.allbutton:hover {
+      color: #fff;
+      text-decoration: none; }*/
+
+/*所有按钮点击变色*/
+.button.allbutton.active, .button.allbutton.activated, .button.loginbutton.active, .button.loginbutton.activated, .button.registerInloginPage.active, .button.registerInloginPage.activated,.button.rechargeInloginPage.active, .button.rechargeInloginPage.activated{
+      border-color: #b76969;
+      background-color: #b76969;}
+
+.button.loginbutton{
     background-color:#0082d4;/*#f83838红色*/
     color:#383641;
     font-size:16px;
@@ -114,22 +126,14 @@ h2,h3,h4,p,.item p{
     border-radius:3px;
     margin-top:15px;
 }
-.loginbutton:active{
-    background-color:#b76969;
-    border-color:#b76969;
-}
 /*注册按钮*/
-.registerInloginPage{
+.button.registerInloginPage{
     background-color:#fafb75;
     color:#383641;
     font-size:16px;
     border:#fafb75 solid ;
     border-radius:3px;
     margin-top:6px;
-}
-.registerInloginPage:active{
-    background-color:#b76969;
-    border-color:#b76969;
 }
 /*充值按钮*/
 .rechargeInloginPage{
@@ -138,10 +142,6 @@ h2,h3,h4,p,.item p{
    font-weight:600;
    border-color:rgba(250, 251, 117, 0.07);
    border-radius:3px;
-}
-.rechargeInloginPage:active{
-    background-color:#b76969;
-    border-color:#b76969;
 }
 /*输入框内的输入字体*/
 .member-span-text{

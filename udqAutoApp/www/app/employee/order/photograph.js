@@ -73,7 +73,7 @@
        $scope.showActionsheet = function (No) {
            $ionicActionSheet.show({
                cancelText: '取消',
-               buttons: [{ text: '拍照' }, { text: '从相册中选取' }],
+               buttons: [{ text: '拍照', type:"button-light" }, { text: '从相册中选取' }],
                cancel: function () { console.log("cancel"); },
                buttonClicked: function (index) {
                    switch (index) {
@@ -135,13 +135,14 @@
            }
            cameraSvr.takePhoto(30, cSuccess, cFail);
        }
+       //从手机相册选择
        $scope.getPhoto = function (No) {
            
            function cSuccess(imgURI) {
                var params = $scope.order;
                var image = document.getElementById("img" + No);
                image.src = imgURI;
-               /*拍照候将imgURI临时保存到order中*/
+               /*拍照后将imgURI临时保存到order中*/
                switch (No) {
                    case 1:
                        $scope.order.photoUrl1 = imgURI;

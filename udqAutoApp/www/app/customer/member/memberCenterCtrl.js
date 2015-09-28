@@ -15,6 +15,15 @@ angular.module('udqApp')
             });
 	    $scope.man = '男';
 	    $scope.woman = '女';
+	    $scope.persons = [
+            {
+                sexValue:1,
+                sexText:'男'
+            }, {
+                sexValue:2,
+	            sexText:'女'
+	        }
+            ];
 	    /*返回我的点趣*/
 	    $scope.goToCenter = function () {
 	        $state.go('customerMyDQ');

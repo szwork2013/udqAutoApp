@@ -10,15 +10,15 @@
             <ion-list class="input-costume">
                 <ion-item class="input-costume" style="color:#383641;">
                     <span class="span-black">请选择金额:</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label class="select-type" ng-model="balance.amount"><input type="radio" name="amount" checked  value='0.02' />0.02</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label class="select-type" ng-model="balance.amount"><input type="radio" name="amount" value='50' />50</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label class="select-type" ng-model="balance.amount"><input type="radio" name="amount" value='100' />100</label>
+                    <label class="select-type"><input type="radio" name="amount" ng-model="balance.amount" checked  value='0.02' />0.02</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label class="select-type"><input type="radio" name="amount" ng-model="balance.amount" value='50' />50</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label class="select-type"><input type="radio" name="amount" ng-model="balance.amount" value='100' />100</label>
                 </ion-item>
                 <ion-radio class="input-costume-radio" ng-model="balance.channel" value={{pay.name}} ng-repeat="pay in payMethod">
                     <img style="width:30px;height:30px;float:left" src="{{pay.imgUri}}" />
                     <p style="color:black;float:left;height:30px;margin-left:15px;margin-top:2px">{{pay.text}}</p>
                 </ion-radio>
             </ion-list>
-            <button class="allbutton button-block button-small" ng-disabled="disabled" style="width:90%;margin-left:5%;" ng-click="recharge()">确定</button>
+            <button class="button allbutton button-block button-small" ng-disabled="disabled" style="width:90%;margin-left:5%;" ng-click="recharge()">确定</button>
     </ion-content>
 </ion-view>
