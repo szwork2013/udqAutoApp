@@ -1,6 +1,6 @@
 ﻿
 .ownbutton-circle {
-    background-color:#17bed0;
+    background-color:#39A6FB;
     border:none;
     -webkit-border-radius: 60px;/*72px;*/
     -moz-border-radius: 60px;
@@ -11,13 +11,13 @@
     padding: 0px;
 }
 .ownbutton-circle:active{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 .ownbutton-circle:focus{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 .button-washauto-circle {
-    background-color:#17bed0;
+    background-color:#39A6FB;
     border:none;
     -webkit-border-radius: 200px;
     -moz-border-radius: 200px;
@@ -28,7 +28,7 @@
     padding: 0px;
 }
 .button-washauto-circle:active{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 .row-text-align{
      text-align:center;

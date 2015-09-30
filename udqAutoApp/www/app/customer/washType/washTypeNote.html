@@ -4,11 +4,9 @@
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackOfWashTypeNote()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content padding="true" class="has-header">
-        <ion-list>
-            <span class="input-label"><p>内容</p></span>
-            <div class="col col-100 item item-input input-costume">
-                <p class="input-costume">{{type.note}}</p>
-            </div>
+    <ion-content>
+        <label ng-show="type.name =='快洗'"><img style="width:100%;height:auto" src="image/washType/washtype_1.png" /></label>
+        <label ng-show="type.name =='内堂'"><img style="width:100%;height:auto" src="image/washType/washtype_3.png" /></label>
+        <label ng-show="type.name =='打蜡'"><img style="width:100%;height:auto" src="image/washType/washtype_2.png" /></label>
     </ion-content>
 </ion-view>

@@ -441,7 +441,6 @@
     "resources\\ios\\icon\\icon-40.png",
     "resources\\ios\\icon\\icon-50.png",
     "resources\\ios\\icon\\icon-60.png",
-    "www\\image\\mydianqu.png",
     "plugins\\co.airsia.cordova.pingpp\\src\\android\\PingppPlugin.java",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\arm64-v8a\\libjpush175.so",
     "plugins\\cordova-plugin-file\\www\\FileUploadResult.js",
@@ -759,9 +758,32 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
+    "www\\app\\customer\\order\\ordermake.html",
+    "www\\app\\customer\\order\\orderpay.html",
+    "www\\app\\customer\\member\\memberinfoedit.html",
+    "www\\app\\customer\\order\\ordermgr.html",
+    "www\\app\\customer\\order\\historyorder.html",
+    "www\\app\\customer\\member\\washshopinfo.html",
+    "www\\app\\customer\\auto\\autoadd.html",
+    "www\\app\\employee\\order\\orderinfo.html",
+    "www\\image\\mydianqu.png",
+    "www\\app\\customer\\order\\orderpay.js",
+    "www\\image\\myauto.png",
+    "www\\app\\customer\\member\\membercenter.html",
+    "www\\app\\customer\\order\\ordermakectrl.js",
+    "www\\image\\washType\\washtype_1.png",
+    "www\\image\\washType\\washtype_2.png",
+    "www\\image\\washType\\washtype_3.png"
   ],
-  "deletedFilesIos": [],
+  "deletedFilesIos": [
+    "www\\image\\mydianqu1.png",
+    "www\\image\\logo\\amount.jpg",
+    "www\\image\\logo\\amount.png",
+    "www\\image\\washType\\dala.png",
+    "www\\image\\washType\\waiguan.png",
+    "www\\image\\washType\\leishi.png"
+  ],
   "addedPluginsIos": [
     "org.apache.cordova.camera@0.3.6",
     "org.apache.cordova.device@0.3.0",
@@ -775,11 +797,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\member\\memberInfoEdit.html",
-    "www\\app\\customer\\member\\rechargeCtrl.js",
-    "www\\app\\customer\\member\\recharge.html",
-    "www\\app\\customer\\register\\register.html",
-    "www\\app\\util\\appConfig.js"
+    "www\\css\\index.css"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

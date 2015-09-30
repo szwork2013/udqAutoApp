@@ -5,7 +5,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
 
-    <ion-content padding="true" class="has-header">
+    <ion-content>
 
         <ion-list>
             <label class="item item-input input-costume">
@@ -24,14 +24,13 @@
                 </button>
                 
             </div>
-            <div class="spacer" style="height:30px;"></div>
             <label class="item item-input input-costume">
                 <i class="icon ion-ios-person placeholder-icon" style="color:white"></i>
                 <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" style="color:white;font-weight:600;" class="input-costume">
             </label>
 
-            <ion-item class="input-costume" style="color:white;font-weight:600;">
-                <label class="select-type"><input type="radio" name="sex" ng-model="userInfo.sex" checked value='1' class="input-costume" style="color:white;font-weight:600;" />男士</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <ion-item class="input-costume" style="font-weight:600;">
+                <label class="select-type"><input type="radio" name="sex" ng-model="userInfo.sex" checked value='1' class="input-costume" style="color:white;font-weight:600;" />男士</label>&nbsp;&nbsp;&nbsp;
                 <label class="select-type"><input type="radio" name="sex" ng-model="userInfo.sex" value='2' class="input-costume" style="color:white;font-weight:600;" />女士</label>
             </ion-item>
 

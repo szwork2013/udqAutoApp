@@ -1,9 +1,9 @@
 ﻿.ion-view-costum{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 
 .ion-nav-bar-costume {
-    background-color:#17bed0;
+    background-color:#39A6FB;
     color:white;
     border-bottom:1px solid white;
     
@@ -14,45 +14,49 @@ div.title.title-center.header-item{
     font-weight:bold;
 }
 #tab_order div[class="tab-nav tabs"]{
-     background-color:#17bed0;
+     background-color:#39A6FB;
 } 
 #tab_order a{
     color:white;
     font-weight:bold;
-     background-color: #17bed0;
+     background-color: #39A6FB;
 }
 .tab-costume{
     color:#383641; 
-    background-color:#17bed0;
+    background-color:#39A6FB;
     font-weight:bold; 
 }
 .tab-costume:active{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 .tab-costume:checked{
-    background-color:#17bed0; 
+    background-color:#39A6FB; 
 }
 .input-costume-radio{
     color:#383641;
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 .button-i{
     color:white;
-    background-color:#17bed0;
-    border:#17bed0;
+    background-color:#39A6FB;
+    border:#39A6FB;
+}
+.input-costume-list{
+    color:white;
+    background-color:#39A6FB;
 }
 .input-costume{
     color:white;
-    background-color:#17bed0;
+    background-color:#70BEFC;
 }
-.input-costume:active{
-    background-color:#17bed0;
+/*.input-costume:active{
+    background-color:#39A6FB;
 }
 .input-costume:checked{
-    background-color:#17bed0;
-}
+    background-color:#39A6FB;
+}*/
 ion-radio:checked{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 p{
     font-size:16px;
@@ -66,8 +70,14 @@ a{
     font-weight:600;
 }
 .home-p{
+    color:white;
     font-weight:600;
     font-size:small;
+}
+.home-p2{
+    color:white;
+    font-weight:600;
+    font-size:16px;
 }
 .makeorder-note-p{
     font-weight:600;
@@ -81,20 +91,20 @@ a{
     text-align:left;
 }
 ion-item.item div.item-content{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 ion-list div label.item div.item-content{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 h2,h3,h4,p,.item p{
     color:#383641;
 }
 /*button*/
 /*.allbutton{
-    background-color:#fafb75;
+    background-color:#FFF571;
     color:#383641;
     font-size:16px;
-    border:#fafb75 solid ;
+    border:#FFF571 solid ;
     border-radius:3px;
     margin-top:15px;
 }
@@ -103,10 +113,10 @@ h2,h3,h4,p,.item p{
     border-color:#b76969;
 }*/
 .button.allbutton {
-    background-color:#fafb75;/*#f83838红色*/
+    background-color:#FFF571;/*#f83838红色*/
     color:black;
     font-size:16px;
-    border:#fafb75 solid ;
+    border:#FFF571 solid ;
     border-radius:3px;
     margin-top:15px; }
     /*.button.allbutton:hover {
@@ -119,25 +129,25 @@ h2,h3,h4,p,.item p{
       background-color: #b76969;}
 
 .button.loginbutton{
-    background-color:#0082d4;/*#f83838红色*/
+    background-color:#FFF571;/*#f83838红色*/
     color:#383641;
     font-size:16px;
-    border:#0082d4 solid ;
+    border:#FFF571 solid ;
     border-radius:3px;
     margin-top:15px;
 }
-/*注册按钮*/
+/*验证码按钮*/
 .button.registerInloginPage{
-    background-color:#fafb75;
+    background-color:#FFF571;
     color:#383641;
-    font-size:16px;
-    border:#fafb75 solid ;
+    font-size:14px;
+    border:#FFF571 solid ;
     border-radius:3px;
     margin-top:6px;
 }
 /*充值按钮*/
 .rechargeInloginPage{
-   background-color:#fafb75;
+   background-color:#FFF571;
    color:#383641;
    font-weight:600;
    border-color:rgba(250, 251, 117, 0.07);
@@ -164,7 +174,7 @@ color: #666;
     font-weight:600;
 }
 label div.item-content:checked{
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 .makeorder-washtype-span{
     padding-bottom:4px;
@@ -184,7 +194,7 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
-    background-color:#ff6e0b;
+    background-color:#E44F48;
 }
 .makeorder-district-span{
     padding-bottom:7px;
@@ -193,7 +203,7 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
-    background-color:#b93333;
+    background-color:#2397EA;
 }
 .makeorder-position-span{
     padding-bottom:7px;
@@ -202,7 +212,7 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
-    background-color:#808080;
+    background-color:#7795B1;
 }
 .makeorder-note-span{
     padding-bottom:7px;
@@ -211,7 +221,7 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
-    background-color:#17bed0;
+    background-color:#39A6FB;
 }
 .makeorder-input{
     background-color:white;
@@ -221,12 +231,12 @@ label div.item-content:checked{
     text-align:center;
 }
 .makeorder-label{
-    border-color:#17bed0;
-    background-color:#17bed0;
+    border-color:#39A6FB;
+    background-color:#39A6FB;
 }
 .washtype-ion-checkbox{
-    background-color:#17bed0;
-    border:1px solid #374d58;
+    background-color:#39A6FB;
+    border:1px solid #0082d4;
     width:auto;
 }
 .makeorder-textarea{
@@ -244,7 +254,7 @@ label div.item-content:checked{
     color:red;
 }
 .button-sure{
-    background-color:#fafb75;
+    background-color:#FFF571;
 }
 .span-mark{
     color:black;
@@ -257,12 +267,13 @@ label div.item-content:checked{
     font-weight:bold;
 }
 .select-p{
-    color:#fafb75;
+    color:#FFF571;
 }
 .select-type{
     border:2px #15a2b1 solid;
     border-radius:5px;
     padding:4px;
+    color:white;
 }
 
 

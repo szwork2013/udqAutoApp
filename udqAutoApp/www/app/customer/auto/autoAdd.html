@@ -4,14 +4,14 @@
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content padding="true" class="has-header">
+    <ion-content>
         <form>
             <ion-list>
                 <label class="item item-input input-costume">
                     <i class="icon ion-model-s placeholder-icon" style="color:white"></i>
                     <input type="text" name="pn" ng-model="autoInfo.pn" placeholder="请输入车牌号(必填)" ng-trim="true" ngMaxlength="11" class="input-costume" style="color:white;font-weight:600;" required>
                 </label>
-                <div class="spacer" style="height:10px;"></div>
+                <!--<div class="spacer" style="height:10px;"></div>-->
                 <label class="item item-input input-costume">
                     <i class="icon ion-ios-color-filter-outline placeholder-icon" style="color:white"></i>
                     <input type="text" name="brand" ng-model="autoInfo.brand" placeholder="请输入品牌(必填)" class="input-costume" style="color:white;font-weight:600;" required>
@@ -24,7 +24,7 @@
                     <i class="icon ion-android-options placeholder-icon" style="color:white"></i>
                     <input type="text" name="model" ng-model="autoInfo.model" placeholder="请输入型号(非必填)" class="input-costume"  style="color:white;font-weight:600;">
                 </label>
-                <div class="spacer" style="height:10px;"></div>
+                <!--<div class="spacer" style="height:10px;"></div>-->
                 <!-- 选择小区 -->
                 <a class="item item-icon-right input-costume" ng-click="goToCitySelect()">
                     <p class="autoadd-p" ng-show="autoInfo.selectedCityId ==undefined">选择城市</p>

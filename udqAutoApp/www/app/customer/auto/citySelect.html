@@ -6,10 +6,10 @@
         </ion-nav-buttons>
 
     </ion-nav-bar>
-    <ion-content padding="true" class="has-header input-costume">
+    <ion-content>
         <ion-refresher on-refresh="doRefreshOfCity()"></ion-refresher>
 
-        <ion-list class="input-costume" ng-repeat="city in cities" >
+        <ion-list ng-repeat="city in cities" >
             <ion-radio ng-model="autoInfo.selectedCityId"  ng-click="goBackOfCitySelect()" value={{city.id}} class="input-costume-radio" ><p style="color:#383641;">{{city.name}}</p></ion-radio>
         </ion-list>
 

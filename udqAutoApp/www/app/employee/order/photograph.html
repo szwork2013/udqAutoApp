@@ -8,15 +8,15 @@
     <ion-content>
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <ion-list>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>客户姓名</p></span>
                 <p>{{order.customerName}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>联系电话</p></span>
                 <p>{{order.customerMobile}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>车牌号码</p></span>
                 <p>{{order.autoPN}}</p>
             </label>
@@ -50,7 +50,7 @@
         <div class="spacer" style="height:20px;"></div>
         <div class="row">
             <div class="col col-100 item item-input input-costume">
-                <textarea placeholder="您有什么要告诉车主的，请写在这里。" ng-model="order.washerNote" rows="5" class="input-costume" style="color:white;width:100%;height:inherit"></textarea>
+                <textarea placeholder="您有什么要告诉车主的，请写在这里。" ng-model="order.washerNote" rows="4" class="input-costume" style="color:white;width:100%;height:inherit"></textarea>
             </div>
         </div>
         <div class="spacer" style="height:5px;"></div>

@@ -7,7 +7,7 @@
             <button class="button-clear" ng-click="goBackOfWashType()" style="color:#ffbc01;font-weight:600;">完成</button>
         </ion-nav-buttons>
 </ion-nav-bar>
-    <ion-content padding="true" class="has-header">
+    <ion-content>
         <ion-list ng-repeat="type in types" class="input-costume">
             <ion-checkbox ng-model="types[0].check" ng-true-value="1" ng-false-value="1" class="input-costume" disabled>
                 <p>{{types[0].name}}</p><br />

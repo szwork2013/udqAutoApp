@@ -5,11 +5,11 @@
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goToCenter()"></button>
         </ion-nav-buttons>
         <!--<ion-nav-buttons side="right">
-            <button class="button-clear" ng-click="saveMemberInfo()" style="color:#fafb75;font-weight:600;">保存</button>
+            <button class="button-clear" ng-click="saveMemberInfo()" style="color:#FFF571;font-weight:600;">保存</button>
         </ion-nav-buttons>-->
     </ion-nav-bar>
 
-    <ion-content padding="true" class="has-header">
+    <ion-content>
             <ion-list>
                 <!--<div class="item item-input input-costume">
                     <label class="input-label"><span class="input-label"><h2>称呼</h2></span></label>
@@ -29,10 +29,10 @@
                     <span class="input-label"><h2>手机</h2></span>
                     <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您要变更的手机号" style="color:white;" required>
                 </label>
-                <ion-item class="input-costume" style="color:#383641;">
-                    <label class="select-type"><input type="radio" name="sex" ng-model="user.sex" value='1' />男士</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label class="select-type"><input type="radio" name="sex" ng-model="user.sex" value='2' />女士</label>
-                </ion-item>
+                    <ion-item class="input-costume" style="color:white;">
+                        <label class="select-type"><input type="radio" name="sex" ng-model="user.sex" value='1' />男士</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label class="select-type"><input type="radio" name="sex" ng-model="user.sex" value='2' />女士</label>
+                    </ion-item>
                 <!--<ion-radio ng-model="user.sex" value ="person.sexValue" ng-repeat="person in persons"></ion-radio>-->
             </ion-list>
         <button class="button allbutton button-block button-small" style="width:90%;margin-left:5%;" ng-click="saveMemberInfo()">保存</button>

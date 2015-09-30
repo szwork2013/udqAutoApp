@@ -5,13 +5,13 @@
         </ion-nav-buttons>
 
     </ion-nav-bar>
-    <ion-content padding="true" class="has-header">
+    <ion-content>
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
         <div style="text-align:center;margin-top:5px;" ng-show="autoInfo.selectedCityId==undefined">
             <p>请先选择城市</p>
         </div>
 
-        <ion-list class="input-costume" ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid" >
+        <ion-list ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid" >
             <ion-radio ng-model="autoInfo.selectedRegionId"  ng-click="goBackOfRegionSelect()" value={{region.id}} class="input-costume-radio"><p style="color:#383641;">{{region.name}}</p></ion-radio>
         </ion-list>
 

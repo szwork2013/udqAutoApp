@@ -6,107 +6,107 @@
     </ion-nav-bar>
     <ion-content>
         <ion-list>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <p style="text-align:center;">订单基本信息</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>订单编号</p></span>
                 <p>{{order.orderNo}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>订单状态</p></span>
                 <p>{{order.stateNote}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>客户姓名</p></span>
                 <p>{{order.customerName}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>联系电话</p></span>
                 <p>{{order.customerMobile}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>洗车类型</p></span>
                 <p>{{order.washTypeName}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>车牌号码</p></span>
                 <p>{{order.autoPN}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>车辆品牌</p></span>
                 <p>{{order.autoBrand}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>车辆型号</p></span>
                 <p>{{order.autoModel}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>所属小区</p></span>
                 <p>{{order.regionName}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>车位</p></span>
                 <p>{{order.autoPosition}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>下单时间</p></span>
                 <p>{{order.billTime}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>用户需求</p></span>
                 <p>{{order.userNote}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>优惠券</p></span>
                 <p>{{order.couponName}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>优惠金额</p></span>
                 <p>{{order.couponAmount}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>固定价格</p></span>
                 <p>{{order.fixedAmount}}</p>
             </label>
-            <label class="item item-input input-costume">
+            <label class="item item-input input-costume-list">
                 <span class="input-label"><p>结算价格</p></span>
                 <a class="a-custome">{{order.finalAmount}}</a>
             </label>
         </ion-list>
         <div ng-show="order.state==2||order.state==3||order.state==4||order.state==5">
                 <ion-list>
-                    <label class="item item-input input-costume">
+                    <label class="item item-input input-costume-list">
                         <p>订单处理信息</p>
                     </label>
-                    <label class="item item-input input-costume">
+                    <label class="item item-input input-costume-list">
                         <span class="input-label"><p>接单员工</p></span>
                         <p>{{order.washerName}}</p>
                     </label>
-                    <label class="item item-input input-costume">
+                    <label class="item item-input input-costume-list">
                         <span class="input-label"><p>接单时间</p></span>
                         <p>{{order.acceptTime}}</p>
                     </label>
-                    <label class="item item-input input-costume">
+                    <label class="item item-input input-costume-list">
                         <span class="input-label"><p>开始时间</p></span>
                         <p>{{order.beginTime}}</p>
                     </label>
-                    <label class="item item-input input-costume">
+                    <label class="item item-input input-costume-list">
                         <span class="input-label"><p>结束时间</p></span>
                         <p>{{order.finishTime}}</p>
                     </label>
-                    <label class="item item-input input-costume">
+                    <label class="item item-input input-costume-list">
                         <span class="input-label"><p>客户评价</p></span>
                         <p>{{order.customerGrade}}</p>
                     </label>
-                    <label class="item item-input input-costume">
+                    <label class="item item-input input-costume-list">
                         <span class="input-label"><p>客户意见</p></span>
                         <p>{{order.gradeUserNote}}</p>
                     </label>
                 </ion-list>
          </div>
          <div ng-show="order.state==4||order.state==5">
-                 <label class="item item-input input-costume">
+                 <label class="item item-input input-costume-list">
                         <p>照片信息</p>
                  </label>
                 <div class="row" style="width:100%;margin:0px;padding:0px;">

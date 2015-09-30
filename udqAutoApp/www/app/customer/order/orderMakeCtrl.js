@@ -345,7 +345,7 @@
         }
         $scope.goBackOfAuto = function (auto) {
             /*保存在service*/
-            if ($scope.autoInfo != undefined && $scope.autoInfo.length > 0) {
+            if ($scope.autoInfo != undefined && $scope.autoInfo.length > 0&&auto!=undefined) {
                 customerOrderSvr.setSelectedAuto(auto);
                 customerOrderSvr.setSelectedAutoId($scope.selectedAuto.selectedAutoId);
                 /*选择车辆改变，则联动小区也改变*/

@@ -4,13 +4,12 @@
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackOfMain()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content padding="true" class="has-header">
+    <ion-content>
 
         <ion-list>
-            <ion-item ng-repeat="type in types" ng-click="goToTypeNote(type)" class="input-costume">
+            <ion-item ng-repeat="type in types" ng-click="goToTypeNote(type)" class="input-costume-list">
                     <p>{{type.name}}</p>
                     <span class="badge a-custome">{{type.amount|currency:'￥'}}</span>
-
             </ion-item>
         </ion-list>
     </ion-content>

@@ -40,14 +40,20 @@ angular.module('udqApp')
 	    customerMemberInfoSvr.getWashShopInfo($window.localStorage['userID']).then(
             function (data) {
                 if (data.isSuccess) {
-                    $scope.washShopInfo = data.rows;
-                    for (var i = 0; i < $scope.washShopInfo.length; i++) {
-                        if ($scope.washShopInfo[i].photoUrl == "" || $scope.washShopInfo[i].photoUrl == undefined || $scope.washShopInfo[i].photoUrl == null) {
-                            $scope.washShopInfo[i].photoUrl = "image/mydianqu.png";
-                        } else {
-                            $scope.washShopInfo[i].photoUrl = baseUrl + $scope.washShopInfo[i].photoUrl; 
+                    if (data.rows.length > 1) {
+                        $scope.hasNoAuto = false;
+                        $scope.washShopInfo = data.rows;
+                        for (var i = 0; i < $scope.washShopInfo.length; i++) {
+                            if ($scope.washShopInfo[i].photoUrl == "" || $scope.washShopInfo[i].photoUrl == undefined || $scope.washShopInfo[i].photoUrl == null) {
+                                $scope.washShopInfo[i].photoUrl = "image/mydianqu.png";
+                            } else {
+                                $scope.washShopInfo[i].photoUrl = baseUrl + $scope.washShopInfo[i].photoUrl;
+                            }
                         }
+                    } else {
+                        $scope.hasNoAuto = true;
                     }
+                    
                 } else {
                     console.log(data.msg);
                 }
