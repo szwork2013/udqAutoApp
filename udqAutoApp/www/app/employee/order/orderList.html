@@ -5,16 +5,16 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <!--订单展示-->
-        <ion-tabs class="tabs-top input-costume" id="tab_order" style="background-color:rgba(23, 190, 208, 0);">
-            <ion-tab title="新订单"  href="#/employeeOrderList/newOrder">
+        <ion-tabs class="tabs-top tabs-icon-top input-costume" id="tab_order" style="background-color:rgba(23, 190, 208, 0);">
+            <ion-tab title="新订单" icon="ion-document-text"  href="#/employeeOrderList/newOrder">
                 <ion-nav-view name="newOrder-tab"></ion-nav-view>
             </ion-tab>
 
-            <ion-tab title="已接收" href="#/employeeOrderList/acceptedOrder">
+            <ion-tab title="已接收" icon="ion-fireball" href="#/employeeOrderList/acceptedOrder">
                 <ion-nav-view name="acceptedOrder-tab"></ion-nav-view>
             </ion-tab>
 
-            <ion-tab title="已完成" href="#/employeeOrderList/finishedOrder">
+            <ion-tab title="已完成" icon="ion-happy-outline" href="#/employeeOrderList/finishedOrder">
                 <ion-nav-view name="finishedOrder-tab"></ion-nav-view>
             </ion-tab>
         </ion-tabs>

@@ -1,5 +1,5 @@
-angular.module('udqApp')
-	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', '$window', 'autoSvr', 'popUpSvr', function ($scope, $state, $ionicHistory, $window, autoSvr, popUpSvr) {
+ï»¿angular.module('udqApp')
+	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', 'popUpSvr', '$window', 'autoSvr', function ($scope, $state, $ionicHistory, popUpSvr, $window, autoSvr) {
 	    var backParam = autoSvr.getBackParam();
 	    autoSvr.getAuto().then(
             function (data) {
@@ -18,9 +18,9 @@ angular.module('udqApp')
                 console.log(data);
             }
         );
-	    /*»ñÈ¡ËùÑ¡ÔñµÄ³µÁ¾ÏêÇé*/
+	    /*è·å–æ‰€é€‰æ‹©çš„è½¦è¾†è¯¦æƒ…*/
 	    $scope.selectedAuto = autoSvr.getAutoInfo();
-	    /*³µÁ¾ÏêÇé*/
+	    /*è½¦è¾†è¯¦æƒ…*/
 	    $scope.goToAutoInfo = function (auto) {
 	        autoSvr.setAutoInfo(auto);
 	        $state.go('customerAutoInfo');
@@ -28,9 +28,9 @@ angular.module('udqApp')
 	    $scope.goBackOfAutoInfo = function () {
 	        $state.go('customerAutoMgr');
 	    }
-	    /*É¾³ı³µÁ¾*/
+	    /*åˆ é™¤è½¦è¾†*/
 	    $scope.deleteAuto = function (item) {
-	        popUpSvr.confirmExit('È·¶¨É¾³ı¸Ã³µÁ¾?').then(
+	        popUpSvr.confirmExit('ç¡®å®šåˆ é™¤è¯¥è½¦è¾†ï¼Ÿ').then(
                 function (res) {
 	              if (res) {
 	                var promise = autoSvr.deleteAutoItem(item.id);
@@ -46,13 +46,13 @@ angular.module('udqApp')
                         }
                     );
 	               // $scope.doRefresh();
-	                //console.log('È·¶¨É¾³ı');
+	                //console.log('ç¡®å®šåˆ é™¤');
 	            } else {
 	                console.log('you are not sure');
 	            }
 	        });
 	    }
-	    /*ÏÂÀ­Ë¢ĞÂ*/
+	    /*ä¸‹æ‹‰åˆ·æ–°*/
 	    $scope.doRefresh = function () {
 	        autoSvr.getAuto().then(
                 function (data) {
@@ -73,11 +73,11 @@ angular.module('udqApp')
                 );
 	        $scope.$broadcast('scroll.refreshComplete');
 	    }
-	    /*Ìí¼Ó³µÁ¾*/
+	    /*æ·»åŠ è½¦è¾†*/
 	    $scope.goToAddauto = function () {
 	        $state.go('customerAutoAdd', { 'backName': 'customerAutoMgr' });
 	    }
-	    /*»ØÌø(¸ù¾İbackParam)*/
+	    /*å›è·³(æ ¹æ®backParam)*/
 	    $scope.goBack = function () {
 	        if (backParam == "customerMyDQ") {
 	            $state.go('customerMyDQ');
@@ -86,7 +86,7 @@ angular.module('udqApp')
 	            $state.go('customerHome');
 	        }
 	    }
-	    /*(×Ô¶¨Òå)Êı×éÒÆ³ıÖ¸¶¨ÔªËØ*/
+	    /*(è‡ªå®šä¹‰)æ•°ç»„ç§»é™¤æŒ‡å®šå…ƒç´ */
 	    var ArrayRemove = function (array, item) {
 	        var index = -1;
 	        for (var i = 0; i < array.length; i++) {
@@ -95,6 +95,9 @@ angular.module('udqApp')
 	                index = i;
 	                break;
 	            }
+	        }
+	        if (index == 0) {
+	            array.splice(index, 1);
 	        }
 	        if (index == -1) {
 	            array.splice(index, 1);

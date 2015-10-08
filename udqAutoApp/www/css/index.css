@@ -285,5 +285,8 @@ label div.item-content:checked{
     padding:4px;
     color:#B1B9C4;
 }
+.ion-type{
+    margin-left:-5%;
+}
 
 

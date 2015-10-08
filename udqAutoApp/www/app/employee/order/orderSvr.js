@@ -81,6 +81,8 @@
         /*接收订单*/
         this.acceptOrder = function (order) {
             var data = {
+                userId: order.userId,
+                autoPN: order.autoPN,
                 orderNo: order.orderNo,
                 washerId: $window.localStorage['userID'],
                 state: 2

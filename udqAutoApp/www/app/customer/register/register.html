@@ -8,26 +8,28 @@
     <ion-content>
 
         <ion-list>
-            <label class="item item-input input-costume">
-                <i class="icon ion-ios-telephone placeholder-icon" style="color:white"></i>
-                <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" class="input-costume" style="color:white;font-weight:600;" required>
-            </label>
-            
             <div class="item item-input-inset input-costume">
-                <label class="item-input-wrapper input-costume">
-                    <i class="icon ion-key placeholder-icon" style="color:white"></i>
+                <label class="item-input-wrapper input-costume  ion-type">
+                    <i class="button button-clear icon ion-ios-telephone"></i>
+                    <input type="tel" placeholder="请输入手机号码" ng-model="userInfo.mobile" class="input-costume" style="color:white;font-weight:600;" required>
+                </label>
+            </div>
+            <div class="item item-input-inset input-costume">
+                <label class="item-input-wrapper input-costume ion-type">
+                    <i class="button button-clear icon ion-ios-locked-outline"></i>
                     <input id="verifyInput" type="tel" placeholder="请输入手机验证码" ng-model="userInfo.psd" style="color:white;font-weight:600;" class="input-costume">
                     
                 </label>
                 <button class="button registerInloginPage button-small" ng-disabled="verifyDisabled" style="width:120px;text-align:center;" ng-click="getValidateCode()">
                     {{tips}}
                 </button>
-                
             </div>
-            <label class="item item-input input-costume">
-                <i class="icon ion-ios-person placeholder-icon" style="color:white"></i>
-                <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" style="color:white;font-weight:600;" class="input-costume">
-            </label>
+            <div class="item item-input-inset input-costume">
+                <label class="item-input-wrapper input-costume  ion-type">
+                    <i class="button button-clear icon ion-ios-person"></i>
+                    <input type="text" name="name" ng-model="userInfo.userName" placeholder="请输入称呼" style="color:white;font-weight:600;" class="input-costume">
+                </label>
+            </div>
 
             <ion-item class="input-costume" style="font-weight:600;">
                 <label class="select-type"><input type="radio" name="sex" ng-model="userInfo.sex" checked value='1' class="input-costume" style="color:white;font-weight:600;" />男士</label>&nbsp;&nbsp;&nbsp;
