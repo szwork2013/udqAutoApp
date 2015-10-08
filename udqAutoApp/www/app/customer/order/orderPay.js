@@ -46,7 +46,7 @@
             udq: {
                 name: "udq",
                 text: "余额支付",
-                imgUri: "image/logo/icon-96-xhdpi.png"
+                imgUri: "image/logo/amount.png"
             }
         };
 

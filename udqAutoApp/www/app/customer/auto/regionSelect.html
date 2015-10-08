@@ -12,7 +12,7 @@
         </div>
 
         <ion-list ng-repeat="region in regions"  ng-show="region.pid ==autoInfo.selectedRegionPid" >
-            <ion-radio ng-model="autoInfo.selectedRegionId"  ng-click="goBackOfRegionSelect()" value={{region.id}} class="input-costume-radio"><p style="color:#383641;">{{region.name}}</p></ion-radio>
+            <ion-radio ng-model="autoInfo.selectedRegionId"  ng-click="goBackOfRegionSelect()" value={{region.id}} class="input-costume-radio"><p style="color:black;">{{region.name}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

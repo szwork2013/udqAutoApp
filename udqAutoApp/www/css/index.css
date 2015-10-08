@@ -1,62 +1,66 @@
 ﻿.ion-view-costum{
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 
 .ion-nav-bar-costume {
-    background-color:#39A6FB;
+    background-color:#374D58;
     color:white;
     border-bottom:1px solid white;
     
 }
 /*页面标题字体修改*/
 div.title.title-center.header-item{
-    font-size:20px;
+    font-size:23px;
     font-weight:bold;
 }
 #tab_order div[class="tab-nav tabs"]{
-     background-color:#39A6FB;
+     background-color:#374D58;
 } 
 #tab_order a{
     color:white;
     font-weight:bold;
-     background-color: #39A6FB;
+     background-color: #374D58;
 }
 .tab-costume{
-    color:#383641; 
-    background-color:#39A6FB;
+    color:black; 
+    background-color:#374D58;
     font-weight:bold; 
 }
 .tab-costume:active{
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 .tab-costume:checked{
-    background-color:#39A6FB; 
+    background-color:#374D58; 
 }
 .input-costume-radio{
-    color:#383641;
-    background-color:#39A6FB;
+    color:black;
+    background-color:#374D58;
 }
 .button-i{
     color:white;
-    background-color:#39A6FB;
-    border:#39A6FB;
+    background-color:#374D58;
+    border:#374D58;
 }
 .input-costume-list{
     color:white;
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 .input-costume{
     color:white;
-    background-color:#70BEFC;
+    background-color:#425A66;
 }
 /*.input-costume:active{
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 .input-costume:checked{
-    background-color:#39A6FB;
+    background-color:#374D58;
 }*/
 ion-radio:checked{
-    background-color:#39A6FB;
+    background-color:#374D58;
+}
+.input-label{
+    color:white;
+    font-weight:600;
 }
 p{
     font-size:16px;
@@ -73,6 +77,11 @@ a{
     color:white;
     font-weight:600;
     font-size:small;
+}
+.home-p1{
+    color:white;
+    font-weight:600;
+    font-size:14px;
 }
 .home-p2{
     color:white;
@@ -91,20 +100,20 @@ a{
     text-align:left;
 }
 ion-item.item div.item-content{
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 ion-list div label.item div.item-content{
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 h2,h3,h4,p,.item p{
-    color:#383641;
+    color:white;
 }
 /*button*/
 /*.allbutton{
-    background-color:#FFF571;
-    color:#383641;
+    background-color:#FFBC01;
+    color:black;
     font-size:16px;
-    border:#FFF571 solid ;
+    border:#FFBC01 solid ;
     border-radius:3px;
     margin-top:15px;
 }
@@ -113,10 +122,10 @@ h2,h3,h4,p,.item p{
     border-color:#b76969;
 }*/
 .button.allbutton {
-    background-color:#FFF571;/*#f83838红色*/
+    background-color:#FFBC01;/*#f83838红色*/
     color:black;
     font-size:16px;
-    border:#FFF571 solid ;
+    border:#FFBC01 solid ;
     border-radius:3px;
     margin-top:15px; }
     /*.button.allbutton:hover {
@@ -129,26 +138,27 @@ h2,h3,h4,p,.item p{
       background-color: #b76969;}
 
 .button.loginbutton{
-    background-color:#FFF571;/*#f83838红色*/
-    color:#383641;
+    background-color:#FFBC01;/*#f83838红色*/
+    color:black;
     font-size:16px;
-    border:#FFF571 solid ;
+    border:#FFBC01 solid ;
     border-radius:3px;
     margin-top:15px;
 }
 /*验证码按钮*/
 .button.registerInloginPage{
-    background-color:#FFF571;
-    color:#383641;
+    background-color:#FFBC01;
+    color:black;
     font-size:14px;
-    border:#FFF571 solid ;
+    border:#FFBC01 solid ;
     border-radius:3px;
     margin-top:6px;
 }
 /*充值按钮*/
 .rechargeInloginPage{
-   background-color:#FFF571;
-   color:#383641;
+   background-color:#FFBC01;
+   color:black;
+   font-size:14px;
    font-weight:600;
    border-color:rgba(250, 251, 117, 0.07);
    border-radius:3px;
@@ -159,22 +169,22 @@ h2,h3,h4,p,.item p{
     color:white;
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
-color: #666; 
+color: #B1B9C4; 
 } 
 input:-moz-placeholder, textarea:-moz-placeholder { 
-color: #666; 
+color: #B1B9C4; 
 } 
 input::-moz-placeholder, textarea::-moz-placeholder { 
-color: #666; 
+color: #B1B9C4; 
 } 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
-color: #666; 
+color: #B1B9C4; 
 }
 .autoadd-p{
     font-weight:600;
 }
 label div.item-content:checked{
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 .makeorder-washtype-span{
     padding-bottom:4px;
@@ -221,7 +231,7 @@ label div.item-content:checked{
     padding-right:4px;
     text-align:center;
     width:40px;
-    background-color:#39A6FB;
+    background-color:#374D58;
 }
 .makeorder-input{
     background-color:white;
@@ -231,11 +241,11 @@ label div.item-content:checked{
     text-align:center;
 }
 .makeorder-label{
-    border-color:#39A6FB;
-    background-color:#39A6FB;
+    border-color:#374D58;
+    background-color:#374D58;
 }
 .washtype-ion-checkbox{
-    background-color:#39A6FB;
+    background-color:#374D58;
     border:1px solid #0082d4;
     width:auto;
 }
@@ -254,7 +264,7 @@ label div.item-content:checked{
     color:red;
 }
 .button-sure{
-    background-color:#FFF571;
+    background-color:#FFBC01;
 }
 .span-mark{
     color:black;
@@ -267,13 +277,13 @@ label div.item-content:checked{
     font-weight:bold;
 }
 .select-p{
-    color:#FFF571;
+    color:#FFBC01;
 }
 .select-type{
-    border:2px #15a2b1 solid;
+    border:2px #374D58 solid;
     border-radius:5px;
     padding:4px;
-    color:white;
+    color:#B1B9C4;
 }
 
 

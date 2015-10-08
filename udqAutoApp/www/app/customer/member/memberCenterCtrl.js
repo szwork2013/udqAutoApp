@@ -40,7 +40,7 @@ angular.module('udqApp')
 	    customerMemberInfoSvr.getWashShopInfo($window.localStorage['userID']).then(
             function (data) {
                 if (data.isSuccess) {
-                    if (data.rows.length > 1) {
+                    if (data.rows[0] !=null) {
                         $scope.hasNoAuto = false;
                         $scope.washShopInfo = data.rows;
                         for (var i = 0; i < $scope.washShopInfo.length; i++) {

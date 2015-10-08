@@ -12,7 +12,7 @@
             <p>请先选择区域</p>
         </div>
         <ion-list ng-repeat="district in districts" ng-show="district.pid ==autoInfo.selectedDistrictPid" >
-            <ion-radio ng-model="autoInfo.selectedDistrictId"  ng-click="goBackOfDistrictSelect()" value={{district.id}} class="input-costume-radio"><p style="color:#383641;">{{district.name}}</p></ion-radio>
+            <ion-radio ng-model="autoInfo.selectedDistrictId"  ng-click="goBackOfDistrictSelect()" value={{district.id}} class="input-costume-radio"><p style="color:black;">{{district.name}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

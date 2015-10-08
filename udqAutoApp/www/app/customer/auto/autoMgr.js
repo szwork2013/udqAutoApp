@@ -30,7 +30,7 @@ angular.module('udqApp')
 	    }
 	    /*删除车辆*/
 	    $scope.deleteAuto = function (item) {
-	        popUpSvr.confirmExit('删除此车辆？').then(
+	        popUpSvr.confirmExit('确定删除该车辆?').then(
                 function (res) {
 	              if (res) {
 	                var promise = autoSvr.deleteAutoItem(item.id);
@@ -38,14 +38,15 @@ angular.module('udqApp')
                         function (data) {
                             if (data.isSuccess) {
                                 ArrayRemove($scope.autoInfo, item);
+                                $scope.doRefresh();
                             }
                         },
                         function (data) {
                             console.log(data);
                         }
                     );
-	                $scope.doRefresh();
-	                console.log('确定删除');
+	               // $scope.doRefresh();
+	                //console.log('确定删除');
 	            } else {
 	                console.log('you are not sure');
 	            }
