@@ -107,6 +107,15 @@
          }
          this.setSelectedType = function (type) {
              _selectedType = type;
+             if (type.name == "快洗") {
+                 _selectedType.imgUri = "image/washType/washtype1.png"
+             }
+             if (type.name == "内堂") {
+                 _selectedType.imgUri = "image/washType/washtype2.png"
+             }
+             if (type.name == "打蜡") {
+                 _selectedType.imgUri = "image/washType/washtype3.png"
+             }
          }
          /*获取所有订单*/
          this.getOrdersList = function (orderDate) {

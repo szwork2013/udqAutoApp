@@ -29,10 +29,11 @@
                     <span class="input-label"><h2>手机</h2></span>
                     <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您要变更的手机号" style="color:white;" required>
                 </label>
-                    <ion-item class="input-costume" style="color:white;">
+                <ion-item class="input-costume" style="color:white;">
+                        <span class="input-labelsex">性别</span>
                         <label class="select-type"><input type="radio" name="sex" ng-model="user.sex" value='1' />男士</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <label class="select-type"><input type="radio" name="sex" ng-model="user.sex" value='2' />女士</label>
-                    </ion-item>
+                </ion-item>
                 <!--<ion-radio ng-model="user.sex" value ="person.sexValue" ng-repeat="person in persons"></ion-radio>-->
             </ion-list>
         <button class="button allbutton button-block button-small" style="width:90%;margin-left:5%;" ng-click="saveMemberInfo()">保存</button>

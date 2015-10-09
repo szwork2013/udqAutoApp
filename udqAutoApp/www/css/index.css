@@ -63,6 +63,15 @@ ion-radio:checked{
     color:white;
     font-weight:600;
 }
+.input-labelsex{
+    display: table; 
+    max-width: 200px;
+    width: 35%;
+    color: #444;
+    font-size: 16px;
+    color: white; 
+    float: left;
+}
 p{
     font-size:16px;
     font-weight:600;
@@ -283,7 +292,7 @@ label div.item-content:checked{
     color:#FFBC01;
 }
 .select-type{
-    border:2px #374D58 solid;
+    /*border:2px #374D58 solid;*/
     border-radius:5px;
     padding:4px;
     color:#B1B9C4;

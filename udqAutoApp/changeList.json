@@ -769,7 +769,15 @@
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
     "www\\app\\customer\\washtype\\washTypeIntroduce.html",
-    "www\\app\\customer\\washtype\\washtypenote.html"
+    "www\\app\\customer\\washtype\\washtypenote.html",
+    "www\\app\\customer\\auto\\automgr.html",
+    "www\\app\\customer\\washtype\\washtypeselect.html",
+    "www\\app\\customer\\order\\orderpay.html",
+    "www\\lib\\ionic\\js\\udqapp.js",
+    "www\\app\\customer\\washtype\\washtypectrl.js",
+    "www\\image\\washType\\washtype1.png",
+    "www\\image\\washType\\washtype2.png",
+    "www\\image\\washType\\washtype3.png"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -785,6 +793,10 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
+    "www\\app\\customer\\order\\orderSvr.js",
+    "www\\image\\washType\\washtype1.png",
+    "www\\image\\washType\\washtype2.png",
+    "www\\image\\washType\\washtype3.png",
     "www\\app\\customer\\order\\orderMakeCtrl.js"
   ],
   "deletedFiles": [],
