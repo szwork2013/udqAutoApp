@@ -3,34 +3,19 @@
         <ion-nav-buttons side="left">
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBack()"></button>
         </ion-nav-buttons>
-        <!--<ion-nav-buttons side="right">
-            <button class="button-clear" ng-click="commitOrder()" style="color:#FFBC01;font-weight:600;">确定</button>
-        </ion-nav-buttons>-->
     </ion-nav-bar>
 
     <ion-content>
-        <ion-list>
-            <ion-list class="input-costume">
-                <ion-radio class="input-costume-radio" ng-model="order.channel" value={{pay.name}} ng-repeat="pay in payMethod">
-                    <img style="width:30px;height:30px;float:left" src="{{pay.imgUri}}" />
-                    <p style="color:black;float:left;height:30px;margin-left:15px;margin-top:2px">{{pay.text}}<a class="a-custome" ng-show="pay.name=='udq'">(余额：{{user.balance}}元)</a></p>
-                </ion-radio>
-                <div class="spacer" style="height:20px;"></div>
-                <div style="margin-left:25%">
-                    <p class="makeorder-money-p" style="color:red;"><a style="font-size:30px">￥</a>总价<a style="font-size:25px">{{order.totalAmount}}</a>元</p>
-                </div>
-            </ion-list>
-
-            <!--<ion-radio ng-model="order.channel" value="alipay" style="height: 55px;">
-                <img style="width:30px;height:30px;float:left" src="image/logo/64x64.png" />
-                <p style="color:black;float:left;height:30px;margin-left:15px;margin-top:2px">支付宝</p>
+        <ion-list class="input-costume">
+            <ion-radio class="input-costume-radio" ng-model="order.channel" value={{pay.name}} ng-repeat="pay in payMethod">
+                <img style="width:30px;height:30px;float:left" src="{{pay.imgUri}}" />
+                <p style="color:black;float:left;height:30px;margin-left:15px;margin-top:2px">{{pay.text}}<a class="a-custome" ng-show="pay.name=='udq'">(余额：{{user.balance}}元)</a></p>
             </ion-radio>
-            <ion-radio ng-model="order.channel" value="wx"  style="height: 55px;">
-                <img  style="width:30px;height:30px;float:left" src="image/logo/icon64_appwx_logo.png" />
-                <p style="color:black;float:left;height:30px;margin-left:15px;margin-top:2px">&nbsp;微信</p>
-            </ion-radio>
+            <div class="spacer" style="height:20px;"></div>
+            <div style="margin-left:25%">
+                <p class="makeorder-money-p" style="color:red;"><a style="font-size:30px">￥</a>总价<a style="font-size:25px">{{order.totalAmount}}</a>元</p>
+            </div>
         </ion-list>
-        <div class="spacer" style="height:20px;"></div>-->
-            <button class="button allbutton button-block button-small" ng-disabled="disabled" style="width:90%;margin-left:5%;" ng-click="commitOrder()">确定支付</button>
+        <button class="button allbutton button-block button-small" ng-disabled="disabled" style="width:90%;margin-left:5%;" ng-click="commitOrder()">确定支付</button>
     </ion-content>
 </ion-view>

@@ -9,8 +9,8 @@
     <ion-content>
         <ion-refresher on-refresh="doRefreshOfRegion()"></ion-refresher>
 
-        <ion-list ng-repeat="district in districts">
-            <ion-radio ng-model="selectedAuto.selectedRegionId" id="selected" on-select="on_select()" ng-click="goBackOfRegionSelect()" value={{district.id}}><p style="color:black;">{{district.name}}</p></ion-radio>
+        <ion-list>
+            <ion-radio ng-repeat="district in districts" ng-model="selectedAuto.selectedRegionId" id="selected" on-select="on_select()" ng-click="goBackOfRegionSelect()" value={{district.id}}><p style="color:black;">{{district.name}}</p></ion-radio>
         </ion-list>
 
     </ion-content>

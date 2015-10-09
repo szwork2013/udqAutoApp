@@ -16,7 +16,7 @@
         <ion-list>
             <ion-item ng-repeat="auto in autoInfo" ng-click="goToAutoInfo(auto)" class="input-costume">
                 <p>车牌号：{{auto.pn}}</p>
-                <p>品牌:{{auto.brand}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 型号：{{auto.model}}</p>
+                <p>品牌:{{auto.brand}}型号：{{auto.model}}</p>
                 <ion-option-button class="button-assertive" ng-click="deleteAuto(auto)" ><span class="input-label">删除</span></ion-option-button>
             </ion-item>
         </ion-list>

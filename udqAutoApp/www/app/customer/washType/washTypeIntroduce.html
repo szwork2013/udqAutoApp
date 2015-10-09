@@ -8,8 +8,8 @@
 
         <ion-list>
             <ion-item ng-repeat="type in types" ng-click="goToTypeNote(type)" class="input-costume-list">
-                    <p>{{type.name}}</p>
-                    <span class="badge a-custome">{{type.amount|currency:'￥'}}</span>
+                <p>{{type.name}}</p>
+                <span class="badge a-custome">{{type.amount|currency:'￥'}}</span>
             </ion-item>
         </ion-list>
     </ion-content>
