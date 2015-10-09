@@ -34,6 +34,9 @@
                 customerWashtypeSvr.callWashType().then(
                     function (data) {
                         $scope.types = data.rows;
+                        $scope.types[0].imgUri = "image/circleImg/device.png";
+                        $scope.types[1].imgUri = "image/circleImg/device.png";
+                        $scope.types[2].imgUri = "image/circleImg/device.png";
                         if (data.rows.length != 0) {
                             /*1表示选中，2表示未选中，‘快洗’设置为选中，其他默认未未选中*/
                             for (var i = 0; i < data.rows.length; i++) {

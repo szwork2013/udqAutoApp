@@ -4,13 +4,13 @@
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackOfMain()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content>
+    <ion-content padding="true" class="has-header">
 
         <ion-list>
-            <ion-item ng-repeat="type in types" ng-click="goToTypeNote(type)" class="input-costume-list">
-                    <p>{{type.name}}</p>
-                    <span class="badge a-custome">{{type.amount|currency:'￥'}}</span>
-            </ion-item>
+                <div ng-repeat="type in types" ng-click="goToTypeNote(type)" class="button-clear" style="width:33%;float:left">
+                    <span><img style="width:100%" src="{{type.imgUri}}" /></span>
+                    <p style="text-align:center">{{type.name}}<span class="badge a-custome">{{type.amount|currency:'￥'}}</span></p>
+                </div>
         </ion-list>
     </ion-content>
 </ion-view>

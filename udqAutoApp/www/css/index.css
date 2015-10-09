@@ -1,4 +1,5 @@
-﻿.ion-view-costum{
+﻿/*屎黄色：#FFBC01*/
+.ion-view-costum{
     background-color:#374D58;
 }
 
@@ -77,6 +78,7 @@ a{
     color:white;
     font-weight:600;
     font-size:small;
+    padding-top:5px;
 }
 .home-p1{
     color:white;
@@ -87,6 +89,7 @@ a{
     color:white;
     font-weight:600;
     font-size:16px;
+    padding-top:10px;
 }
 .makeorder-note-p{
     font-weight:600;
