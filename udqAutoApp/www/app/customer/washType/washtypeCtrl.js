@@ -19,7 +19,8 @@ angular.module('udqApp')
 	    }
 	    /*跳转到洗车类型服务详情*/
 	    $scope.goToTypeNote = function (type) {
-	        customerOrderSvr.setSelectedType(type);	        
-	        $state.go("customerWashtypeNote", { 'typeSelect': 'goToWashTypeNote', 'backParam': 'washTypeIntroduce'});
+	        //customerOrderSvr.setSelectedType(type);	        
+	        //$state.go("customerWashtypeNote", { 'typeSelect': 'goToWashTypeNote', 'backParam': 'washTypeIntroduce' });
+	        $state.go("customerWashTypeNote", { 'lastPageName': 'customerWashTypeIntroduce', 'washType': JSON.stringify(type),'orderInfo':'' });
 	    }
 	}])

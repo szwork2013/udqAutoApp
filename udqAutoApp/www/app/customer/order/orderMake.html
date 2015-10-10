@@ -12,21 +12,21 @@
             <div class="item item-input makeorder-label">
                 <span class="input-label makeorder-auto-span"><i class="icon ion-model-s"></i></span>
                 <label class="item-input-wrapper">
-                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.pn" placeholder="暂无车辆（必选）"/>
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="orderInfo.auto.pn" placeholder="暂无车辆（必选）"/>
                 </label>
                 <span class="input-label makeorder-auto-span"  ng-click="goToAutoList()"><i class="icon ion-chevron-right"></i></span>
             </div>
             <div class="item item-input makeorder-label">
                 <span class="input-label makeorder-district-span"><i class="icon ion-home"></i></span>
                 <label class="item-input-wrapper">
-                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="auto.regionName" placeholder="选择小区（必选）"/>
+                    <input type="text" class="makeorder-input" readonly="readonly" ng-model="orderInfo.auto.regionName" placeholder="选择小区（必选）"/>
                 </label>
                 <span class="input-label makeorder-district-span" ng-click="goToRegionSelect()"><i class="icon ion-chevron-right"></i></span>
             </div>
             <div class="item item-input makeorder-label">
                 <span class="input-label makeorder-position-span"><i class="icon ion-ios-location-outline"></i></span>
                 <label class="item-input-wrapper">
-                    <input type="text" ng-model="auto.position" placeholder="请输入车位..."/>
+                    <input type="text" ng-model="orderInfo.auto.position" placeholder="请输入车位..."/>
                 </label>
             </div>
             <!-- 选择洗车类型 -->
@@ -34,7 +34,7 @@
                 <p>请选择洗车服务类型</p>
             </div>
 
-            <div class="input-costume" ng-repeat="type in types">
+            <div class="input-costume" ng-repeat="type in orderInfo.types">
                 <div class="item item-input makeorder-label">
                     <ion-checkbox ng-model="type.check" ng-true-value="1" ng-false-value="2" class="col col-100 washtype-ion-checkbox" ng-disabled={{type.state}} ng-click="changeTotalAmount()">
                         <p style="display:block;float:right">{{type.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a class="a-custome">{{type.amount|currency:'￥'}}</a></p>
@@ -47,13 +47,13 @@
 
             <div class="item makeorder-label item-input">
                 <div class="item item-input input-costume" style="width:99%">
-                    <textarea placeholder="您有什么需求，请写在这里。" ng-model="order.userNote" rows="2" class="input-costume" style="color:#ffffff;"></textarea>
+                    <textarea placeholder="您有什么需求，请写在这里。" ng-model="orderInfo.userNote" rows="2" class="input-costume" style="color:#ffffff;"></textarea>
                 </div>
             </div>
 
             <div class="spacer" style="height:20px;"></div>
             <div style="margin-left:25%">
-                <p class="makeorder-money-p" style="color:red;"><a style="font-size:30px">￥</a>总价<a style="font-size:25px">{{totalAmount}}</a>元</p>
+                <p class="makeorder-money-p" style="color:red;"><a style="font-size:30px">￥</a>总价<a style="font-size:25px">{{orderInfo.totalAmount}}</a>元</p>
             </div>
 
         </ion-list>

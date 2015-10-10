@@ -9,7 +9,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         $scope.images = [];
         /*跳转到我要洗车*/
         $scope.goToBookWash = function () {
-            $state.go('customerOrderMake', { 'typeSelect': 'main' });
+            $state.go('customerOrderMake', { 'lastPageName': 'customerHome', 'orderInfo': '' });
         }
         /*跳转到洗车服务类型介绍界面*/
     	$scope.goToWashTypeIntroduce = function () {

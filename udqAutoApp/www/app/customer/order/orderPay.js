@@ -10,6 +10,7 @@
         }
         var state;
         var orderParam = angular.fromJson($stateParams.order);/*洗车页面传递过来的订单信息*/
+        var orderInfo = angular.fromJson($stateParams.orderInfo);
         if (orderParam == undefined) {//从充值页面返回时
             getOrderPayInfo();
         } else {//从洗车页面跳转到此页时
@@ -106,8 +107,12 @@
         }
         /*回跳到前一个页面*/
         $scope.goBack = function () {
+            if (state == "customerOrderMake") {
+                $state.go("customerOrderMake", { 'lastPage': 'customerOrderpay', 'orderInfo': JSON.stringify(orderInfo) });
+            } else if (state == "customerMyOrder") {
+                $state.go("customerMyOrder");
 
-            $state.go(state, { 'typeSelect': 'payOrderReturn' });
+            }
         }
 
         $scope.alertPopup = function () {

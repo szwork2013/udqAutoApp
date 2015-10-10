@@ -136,7 +136,7 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                     order.channel = 'alipay';
                     break;
             }
-            $state.go('customerOrderpay', { 'order': angular.toJson(order), 'state': 'customerMyOrder' });
+            $state.go('customerOrderpay', { 'order': angular.toJson(order), 'state': 'customerMyOrder','orderInfo':'' });
         }
         /*取消订单*/
         $scope.cancelOrder = function (order) {

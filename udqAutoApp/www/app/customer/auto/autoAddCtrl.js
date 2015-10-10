@@ -1,18 +1,17 @@
 angular.module('udqApp')
 	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', 'popUpSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr, popUpSvr) {
 	    var backName = $stateParams.backName;
-	    autoSvr.setBackName(backName);
-	    backName = autoSvr.getBackName();
+	    $scope.autoInfo = angular.fromJson($stateParams.autoInfo);
+        
+	    var orderInfo = angular.fromJson($stateParams.orderInfo);
 
-	    /*从service获取显示数据*/
-	    $scope.autoInfo = autoSvr.getAutoInfo();
-	    if ($scope.autoInfo == undefined) {
+	    if (backName == 'customerAutoMgr' || backName == 'customerAutoList' && $scope.autoInfo == undefined) {
 	        $scope.autoInfo = {
 	            userId: $window.localStorage['userID'],
 	            id: 0/*0为添加，1为修改*/
 	        };
-	    }
-        /*获取城市、区域、小区*/
+	    }  
+	    /*获取城市、区域、小区*/
 	    regionSvr.doRequest().then(
                     function (data) {
                         if (data != undefined) {
@@ -26,12 +25,6 @@ angular.module('udqApp')
                         console.log(data);
                     }
                 );
-
-	    $scope.autoInfo.selectedDistrictPid;
-	    $scope.autoInfo.selectedRegionPid;
-
-	    
-
         /*检查输入车辆信息是否合法*/
 	    var checkAutoInfo = function (auto) {
 	        /*车牌号*/
@@ -89,69 +82,26 @@ angular.module('udqApp')
 	    };
 	    /*跳转到城市选择*/
 		$scope.goToCitySelect = function () {
-		    saveAutoInfoToSvr($scope.autoInfo);
-	        $state.go('customerCitySelect');
+		    
+		    $state.go('customerCitySelect', { 'lastPageName': 'customerAutoAdd', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 		}
 	    /*跳转到区域选择*/
-	    $scope.goToRegionSelect = function () {
-	        saveAutoInfoToSvr($scope.autoInfo);	        
-	        $state.go('customerRegion');
+	    $scope.goToRegionSelect = function () {       	        
+	        $state.go('customerRegion', { 'lastPageName': 'customerAutoAdd', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 		}
 	    /*跳转到小区选择*/
 	    $scope.goToDistrictSelect = function () {
-	        saveAutoInfoToSvr($scope.autoInfo);
-	        $state.go('customerDistrictSelect');
+	        $state.go('customerDistrictSelect', { 'lastPageName': 'customerAutoAdd', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 	    }
 
-		$scope.getDefaultRegionId = function (id) {
-		    $scope.autoInfo.defaultRegionId = id;
-		}
 
-	    /*****************************地址选择**************************/
-	    $scope.doRefreshOfCity = function () {
-	        $scope.Cities = regionSvr.getCities();
-	        $scope.$broadcast('scroll.refreshComplete');
-	    }
-	    $scope.doRefreshOfRegion = function () {
-	        $scope.Regions = regionSvr.getRegions();
-	        $scope.$broadcast('scroll.refreshComplete');
-	    }
-	    $scope.doRefreshOfDistrict = function () {
-	        $scope.Districts = regionSvr.getDistricts();
-	        $scope.$broadcast('scroll.refreshComplete');
-	    }
-
-	    $scope.goBackOfCitySelect = function () {
-	        /*保存到service*/
-	        $scope.autoInfo.selectedRegionId = undefined;
-	        $scope.autoInfo.selectedDistrictId = undefined;
-	        saveAutoInfoToSvr($scope.autoInfo);
-	        $state.go('customerAutoAdd');
-	    }
-	    $scope.goBackOfRegionSelect = function () {
-	        /*保存到service*/
-	        $scope.autoInfo.selectedDistrictId = undefined;
-	        saveAutoInfoToSvr($scope.autoInfo);
-	        $state.go('customerAutoAdd');
-	    }
-	    $scope.goBackOfDistrictSelect = function () {
-	        /*保存到service*/
-	        saveAutoInfoToSvr($scope.autoInfo);
-	        $state.go('customerAutoAdd');
-	    }
-		
         /*根据backName回跳之前的界面*/
 	    $scope.goBack = function () {
 	        if (backName == 'customerAutoList') {
-	            $state.go(backName, {'typeSelect':'goToAuto'});
+	            $state.go(backName, { 'lastPageName': 'customerAutoAdd','orderInfo':JSON.stringify(orderInfo) });
 	        } else {	            
-	            $state.go(backName);
+	            $state.go("customerAutoMgr");
 	        }
-		}
-
-        /*保存添加车辆信息到服务中*/
-		var saveAutoInfoToSvr = function (autoInfo) {
-		    autoSvr.setAutoInfo(autoInfo);
 		}
 
 	}])

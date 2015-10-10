@@ -140,30 +140,30 @@ angular.module('udqApp', ['ionic'])
         /*车主-添加车辆*/
         .state('customerAutoAdd', {
             cache: false,
-            url: '/customerAutoAdd?backName',
+            url: '/customerAutoAdd?backName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
         /*车主-添加车辆-选择城市*/
         .state('customerCitySelect', {
             cache: false,
-            url: '/customerCitySelect',
+            url: '/customerCitySelect?lastName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/citySelect.html',
-            controller: 'customerAutoAddCtrl'
+            controller: 'customerAutoAddCitySelectCtrl'
         })
          /*车主-添加车辆-选择区域*/
         .state('customerRegion', {
             cache: false,
-            url: '/customerRegion',
+            url: '/customerRegion?lastName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/regionSelect.html',
-            controller: 'customerAutoAddCtrl'
+            controller: 'customerAutoAddRegionSelectCtrl'
         })
          /*车主-添加车辆-选择小区*/
         .state('customerDistrictSelect', {
             cache: false,
-            url: '/customerDistrictSelect',
+            url: '/customerDistrictSelect?lastName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/districtSelect.html',
-            controller: 'customerAutoAddCtrl'
+            controller: 'customerAutoAddDistrictSelectCtrl'
         })
         /*车主-车辆*/
         .state('customerAutoMgr', {
@@ -182,9 +182,9 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车-车辆选择*/
         .state('customerAutoList', {
             cache: false,
-            url: '/customerAutoList?typeSelect',
+            url: '/customerAutoList?lastPageName&orderInfo',
             templateUrl: 'app/customer/auto/autoList.html',
-            controller: 'customerOrderMakeCtrl'
+            controller: 'customerAutoListController'
         })
         /*车主我的点趣-信息编辑*/
         .state('customerMemberInfoEdit', {
@@ -195,7 +195,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车*/
         .state('customerOrderMake', {
             cache: false,
-            url: '/customerOrderMake?typeSelect',
+            url: '/customerOrderMake?lastPageName&orderInfo',
             templateUrl: 'app/customer/order/orderMake.html',
             controller: 'customerOrderMakeCtrl'
         })
@@ -288,15 +288,9 @@ angular.module('udqApp', ['ionic'])
         /*我要洗车-选择小区-选择小区*/
         .state('customerRegionSelect', {
             cache: false,
-            url: '/customerRegionSelect?typeSelect',
+            url: '/customerRegionSelect?lastPageName&orderInfo',
             templateUrl: 'app/customer/order/regionSelect.html',
-            controller: 'customerOrderMakeCtrl'
-        })
-        /*我要洗车-选择时间-预约时间*/
-        .state('customerOrderTime', {
-            url: '/customerOrderTime',
-            templateUrl: 'app/customer/order/orderTime.html',
-            controller: 'customerOrderMakeCtrl'
+            controller: 'customerRegionSelectController'
         })
         /*服务*/
        .state('customerWashTypeIntroduce', {
@@ -314,16 +308,28 @@ angular.module('udqApp', ['ionic'])
       /*车主-支付*/
        .state('customerOrderpay', {
            cache: false,
-           url: '/customerOrderpay?order&state',
+           url: '/customerOrderpay?order&state&orderInfo',
            templateUrl: 'app/customer/order/orderPay.html',
            controller: 'customerOrderPayCtrl'
        })
+       // /*小区选择*/
+       //.state('customerRegionSelect',{
+       //    url:'/customerRegionSelect',
+       //    templateUrl:'app/customer/order/regionSelect.html',
+       //    controller:'customerRegionSelectController'
+       //})
+        /*服务详情*/
+       .state('customerWashTypeNote', {
+           url: '/customerWashTypeNote?lastPageName&washType&orderInfo',
+           templateUrl: 'app/customer/washType/washTypeNote.html',
+           controller: 'customerWashTypeNoteController'
+       });
        /*.state('',{
             url:'',
             templateUrl:'',
             controller:''
         })*/
-       ;
+       
        if (window.localStorage['loginState'] == 1 && window.localStorage['userType'] == 2) {/*已经登录，并且用户是车主*/
            $urlRouterProvider.otherwise('/customerHome');
        } else if (window.localStorage['loginState'] == 1 && window.localStorage['userType'] == 1) {/*已经登录，并且用户是洗车工*/

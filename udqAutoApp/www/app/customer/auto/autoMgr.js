@@ -75,7 +75,7 @@
 	    }
 	    /*添加车辆*/
 	    $scope.goToAddauto = function () {
-	        $state.go('customerAutoAdd', { 'backName': 'customerAutoMgr' });
+	        $state.go('customerAutoAdd', { 'backName': 'customerAutoMgr','autoInfo':'','orderInfo':'' });
 	    }
 	    /*回跳(根据backParam)*/
 	    $scope.goBack = function () {

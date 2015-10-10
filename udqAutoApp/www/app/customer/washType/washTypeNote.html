@@ -4,9 +4,23 @@
             <button class="button button-clear icon ion-ios-arrow-back" ng-click="goBackOfWashTypeNote()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content>
-        <label ng-show="type.name =='快洗'"><img style="width:100%;height:auto" src="image/washType/washtype_1.png" /></label>
-        <label ng-show="type.name =='内堂'"><img style="width:100%;height:auto" src="image/washType/washtype_3.png" /></label>
-        <label ng-show="type.name =='打蜡'"><img style="width:100%;height:auto" src="image/washType/washtype_2.png" /></label>
+    <ion-content padding="true" class="has-header">
+        <div ng-show="type.name =='快洗'" style="border-bottom:1px solid white;">
+            <img style="width:100%" src="image/washType/washtype1.png" />
+        </div>
+        <div ng-show="type.name =='内堂'" style="border-bottom:1px solid white;">
+            <img style="width:100%" src="image/washType/washtype2.png" />
+        </div>
+        <div ng-show="type.name =='打蜡'" style="border-bottom:1px solid white;">
+            <img style="width:100%" src="image/washType/washtype3.png" />
+        </div>
+        <div style="height:10px"></div>
+        <div>
+            <p style="color:#FFBC01">项目介绍:</p>
+            <p>{{type.note}}</p>
+            <div style="height:10px"></div>
+            <p style="color:#FFBC01">价格：<span class="badge a-custome">{{type.amount|currency:'￥'}}</span></p>
+        </div>
     </ion-content>
+
 </ion-view>
