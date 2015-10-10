@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   color:white;
 }
+/*拍照添加按钮*/
 .ion-add-round:before {
   display: inline-block;
   font-family: "Ionicons";

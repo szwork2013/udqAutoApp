@@ -31,9 +31,12 @@
                 </label>
             </div>
 
-            <ion-item class="input-costume" style="font-weight:600;">
-                <label class="select-type"><input type="radio" name="sex" ng-model="userInfo.sex" checked value='1' class="input-costume" style="color:white;font-weight:600;" />男士</label>&nbsp;&nbsp;&nbsp;
-                <label class="select-type"><input type="radio" name="sex" ng-model="userInfo.sex" value='2' class="input-costume" style="color:white;font-weight:600;" />女士</label>
+            <ion-item class="input-costume" style="font-weight:600;padding: 10.67px;">
+                <label class="item-input-wrapper input-costume  ion-type">
+                    <i class="button button-clear icon ion-ios-person-outline"></i>
+                    <label class="select-type" style="line-height: 3;"><input type="radio" name="sex" ng-model="userInfo.sex" checked value='1'/>男士</label>&nbsp;&nbsp;&nbsp;
+                    <label class="select-type" style="line-height: 3;"><input type="radio" name="sex" ng-model="userInfo.sex" value='2'/>女士</label>
+                </label>
             </ion-item>
 
         </ion-list>

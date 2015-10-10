@@ -70,10 +70,13 @@
 
         <div class="spacer" style="height:10px;"></div>
         <div ng-show="selectOrder.state==4">
-            请为此次洗车评分：
+            <label class="item item-input input-costume-list">
+                <span class="input-label">请为此次洗车评分：</span>
+            </label>
 
             <!--添加星级评价-->
             <fieldset class="score">
+                <button class="buttonclean" ng-click="doClean()" style="float:left">清除</button>
                 <legend>Score:</legend>
                 <input type="radio" id="score-5" name="score" value="5" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
                 <label title="5 stars" for="score-5">5 stars</label>

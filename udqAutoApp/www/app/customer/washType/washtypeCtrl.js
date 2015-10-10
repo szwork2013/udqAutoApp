@@ -5,10 +5,14 @@ angular.module('udqApp')
 	    promise.then(
             function (data) {
                 $scope.types = data.rows;
+                $scope.types[0].imgUri = "image/washType/washtype_1.png";
+                $scope.types[1].imgUri = "image/washType/washtype_2.png";
+                $scope.types[2].imgUri = "image/washType/washtype_3.png";
             },
             function (data) {
                 console.log(data);
             });
+
         /*回跳到洗车服务*/
 	    $scope.goBackOfWashType = function () {	        
 	        $state.go('customerOrderMake', { 'typeSelect': 'washTypeNote' });

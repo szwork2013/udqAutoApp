@@ -6,16 +6,16 @@
     </ion-nav-bar>
 
     <ion-content>
-        <ion-list class="input-costume">
-            <ion-radio class="input-costume-radio" ng-model="order.channel" value={{pay.name}} ng-repeat="pay in payMethod">
-                <img style="width:30px;height:30px;float:left" src="{{pay.imgUri}}" />
-                <p style="color:black;float:left;height:30px;margin-left:15px;margin-top:2px">{{pay.text}}<a class="a-custome" ng-show="pay.name=='udq'">(余额：{{user.balance}}元)</a></p>
-            </ion-radio>
-            <div class="spacer" style="height:20px;"></div>
-            <div style="margin-left:25%">
-                <p class="makeorder-money-p" style="color:red;"><a style="font-size:30px">￥</a>总价<a style="font-size:25px">{{order.totalAmount}}</a>元</p>
-            </div>
-        </ion-list>
-        <button class="button allbutton button-block button-small" ng-disabled="disabled" style="width:90%;margin-left:5%;" ng-click="commitOrder()">确定支付</button>
+            <ion-list class="input-costume">
+                <ion-radio class="input-costume-radio" ng-model="order.channel" value={{pay.name}} ng-repeat="pay in payMethod">
+                    <img style="width:30px;height:30px;float:left" src="{{pay.imgUri}}" />
+                    <p style="color:black;float:left;height:30px;margin-left:15px;margin-top:2px">{{pay.text}}<a class="a-custome" ng-show="pay.name=='udq'">(余额：{{user.balance}}元)</a></p>
+                </ion-radio>
+                <div class="spacer" style="height:20px;"></div>
+                <div style="margin-left:25%">
+                    <p class="makeorder-money-p" style="color:red;"><a style="font-size:30px">￥</a>总价<a style="font-size:25px">{{order.totalAmount}}</a>元</p>
+                </div>
+            </ion-list>
+            <button class="button allbutton button-block button-small" ng-disabled="disabled" style="width:90%;margin-left:5%;" ng-click="commitOrder()">确定支付</button>
     </ion-content>
 </ion-view>

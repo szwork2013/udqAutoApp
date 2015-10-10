@@ -34,6 +34,7 @@
     "plugins\\cordova-plugin-file\\www\\blackberry10\\setMetadata.js",
     "www\\image\\circleImg\\detail.png",
     "plugins\\org.apache.cordova.device\\src\\windows8\\DeviceProxy.js",
+    "www\\image\\washType\\washtype2.png",
     "res\\screens\\android\\screen-mdpi-landscape.png",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Channels\\Alipay\\AlipaySDK.bundle\\refresh_click@2x.png",
     "www\\app\\customer\\washType\\washTypeNoteController.js",
@@ -289,6 +290,7 @@
     "res\\screens\\ios\\screen-ipad-landscape.png",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\example\\index.html",
     "plugins\\cordova-plugin-file\\src\\android\\FileExistsException.java",
+    "www\\image\\employee.png",
     "www\\css\\ownMenu.css",
     "plugins\\cordova-plugin-file-transfer\\www\\blackberry10\\FileTransfer.js",
     "plugins\\cordova-plugin-file\\www\\blackberry10\\requestFileSystem.js",
@@ -471,6 +473,7 @@
     "www\\app\\customer\\washType\\washtypeSelect.html",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\android\\libpingpp.jar",
     "res\\icons\\windows\\Square30x30Logo.scale-100.png",
+    "www\\image\\washType\\washtype1.png",
     "plugins\\org.apache.cordova.network-information\\doc\\zh\\index.md",
     "plugins\\org.apache.cordova.camera\\src\\android\\ExifHelper.java",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\contactUtils.js",
@@ -518,6 +521,7 @@
     "www\\main.html",
     "plugins\\org.apache.cordova.camera\\src\\browser\\CameraProxy.js",
     "plugins\\org.apache.cordova.contacts\\src\\wp\\ContactPickerTask.cs",
+    "www\\image\\washType\\washtype3.png",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest.xcworkspace\\contents.xcworkspacedata",
     "res\\icons\\ios\\icon-60-2x.png",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\example\\css\\mobiscroll.core-2.0.1.css",
@@ -774,11 +778,21 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\auto\\autoaddregionselectcontroller.js",
-    "www\\app\\customer\\auto\\autoadddistrictcontroller.js",
-    "www\\app\\customer\\auto\\autoaddcityselectcontroller.js",
-    "www\\app\\customer\\auto\\autoaddctrl.js",
-    "www\\app\\customer\\auto\\districtselect.html"
+    "res\\screens\\android\\screen-xhdpi-portrait.png",
+    "www\\app\\customer\\auto\\automgr.js",
+    "www\\image\\logo\\password.png",
+    "www\\image\\logo\\mobile.png",
+    "www\\app\\customer\\auto\\autoadd.html",
+    "www\\app\\customer\\order\\orderlist.html",
+    "www\\app\\employee\\order\\orderlist.html",
+    "www\\css\\ownmenu.css",
+    "www\\app\\util\\appconfig.js"
+  ],
+  "deletedFilesIos": [
+    "res\\screens\\android\\点趣启动页1-0.png",
+    "www\\image\\logo\\输入密码.png",
+    "www\\image\\logo\\passworld.png",
+    "www\\image\\logo\\输入手机号.png"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -793,13 +807,7 @@
   ],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "plugins\\android.json",
-    "www\\app\\customer\\auto\\autoaddregionselectcontroller.js",
-    "www\\app\\customer\\auto\\autoadddistrictcontroller.js",
-    "www\\app\\customer\\auto\\autoaddcityselectcontroller.js",
-    "www\\app\\customer\\auto\\citySelect.html",
-    "www\\app\\customer\\auto\\autoaddctrl.js",
-    "www\\app\\customer\\auto\\districtselect.html"
+    "plugins\\android.json"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

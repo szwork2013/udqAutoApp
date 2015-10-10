@@ -1,4 +1,5 @@
-﻿.ion-view-costum{
+﻿/*屎黄色：#FFBC01*/
+.ion-view-costum{
     background-color:#374D58;
 }
 
@@ -62,6 +63,15 @@ ion-radio:checked{
     color:white;
     font-weight:600;
 }
+.input-labelsex{
+    display: table; 
+    max-width: 200px;
+    width: 35%;
+    color: #444;
+    font-size: 16px;
+    color: white; 
+    float: left;
+}
 p{
     font-size:16px;
     font-weight:600;
@@ -77,6 +87,7 @@ a{
     color:white;
     font-weight:600;
     font-size:small;
+    padding-top:5px;
 }
 .home-p1{
     color:white;
@@ -87,6 +98,7 @@ a{
     color:white;
     font-weight:600;
     font-size:16px;
+    padding-top:10px;
 }
 .makeorder-note-p{
     font-weight:600;
@@ -133,7 +145,7 @@ h2,h3,h4,p,.item p{
       text-decoration: none; }*/
 
 /*所有按钮点击变色*/
-.button.allbutton.active, .button.allbutton.activated, .button.loginbutton.active, .button.loginbutton.activated, .button.registerInloginPage.active, .button.registerInloginPage.activated,.button.rechargeInloginPage.active, .button.rechargeInloginPage.activated{
+.button.allbutton.active, .button.allbutton.activated, .buttonclean.active, .buttonclean.activated, .button.loginbutton.active, .button.loginbutton.activated, .button.registerInloginPage.active, .button.registerInloginPage.activated,.button.rechargeInloginPage.active, .button.rechargeInloginPage.activated{
       border-color: #b76969;
       background-color: #b76969;}
 
@@ -162,6 +174,15 @@ h2,h3,h4,p,.item p{
    font-weight:600;
    border-color:rgba(250, 251, 117, 0.07);
    border-radius:3px;
+}
+/*清除评分按钮*/
+.buttonclean {
+    background-color:#ed8131;/*#f83838红色*/
+    color:white;
+    font-size:16px;
+    border:#ed8131 solid ;
+    border-radius:5px;
+    margin-top:5px;
 }
 /*输入框内的输入字体*/
 .member-span-text{
@@ -280,7 +301,7 @@ label div.item-content:checked{
     color:#FFBC01;
 }
 .select-type{
-    border:2px #374D58 solid;
+    /*border:2px #374D58 solid;*/
     border-radius:5px;
     padding:4px;
     color:#B1B9C4;
