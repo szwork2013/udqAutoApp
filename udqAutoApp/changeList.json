@@ -34,6 +34,7 @@
     "plugins\\cordova-plugin-file\\www\\blackberry10\\setMetadata.js",
     "www\\image\\circleImg\\detail.png",
     "plugins\\org.apache.cordova.device\\src\\windows8\\DeviceProxy.js",
+    "www\\image\\washType\\washtype2.png",
     "res\\screens\\android\\screen-mdpi-landscape.png",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Channels\\Alipay\\AlipaySDK.bundle\\refresh_click@2x.png",
     "merges\\android\\scripts\\android2.3-jscompat.js",
@@ -470,6 +471,7 @@
     "www\\app\\customer\\washType\\washtypeSelect.html",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\android\\libpingpp.jar",
     "res\\icons\\windows\\Square30x30Logo.scale-100.png",
+    "www\\image\\washType\\washtype1.png",
     "plugins\\org.apache.cordova.network-information\\doc\\zh\\index.md",
     "plugins\\org.apache.cordova.camera\\src\\android\\ExifHelper.java",
     "plugins\\org.apache.cordova.contacts\\src\\blackberry10\\contactUtils.js",
@@ -516,6 +518,7 @@
     "www\\main.html",
     "plugins\\org.apache.cordova.camera\\src\\browser\\CameraProxy.js",
     "plugins\\org.apache.cordova.contacts\\src\\wp\\ContactPickerTask.cs",
+    "www\\image\\washType\\washtype3.png",
     "plugins\\org.apache.cordova.splashscreen\\tests\\ios\\CDVSplashScreenTest.xcworkspace\\contents.xcworkspacedata",
     "res\\icons\\ios\\icon-60-2x.png",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\example\\css\\mobiscroll.core-2.0.1.css",
@@ -581,7 +584,6 @@
     "plugins\\com.msopentech.websql\\src\\windows\\SQLite.Proxy\\.npmignore",
     "plugins\\com.msopentech.websql\\License.txt",
     "resources\\ios\\icon\\icon@2x.png",
-    "res\\screens\\android\\screen-xhdpi-portrait.png",
     "www\\app\\customer\\register\\register.html",
     "res\\icons\\ios\\icon-50-2x.png",
     "res\\icons\\ios\\icon-57-2x.png",
@@ -768,18 +770,12 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\washtype\\washTypeIntroduce.html",
-    "www\\app\\customer\\washtype\\washtypenote.html",
-    "www\\app\\customer\\auto\\automgr.html",
-    "www\\app\\customer\\washtype\\washtypeselect.html",
-    "www\\app\\customer\\order\\orderpay.html",
-    "www\\lib\\ionic\\js\\udqapp.js",
-    "www\\app\\customer\\washtype\\washtypectrl.js",
-    "www\\image\\washType\\washtype1.png",
-    "www\\image\\washType\\washtype2.png",
-    "www\\image\\washType\\washtype3.png"
+    "res\\screens\\android\\screen-xhdpi-portrait.png",
+    "www\\app\\customer\\order\\orderctrl.js"
   ],
-  "deletedFilesIos": [],
+  "deletedFilesIos": [
+    "res\\screens\\android\\点趣启动页1-0.png"
+  ],
   "addedPluginsIos": [
     "org.apache.cordova.camera@0.3.6",
     "org.apache.cordova.device@0.3.0",
@@ -793,11 +789,8 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\order\\orderSvr.js",
-    "www\\image\\washType\\washtype1.png",
-    "www\\image\\washType\\washtype2.png",
-    "www\\image\\washType\\washtype3.png",
-    "www\\app\\customer\\order\\orderMakeCtrl.js"
+    "www\\css\\index.css",
+    "www\\app\\customer\\order\\orderMgr.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

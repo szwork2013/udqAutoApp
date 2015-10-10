@@ -5,8 +5,14 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
-        <div style="border-bottom:1px solid white;">
-            <img style="width:100%" src="{{type.imgUri}}"/>
+        <div ng-show="type.name =='快洗'" style="border-bottom:1px solid white;">
+            <img style="width:100%" src="image/washType/washtype1.png"/>
+        </div>
+        <div ng-show="type.name =='内堂'" style="border-bottom:1px solid white;">
+            <img style="width:100%" src="image/washType/washtype2.png" />
+        </div>
+        <div ng-show="type.name =='打蜡'" style="border-bottom:1px solid white;">
+            <img style="width:100%" src="image/washType/washtype3.png" />
         </div>
         <div style="height:10px"></div>
         <div>

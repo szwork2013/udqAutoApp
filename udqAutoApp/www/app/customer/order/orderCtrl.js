@@ -198,6 +198,10 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
                     console.log(data);
                 });
         }
+        /*清空评价*/
+        $scope.doClean = function () {
+            $scope.selectOrder.gradeUser = 0;
+        }
         /*订单信息-点击缩略图片-跳转到大图*/
         $scope.gotoPhoto = function (No) {
             if ($scope.selectOrder['photoUrl' + No] == 'image/break.png') {
