@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerRechargeCtrl', ['$scope', '$window', '$ionicHistory', '$stateParams', '$state', 'customerMemberInfoSvr', 'popUpSvr', function ($scope, $window, $ionicHistory,$stateParams, $state, customerMemberInfoSvr, popUpSvr) {
+    .controller('customerRechargeCtrl', ['$scope', '$window', '$ionicHistory', '$stateParams', '$state','$ionicNavBarDelegate', 'customerMemberInfoSvr', 'popUpSvr', function ($scope, $window, $ionicHistory,$stateParams, $state,$ionicNavBarDelegate, customerMemberInfoSvr, popUpSvr) {
         var backParam = $stateParams.backParam;
         $scope.balance = {
             userId: $window.localStorage['userID'],
@@ -56,7 +56,7 @@
         }
         /*回跳到前一个页面*/
         $scope.goBack = function () {
-
-            $state.go(backParam);
+            $ionicNavBarDelegate.back();
+            //$state.go(backParam);
         }
     }])

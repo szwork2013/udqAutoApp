@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-   .controller('employeeAcceptedOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup', 'employeeOrderSvr', 'LoadingSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup, employeeOrderSvr, LoadingSvr) {
+   .controller('employeeAcceptedOrderCtrl', ['$scope', '$window', '$state', '$ionicHistory', '$ionicPopup','$ionicNavBarDelegate', 'employeeOrderSvr', 'LoadingSvr', function ($scope, $window, $state, $ionicHistory, $ionicPopup,$ionicNavBarDelegate, employeeOrderSvr, LoadingSvr) {
 
        $scope.order = {
            states: [2,3],

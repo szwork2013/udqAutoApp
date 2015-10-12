@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', 'popUpSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr, popUpSvr) {
+	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', '$ionicNavBarDelegate', 'regionSvr', 'autoSvr', 'popUpSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window,$ionicNavBarDelegate, regionSvr, autoSvr, popUpSvr) {
 	    var backName = $stateParams.backName;
 	    $scope.autoInfo = angular.fromJson($stateParams.autoInfo);
         
@@ -67,7 +67,8 @@ angular.module('udqApp')
                 function (data) {
                     if (data.isSuccess) {
                         console.log('添加车辆成功');
-                        $scope.goBack();
+                        //$scope.goBack();
+                        $ionicNavBarDelegate.back();
                     } else {
                         console.log(data.msg);
                         popUpSvr.showAlert("请选择小区");
@@ -97,11 +98,12 @@ angular.module('udqApp')
 
         /*根据backName回跳之前的界面*/
 	    $scope.goBack = function () {
-	        if (backName == 'customerAutoList') {
-	            $state.go(backName, { 'lastPageName': 'customerAutoAdd','orderInfo':JSON.stringify(orderInfo) });
-	        } else {	            
-	            $state.go("customerAutoMgr");
-	        }
+	        $ionicNavBarDelegate.back();
+	        //if (backName == 'customerAutoList') {
+	        //    $state.go(backName, { 'lastPageName': 'customerAutoAdd','orderInfo':JSON.stringify(orderInfo) });
+	        //} else {	            
+	        //    $state.go("customerAutoMgr");
+	        //}
 		}
 
 	}])

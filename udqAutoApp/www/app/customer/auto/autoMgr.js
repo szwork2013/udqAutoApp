@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', 'popUpSvr', '$window', 'autoSvr', function ($scope, $state, $ionicHistory, popUpSvr, $window, autoSvr) {
+	.controller('customerAutoMgrCtrl', ['$scope', '$state', '$ionicHistory', 'popUpSvr', '$window', '$ionicNavBarDelegate', 'autoSvr', function ($scope, $state, $ionicHistory, popUpSvr, $window,$ionicNavBarDelegate, autoSvr) {
 	    var backParam = autoSvr.getBackParam();
 	    autoSvr.getAuto().then(
             function (data) {
@@ -76,12 +76,13 @@
 	    }
 	    /*回跳(根据backParam)*/
 	    $scope.goBack = function () {
-	        if (backParam == "customerMyDQ") {
-	            $state.go('customerMyDQ');
-	        }
-	        if (backParam == "customerHome") {
-	            $state.go('customerHome');
-	        }
+	        $ionicNavBarDelegate.back();
+	        //if (backParam == "customerMyDQ") {
+	        //    $state.go('customerMyDQ');
+	        //}
+	        //if (backParam == "customerHome") {
+	        //    $state.go('customerHome');
+	        //}
 	    }
 	    /*(自定义)数组移除指定元素*/
 	    var ArrayRemove = function (array, item) {
