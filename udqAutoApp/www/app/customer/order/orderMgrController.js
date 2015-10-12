@@ -1,8 +1,19 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMgrController', ['$scope', '$stateParams', '$state', function ($scope, $stateParams, $state) {
-
+    .controller('customerOrderMgrController', ['$scope', '$stateParams', '$state', 'APP_CONFIG','customerOrderSvr', function ($scope, $stateParams, $state,APP_CONFIG, customerOrderSvr) {
+        var baseUrl = APP_CONFIG.server.getUrl();
         $scope.selectOrder = angular.fromJson($stateParams.selectOrder);
-
+        if ($scope.selectOrder == undefined) {
+            $scope.selectOrder = customerOrderSvr.getSelectedOrder();
+        }
+        if ($scope.selectOrder.photoUrl1 == "") {
+            $scope.selectOrder.photoUrl1 = "image/break.png";
+        }
+        if ($scope.selectOrder.photoUrl2 == "") {
+            $scope.selectOrder.photoUrl2 = "image/break.png";
+        }
+        if ($scope.selectOrder.photoUrl3 == "") {
+            $scope.selectOrder.photoUrl3 = "image/break.png";
+        }
         if ($scope.selectOrder.userNote == "") {
             $scope.selectOrder.userNote = "无";
         }

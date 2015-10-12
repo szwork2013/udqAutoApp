@@ -733,6 +733,7 @@
     "plugins\\cordova-plugin-file\\www\\blackberry10\\getFile.js",
     "plugins\\cordova-plugin-file\\www\\FileError.js",
     "plugins\\cordova-plugin-file\\doc\\es\\README.md",
+    "www\\app\\customer\\order\\recentlyOrderController.js",
     "plugins\\cordova-plugin-file\\doc\\ru\\index.md",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Pingpp.bundle\\PingppTestPaymentSummaryViewController.nib",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\toolbar-middle.png",
@@ -780,13 +781,7 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\member\\membercenterctrl.js",
-    "www\\app\\customer\\member\\rechargectrl.js",
-    "www\\app\\customer\\member\\washshopinfocontroller.js",
-    "www\\app\\customer\\order\\recentlyOrderController.js",
-    "www\\app\\customer\\order\\orderpay.js",
-    "www\\app\\customer\\order\\orderpay.html"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -801,7 +796,8 @@
   ],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "plugins\\android.json"
+    "plugins\\android.json",
+    "www\\app\\customer\\order\\orderMgrController.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
