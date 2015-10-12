@@ -733,6 +733,7 @@
     "plugins\\cordova-plugin-file\\www\\blackberry10\\getFile.js",
     "plugins\\cordova-plugin-file\\www\\FileError.js",
     "plugins\\cordova-plugin-file\\doc\\es\\README.md",
+    "www\\app\\customer\\order\\recentlyOrderController.js",
     "plugins\\cordova-plugin-file\\doc\\ru\\index.md",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Pingpp.bundle\\PingppTestPaymentSummaryViewController.nib",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\toolbar-middle.png",
@@ -781,8 +782,21 @@
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
     "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\member\\membercenterctrl.js",
-    "www\\app\\customer\\member\\rechargectrl.js"
+    "res\\screens\\android\\screen-xhdpi-portrait.png",
+    "www\\app\\customer\\auto\\automgr.js",
+    "www\\image\\logo\\password.png",
+    "www\\image\\logo\\mobile.png",
+    "www\\app\\customer\\auto\\autoadd.html",
+    "www\\app\\customer\\order\\orderlist.html",
+    "www\\app\\employee\\order\\orderlist.html",
+    "www\\css\\ownmenu.css",
+    "www\\app\\util\\appconfig.js"
+  ],
+  "deletedFilesIos": [
+    "res\\screens\\android\\点趣启动页1-0.png",
+    "www\\image\\logo\\输入密码.png",
+    "www\\image\\logo\\passworld.png",
+    "www\\image\\logo\\输入手机号.png"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
