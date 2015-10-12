@@ -97,25 +97,32 @@ angular.module('udqApp', ['ionic'])
         /*车主-最近订单信息*/
         .state('customerMyOrder.recentlyOrder', {
             cache: false,
-            url: "/recentlyOrder?orderDate",
+            url: "/recentlyOrder?orderDate&selectedOrder",
             views: {
                 'recentlyOrder-tab': {
                     templateUrl: "app/customer/order/recentlyOrder.html",
-                    controller: 'customerOrderCtrl'
+                    controller: 'customerRecentlyOrderController'
                 }
             }
         })
         /*车主-历史订单信息*/
         .state('customerMyOrder.historyOrder', {
             cache: false,
-            url: "/historyOrder?orderDate",
+            url: "/historyOrder?orderDate&selectedOrder",
             views: {
                 'historyOrder-tab': {
                     templateUrl: "app/customer/order/historyOrder.html",
-                    controller: 'customerOrderCtrl'
+                    controller: 'customerHistoryOrderController'
                 }
             }
         })
+        /*我的订单-单个订单信息查看评价*/
+       .state('customerOrderMgr', {
+           cache: false,
+           url: '/customerOrderMgr?selectOrder',
+           templateUrl: 'app/customer/order/orderMgr.html',
+           controller: 'customerOrderMgrController'
+       })
         /*车主-我的点趣*/
         .state('customerMyDQ', {
             cache: false,
@@ -135,7 +142,7 @@ angular.module('udqApp', ['ionic'])
             cache: false,
             url: '/customerWashShopInfo',
             templateUrl: 'app/customer/member/washShopInfo.html',
-            controller: 'customerMemberCenterCtrl'
+            controller: 'customerWashShopCtrl'
         })
         /*车主-添加车辆*/
         .state('customerAutoAdd', {
@@ -175,9 +182,9 @@ angular.module('udqApp', ['ionic'])
         /*车主-车辆-详情*/
         .state('customerAutoInfo', {
             cache: false,
-            url: '/customerAutoInfo',
+            url: '/customerAutoInfo?selectedAuto',
             templateUrl: 'app/customer/auto/autoInfo.html',
-            controller: 'customerAutoMgrCtrl'
+            controller: 'customerAutoInfoController'
         })
         /*车主-我要洗车-车辆选择*/
         .state('customerAutoList', {
@@ -188,9 +195,9 @@ angular.module('udqApp', ['ionic'])
         })
         /*车主我的点趣-信息编辑*/
         .state('customerMemberInfoEdit', {
-            url: '/customerMemberInfoEdit',
+            url: '/customerMemberInfoEdit?userInfo',
             templateUrl: 'app/customer/member/memberInfoEdit.html',
-            controller: 'customerMemberCenterCtrl'
+            controller: 'customerMemberInfoEditCtrl'
         })
         /*车主-我要洗车*/
         .state('customerOrderMake', {
@@ -209,7 +216,7 @@ angular.module('udqApp', ['ionic'])
         /*车主-我要洗车-洗车类型描述*/
         .state('customerWashtypeNote', {
             cache: false,
-            url: '/customerWashtypeNote?typeSelect&backParam',
+            url: '/customerWashtypeNote?typeSelect&backParam&orderInfo',
             templateUrl: 'app/customer/washType/washTypeNote.html',
             controller: 'customerOrderMakeCtrl'
         })
@@ -298,13 +305,7 @@ angular.module('udqApp', ['ionic'])
            templateUrl: 'app/customer/washType/washTypeIntroduce.html',
            controller: 'customerWashtypeCtrl'
        })
-       /*我的订单-单个订单信息查看评价*/
-       .state('customerOrderMgr', {
-           cache: false,
-           url: '/customerOrderMgr',
-           templateUrl: 'app/customer/order/orderMgr.html',
-           controller: 'customerOrderCtrl'
-       })
+
       /*车主-支付*/
        .state('customerOrderpay', {
            cache: false,

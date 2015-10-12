@@ -23,10 +23,7 @@
 	    /*车辆详情*/
 	    $scope.goToAutoInfo = function (auto) {
 	        autoSvr.setAutoInfo(auto);
-	        $state.go('customerAutoInfo');
-	    }
-	    $scope.goBackOfAutoInfo = function () {
-	        $state.go('customerAutoMgr');
+	        $state.go('customerAutoInfo', {'selectedAuto':JSON.stringify(auto)});
 	    }
 	    /*删除车辆*/
 	    $scope.deleteAuto = function (item) {

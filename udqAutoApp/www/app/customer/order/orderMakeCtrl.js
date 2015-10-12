@@ -67,7 +67,7 @@
 
         /*跳转到洗车类型服务详情*/
         $scope.goToTypeNote = function (type) {
-            $state.go("customerWashTypeNote", { 'lastPageName': 'customerOrderMake', 'washType': JSON.stringify(type) });
+            $state.go("customerWashTypeNote", { 'lastPageName': 'customerOrderMake', 'orderInfo':JSON.stringify($scope.orderInfo),'washType': JSON.stringify(type) });
         }
         /*跳转到车辆选择*/
         $scope.goToAutoList = function () {

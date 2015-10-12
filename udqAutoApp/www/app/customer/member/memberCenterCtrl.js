@@ -24,10 +24,7 @@ angular.module('udqApp')
 	            sexText:'女'
 	        }
             ];
-	    /*返回我的点趣*/
-	    $scope.goToCenter = function () {
-	        $state.go('customerMyDQ');
-	    }
+	    
 	    /*跳转到充值界面*/
 	    $scope.goToRecharge = function () {
 	        $state.go('customerRecharge', { 'backParam': 'customerMyDQ' });
@@ -36,32 +33,7 @@ angular.module('udqApp')
 	    $scope.goToWashShopInfo = function () {
 	        $state.go('customerWashShopInfo');
 	    }
-	    /*洗车店信息-获取信息*/
-	    customerMemberInfoSvr.getWashShopInfo($window.localStorage['userID']).then(
-            function (data) {
-                if (data.isSuccess) {
-                    if (data.rows[0] !=null) {
-                        $scope.hasNoAuto = false;
-                        $scope.washShopInfo = data.rows;
-                        for (var i = 0; i < $scope.washShopInfo.length; i++) {
-                            if ($scope.washShopInfo[i].photoUrl == "" || $scope.washShopInfo[i].photoUrl == undefined || $scope.washShopInfo[i].photoUrl == null) {
-                                $scope.washShopInfo[i].photoUrl = "image/mydianqu.png";
-                            } else {
-                                $scope.washShopInfo[i].photoUrl = baseUrl + $scope.washShopInfo[i].photoUrl;
-                            }
-                        }
-                    } else {
-                        $scope.hasNoAuto = true;
-                    }
-                    
-                } else {
-                    console.log(data.msg);
-                }
-
-            },
-            function (data) {
-                console.log(data);
-            });
+	    
 	    /*跳转到车辆列表*/
 	    $scope.goToAutoList = function () {
 	        autoSvr.setBackParam("customerMyDQ");
@@ -69,32 +41,12 @@ angular.module('udqApp')
 	    }
 
 	    $scope.goToEditOwnerInfo = function () {	        
-	        $state.go('customerMemberInfoEdit');
+	        $state.go('customerMemberInfoEdit', { 'userInfo': JSON.stringify($scope.user) });
 	    };
 	    $scope.goBack = function () {	        
 	        $state.go('customerHome');
 	    }
-	    /*编辑-保存*/
-	    $scope.saveMemberInfo = function () {
-	        /*判断电话号码是否合法*/
-	        if (!checkMobile($scope.user.mobile)) {
-	            popUpSvr.showAlert('号码须11位数字，以1开头');
-	            return;
-	        }
-	        customerMemberInfoSvr.editUserInfo($scope.user).then(
-            function (data) {
-                if (data.isSuccess) {
-                    $window.localStorage['userName'] = $scope.user.name;
-                    $window.localStorage['sex'] = $scope.user.sex;
-                    $scope.goToCenter();
-                } else {
-                    popUpSvr.showAlert(data.msg);
-                }
-            },
-            function (data) {
-                console.log(data);
-            });
-	    }
+	    
 	    /*校验输入是否是合法的电话号码*/
 	    var checkMobile = function (mobile) {
 	        var re = /^1\d{10}$/;
