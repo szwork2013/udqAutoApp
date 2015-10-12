@@ -1,5 +1,6 @@
 ﻿angular.module('udqApp')
-    .controller('customerWashShopCtrl', ['$scope', '$window', '$state', 'customerMemberInfoSvr', function ($scope,$window, $state, customerMemberInfoSvr) {
+    .controller('customerWashShopCtrl', ['$scope', '$window', '$state','baseUrl','$ionicNavBarDelegate', 'customerMemberInfoSvr', function ($scope, $window, $state,baseUrl,$ionicNavBarDelegate, customerMemberInfoSvr) {
+        var baseUrl = APP_CONFIG.server.getUrl();
         /*洗车店信息-获取信息*/
         customerMemberInfoSvr.getWashShopInfo($window.localStorage['userID']).then(
             function (data) {
@@ -28,6 +29,7 @@
             });
         /*返回我的点趣*/
         $scope.goToCenter = function () {
-            $state.go('customerMyDQ');
+            //$state.go('customerMyDQ');
+            $ionicNavBarDelegate.back();
         }
     }])

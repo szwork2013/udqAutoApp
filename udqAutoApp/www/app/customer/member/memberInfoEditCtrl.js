@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerMemberInfoEditCtrl', ['$scope', '$window', '$stateParams', '$state', 'customerMemberInfoSvr', 'popUpSvr', function ($scope, $window,$stateParams, $state, customerMemberInfoSvr, popUpSvr) {
+	.controller('customerMemberInfoEditCtrl', ['$scope', '$window', '$stateParams', '$state','$ionicNavBarDelegate', 'customerMemberInfoSvr', 'popUpSvr', function ($scope, $window,$stateParams, $state,$ionicNavBarDelegate, customerMemberInfoSvr, popUpSvr) {
 	    /*上一个页面传递过来的参数*/
 	    $scope.user = angular.fromJson($stateParams.userInfo);
 
@@ -35,6 +35,7 @@ angular.module('udqApp')
 	    }
 	    /*返回我的点趣*/
 	    $scope.goToCenter = function () {
-	        $state.go('customerMyDQ');
+	        //$state.go('customerMyDQ');
+	        $ionicNavBarDelegate.back();
 	    }
 	}]);
