@@ -19,7 +19,7 @@
  4.1 APP界面一般都没有超链接，用按钮来操作。
  */
 
-angular.module('udqApp', ['ionic'])
+angular.module('udqApp', ['ionic', 'ngIOS9UIWebViewPatch'])
     .run(['$ionicPlatform', '$rootScope', 'jpushSvr', 'popUpSvr', function ($ionicPlatform, $rootScope, jpushSvr, popUpSvr) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
