@@ -50,6 +50,14 @@ div.title.title-center.header-item{
     color:white;
     background-color:#425A66;
 }
+.item-select select
+{
+    right: auto;
+    direction: ltr;
+    font-size:16px;
+    color:white;
+    background-color:#374D58;
+}
 /*.input-costume:active{
     background-color:#374D58;
 }

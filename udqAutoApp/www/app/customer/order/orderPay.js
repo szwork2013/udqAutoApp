@@ -9,6 +9,7 @@
             $scope.order = customerOrderSvr.getOrder();
         }
         var state;
+        var orderInfo = angular.fromJson($stateParams.orderInfo);
         var orderParam = angular.fromJson($stateParams.order);/*洗车页面传递过来的订单信息*/
         if (orderParam == undefined) {//从充值页面返回时
             getOrderPayInfo();
@@ -107,7 +108,7 @@
         /*回跳到前一个页面*/
         $scope.goBack = function () {
 
-            $state.go(state, { 'typeSelect': 'payOrderReturn' });
+            $state.go(state, { 'typeSelect': 'payOrderReturn', 'orderInfo':JSON.stringify(orderInfo) });
         }
 
         $scope.alertPopup = function () {

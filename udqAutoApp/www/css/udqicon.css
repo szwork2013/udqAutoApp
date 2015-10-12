@@ -47,6 +47,13 @@ input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-inp
     border-radius: 0;
 }
 
+.item-select{
+    background-color:#374D58;
+}
+.item-select:after{
+    color:white;
+}
+
 .action-sheet-backdrop {
   -webkit-transition: background-color 150ms ease-in-out;
   transition: background-color 150ms ease-in-out;
