@@ -4,12 +4,14 @@
         $scope.balance = {
             userId: $window.localStorage['userID'],
             channel: '',
-            amount: 0.02
+            amount: ''
+        }
+        if ($scope.balance.amount == undefined || $scope.balance.amount == "") {
+            $scope.balance.amount = '0.02';
         }
         if ($scope.balance.channel == undefined || $scope.balance.channel == "") {
             $scope.balance.channel = 'alipay';/*设置支付方式初始值：支付宝*/
         }
-
         $scope.payMethod = {
             alipay: {
                 name: "alipay",

@@ -801,8 +801,7 @@
   ],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "plugins\\android.json",
-    "www\\app\\customer\\member\\recharge.html"
+    "plugins\\android.json"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
