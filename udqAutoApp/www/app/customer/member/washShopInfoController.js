@@ -1,5 +1,5 @@
 ﻿angular.module('udqApp')
-    .controller('customerWashShopCtrl', ['$scope', '$window', '$state','baseUrl','$ionicNavBarDelegate', 'customerMemberInfoSvr', function ($scope, $window, $state,baseUrl,$ionicNavBarDelegate, customerMemberInfoSvr) {
+    .controller('customerWashShopCtrl', ['$scope', '$window', '$state', 'APP_CONFIG', '$ionicNavBarDelegate', 'customerMemberInfoSvr', function ($scope, $window, $state, APP_CONFIG, $ionicNavBarDelegate, customerMemberInfoSvr) {
         var baseUrl = APP_CONFIG.server.getUrl();
         /*洗车店信息-获取信息*/
         customerMemberInfoSvr.getWashShopInfo($window.localStorage['userID']).then(
