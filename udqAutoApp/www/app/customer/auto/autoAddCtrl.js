@@ -47,9 +47,9 @@ angular.module('udqApp')
 	            return '请输入您的爱车颜色';
 	        }
 	        /*小区selectedRegionId*/
-	        if (auto.selectedRegionId == undefined) {
-	            return '请选择小区';
-	        }
+	        //if (auto.selectedRegionId == undefined) {
+	        //    return '请选择小区';
+	        //}
 	        return;
 	    }
 		/*点击"确认"*/
