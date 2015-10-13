@@ -243,6 +243,7 @@
     "www\\lib\\ionic\\js\\ionic-angular.js",
     "plugins\\org.apache.cordova.splashscreen\\tests\\plugin.xml",
     "plugins\\co.airsia.cordova.pingpp\\www\\libs\\ios\\Channels\\Wx\\libpingpp+wx.a",
+    "www\\lib\\ionic\\js\\angular-ios9-uiwebview.patch.js",
     "plugins\\cordova-plugin-file\\www\\blackberry10\\write.js",
     "plugins\\com.msopentech.websql\\package.json1",
     "res\\screens\\android\\screen-hdpi-portrait.png",
@@ -797,7 +798,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\member\\memberCenter.html"
+    "www\\app\\customer\\washType\\washTypeIntroduce.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

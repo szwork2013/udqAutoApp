@@ -29,10 +29,14 @@
   color:#f83838;
   content: "\f217"; }
 
-input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly]{
+input[readonly]:not(.cloned-text-input), select[readonly]{
     background-color:#eee;
     cursor: not-allowed;
 }
+ textarea[readonly]:not(.cloned-text-input){
+     background-color:#374D58;
+    cursor: not-allowed;
+ }
 
 .checkbox input:disabled:before, .checkbox input:disabled + .checkbox-icon:before {
   border-color: #425A66; }

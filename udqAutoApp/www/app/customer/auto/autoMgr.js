@@ -76,13 +76,13 @@
 	    }
 	    /*回跳(根据backParam)*/
 	    $scope.goBack = function () {
-	        $ionicNavBarDelegate.back();
-	        //if (backParam == "customerMyDQ") {
-	        //    $state.go('customerMyDQ');
-	        //}
-	        //if (backParam == "customerHome") {
-	        //    $state.go('customerHome');
-	        //}
+	        //$ionicNavBarDelegate.back();
+	        if (backParam == "customerMyDQ") {
+	            $state.go('customerMyDQ');
+	        }
+	        if (backParam == "customerHome") {
+	            $state.go('customerHome');
+	        }
 	    }
 	    /*(自定义)数组移除指定元素*/
 	    var ArrayRemove = function (array, item) {

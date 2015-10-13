@@ -44,8 +44,11 @@
                                  $scope.doRefresh();
                              } else {
                                  console.log(data.msg);
+                                 if (data.msg == "操作失败") {
+                                     popUpSvr.showAlert('此用户不存在!');
+                                 }
                                  if (data.msg == "此订单已被接收") {
-                                     popUpSvr.showAlert('此订单已被接收');
+                                     popUpSvr.showAlert('此订单已被接收!');
                                  }
                              }
                          },

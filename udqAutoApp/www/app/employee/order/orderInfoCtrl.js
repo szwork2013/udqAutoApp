@@ -9,6 +9,9 @@
        if ($scope.order.userNote == "") {
            $scope.order.userNote = "无";
        }
+       if ($scope.order.washerNote == "") {
+           $scope.order.washerNote = "无";
+       }
        if ($scope.order.customerGrade == "") {
            $scope.order.customerGrade = "无";
        }

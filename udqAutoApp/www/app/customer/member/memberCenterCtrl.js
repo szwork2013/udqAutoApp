@@ -1,5 +1,5 @@
 angular.module('udqApp')
-	.controller('customerMemberCenterCtrl', ['$scope','$state', '$ionicHistory', '$window','$ionicNavBarDelegate', 'customerMemberInfoSvr', 'autoSvr', 'loginSvr', 'jpushSvr', 'APP_CONFIG', 'popUpSvr', function ($scope,$state, $ionicHistory, $window,$ionicNavBarDelegate, customerMemberInfoSvr,autoSvr, loginSvr, jpushSvr, APP_CONFIG, popUpSvr) {
+	.controller('customerMemberCenterCtrl', ['$scope','$state', '$ionicHistory', '$window', 'customerMemberInfoSvr', 'autoSvr', 'loginSvr', 'jpushSvr', 'APP_CONFIG', 'popUpSvr', function ($scope,$state, $ionicHistory, $window,customerMemberInfoSvr,autoSvr, loginSvr, jpushSvr, APP_CONFIG, popUpSvr) {
 	    var baseUrl = APP_CONFIG.server.getUrl();
 	    customerMemberInfoSvr.getUserInfo($window.localStorage['userID']).then(
             function (data) {
@@ -44,8 +44,8 @@ angular.module('udqApp')
 	        $state.go('customerMemberInfoEdit', { 'userInfo': JSON.stringify($scope.user) });
 	    };
 	    $scope.goBack = function () {	        
-	        //$state.go('customerHome');
-	        $ionicNavBarDelegate.back();
+	        $state.go('customerHome');
+	        //$ionicNavBarDelegate.back();
 	    }
 	    
 	    /*校验输入是否是合法的电话号码*/
