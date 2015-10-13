@@ -22,13 +22,20 @@
                     </label>
                 </div>-->
                 <label class="item item-input input-costume">
-                    <span class="input-label"><h2>称呼</h2></span>
+                    <span class="input-label">称呼</span>
                     <input type="text" name="name" ng-model='user.name' placeholder="请输入您的称呼" style="color:white;" required>
                 </label>
                 <label class="item item-input input-costume">
-                    <span class="input-label"><h2>手机</h2></span>
+                    <span class="input-label">手机</span>
                     <input type="text" name="mobile" ng-model='user.mobile' placeholder="请输入您要变更的手机号" style="color:white;" required>
                 </label>
+                <!--<label class="item item-input item-select">
+                    <span class="input-label">性别</span>
+                    <select ng-model="user.sex" style="float:left">
+                        <option value="1" ng-selected="1==user.sex">先生</option>
+                        <option value="2" ng-selected="2==user.sex">女士</option>
+                    </select>
+                </label>-->
                 <ion-item class="input-costume" style="color:white;">
                         <span class="input-labelsex">性别</span>
                         <label class="select-type"><input type="radio" name="sex" ng-model="user.sex" value='1' />男士</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

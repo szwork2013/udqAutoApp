@@ -40,51 +40,55 @@ angular.module('udqApp')
  	        if (data == undefined) {
  	            return tempCities;
  	        }
- 	        var regionObj = data[0].children;
+ 	        for (var m = 0; m < data.length; m++) {
+ 	            var regionObj = data[m].children;
 
- 	        for (var i = 0; i < regionObj.length; i++) {
- 	            var city = {};
- 	            /*获取城市的名字和ID*/
- 	            city.name = regionObj[i].name;
- 	            city.id = regionObj[i].id;
- 	            /*如果该城市下有区域，则获取下面的区域信息*/
- 	            if (regionObj[i].children.length == 0) {
- 	                continue;
- 	            }
- 	            var regions = [];
- 	            for (var j = 0; j < regionObj[i].children.length; j++) {
- 	                var region = {};
- 	                region.name = regionObj[i].children[j].name;
- 	                region.id = regionObj[i].children[j].id;
- 	                region.pid = regionObj[i].children[j].pid;
-
- 	                /*如果该区域下有小区，则获取下面的小区信息*/
- 	                if (regionObj[i].children[j].children.length == 0) {
+ 	            for (var i = 0; i < regionObj.length; i++) {
+ 	                var city = {};
+ 	                /*获取城市的名字和ID*/
+ 	                city.name = regionObj[i].name;
+ 	                city.id = regionObj[i].id;
+ 	                /*如果该城市下有区域，则获取下面的区域信息*/
+ 	                if (regionObj[i].children.length == 0) {
  	                    continue;
  	                }
- 	                var districts = [];
- 	                for (var c = 0; c < regionObj[i].children[j].children.length; c++) {
- 	                    var district = {};
- 	                    district.name = regionObj[i].children[j].children[c].name;
- 	                    district.id = regionObj[i].children[j].children[c].id;
- 	                    district.pid = regionObj[i].children[j].children[c].pid;
- 	                    district.defaultOrgId = regionObj[i].children[j].children[c].orgId;
+ 	                var regions = [];
+ 	                for (var j = 0; j < regionObj[i].children.length; j++) {
+ 	                    var region = {};
+ 	                    region.name = regionObj[i].children[j].name;
+ 	                    region.id = regionObj[i].children[j].id;
+ 	                    region.pid = regionObj[i].children[j].pid;
 
- 	                    districts.push(district);
- 	                    _districts.push(district);
+ 	                    /*如果该区域下有小区，则获取下面的小区信息*/
+ 	                    if (regionObj[i].children[j].children.length == 0) {
+ 	                        continue;
+ 	                    }
+ 	                    var districts = [];
+ 	                    for (var c = 0; c < regionObj[i].children[j].children.length; c++) {
+ 	                        var district = {};
+ 	                        district.name = regionObj[i].children[j].children[c].name;
+ 	                        district.id = regionObj[i].children[j].children[c].id;
+ 	                        district.pid = regionObj[i].children[j].children[c].pid;
+ 	                        district.cityId = regionObj[i].children[j].children[c].cityId;
+ 	                        district.defaultOrgId = regionObj[i].children[j].children[c].orgId;
+
+ 	                        districts.push(district);
+ 	                        _districts.push(district);
+ 	                    }
+ 	                    region.districts = districts;
+
+ 	                    /*将区域添加到区域s里面*/
+ 	                    regions.push(region);
+ 	                    _regions.push(region);
  	                }
- 	                region.districts = districts;
-
- 	                /*将区域添加到区域s里面*/
- 	                regions.push(region);
- 	                _regions.push(region);
+ 	                city.regions = regions;
+ 	                /*将城市添加到城市列表里面*/
+ 	                tempCities.push(city);
+ 	                _cities.push(city);
  	            }
- 	            city.regions = regions;
- 	            /*将城市添加到城市列表里面*/
- 	            tempCities.push(city);
- 	            _cities.push(city);
- 	        }
 
+ 	           
+ 	        }
  	        return tempCities;
 
  	    }

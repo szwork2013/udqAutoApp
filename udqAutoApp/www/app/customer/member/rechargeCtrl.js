@@ -7,7 +7,7 @@
             amount: ''
         }
         if ($scope.balance.amount == undefined || $scope.balance.amount == "") {
-            $scope.balance.amount = '0.02';
+            $scope.balance.amount = '10';
         }
         if ($scope.balance.channel == undefined || $scope.balance.channel == "") {
             $scope.balance.channel = 'alipay';/*设置支付方式初始值：支付宝*/
@@ -58,7 +58,7 @@
         }
         /*回跳到前一个页面*/
         $scope.goBack = function () {
-            $ionicNavBarDelegate.back();
-            //$state.go(backParam);
+           // $ionicNavBarDelegate.back();
+            $state.go(backParam);
         }
     }])

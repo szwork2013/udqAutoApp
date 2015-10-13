@@ -9,6 +9,10 @@
     border-bottom:1px solid white;
     
 }
+.button-footer{
+    background-color:#374D58;
+    margin-bottom:2%;
+}
 /*页面标题字体修改*/
 div.title.title-center.header-item{
     font-size:23px;
@@ -41,6 +45,7 @@ div.title.title-center.header-item{
     color:white;
     background-color:#374D58;
     border:#374D58;
+    margin-top:-10%;
 }
 .input-costume-list{
     color:white;
@@ -56,7 +61,7 @@ div.title.title-center.header-item{
     direction: ltr;
     font-size:16px;
     color:white;
-    background-color:#374D58;
+    background-color:#425A66;
 }
 /*.input-costume:active{
     background-color:#374D58;
@@ -147,7 +152,10 @@ h2,h3,h4,p,.item p{
     font-size:16px;
     border:#FFBC01 solid ;
     border-radius:3px;
-    margin-top:15px; }
+    margin-top:15px;
+    width:90%;
+    margin-left:5%;
+}
     /*.button.allbutton:hover {
       color: #fff;
       text-decoration: none; }*/
@@ -180,8 +188,11 @@ h2,h3,h4,p,.item p{
    color:black;
    font-size:14px;
    font-weight:600;
-   border-color:rgba(250, 251, 117, 0.07);
+   border:#FFBC01;
    border-radius:3px;
+   padding:0;
+   padding-left:4px;
+   padding-right:4px;
 }
 /*清除评分按钮*/
 .buttonclean {

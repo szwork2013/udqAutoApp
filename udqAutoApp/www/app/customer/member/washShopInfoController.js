@@ -29,7 +29,7 @@
             });
         /*返回我的点趣*/
         $scope.goToCenter = function () {
-            //$state.go('customerMyDQ');
-            $ionicNavBarDelegate.back();
+            $state.go('customerMyDQ');
+            //$ionicNavBarDelegate.back();
         }
     }])

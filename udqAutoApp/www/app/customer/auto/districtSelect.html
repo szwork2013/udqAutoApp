@@ -8,10 +8,10 @@
     </ion-nav-bar>
     <ion-content>
         <ion-refresher on-refresh="doRefreshOfDistrict()"></ion-refresher>
-        <div style="text-align:center;margin-top:5px;" ng-show="autoInfo.selectedRegionId==undefined">
-            <p>请先选择区域</p>
+        <div style="text-align:center;margin-top:5px;" ng-show="autoInfo.selectedCityId==undefined">
+            <p>请先选择城市</p>
         </div>
-        <ion-list ng-repeat="district in districts" ng-show="district.pid ==autoInfo.selectedRegionId" >
+        <ion-list ng-repeat="district in districts" ng-show="district.cityId ==autoInfo.selectedCityId" >
             <ion-radio ng-model="autoInfo.selectedDistrictId"  ng-click="goBackOfDoDistrictSelect(district)" value={{district.id}} class="input-costume-radio"><p style="color:black;">{{district.name}}</p></ion-radio>
         </ion-list>
 

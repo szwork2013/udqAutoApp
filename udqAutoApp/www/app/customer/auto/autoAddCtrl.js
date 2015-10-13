@@ -47,9 +47,9 @@ angular.module('udqApp')
 	            return '请输入您的爱车颜色';
 	        }
 	        /*小区selectedRegionId*/
-	        if (auto.selectedRegionId == undefined) {
-	            return '请选择小区';
-	        }
+	        //if (auto.selectedRegionId == undefined) {
+	        //    return '请选择小区';
+	        //}
 	        return;
 	    }
 		/*点击"确认"*/
@@ -67,8 +67,7 @@ angular.module('udqApp')
                 function (data) {
                     if (data.isSuccess) {
                         console.log('添加车辆成功');
-                        //$scope.goBack();
-                        $ionicNavBarDelegate.back();
+                        $state.go('customerAutoMgr');
                     } else {
                         console.log(data.msg);
                         popUpSvr.showAlert("请选择小区");
@@ -98,12 +97,12 @@ angular.module('udqApp')
 
         /*根据backName回跳之前的界面*/
 	    $scope.goBack = function () {
-	        $ionicNavBarDelegate.back();
-	        //if (backName == 'customerAutoList') {
-	        //    $state.go(backName, { 'lastPageName': 'customerAutoAdd','orderInfo':JSON.stringify(orderInfo) });
-	        //} else {	            
-	        //    $state.go("customerAutoMgr");
-	        //}
+	        //$ionicNavBarDelegate.back();
+	        if (backName == 'customerAutoList') {
+	            $state.go(backName, { 'lastPageName': 'customerAutoAdd','orderInfo':JSON.stringify(orderInfo) });
+	        } else {	            
+	            $state.go("customerAutoMgr");
+	        }
 		}
 
 	}])

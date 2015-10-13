@@ -53,8 +53,8 @@
                 <i>{{selectOrder.washerNote}}</i>
             </label>
             <label class="item item-input input-costume-list" ng-show="selectOrder.gradeUserNote!=''">
-                <span class="input-label">意见</span>
-                <i>{{selectOrder.gradeUserNote}}</i>
+                <span class="input-label">我的意见</span>
+                <textarea rows="3" class="input-costume" readonly="readonly" style="color:white;width:100%;height:inherit;">{{selectOrder.gradeUserNote}}</textarea>
             </label>
             <div ng-show="selectOrder.state==4||selectOrder.state==5">
                 <label class="item item-input input-costume-list">
@@ -96,9 +96,7 @@
             <div class="col col-100 item item-input input-costume">
                 <textarea placeholder="您有什么意见，请写在这里。" ng-model="selectOrder.gradeUserNote" rows="4" class="input-costume" style="color:white;width:100%;height:inherit"></textarea>
             </div>
-            <button class="button allbutton  button-block button-small" ng-show="selectOrder.state==4" style="width:90%;margin-left:5%;" ng-click="judge(selectOrder)">确认</button>
+            <button class="button allbutton  button-block button-small" ng-show="selectOrder.state==4" style="width:90%;margin-left:5%;position:" ng-click="judge(selectOrder)">确认</button>
         </div>
-
-
     </ion-content>
 </ion-view>

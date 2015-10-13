@@ -125,63 +125,63 @@ angular.module('udqApp', ['ionic', 'ngIOS9UIWebViewPatch'])
        })
         /*车主-我的点趣*/
         .state('customerMyDQ', {
-            //cache: false,
+            cache: false,
             url: '/customerMyDQ',
             templateUrl: 'app/customer/member/memberCenter.html',
             controller: 'customerMemberCenterCtrl'
         })
         /*车主-我的点趣-充值*/
         .state('customerRecharge', {
-            //cache: false,
+            cache: false,
             url: '/customerRecharge?backParam',
             templateUrl: 'app/customer/member/recharge.html',
             controller: 'customerRechargeCtrl'
         })
         /*车主-我的点趣-洗车店信息*/
         .state('customerWashShopInfo', {
-            //cache: false,
+            cache: false,
             url: '/customerWashShopInfo',
             templateUrl: 'app/customer/member/washShopInfo.html',
             controller: 'customerWashShopCtrl'
         })
         /*车主-添加车辆*/
         .state('customerAutoAdd', {
-            //cache: false,
+            cache: false,
             url: '/customerAutoAdd?backName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/autoAdd.html',
             controller: 'customerAutoAddCtrl'
         })
         /*车主-添加车辆-选择城市*/
         .state('customerCitySelect', {
-            //cache: false,
+            cache: false,
             url: '/customerCitySelect?lastName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/citySelect.html',
             controller: 'customerAutoAddCitySelectCtrl'
         })
          /*车主-添加车辆-选择区域*/
         .state('customerRegion', {
-            //cache: false,
+            cache: false,
             url: '/customerRegion?lastName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/regionSelect.html',
             controller: 'customerAutoAddRegionSelectCtrl'
         })
          /*车主-添加车辆-选择小区*/
         .state('customerDistrictSelect', {
-            //cache: false,
+            cache: false,
             url: '/customerDistrictSelect?lastName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/districtSelect.html',
             controller: 'customerAutoAddDistrictSelectCtrl'
         })
         /*车主-车辆*/
         .state('customerAutoMgr', {
-            //cache: false,
+            cache: false,
             url: '/customerAutoMgr',
             templateUrl: 'app/customer/auto/autoMgr.html',
             controller: 'customerAutoMgrCtrl'
         })
         /*车主-车辆-详情*/
         .state('customerAutoInfo', {
-            //cache: false,
+            cache: false,
             url: '/customerAutoInfo?selectedAuto',
             templateUrl: 'app/customer/auto/autoInfo.html',
             controller: 'customerAutoInfoController'

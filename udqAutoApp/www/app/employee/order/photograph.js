@@ -22,7 +22,7 @@
                            } else {
                                console.log(data.msg);
                                if (data.msg == "操作失败") {
-                                   popUpSvr.showAlert('该用户不存在，消息推送失败！');
+                                   popUpSvr.showAlert('该用户不存在！');
                                }
                            }
                        },
