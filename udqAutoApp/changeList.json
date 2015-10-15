@@ -799,7 +799,10 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\login\\loginCtrl.js"
+    "www\\app\\customer\\member\\memberCenter.html",
+    "www\\app.js",
+    "www\\app\\customer\\member\\memberInfoEdit.html",
+    "www\\app\\customer\\register\\register.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
