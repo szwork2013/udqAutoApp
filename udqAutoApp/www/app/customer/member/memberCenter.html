@@ -9,17 +9,18 @@
     </ion-nav-bar>
     <ion-content padding="true" class="has-header">
         <div class="row" style="border-bottom:1px solid white;">
+            
             <div class="col col-20">
                 <img src="image/mydianqu.png" style="height:100%;width:100%;" />
             </div>
-            <div class="col col-70">
-                <i class="home-p1" ng-show="user.name!=undefined">称呼：{{user.name}}</i><br />
-                <i class="home-p1" ng-show="user.mobile!=undefined">手机：{{user.mobile}}</i><br />
-                <i class="home-p1" ng-show="user.mobile!=undefined">余额：<a class="a-custome">{{user.balance}}</a>&nbsp;&nbsp;&nbsp;<button class="rechargeInloginPage" ng-click="goToRecharge()">充值</button></i>
+            <div class="col col-60">
+                <i class="home-p1" ng-show="user.name!=undefined" style="font-size:16px">称呼：{{user.name}}</i><br />
+                <i class="home-p1" ng-show="user.mobile!=undefined" style="text-align:right;font-size:16px;overflow:hidden">手机：{{user.mobile}}</i><br />
+                <i class="home-p1" ng-show="user.mobile!=undefined" style="font-size:16px">余额：<a class="a-custome">{{user.balance}}</a>&nbsp;&nbsp;&nbsp;<button class="rechargeInloginPage" ng-click="goToRecharge()">充值</button></i>
             </div>
-            <div class="col col-10" style="text-align:right;">
+            <div class="col col-20" style="text-align:right;">
                 <button class="button-i" ng-click="goToEditOwnerInfo()">
-                    <i class="icon ion-ios-arrow-forward" style="font-size:50px"></i>
+                    <i class="icon ion-ios-arrow-forward" style="font-size:40px"></i>
                 </button>
             </div>
         </div>
