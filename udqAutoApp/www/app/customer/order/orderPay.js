@@ -3,6 +3,7 @@
         var saveOrderPayInfo = function () {
             customerOrderSvr.setState(state);
             customerOrderSvr.setOrder($scope.order);
+            customerOrderSvr.setSelectedOrder(orderInfo);
         }
         var getOrderPayInfo = function () {
             state = customerOrderSvr.getState();

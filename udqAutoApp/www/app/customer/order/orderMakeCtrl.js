@@ -3,6 +3,9 @@
 
         $scope.lastPageName = $stateParams.lastPageName;
         $scope.orderInfo = angular.fromJson($stateParams.orderInfo);
+        if ($scope.orderInfo == undefined) {
+            $scope.orderInfo = customerOrderSvr.getSelectedOrder();
+        }
         switch ($scope.lastPageName) {
             case "customerHome":
                 LoadingSvr.show();

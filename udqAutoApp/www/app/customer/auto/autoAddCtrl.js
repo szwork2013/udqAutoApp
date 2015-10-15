@@ -1,11 +1,11 @@
 angular.module('udqApp')
-	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', '$ionicNavBarDelegate', 'regionSvr', 'autoSvr', 'popUpSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window,$ionicNavBarDelegate, regionSvr, autoSvr, popUpSvr) {
+	.controller('customerAutoAddCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', 'popUpSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr, popUpSvr) {
 	    var backName = $stateParams.backName;
 	    $scope.autoInfo = angular.fromJson($stateParams.autoInfo);
         
 	    var orderInfo = angular.fromJson($stateParams.orderInfo);
 
-	    if (backName == 'customerAutoMgr' || backName == 'customerAutoList' && $scope.autoInfo == undefined) {
+	    if (backName == 'customerAutoMgr' && $scope.autoInfo == undefined || backName == 'customerAutoList' && $scope.autoInfo == undefined) {
 	        $scope.autoInfo = {
 	            userId: $window.localStorage['userID'],
 	            id: 0/*0为添加，1为修改*/
@@ -67,7 +67,7 @@ angular.module('udqApp')
                 function (data) {
                     if (data.isSuccess) {
                         console.log('添加车辆成功');
-                        $state.go('customerAutoMgr');
+                        $scope.goBack();
                     } else {
                         console.log(data.msg);
                         popUpSvr.showAlert("请选择小区");
@@ -83,15 +83,15 @@ angular.module('udqApp')
 	    /*跳转到城市选择*/
 		$scope.goToCitySelect = function () {
 		    
-		    $state.go('customerCitySelect', { 'lastPageName': 'customerAutoAdd', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
+		    $state.go('customerCitySelect', { 'backName': backName, 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 		}
 	    /*跳转到区域选择*/
 	    $scope.goToRegionSelect = function () {       	        
-	        $state.go('customerRegion', { 'lastPageName': 'customerAutoAdd', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
+	        $state.go('customerRegion', { 'backName': backName, 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 		}
 	    /*跳转到小区选择*/
 	    $scope.goToDistrictSelect = function () {
-	        $state.go('customerDistrictSelect', { 'lastPageName': 'customerAutoAdd', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
+	        $state.go('customerDistrictSelect', { 'backName': backName, 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 	    }
 
 
@@ -100,7 +100,8 @@ angular.module('udqApp')
 	        //$ionicNavBarDelegate.back();
 	        if (backName == 'customerAutoList') {
 	            $state.go(backName, { 'lastPageName': 'customerAutoAdd','orderInfo':JSON.stringify(orderInfo) });
-	        } else {	            
+	        }
+	        if (backName == 'customerAutoMgr') {
 	            $state.go("customerAutoMgr");
 	        }
 		}

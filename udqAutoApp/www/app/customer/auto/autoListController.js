@@ -11,7 +11,9 @@
                 if (data.isSuccess) {
                     if (data.rows.length > 0) {
                         $scope.autoInfo = data.rows;
+                        $scope.hasNoAuto = false;
                     } else {
+                        $scope.hasNoAuto = true;
                         console.log('用户无车辆信息，未添加车辆');
                     }
                 } else {
@@ -41,7 +43,7 @@
             );
 	        $scope.$broadcast('scroll.refreshComplete');
 	    }
-
+        /*添加*/
 	    $scope.goToAddauto = function () {
             /*传递orderInfo*/
 	        $state.go('customerAutoAdd', { 'backName': 'customerAutoList' ,'orderInfo':JSON.stringify($scope.orderInfo)});

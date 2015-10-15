@@ -154,21 +154,21 @@ angular.module('udqApp', ['ionic', 'ngIOS9UIWebViewPatch'])
         /*车主-添加车辆-选择城市*/
         .state('customerCitySelect', {
             cache: false,
-            url: '/customerCitySelect?lastName&autoInfo&orderInfo',
+            url: '/customerCitySelect?backName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/citySelect.html',
             controller: 'customerAutoAddCitySelectCtrl'
         })
          /*车主-添加车辆-选择区域*/
         .state('customerRegion', {
             cache: false,
-            url: '/customerRegion?lastName&autoInfo&orderInfo',
+            url: '/customerRegion?backName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/regionSelect.html',
             controller: 'customerAutoAddRegionSelectCtrl'
         })
          /*车主-添加车辆-选择小区*/
         .state('customerDistrictSelect', {
             cache: false,
-            url: '/customerDistrictSelect?lastName&autoInfo&orderInfo',
+            url: '/customerDistrictSelect?backName&autoInfo&orderInfo',
             templateUrl: 'app/customer/auto/districtSelect.html',
             controller: 'customerAutoAddDistrictSelectCtrl'
         })

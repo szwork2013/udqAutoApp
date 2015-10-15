@@ -1,6 +1,6 @@
 ﻿angular.module('udqApp')
 	.controller('customerAutoAddRegionSelectCtrl', ['$scope', '$ionicPopup', '$stateParams', '$state', '$ionicHistory', '$window', 'regionSvr', 'autoSvr', 'popUpSvr', function ($scope, $ionicPopup, $stateParams, $state, $ionicHistory, $window, regionSvr, autoSvr, popUpSvr) {
-	    var lastPageName = $stateParams.lastPageName;
+	    var backName = $stateParams.backName;
 	    $scope.autoInfo = angular.fromJson($stateParams.autoInfo);
 	    var orderInfo = angular.fromJson($stateParams.orderInfo);
 
@@ -23,11 +23,11 @@
 	    }
 
 	    $scope.goBackOfRegionSelect = function () {
-	        $state.go('customerAutoAdd', { 'backName': 'customerRegion', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
+	        $state.go('customerAutoAdd', { 'backName': backName, 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 	    }
 	    $scope.goBackOfDoRegionSelect = function (region) {
 	        $scope.autoInfo.selectedRegionId = region.id;
-	        $state.go('customerAutoAdd', { 'backName': 'customerRegion', 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
+	        $state.go('customerAutoAdd', { 'backName': backName, 'autoInfo': JSON.stringify($scope.autoInfo), 'orderInfo': JSON.stringify(orderInfo) });
 	    }
 
 	}])
