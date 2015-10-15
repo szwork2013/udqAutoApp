@@ -585,6 +585,7 @@
     "plugins\\cordova-plugin-file\\doc\\plugins.md",
     "www\\app\\customer\\order\\regionSelect.html",
     "merges\\windows\\scripts\\platformOverrides.js",
+    "www\\image\\logo.png",
     "www\\app\\customer\\member\\washShopInfoController.js",
     "res\\screens\\ios\\screen-iphone-portrait.png",
     "Project_Readme.html",
@@ -782,8 +783,7 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "www\\app\\customer\\auto\\autoaddctrl.js"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
@@ -799,7 +799,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\app\\customer\\auto\\autoaddctrl.js"
+    "www\\app\\login\\loginCtrl.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

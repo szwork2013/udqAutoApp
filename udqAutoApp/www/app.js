@@ -67,10 +67,7 @@ angular.module('udqApp', ['ionic', 'ngIOS9UIWebViewPatch'])
             /*网络离线事件*/
             document.addEventListener("offline", onOffline, false);
 
-
         });
-
-
     }])
    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, $httpProvider, APP_CONFIG) {
 

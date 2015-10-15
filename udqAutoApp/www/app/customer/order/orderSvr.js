@@ -15,6 +15,14 @@
          /*支付页面保存的参数*/
          var _state;
          var _order;
+         var _ratingValue;
+
+         //this.getRatingValue = function () {
+         //    return _state;
+         //}
+         //this.setRatingValue = function (ratingValue) {
+         //    _state = state;
+         //}
 
          this.getState = function () {
              return _state;
