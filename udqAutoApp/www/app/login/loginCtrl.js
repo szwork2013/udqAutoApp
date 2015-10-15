@@ -37,6 +37,10 @@ angular.module('udqApp')
                     if (data.isSuccess == false) {
                         popUpSvr.showAlert('该号码尚未注册');
                     } else {
+                        if (data.data.mobile == "audit") {
+                            console.log('测试账号');
+                            return;
+                        }
                         /*已注册，则调用短信服务，并且倒计时*/
                         registerSvr.sendMSG($scope.user.mobile).then(
                             function (data) {
@@ -58,6 +62,10 @@ angular.module('udqApp')
         }
         /*校验输入是否是合法的电话号码*/
         var checkMobile = function (mobile) {
+            /*测试账号*/
+            if (mobile == "audit") {
+                return true;
+            }
             var re = /^1\d{10}$/;
             if (re.test(mobile)) {
                 return true;
@@ -103,62 +111,69 @@ angular.module('udqApp')
             /*make sure that the interval is destroyed too*/
             $scope.stopCountDown();
         })
-        $scope.login = function () {
-            if ($scope.user.mobile == undefined) {
+        /*登录按钮*/
+        $scope.loginCheck = function () {
+            if ($scope.user.mobile == "audit"&&$scope.user.psd=="1234") {
+                console.log("测试账号");
+                login();
+            }
+            else if ($scope.user.mobile == undefined) {
                 popUpSvr.showAlert('请输入手机号码');
                 return;
             }
-            if ($scope.user.mobile.length == 0) {
+            else if ($scope.user.mobile.length == 0) {
                 popUpSvr.showAlert('请输入手机号码');
                 return;
             }
             /*检查输入是否合法*/
-            if (!checkMobile($scope.user.mobile)) {
+            else if (!checkMobile($scope.user.mobile)) {
                 popUpSvr.showAlert('号码须11位数字，以1开头');
                 return;
             }
-            if ($scope.user.psd != $scope.verifyCode) {
+            else if ($scope.user.psd != $scope.verifyCode) {
                 popUpSvr.showAlert('验证码不正确');
                 return;
             }
-            /*1、检查本地是否保存该电话号码
-              2、检查该号码是否注册过
-            */
+            else {
+                login();
+            }
+            
+        }
+        var login = function () {
             var userType = 2;
             var returnData = {};
-                loginSvr.loginCheck($scope.user).then(function (data) {
-                    //判断该电话号码是否已经注册
-                    if (data.isSuccess == true) {
-                        console.log(data.msg);
-                        userType = checkUserType(data.data.userType);
+            loginSvr.loginCheck($scope.user).then(function (data) {
+                //判断该电话号码是否已经注册
+                if (data.isSuccess == true) {
+                    console.log(data.msg);
+                    userType = checkUserType(data.data.userType);
 
-                        $window.localStorage['userID'] = data.data.id;
-                        $window.localStorage['orgId'] = data.data.orgId;
-                        $window.localStorage['loginState'] = 1;
-                        $window.localStorage['mobile'] = $scope.user.mobile;
-                        $window.localStorage['userName'] = data.data.name;
-                        $window.localStorage['userType'] = userType;
-                        $window.localStorage['sex'] = data.data.sex;
+                    $window.localStorage['userID'] = data.data.id;
+                    $window.localStorage['orgId'] = data.data.orgId;
+                    $window.localStorage['loginState'] = 1;
+                    $window.localStorage['mobile'] = $scope.user.mobile;
+                    $window.localStorage['userName'] = data.data.name;
+                    $window.localStorage['userType'] = userType;
+                    $window.localStorage['sex'] = data.data.sex;
 
-                        /*根据用户类型设置别名和标签*/
-                        if (userType == 1) {/*洗车工*/
-                            jpushSvr.setTagsWithAlias([data.data.orgId], 'user' + data.data.id);
-                        } else if (userType == 2) {/*车主*/
-                            jpushSvr.setTagsWithAlias(['customer'], 'customer' + data.data.id);
-                        }
-                        
-                        /*跳转*/
-                        goToHomeByUserType(userType);
-
-                    } else {
-                        popUpSvr.showAlert(data.msg);
-                        return;
+                    /*根据用户类型设置别名和标签*/
+                    if (userType == 1) {/*洗车工*/
+                        jpushSvr.setTagsWithAlias([data.data.orgId], 'user' + data.data.id);
+                    } else if (userType == 2) {/*车主*/
+                        jpushSvr.setTagsWithAlias(['customer'], 'customer' + data.data.id);
                     }
-                }, function (data) {
-                    popUpSvr.showAlert(data);
-                });
-            }
-        //}
+
+                    /*跳转*/
+                    goToHomeByUserType(userType);
+
+                } else {
+                    popUpSvr.showAlert(data.msg);
+                    return;
+                }
+            }, function (data) {
+                popUpSvr.showAlert(data);
+            });
+        }
         var checkUserType = function (userType) {
             switch (userType) {
                 case 4:

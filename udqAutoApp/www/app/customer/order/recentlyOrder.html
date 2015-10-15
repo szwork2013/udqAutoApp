@@ -5,7 +5,7 @@
             <ion-item ng-repeat="order in orderList" class="input-costume">
                 <div ng-click="goToSeeOrder(order)">
                     <p>订单编号：{{order.orderNo}}</p>
-                    <p>车牌号：{{order.autoPN}}金额：<span class="a-custome">{{order.finalAmount|currency:'￥'}}</span></p>
+                    <p>车牌号：{{order.autoPN}},金额：<span class="a-custome">{{order.finalAmount|currency:'￥'}}</span></p>
                     <p>洗车类型：{{order.washTypeName}}</p>
                     <span class="badge span-mark" ng-show="order.state==0">未支付</span>
                     <span class="badge span-mark" ng-show="order.state==1">已下单</span>
