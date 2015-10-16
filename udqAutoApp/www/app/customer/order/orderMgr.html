@@ -23,10 +23,13 @@
                 <span class="input-label">洗车工姓名</span>
                 <i>{{selectOrder.washerName}}</i>
             </label>
-
             <label class="item item-input input-costume-list">
                 <span class="input-label">下单时间</span>
                 <i>{{selectOrder.orderTime}}</i>
+            </label>
+            <label class="item item-input input-costume-list" ng-show="selectOrder.acceptTime != null">
+                <span class="input-label">接单时间</span>
+                <i>{{selectOrder.acceptTime}}</i>
             </label>
             <label class="item item-input input-costume-list" ng-show="selectOrder.finishTime!=null">
                 <span class="input-label">结束时间</span>
