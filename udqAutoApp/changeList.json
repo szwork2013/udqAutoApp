@@ -800,8 +800,7 @@
   ],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "plugins\\android.json",
-    "www\\app.js"
+    "plugins\\android.json"
   ],
   "deletedFiles": [],
   "addedPlugins": [],
