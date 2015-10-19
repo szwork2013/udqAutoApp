@@ -32,22 +32,22 @@ angular.module('udqApp', ['ionic', 'ngIOS9UIWebViewPatch'])
                 StatusBar.styleDefault();
             }
 
-            //function checkConnection() {
-            //    var networkState = navigator.connection.type;
+            function checkConnection() {
+                var networkState = navigator.connection.type;
 
-            //    var states = {};
-            //    states[Connection.UNKNOWN] = 'Unknown connection';
-            //    states[Connection.ETHERNET] = 'Ethernet connection';
-            //    states[Connection.WIFI] = 'WiFi connection';
-            //    states[Connection.CELL_2G] = 'Cell 2G connection';
-            //    states[Connection.CELL_3G] = 'Cell 3G connection';
-            //    states[Connection.CELL_4G] = 'Cell 4G connection';
-            //    states[Connection.CELL] = 'Cell generic connection';
-            //    states[Connection.NONE] = 'No network connection';
-            //    if (networkState == Connection.NONE) {
-            //        popUpSvr.confirm("您当前处于离线状态,请检查网络。");
-            //    }
-            //}
+                var states = {};
+                states[Connection.UNKNOWN] = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI] = 'WiFi connection';
+                states[Connection.CELL_2G] = 'Cell 2G connection';
+                states[Connection.CELL_3G] = 'Cell 3G connection';
+                states[Connection.CELL_4G] = 'Cell 4G connection';
+                states[Connection.CELL] = 'Cell generic connection';
+                states[Connection.NONE] = 'No network connection';
+                if (networkState == Connection.NONE) {
+                    popUpSvr.showAlert("您当前处于离线状态,请检查网络。");
+                }
+            }
             var onDeviceReady = function () {
                 /*启动极光推送服务，并设置调试模式*/
                 jpushSvr.init();
@@ -58,7 +58,7 @@ angular.module('udqApp', ['ionic', 'ngIOS9UIWebViewPatch'])
                 jpushSvr.openNotification();
             }
             function onOffline() {
-                popUpSvr.confirm("您当前处于离线状态,请检查网络。");
+                popUpSvr.showAlert("您当前处于离线状态,请检查网络。");
 
             }
             document.addEventListener("deviceready", onDeviceReady, false);

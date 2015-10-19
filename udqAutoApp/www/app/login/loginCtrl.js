@@ -37,7 +37,7 @@ angular.module('udqApp')
                     if (data.isSuccess == false) {
                         popUpSvr.showAlert('该号码尚未注册');
                     } else {
-                        if (data.data.mobile == "audit") {
+                        if (data.data.mobile == "8888") {
                             console.log('测试账号');
                             return;
                         }
@@ -63,7 +63,7 @@ angular.module('udqApp')
         /*校验输入是否是合法的电话号码*/
         var checkMobile = function (mobile) {
             /*测试账号*/
-            if (mobile == "audit") {
+            if (mobile == "8888") {
                 return true;
             }
             var re = /^1\d{10}$/;
@@ -113,7 +113,7 @@ angular.module('udqApp')
         })
         /*登录按钮*/
         $scope.loginCheck = function () {
-            if ($scope.user.mobile == "audit"&&$scope.user.psd=="1234") {
+            if ($scope.user.mobile == "8888"&&$scope.user.psd=="1234") {
                 console.log("测试账号");
                 login();
             }
