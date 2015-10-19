@@ -108,6 +108,51 @@
         $scope.doClean = function () {
             $scope.selectOrder.gradeUser = 0;
         }
+        $scope.grade = function (grade) {
+            var button1 = document.getElementById("button1");
+            var button2 = document.getElementById("button2");
+            var button3 = document.getElementById("button3");
+            var button4 = document.getElementById("button4");
+            var button5 = document.getElementById("button5");
+            $scope.selectOrder.gradeUser = grade;
+            switch (grade) {
+                case 1:
+                    button1.style.backgroundColor = "#ed8131";
+                    button2.style.backgroundColor = "#a9a9a9";
+                    button3.style.backgroundColor = "#a9a9a9";
+                    button4.style.backgroundColor = "#a9a9a9";
+                    button5.style.backgroundColor = "#a9a9a9";
+                    break;
+                case 2:
+                    button1.style.backgroundColor = "#a9a9a9";
+                    button2.style.backgroundColor = "#ed8131";
+                    button3.style.backgroundColor = "#a9a9a9";
+                    button4.style.backgroundColor = "#a9a9a9";
+                    button5.style.backgroundColor = "#a9a9a9";
+                    break;
+                case 3:
+                    button1.style.backgroundColor = "#a9a9a9";
+                    button2.style.backgroundColor = "#a9a9a9";
+                    button3.style.backgroundColor = "#ed8131";
+                    button4.style.backgroundColor = "#a9a9a9";
+                    button5.style.backgroundColor = "#a9a9a9";
+                    break;
+                case 4:
+                    button1.style.backgroundColor = "#a9a9a9";
+                    button2.style.backgroundColor = "#a9a9a9";
+                    button3.style.backgroundColor = "#a9a9a9";
+                    button4.style.backgroundColor = "#ed8131";
+                    button5.style.backgroundColor = "#a9a9a9";
+                    break;
+                case 5:
+                    button1.style.backgroundColor = "#a9a9a9";
+                    button2.style.backgroundColor = "#a9a9a9";
+                    button3.style.backgroundColor = "#a9a9a9";
+                    button4.style.backgroundColor = "#a9a9a9";
+                    button5.style.backgroundColor = "#ed8131";
+                    break;
+            }
+        }
         /*订单信息-点击缩略图片-跳转到大图*/
         $scope.gotoPhoto = function (No) {
             if ($scope.selectOrder['photoUrl' + No] == 'image/break.png') {

@@ -83,7 +83,14 @@
                     <div star rating-value="ratingValue" max="max"  readonly="{{readonly}}"></div>
                 </div>
             </div>-->
-            <fieldset class="score">
+            <div>
+                <button class="button-score" id="button1" ng-click="grade(1)">不满意</button>
+                <button class="button-score" id="button2" ng-click="grade(2)">一&nbsp;&nbsp;&nbsp;般</button>
+                <button class="button-score" id="button3" ng-click="grade(3)">还可以</button>
+                <button class="button-score" id="button4" ng-click="grade(4)">满&nbsp;&nbsp;&nbsp;意</button>
+                <button class="button-score" id="button5" ng-click="grade(5)">非常赞</button>
+            </div>
+            <!--<fieldset class="score">
                 <button class="buttonclean" ng-click="doClean()" style="float:left">清除</button>
                 <legend>Score:</legend>
                 <input type="radio" id="score-5" name="score" value="5" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
@@ -100,7 +107,7 @@
 
                 <input type="radio" id="score-1" name="score" value="1" ng-model="selectOrder.gradeUser" style="position:absolute;top: -2em;clip:rect(0,0,0,0);" />
                 <label title="1 stars" for="score-1">1 stars</label>
-            </fieldset>
+            </fieldset>-->
             <div class="col col-100 item item-input input-costume">
                 <textarea placeholder="您有什么意见，请写在这里。" ng-model="selectOrder.gradeUserNote" rows="4" class="input-costume" style="color:white;width:100%;height:inherit"></textarea>
             </div>

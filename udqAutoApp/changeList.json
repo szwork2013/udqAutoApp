@@ -801,11 +801,9 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "res\\icons\\android\\icon-96-xhdpi.png"
+    "www\\app.js"
   ],
-  "deletedFiles": [
-    "res\\icons\\android\\96.png"
-  ],
+  "deletedFiles": [],
   "addedPlugins": [],
   "deletedPlugins": []
 }
