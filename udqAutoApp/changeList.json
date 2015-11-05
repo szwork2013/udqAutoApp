@@ -1,20 +1,5 @@
 {
   "changedFilesIos": [
-    "config.xml"
-  ],
-  "deletedFilesIos": [],
-  "addedPluginsIos": [
-    "org.apache.cordova.camera@0.3.6",
-    "org.apache.cordova.device@0.3.0",
-    "org.apache.cordova.splashscreen@1.0.0",
-    "org.apache.cordova.contacts",
-    "com.msopentech.websql@0.0.9",
-    "cordova-plugin-whitelist@1.0.0",
-    "cn.jpush.phonegap.JPushPlugin@2.0.2",
-    "org.apache.cordova.network-information@0.2.15"
-  ],
-  "deletedPluginsIos": [],
-  "changedFiles": [
     "plugins\\cordova-plugin-file\\www\\FileReader.js",
     "plugins\\org.apache.cordova.contacts\\NOTICE",
     "plugins\\org.apache.cordova.contacts\\src\\wp\\Contacts.cs",
@@ -199,6 +184,7 @@
     "www\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js",
     "resources\\ios\\splash\\Default-Landscape@2x~ipad.png",
     "plugins\\co.airsia.cordova.pingpp\\libs\\ios\\Channels\\Wx\\libpingpp+wx.a",
+    "plugins\\android.json",
     "plugins\\cordova-plugin-file\\doc\\ko\\plugins.md",
     "plugins\\com.msopentech.websql\\www\\windows\\Database.js",
     "plugins\\cordova-plugin-file\\src\\android\\Filesystem.java",
@@ -344,6 +330,7 @@
     "plugins\\org.apache.cordova.contacts\\doc\\de\\index.md",
     "plugins\\fetch.json",
     "resources\\ios\\icon\\icon-small@3x.png",
+    "config.xml",
     "plugins\\org.apache.cordova.camera\\src\\windows\\CameraProxy.js",
     "plugins\\cordova-plugin-file\\www\\fileSystems.js",
     "www\\app\\employee\\order\\photo.html",
@@ -794,14 +781,12 @@
     "www\\app\\customer\\member\\memberCenterCtrl.js",
     "plugins\\org.apache.cordova.camera\\plugin.xml",
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
+    "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "config.xml"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
   ],
-  "deletedFiles": [
-    "npm-debug.log"
-  ],
-  "addedPlugins": [
+  "deletedFilesIos": [],
+  "addedPluginsIos": [
     "org.apache.cordova.camera@0.3.6",
     "org.apache.cordova.device@0.3.0",
     "org.apache.cordova.splashscreen@1.0.0",
@@ -811,5 +796,11 @@
     "cn.jpush.phonegap.JPushPlugin@2.0.2",
     "org.apache.cordova.network-information@0.2.15"
   ],
+  "deletedPluginsIos": [],
+  "changedFiles": [
+    "plugins\\android.json"
+  ],
+  "deletedFiles": [],
+  "addedPlugins": [],
   "deletedPlugins": []
 }

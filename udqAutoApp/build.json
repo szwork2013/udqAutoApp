@@ -1,0 +1,11 @@
+{
+    "android": {
+        "release": {
+            "keystore":"udqApp.keystore",
+            "storePassword":"111111",
+            "alias":"udqApp.keystore",
+            "password":"111111",
+            "keystoreType":""
+        }
+    }
+}
