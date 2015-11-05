@@ -637,6 +637,7 @@
     "plugins\\cordova-plugin-whitelist\\src\\ios\\CDVNavigationWhitelistPlugin.h",
     "plugins\\org.apache.cordova.camera\\www\\CameraConstants.js",
     "plugins\\cordova-plugin-file\\src\\android\\build-extras.gradle",
+    "res\\icons\\android\\icon-96-xhdpi.png",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\back.png",
     "plugins\\co.airsia.cordova.pingpp\\libs\\android\\libpingpp.jar",
     "plugins\\cordova-plugin-file\\www\\ubuntu\\fileSystems-roots.js",
@@ -782,12 +783,9 @@
     "plugins\\co.airsia.cordova.pingpp\\www\\pingpp.js",
     "plugins\\ios.json",
     "plugins\\org.apache.cordova.camera\\src\\ubuntu\\camera.h",
-    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so",
-    "res\\icons\\android\\icon-96-xhdpi.png"
+    "plugins\\cn.jpush.phonegap.JPushPlugin\\src\\android\\armeabi\\libjpush175.so"
   ],
-  "deletedFilesIos": [
-    "res\\icons\\android\\96.png"
-  ],
+  "deletedFilesIos": [],
   "addedPluginsIos": [
     "org.apache.cordova.camera@0.3.6",
     "org.apache.cordova.device@0.3.0",
