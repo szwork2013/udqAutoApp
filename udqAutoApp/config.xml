@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.udianqu.auto" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" defaultlocale="zh-CN">
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.udianqu.auto" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" defaultlocale="zh-CN">
   <name>点趣车生活</name>
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
@@ -94,7 +94,7 @@
   <vs:plugin name="org.apache.cordova.device" version="0.3.0" />
   <vs:plugin name="org.apache.cordova.splashscreen" version="1.0.0" />
   <vs:plugin name="org.apache.cordova.contacts" version="" />
-  <preference name="android-minSdkVersion" value="19" />
+  <preference name="android-minSdkVersion" value="17" />
   <vs:plugin name="com.msopentech.websql" version="0.0.9" />
   <!-- A wildcard can be used to whitelist the entire network,
      over HTTP and HTTPS.
@@ -109,4 +109,5 @@
   <vs:plugin name="cordova-plugin-whitelist" version="1.0.0" />
   <vs:plugin name="cn.jpush.phonegap.JPushPlugin" version="2.0.2" />
   <vs:plugin name="org.apache.cordova.network-information" version="0.2.15" />
+  <preference name="target-device" value="handset" />
 </widget>
