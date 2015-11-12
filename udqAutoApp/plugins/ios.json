@@ -235,6 +235,9 @@
         },
         "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "com.udianqu.auto"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.udianqu.auto"
         }
     },
     "dependent_plugins": {}
