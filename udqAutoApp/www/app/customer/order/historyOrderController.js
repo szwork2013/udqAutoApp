@@ -6,8 +6,8 @@ cutomer订单页面
 */
 
 angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公用的部分用udqApp*/
-    .controller('customerHistoryOrderController', ['$scope', '$ionicPopover', '$state', '$ionicHistory', '$stateParams', '$window', '$ionicActionSheet', 'customerOrderSvr', 'employeeOrderSvr', 'LoadingSvr', function ($scope, $ionicPopover, $state, $ionicHistory, $stateParams, $window, $ionicActionSheet, customerOrderSvr, employeeOrderSvr, LoadingSvr) {
-
+    .controller('customerHistoryOrderController', ['$scope', '$ionicPopover', '$state', '$ionicHistory','APP_CONFIG', '$stateParams', '$window', '$ionicActionSheet', 'customerOrderSvr', 'employeeOrderSvr', 'LoadingSvr', function ($scope, $ionicPopover, $state, $ionicHistory,APP_CONFIG, $stateParams, $window, $ionicActionSheet, customerOrderSvr, employeeOrderSvr, LoadingSvr) {
+        var baseUrl = APP_CONFIG.server.getUrl();
         var orderDate = $stateParams.orderDate;
 
         $scope.noMoreOrderAvailable = true;
@@ -249,6 +249,9 @@ angular.module('udqApp') /*车主的模块用cust,洗车的用user，系统公�
         }
         /*跳转到单个订单查看视图*/
         $scope.goToSeeOrder = function (order) {
+            order.photoUrl1 = baseUrl + order.photoUrl1;
+            order.photoUrl2 = baseUrl + order.photoUrl2;
+            order.photoUrl3 = baseUrl + order.photoUrl3;
             $state.go('customerOrderMgr', { 'selectOrder': JSON.stringify(order) });
         }
     }])

@@ -1,17 +1,17 @@
 ﻿angular.module('udqApp')
-    .controller('customerOrderMgrController', ['$scope', '$stateParams', '$state', 'APP_CONFIG','customerOrderSvr', function ($scope, $stateParams, $state,APP_CONFIG, customerOrderSvr) {
+    .controller('customerOrderMgrController', ['$scope', '$stateParams', '$state', 'APP_CONFIG', 'customerOrderSvr', 'employeeOrderSvr', function ($scope, $stateParams, $state, APP_CONFIG, customerOrderSvr, employeeOrderSvr) {
         var baseUrl = APP_CONFIG.server.getUrl();
         $scope.selectOrder = angular.fromJson($stateParams.selectOrder);
         if ($scope.selectOrder == undefined) {
             $scope.selectOrder = customerOrderSvr.getSelectedOrder();
         }
-        if ($scope.selectOrder.photoUrl1 == "") {
+        if ($scope.selectOrder.photoUrl1 == baseUrl) {
             $scope.selectOrder.photoUrl1 = "image/break.png";
         }
-        if ($scope.selectOrder.photoUrl2 == "") {
+        if ($scope.selectOrder.photoUrl2 == baseUrl) {
             $scope.selectOrder.photoUrl2 = "image/break.png";
         }
-        if ($scope.selectOrder.photoUrl3 == "") {
+        if ($scope.selectOrder.photoUrl3 == baseUrl) {
             $scope.selectOrder.photoUrl3 = "image/break.png";
         }
         if ($scope.selectOrder.userNote == "") {
